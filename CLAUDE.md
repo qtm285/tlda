@@ -12,6 +12,9 @@ Collaborative annotation system for reviewing LaTeX papers. Renders PDFs as SVGs
 | **Open in browser** | `ctd open <name>` |
 | List projects | `ctd list` |
 | Build status | `ctd status <name>` |
+| LaTeX errors | `ctd errors <name>` |
+| Force rebuild | `ctd build <name>` |
+| Visual check | `ctd preview <name> [page ...]` |
 | Push files manually | `ctd push <name> --dir /path/to/project` |
 | Legacy: open a paper | `./scripts/open.sh <tex-file \| dir \| doc-name>` |
 | Publish snapshot | `npm run publish-snapshot -- doc-name` |
