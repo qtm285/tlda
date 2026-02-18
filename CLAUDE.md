@@ -7,8 +7,7 @@ Collaborative annotation system for reviewing LaTeX papers. Renders PDFs as SVGs
 | Task | Command |
 |------|---------|
 | **Start the server** | `ctd server start` |
-| **Create a project** | `ctd create <name> --dir /path/to/project [--main main.tex]` |
-| **Watch for edits** | `ctd watch /path/to/main.tex <name>` |
+| **Start a watcher** | `./watch` in the project directory |
 | **Open in browser** | `ctd open <name>` |
 | List projects | `ctd list` |
 | Build status | `ctd status <name>` |
@@ -16,14 +15,11 @@ Collaborative annotation system for reviewing LaTeX papers. Renders PDFs as SVGs
 | Force rebuild | `ctd build <name>` |
 | Visual check | `ctd preview <name> [page ...]` |
 | Push files manually | `ctd push <name> --dir /path/to/project` |
-| Legacy: open a paper | `./scripts/open.sh <tex-file \| dir \| doc-name>` |
 | Publish snapshot | `npm run publish-snapshot -- doc-name` |
 
-**The unified server is the primary way to run.** It handles Yjs sync, doc asset serving, the project API, and the viewer SPA — all on one port (default 5176). The `ctd` CLI creates projects, pushes source files, and watches for changes. The server handles all building.
+**Each paper project has a `./watch` script** in its directory that creates the project (if needed) and starts a file watcher. This is the standard way to set up a project — no need to manually run `ctd create` or `ctd watch`.
 
 **IMPORTANT: Always use `ctd server start` to start the server.** It daemonizes properly and writes a PID file. NEVER use `node server/unified-server.mjs &` or run it in a background task — the server dies when the parent exits, leaving a zombie that holds the port but doesn't serve requests. Use `ctd server stop` to stop, `ctd server status` to check.
-
-`open.sh` and `collab.mjs` still work for backward compatibility but are superseded by the unified server + `ctd`.
 
 **If something goes wrong** (services won't start, build fails, viewer not loading, ports in use), delegate to the **ops agent** (`subagent_type: "ops"`). It knows the full build pipeline, service architecture, health checks, and common fixes.
 
@@ -112,14 +108,14 @@ Custom macros from the paper's preamble are automatically available (e.g., `$\E[
 ### Starting a session
 When the user asks to review or view a paper (e.g. "let's review this", "review bregman", "pull up the paper"):
 
-```bash
-# If using unified server (preferred):
-ctd create <name> --dir /path/to/project   # first time only
-ctd open <name>
-
-# Legacy (still works):
-./scripts/open.sh <tex-file | dir | doc-name>
-```
+1. Make sure the server is running: `ctd server start`
+2. Run the `./watch` script in the project directory (creates the project and starts watching):
+   - `~/work/bregman-lower-bound/watch` → project `bregman`
+   - `~/work/retargeted-mean-paper/manuscript/watch` → project `retargeted-mean`
+   - `~/work/spinoffs/watch` → projects `spinoff1` + `spinoff2`
+   - `~/work/synth-randomization/watch` → project `synth-randomization`
+   - `~/work/balancing-act/watch` → project `balancing-act`
+3. Open in browser: `ctd open <name>`
 
 For an **iPad review session** (not just viewing), also:
 1. Print a QR code: `node -e "import('qrcode-terminal').then(m => m.default.generate('http://IP:5176/?doc=DOC', {small: true}))"`
