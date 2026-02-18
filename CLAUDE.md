@@ -137,14 +137,25 @@ Call `wait_for_feedback(doc)` in a loop. It blocks until:
 ### Responding
 - `add_annotation(doc, line, text, file?)` — persistent note anchored to source line
 - `send_note(doc, line, text, file?)` — quick note via WebSocket + Yjs
-- `reply_annotation(doc, id, text)` — append to existing note
+- `reply_annotation(doc, id, text)` — create a reply in the note's thread (new tab)
 - `highlight_location(file, line)` — flash red circle at source line
 - `scroll_to_line(doc, line, file?)` — scroll viewer to source line
 
 **Multi-file projects:** For documents that use `\input{}`/`\include{}`, pass the `file` parameter (e.g. `file="appendix.tex"`) to target lines in input files. Without `file`, tools default to the main tex file. The `lookup.json` keys input file lines as `"filename.tex:N"`.
 
+### Note threading
+Notes support reply chains via **threads**. A thread is a group of notes sharing the same canvas position, displayed as stacked tabs.
+
+- `reply_annotation(doc, id, text)` creates a new note shape in the thread (not text-append). The reply appears as a new tab on the target note.
+- `list_annotations(doc)` returns `threadId`, `threadRootId`, and `threadOrder` fields when a note is part of a thread.
+- `delete_annotation(doc, id)` is thread-aware: deleting a reply reorders siblings; deleting a root promotes the first reply.
+
+On the viewer canvas, threaded notes show numbered tab handles above the note. The user can also merge notes by dragging one onto another, or detach a reply tab via right-click.
+
+The Notes tab in the panel has sort (document order / recency) and filter (all / pending MC / resolved MC / plain notes) controls.
+
 ### Cleanup
-- `delete_annotation(doc, id)` — remove a note
+- `delete_annotation(doc, id)` — remove a note (thread-aware: see above)
 
 ### Review loop behavior
 When the user says they're reviewing a document, enter a listen-respond loop:
