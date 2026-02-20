@@ -23,6 +23,17 @@ Collaborative annotation system for reviewing LaTeX papers. Renders PDFs as SVGs
 
 **If something goes wrong** (services won't start, build fails, viewer not loading, ports in use), delegate to the **ops agent** (`subagent_type: "ops"`). It knows the full build pipeline, service architecture, health checks, and common fixes.
 
+## TLDraw-Native UI Rule
+
+**All UI that lives on the TLDraw canvas MUST use TLDraw-native patterns** unless there's a specific, documented reason not to. This means:
+
+- **Shape state lives in shape props**, not in meta fields coordinated across multiple shapes
+- **One shape = one visual unit.** Don't use N shapes with opacity toggling to simulate tabs/states. Use a single shape with data props (arrays, indices) instead.
+- **Use TLDraw's event system** (`stopEventPropagation` from tldraw, not bare `e.stopPropagation()`). TLDraw uses capture-phase listeners; bare stopPropagation doesn't prevent TLDraw from intercepting events.
+- **Don't fight TLDraw's selection/editing model.** If your component needs click handling, make sure it works *with* TLDraw's pointer state, not around it.
+
+Deviations from this rule require justification in a code comment explaining why the TLDraw-native approach doesn't work. "It was easier" is not a justification.
+
 ## Architecture
 
 ```
@@ -146,16 +157,16 @@ Call `wait_for_feedback(doc)` in a loop. It blocks until:
 ### Note threading
 Notes support reply chains via **threads**. A thread is a group of notes sharing the same canvas position, displayed as stacked tabs.
 
-- `reply_annotation(doc, id, text)` creates a new note shape in the thread (not text-append). The reply appears as a new tab on the target note.
-- `list_annotations(doc)` returns `threadId`, `threadRootId`, and `threadOrder` fields when a note is part of a thread.
-- `delete_annotation(doc, id)` is thread-aware: deleting a reply reorders siblings; deleting a root promotes the first reply.
+- `reply_annotation(doc, id, text)` adds a new tab to the note's `tabs` array and switches to it.
+- `list_annotations(doc)` returns `tabCount`, `activeTab`, and `tabs` fields when a note has multiple tabs.
+- `delete_annotation(doc, id)` deletes the entire note shape (all tabs).
 
-On the viewer canvas, threaded notes show numbered tab handles above the note. The user can also merge notes by dragging one onto another, or detach a reply tab via right-click.
+On the viewer canvas, multi-tab notes show numbered tab handles above the note. The user can merge notes by dragging one onto another (tabs combine), or detach a tab via right-click.
 
-The Notes tab in the panel has sort (document order / recency) and filter (all / pending MC / resolved MC / plain notes) controls.
+The Notes tab in the panel has sort (document order / recency) and filter (all / pending MC / plain notes) controls.
 
 ### Cleanup
-- `delete_annotation(doc, id)` — remove a note (thread-aware: see above)
+- `delete_annotation(doc, id)` — remove a note (deletes all tabs)
 
 ### Review loop behavior
 When the user says they're reviewing a document, enter a listen-respond loop:
