@@ -232,6 +232,10 @@ Dependencies are sorted by page distance descending (furthest first). Same-page 
 
 You have puppeteer and MCP tools available. Use them to check console output, read screen content, take screenshots, verify UI state, count elements, read error messages, etc. Never ask the user to report what they see on screen — do it yourself.
 
+**Verify before declaring success.** After deploying changes (server restart, SPA rebuild, viewer fix), open the viewer in playwright/puppeteer and confirm it actually works before telling the user to look. "Go try it on the iPad" is not acceptable — you try it first.
+
+**Debug with live tools.** When something is visually broken in the viewer, use playwright/puppeteer to inspect the live page (console errors, DOM state, network requests). `ctd preview` renders static SVGs — it can't diagnose viewer runtime issues like blank pages, broken WebSocket, or CSS problems.
+
 ## Permissions
 
 These operations are pre-approved for autonomous work:
