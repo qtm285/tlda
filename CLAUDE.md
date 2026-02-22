@@ -7,17 +7,18 @@ Collaborative annotation system for reviewing LaTeX papers. Renders PDFs as SVGs
 | Task | Command |
 |------|---------|
 | **Start the server** | `ctd server start` |
-| **Start a watcher** | `./watch` in the project directory |
+| **Start all watchers** | `ctd watch-all start` |
 | **Open in browser** | `ctd open <name>` |
 | List projects | `ctd list` |
 | Build status | `ctd status <name>` |
 | LaTeX errors | `ctd errors <name>` |
-| Force rebuild | `ctd build <name>` |
 | Visual check | `ctd preview <name> [page ...]` |
 | Push files manually | `ctd push <name> --dir /path/to/project` |
 | Publish snapshot | `npm run publish-snapshot -- doc-name` |
 
-**Each paper project has a `./watch` script** in its directory that creates the project (if needed) and starts a file watcher. This is the standard way to set up a project — no need to manually run `ctd create` or `ctd watch`.
+**`ctd watch-all start`** auto-discovers all projects with a `sourceDir` and watches them. It polls for new projects every 30s, so `ctd create` picks them up automatically. This is the standard way to run watchers — no per-project `./watch` scripts needed.
+
+**Never use `ctd build` to work around pipeline issues.** It bypasses change detection and masks bugs. If something isn't rebuilding when it should, fix the pipeline.
 
 **IMPORTANT: Always use `ctd server start` to start the server.** It daemonizes properly and writes a PID file. NEVER use `node server/unified-server.mjs &` or run it in a background task — the server dies when the parent exits, leaving a zombie that holds the port but doesn't serve requests. Use `ctd server stop` to stop, `ctd server status` to check.
 
@@ -120,12 +121,7 @@ Custom macros from the paper's preamble are automatically available (e.g., `$\E[
 When the user asks to review or view a paper (e.g. "let's review this", "review bregman", "pull up the paper"):
 
 1. Make sure the server is running: `ctd server start`
-2. Run the `./watch` script in the project directory (creates the project and starts watching):
-   - `~/work/bregman-lower-bound/watch` → project `bregman`
-   - `~/work/retargeted-mean-paper/manuscript/watch` → project `retargeted-mean`
-   - `~/work/spinoffs/watch` → projects `spinoff1` + `spinoff2`
-   - `~/work/synth-randomization/watch` → project `synth-randomization`
-   - `~/work/balancing-act/watch` → project `balancing-act`
+2. Start all watchers: `ctd watch-all start`
 3. Open in browser: `ctd open <name>`
 
 For an **iPad review session** (not just viewing), also:
