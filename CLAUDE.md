@@ -226,9 +226,11 @@ Dependencies are sorted by page distance descending (furthest first). Same-page 
 
 ## Self-Service Rule
 
-You have puppeteer and MCP tools available. Use them to check console output, read screen content, take screenshots, verify UI state, count elements, read error messages, etc. Never ask the user to report what they see on screen — do it yourself.
+**NEVER tell the user to check something.** Do not say "reload and check," "try it on the iPad," "go verify," "see if that works," or any variant. You have puppeteer, MCP tools, `ctd preview`, and screenshots. Use them. If you can't verify it yourself, say so explicitly — don't punt to the user.
 
-**Verify before declaring success.** After deploying changes (server restart, SPA rebuild, viewer fix), open the viewer in playwright/puppeteer and confirm it actually works before telling the user to look. "Go try it on the iPad" is not acceptable — you try it first.
+**Verify before declaring success.** After deploying changes (server restart, SPA rebuild, viewer fix), open the viewer in playwright/puppeteer and confirm it actually works. Don't guess at CSS fixes — load the page and look.
+
+**Test in WebKit.** The user views on Safari/iPad. If you can't reproduce a reported problem, test in WebKit — Chromium passing doesn't mean Safari passes. Playwright supports WebKit: `playwright.webkit.launch()`.
 
 **Debug with live tools.** When something is visually broken in the viewer, use playwright/puppeteer to inspect the live page (console errors, DOM state, network requests). `ctd preview` renders static SVGs — it can't diagnose viewer runtime issues like blank pages, broken WebSocket, or CSS problems.
 
