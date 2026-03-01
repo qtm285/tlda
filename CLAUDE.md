@@ -1,4 +1,4 @@
-# Claude TLDraw - Paper Review & Annotation System
+# tlda - Paper Review & Annotation System
 
 Collaborative annotation system for reviewing LaTeX papers. Renders PDFs as SVGs with TLDraw, supports KaTeX math in notes, real-time sync, and source-anchored annotations that survive document rebuilds.
 
@@ -102,11 +102,11 @@ Author's machine                     Server (localhost or remote, port 5176)
 
 ### Publishing and Todd
 
-`npm run publish-snapshot -- <doc>` syncs the working copy to `~/work/published/claude-tldraw/`, builds the viewer, and deploys to GitHub Pages + Fly. The published clone is a frozen snapshot — safe for Todd to read from while the working copy keeps changing.
+`npm run publish-snapshot -- <doc>` syncs the working copy to `~/work/published/tlda/`, builds the viewer, and deploys to GitHub Pages + Fly. The published clone is a frozen snapshot — safe for Todd to read from while the working copy keeps changing.
 
 To run Todd against the published version:
 ```bash
-cd ~/work/published/claude-tldraw
+cd ~/work/published/tlda
 CTD_SYNC_SERVER=https://tldraw-sync-skip.fly.dev node cli/lib/triage-agent.mjs
 ```
 
@@ -257,7 +257,7 @@ Dependencies are sorted by page distance descending (furthest first). Same-page 
 These operations are pre-approved for autonomous work:
 
 - **Bash**: `npm run *`, `node`, `ctd`, shell scripts in this project, `curl` for local API testing, `open` for browser, process management (`pkill`, `lsof`)
-- **Edit/Write**: Any file in `/Users/skip/work/claude-tldraw/`
+- **Edit/Write**: Any file in this project
 - **Git**: All operations within this repo (commit, push, branch, etc.)
 
 **Restriction**: Git write operations (commit, push) in other repos require approval.
