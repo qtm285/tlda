@@ -1,0 +1,14 @@
+{
+  "documents": {
+    "spinoff3": {
+      "title": "spinoff3",
+      "pages": 26,
+      "format": "svg"
+    },
+    "qtm285": {
+      "title": "QTM 285: Prediction, Inference, and Causality",
+      "pages": 29,
+      "format": "html"
+    }
+  }
+}

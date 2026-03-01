@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "tldraw-feedback": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Users/skip/work/claude-tldraw/mcp-server/index.mjs"
+      ]
+    }
+  }
+}
