@@ -6,21 +6,21 @@ Collaborative annotation system for reviewing LaTeX papers. Renders PDFs as SVGs
 
 | Task | Command |
 |------|---------|
-| **Start the server** | `ctd server start` |
-| **Start all watchers** | `ctd watch-all start` |
-| **Open in browser** | `ctd open <name>` |
-| List projects | `ctd list` |
-| Build status | `ctd status <name>` |
-| LaTeX errors | `ctd errors <name>` |
-| Visual check | `ctd preview <name> [page ...]` |
-| Push files manually | `ctd push <name> --dir /path/to/project` |
+| **Start the server** | `tlda server start` |
+| **Start all watchers** | `tlda watch-all start` |
+| **Open in browser** | `tlda open <name>` |
+| List projects | `tlda list` |
+| Build status | `tlda status <name>` |
+| LaTeX errors | `tlda errors <name>` |
+| Visual check | `tlda preview <name> [page ...]` |
+| Push files manually | `tlda push <name> --dir /path/to/project` |
 | Publish snapshot | `npm run publish-snapshot -- doc-name` |
 
-**`ctd watch-all start`** auto-discovers all projects with a `sourceDir` and watches them. It polls for new projects every 30s, so `ctd create` picks them up automatically. This is the standard way to run watchers — no per-project `./watch` scripts needed.
+**`tlda watch-all start`** auto-discovers all projects with a `sourceDir` and watches them. It polls for new projects every 30s, so `tlda create` picks them up automatically. This is the standard way to run watchers — no per-project `./watch` scripts needed.
 
-**Never use `ctd build` to work around pipeline issues.** It bypasses change detection and masks bugs. If something isn't rebuilding when it should, fix the pipeline.
+**Never use `tlda build` to work around pipeline issues.** It bypasses change detection and masks bugs. If something isn't rebuilding when it should, fix the pipeline.
 
-**IMPORTANT: Always use `ctd server start` to start the server.** It daemonizes properly and writes a PID file. NEVER use `node server/unified-server.mjs &` or run it in a background task — the server dies when the parent exits, leaving a zombie that holds the port but doesn't serve requests. Use `ctd server stop` to stop, `ctd server status` to check.
+**IMPORTANT: Always use `tlda server start` to start the server.** It daemonizes properly and writes a PID file. NEVER use `node server/unified-server.mjs &` or run it in a background task — the server dies when the parent exits, leaving a zombie that holds the port but doesn't serve requests. Use `tlda server stop` to stop, `tlda server status` to check.
 
 **If something goes wrong** (services won't start, build fails, viewer not loading, ports in use), delegate to the **ops agent** (`subagent_type: "ops"`). It knows the full build pipeline, service architecture, health checks, and common fixes.
 
@@ -58,7 +58,7 @@ server/
 └── sync-server.js             # Legacy standalone Yjs server (still works)
 
 cli/
-├── ctd.mjs                    # CLI entry point (installed as `ctd`)
+├── tlda.mjs                    # CLI entry point (installed as `tlda`)
 └── lib/
     └── watcher.mjs            # File watcher → HTTP push to server
 
@@ -72,7 +72,7 @@ src/                           # Viewer SPA (React + TLDraw)
 
 mcp-server/
 ├── index.mjs                  # MCP tools (wait_for_feedback, annotations, etc.)
-├── data-source.mjs            # Reads doc assets from disk or HTTP (CTD_SERVER)
+├── data-source.mjs            # Reads doc assets from disk or HTTP (TLDA_SERVER)
 └── svg-text.mjs               # SVG text extraction for shape interpretation
 
 public/docs/                   # Legacy doc storage (served as fallback)
@@ -87,7 +87,7 @@ Author's machine                     Server (localhost or remote, port 5176)
 ┌──────────────────┐                 ┌──────────────────────────────┐
 │ Editor (Zed)     │                 │ unified-server.mjs           │
 │     ↓ save       │                 │                              │
-│ ctd watch        │──POST /push───→ │ Project API → Build runner   │
+│ tlda watch        │──POST /push───→ │ Project API → Build runner   │
 │                  │                 │   latexmk → dvisvgm → etc.  │
 │ Claude Code      │                 │   ↓                          │
 │ └─ MCP (stdio)   │──Yjs WS──────→ │ Yjs sync + signal:reload     │
@@ -96,9 +96,9 @@ Author's machine                     Server (localhost or remote, port 5176)
 └──────────────────┘                 └──────────────────────────────┘
 ```
 
-**Server URL resolution:** `CTD_SERVER` env → `--server` flag → `~/.config/ctd/config.json` → `http://localhost:5176`
+**Server URL resolution:** `TLDA_SERVER` env → `--server` flag → `~/.config/tlda/config.json` → `http://localhost:5176`
 
-**Split sync server:** Set `CTD_SYNC_SERVER` to route shapes/signals to a different server (e.g. Fly) while reading doc assets from `CTD_SERVER` or local disk. Used for running Todd against the published version.
+**Split sync server:** Set `TLDA_SYNC_SERVER` to route shapes/signals to a different server (e.g. Fly) while reading doc assets from `TLDA_SERVER` or local disk. Used for running Todd against the published version.
 
 ### Publishing and Todd
 
@@ -107,7 +107,7 @@ Author's machine                     Server (localhost or remote, port 5176)
 To run Todd against the published version:
 ```bash
 cd ~/work/published/tlda
-CTD_SYNC_SERVER=https://tldraw-sync-skip.fly.dev node cli/lib/triage-agent.mjs
+TLDA_SYNC_SERVER=https://tldraw-sync-skip.fly.dev node cli/lib/triage-agent.mjs
 ```
 
 Todd reads doc assets (lookup tables, macros, page data) from the published clone on disk. Shapes and signals sync through Fly — the same room students are connected to.
@@ -136,9 +136,9 @@ Custom macros from the paper's preamble are automatically available (e.g., `$\E[
 ### Starting a session
 When the user asks to review or view a paper (e.g. "let's review this", "review bregman", "pull up the paper"):
 
-1. Make sure the server is running: `ctd server start`
-2. Start all watchers: `ctd watch-all start`
-3. Open in browser: `ctd open <name>`
+1. Make sure the server is running: `tlda server start`
+2. Start all watchers: `tlda watch-all start`
+3. Open in browser: `tlda open <name>`
 
 For an **iPad review session** (not just viewing), also:
 1. Print a QR code: `node -e "import('qrcode-terminal').then(m => m.default.generate('http://IP:5176/?doc=DOC', {small: true}))"`
@@ -242,7 +242,7 @@ Dependencies are sorted by page distance descending (furthest first). Same-page 
 
 ## Self-Service Rule
 
-**NEVER tell the user to check something.** Do not say "reload and check," "try it on the iPad," "go verify," "see if that works," or any variant. You have puppeteer, MCP tools, `ctd preview`, and screenshots. Use them. If you can't verify it yourself, say so explicitly — don't punt to the user.
+**NEVER tell the user to check something.** Do not say "reload and check," "try it on the iPad," "go verify," "see if that works," or any variant. You have puppeteer, MCP tools, `tlda preview`, and screenshots. Use them. If you can't verify it yourself, say so explicitly — don't punt to the user.
 
 **Verify before declaring success.** After deploying changes (server restart, SPA rebuild, viewer fix), open the viewer in playwright/puppeteer and confirm it actually works. Don't guess at CSS fixes — load the page and look.
 
@@ -250,13 +250,13 @@ Dependencies are sorted by page distance descending (furthest first). Same-page 
 
 **Test in WebKit.** The user views on Safari/iPad. If you can't reproduce a reported problem, test in WebKit — Chromium passing doesn't mean Safari passes. Playwright supports WebKit: `playwright.webkit.launch()`.
 
-**Debug with live tools.** When something is visually broken in the viewer, use playwright/puppeteer to inspect the live page (console errors, DOM state, network requests). `ctd preview` renders static SVGs — it can't diagnose viewer runtime issues like blank pages, broken WebSocket, or CSS problems.
+**Debug with live tools.** When something is visually broken in the viewer, use playwright/puppeteer to inspect the live page (console errors, DOM state, network requests). `tlda preview` renders static SVGs — it can't diagnose viewer runtime issues like blank pages, broken WebSocket, or CSS problems.
 
 ## Permissions
 
 These operations are pre-approved for autonomous work:
 
-- **Bash**: `npm run *`, `node`, `ctd`, shell scripts in this project, `curl` for local API testing, `open` for browser, process management (`pkill`, `lsof`)
+- **Bash**: `npm run *`, `node`, `tlda`, shell scripts in this project, `curl` for local API testing, `open` for browser, process management (`pkill`, `lsof`)
 - **Edit/Write**: Any file in this project
 - **Git**: All operations within this repo (commit, push, branch, etc.)
 
