@@ -35,6 +35,8 @@ Collaborative annotation system for reviewing LaTeX papers. Renders PDFs as SVGs
 
 Deviations from this rule require justification in a code comment explaining why the TLDraw-native approach doesn't work. "It was easier" is not a justification.
 
+**Visual design is deliberately subtle.** UI chrome should be nearly invisible until hovered or needed. Follow the conventions established by existing elements (e.g., `.build-warning-badge`): 10% opacity default, 60% on hover, 0.3s transition. Use CSS classes with `.tl-theme__dark` variants — never hardcode colors inline. New UI elements should look like they belong next to existing ones in size, weight, and opacity.
+
 ## Architecture
 
 ```
@@ -95,6 +97,20 @@ Author's machine                     Server (localhost or remote, port 5176)
 ```
 
 **Server URL resolution:** `CTD_SERVER` env → `--server` flag → `~/.config/ctd/config.json` → `http://localhost:5176`
+
+**Split sync server:** Set `CTD_SYNC_SERVER` to route shapes/signals to a different server (e.g. Fly) while reading doc assets from `CTD_SERVER` or local disk. Used for running Todd against the published version.
+
+### Publishing and Todd
+
+`npm run publish-snapshot -- <doc>` syncs the working copy to `~/work/published/claude-tldraw/`, builds the viewer, and deploys to GitHub Pages + Fly. The published clone is a frozen snapshot — safe for Todd to read from while the working copy keeps changing.
+
+To run Todd against the published version:
+```bash
+cd ~/work/published/claude-tldraw
+CTD_SYNC_SERVER=https://tldraw-sync-skip.fly.dev node cli/lib/triage-agent.mjs
+```
+
+Todd reads doc assets (lookup tables, macros, page data) from the published clone on disk. Shapes and signals sync through Fly — the same room students are connected to.
 
 ### For viewer development only
 
@@ -229,6 +245,8 @@ Dependencies are sorted by page distance descending (furthest first). Same-page 
 **NEVER tell the user to check something.** Do not say "reload and check," "try it on the iPad," "go verify," "see if that works," or any variant. You have puppeteer, MCP tools, `ctd preview`, and screenshots. Use them. If you can't verify it yourself, say so explicitly — don't punt to the user.
 
 **Verify before declaring success.** After deploying changes (server restart, SPA rebuild, viewer fix), open the viewer in playwright/puppeteer and confirm it actually works. Don't guess at CSS fixes — load the page and look.
+
+**Look at layout, not just functionality.** When taking verification screenshots, actually examine proportions, spacing, and visual balance — don't just confirm that elements exist and render. A sidebar that's 80/20 instead of 50/50, text crammed into a sliver, an overlay that's misaligned by 100px — these are obvious to a human glancing at the screenshot. Check: Are columns balanced? Does text have room to breathe? Are things where they should be relative to each other? If you changed something that affects sizing or positioning, measure the actual computed values (grid columns, bounding rects, offsets) rather than eyeballing.
 
 **Test in WebKit.** The user views on Safari/iPad. If you can't reproduce a reported problem, test in WebKit — Chromium passing doesn't mean Safari passes. Playwright supports WebKit: `playwright.webkit.launch()`.
 
