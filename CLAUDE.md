@@ -24,6 +24,23 @@ Collaborative annotation system for reviewing LaTeX papers. Renders PDFs as SVGs
 
 **If something goes wrong** (services won't start, build fails, viewer not loading, ports in use), delegate to the **ops agent** (`subagent_type: "ops"`). It knows the full build pipeline, service architecture, health checks, and common fixes.
 
+## Markdown Format
+
+tlda supports a `markdown` format for lightweight notes and scratch documents. No LaTeX build pipeline — the server renders the `.md` file with markdown-it + KaTeX and serves it as an HTML iframe page.
+
+```bash
+# Create a markdown project
+tlda create my-notes --dir ~/work/notes/ --format markdown --title "My Notes"
+# --main defaults to the first .md file found in the dir
+
+# The watcher auto-detects .md changes and rebuilds
+tlda watch-all start
+```
+
+Math works the same as in LaTeX: `$inline$` and `$$display$$`. KaTeX renders server-side; CSS served from `/katex/`.
+
+The viewer uses the same `html-page` shape and iframe machinery as HTML/Quarto projects. All MCP annotation tools (`add_annotation`, `wait_for_feedback`, etc.) work normally. Source-line anchoring is not yet implemented for markdown — notes are placed visually on the canvas.
+
 ## TLDraw-Native UI Rule
 
 **All UI that lives on the TLDraw canvas MUST use TLDraw-native patterns** unless there's a specific, documented reason not to. This means:
