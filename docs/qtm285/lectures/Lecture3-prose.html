@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Calibrating Interval Estimates with Binary Observations – Prediction, Inference, and Causality</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../lectures/Lecture2-prose.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-88e56ac79f6d00081da8a857611ab47f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-418dd549c579b3478655ef3aa4206478.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/image-toggle-1.0.0/image-toggle.js"></script>
+<link href="../site_libs/quarto-contrib/image-toggle-1.0.0/image-toggle.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script>
+  window.MathJax = {
+    options : {
+      menuOptions: {
+        settings: {
+          assistiveMml: false,
+          collapsible: false,
+          explorer: false
+        }
+      }
+    },
+    loader: {load: ['[tex]/physics', '[tex]/unicode']},
+    tex: {packages: {'[+]': ['physics', 'unicode']}}
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1-one-sample.html">One-Sample Problems</a></li><li class="breadcrumb-item"><a href="../lectures/Lecture3-prose.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calibrating Interval Estimates with Binary Observations</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Prediction, Inference, and Causality</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part1-one-sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">One-Sample Problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lab1-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture2-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Point and Interval Estimates</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture3-prose.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calibrating Interval Estimates with Binary Observations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="-1">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#calibration" id="toc-calibration" class="nav-link active" data-scroll-target="#calibration">Calibration</a>
+  <ul class="collapse">
+  <li><a href="#before-the-election" id="toc-before-the-election" class="nav-link" data-scroll-target="#before-the-election">Before the Election</a></li>
+  <li><a href="#after-the-election" id="toc-after-the-election" class="nav-link" data-scroll-target="#after-the-election">After the Election</a></li>
+  <li><a href="#the-competition" id="toc-the-competition" class="nav-link" data-scroll-target="#the-competition">The Competition</a></li>
+  <li><a href="#calibration-using-the-sampling-distribution" id="toc-calibration-using-the-sampling-distribution" class="nav-link" data-scroll-target="#calibration-using-the-sampling-distribution">Calibration using the Sampling Distribution</a></li>
+  <li><a href="#quiz" id="toc-quiz" class="nav-link" data-scroll-target="#quiz">Quiz</a></li>
+  <li><a href="#calibration-in-reality" id="toc-calibration-in-reality" class="nav-link" data-scroll-target="#calibration-in-reality">Calibration in Reality</a></li>
+  </ul></li>
+  <li><a href="#sampling-with-replacement" id="toc-sampling-with-replacement" class="nav-link" data-scroll-target="#sampling-with-replacement">Sampling with Replacement</a>
+  <ul class="collapse">
+  <li><a href="#warm-up-card-probabilities" id="toc-warm-up-card-probabilities" class="nav-link" data-scroll-target="#warm-up-card-probabilities">Warm-up: Card Probabilities</a>
+  <ul class="collapse">
+  <li><a href="#one-card" id="toc-one-card" class="nav-link" data-scroll-target="#one-card">One Card</a></li>
+  <li><a href="#two-cards-with-replacement" id="toc-two-cards-with-replacement" class="nav-link" data-scroll-target="#two-cards-with-replacement">Two Cards with Replacement</a></li>
+  <li><a href="#thinking-about-marginalization" id="toc-thinking-about-marginalization" class="nav-link" data-scroll-target="#thinking-about-marginalization">Thinking about Marginalization</a></li>
+  </ul></li>
+  <li><a href="#finding-the-distribution-of-y_1-in-a-small-population" id="toc-finding-the-distribution-of-y_1-in-a-small-population" class="nav-link" data-scroll-target="#finding-the-distribution-of-y_1-in-a-small-population">Finding the Distribution of <span class="math inline">\(Y_1\)</span> in a Small Population</a>
+  <ul class="collapse">
+  <li><a href="#generalizing-to-larger-populations" id="toc-generalizing-to-larger-populations" class="nav-link" data-scroll-target="#generalizing-to-larger-populations">Generalizing to Larger Populations</a></li>
+  </ul></li>
+  <li><a href="#finding-the-distribution-of-y_1-in-a-large-population" id="toc-finding-the-distribution-of-y_1-in-a-large-population" class="nav-link" data-scroll-target="#finding-the-distribution-of-y_1-in-a-large-population">Finding the Distribution of <span class="math inline">\(Y_1\)</span> in a Large Population</a>
+  <ul class="collapse">
+  <li><a href="#generalizing-to-larger-populations-1" id="toc-generalizing-to-larger-populations-1" class="nav-link" data-scroll-target="#generalizing-to-larger-populations-1">Generalizing to Larger Populations</a></li>
+  </ul></li>
+  <li><a href="#sec-two-calls-to-small" id="toc-sec-two-calls-to-small" class="nav-link" data-scroll-target="#sec-two-calls-to-small">Exercise: Two Calls to A Small Population</a></li>
+  <li><a href="#sec-sampling-to-sums-two" id="toc-sec-sampling-to-sums-two" class="nav-link" data-scroll-target="#sec-sampling-to-sums-two">From Sampling to Coin Flip Sums: Two Responses</a>
+  <ul class="collapse">
+  <li><a href="#two-step-approach" id="toc-two-step-approach" class="nav-link" data-scroll-target="#two-step-approach">Two-Step Approach</a></li>
+  <li><a href="#step-1.-partial-marginalization" id="toc-step-1.-partial-marginalization" class="nav-link" data-scroll-target="#step-1.-partial-marginalization">Step 1. Partial Marginalization</a></li>
+  <li><a href="#step-2.-full-marginalization" id="toc-step-2.-full-marginalization" class="nav-link" data-scroll-target="#step-2.-full-marginalization">Step 2. Full Marginalization</a></li>
+  </ul></li>
+  <li><a href="#from-sampling-to-coin-flip-sums-n-responses." id="toc-from-sampling-to-coin-flip-sums-n-responses." class="nav-link" data-scroll-target="#from-sampling-to-coin-flip-sums-n-responses.">From Sampling to Coin Flip Sums: <span class="math inline">\(n\)</span> Responses.</a>
+  <ul class="collapse">
+  <li><a href="#step-1.-partial-marginalization-1" id="toc-step-1.-partial-marginalization-1" class="nav-link" data-scroll-target="#step-1.-partial-marginalization-1">Step 1. Partial Marginalization</a></li>
+  <li><a href="#step-2.-full-marginalization-1" id="toc-step-2.-full-marginalization-1" class="nav-link" data-scroll-target="#step-2.-full-marginalization-1">Step 2. Full Marginalization</a></li>
+  <li><a href="#using-r" id="toc-using-r" class="nav-link" data-scroll-target="#using-r">Using <strong>R</strong></a></li>
+  </ul></li>
+  <li><a href="#the-binomial-distribution" id="toc-the-binomial-distribution" class="nav-link" data-scroll-target="#the-binomial-distribution">The Binomial Distribution</a></li>
+  <li><a href="#payoff" id="toc-payoff" class="nav-link" data-scroll-target="#payoff">Payoff</a></li>
+  </ul></li>
+  <li><a href="#sampling-without-replacement" id="toc-sampling-without-replacement" class="nav-link" data-scroll-target="#sampling-without-replacement">Sampling without Replacement</a>
+  <ul class="collapse">
+  <li><a href="#warm-up-card-probabilities-without-replacement" id="toc-warm-up-card-probabilities-without-replacement" class="nav-link" data-scroll-target="#warm-up-card-probabilities-without-replacement">Warm-up: Card Probabilities without Replacement</a>
+  <ul class="collapse">
+  <li><a href="#two-cards-without-replacement" id="toc-two-cards-without-replacement" class="nav-link" data-scroll-target="#two-cards-without-replacement">Two Cards without Replacement</a></li>
+  <li><a href="#the-pattern" id="toc-the-pattern" class="nav-link" data-scroll-target="#the-pattern">The Pattern</a></li>
+  </ul></li>
+  <li><a href="#marginalization" id="toc-marginalization" class="nav-link" data-scroll-target="#marginalization">Marginalization</a>
+  <ul class="collapse">
+  <li><a href="#step-1.-partial-marginalization-2" id="toc-step-1.-partial-marginalization-2" class="nav-link" data-scroll-target="#step-1.-partial-marginalization-2">Step 1. Partial Marginalization</a></li>
+  <li><a href="#step-2.-full-marginalization-2" id="toc-step-2.-full-marginalization-2" class="nav-link" data-scroll-target="#step-2.-full-marginalization-2">Step 2. Full Marginalization</a></li>
+  <li><a href="#using-r-1" id="toc-using-r-1" class="nav-link" data-scroll-target="#using-r-1">Using <strong>R</strong></a></li>
+  </ul></li>
+  <li><a href="#the-hypergeometric-distribution" id="toc-the-hypergeometric-distribution" class="nav-link" data-scroll-target="#the-hypergeometric-distribution">The Hypergeometric Distribution</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1-one-sample.html">One-Sample Problems</a></li><li class="breadcrumb-item"><a href="../lectures/Lecture3-prose.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calibrating Interval Estimates with Binary Observations</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calibrating Interval Estimates with Binary Observations</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="calibration" class="level1">
+<h1>Calibration</h1>
+<p>What does it mean for an interval estimate to be calibrated? We’ll work through a polling example to see why calibration matters and what goes wrong when you get it wrong.</p>
+<section id="before-the-election" class="level2">
+<h2 class="anchored" data-anchor-id="before-the-election">Before the Election</h2>
+<div class="hidden">
+$$ \newcommand{X}{} \newcommand{Y}{}
+<p>$$</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-3-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column">
+<section id="your-sample" class="level3">
+<h3 class="anchored" data-anchor-id="your-sample">Your Sample</h3>
+<p><span class="math display">\[
+\begin{array}{r|rrrr|r}
+i    &amp;   1 &amp; 2 &amp; \dots &amp; 625 &amp; \bar{Y}_{625}  \\
+Y_i  &amp;  1 &amp; 1 &amp; \dots &amp; 0 &amp; 0.72 \\
+\end{array}
+\]</span></p>
+</section>
+</div><div class="column">
+<section id="the-population" class="level3">
+<h3 class="anchored" data-anchor-id="the-population">The Population</h3>
+<p><span class="math display">\[
+\color{lightgray}
+\begin{array}{r|rrrrrr|r}
+j &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; \dots &amp;   7.23M &amp; \bar{y}_{7.23M}  \\
+y_{j} &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; \dots &amp; 1   &amp; 0.70  \\
+\end{array}
+\]</span></p>
+</section>
+</div>
+</div>
+<p>You want to estimate the proportion of <em>all registered voters</em>—the population—who will vote. To do this, you use the proportion of <em>polled voters</em>—your sample—who said they would. You’re probably not going to match the population proportion exactly, so you report an <em>interval estimate</em>—a range of values we claim the population proportion is in. You know you’re not going to be right 100% of the time you make claims like this, so you state a <em>nominal coverage probability</em>—how often you’re right about claims like this.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Without thinking too hard about it, you report, as your interval, <span class="polld">your sample proportion (72%) ± 1%</span>. Because it sounds good. And you say your coverage probability is 95%. Because that’s what everybody else says.</p>
+</section>
+<section id="after-the-election" class="level2">
+<h2 class="anchored" data-anchor-id="after-the-election">After the Election</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-4-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column">
+<section id="your-sample-1" class="level3">
+<h3 class="anchored" data-anchor-id="your-sample-1">Your Sample</h3>
+<p><span class="math display">\[
+\begin{array}{r|rrrr|r}
+i    &amp;   1 &amp; 2 &amp; \dots &amp; 625 &amp; \bar{Y}_{625}  \\
+Y_i  &amp;  1 &amp; 1 &amp; \dots &amp; 0 &amp; 0.72 \\
+\end{array}
+\]</span></p>
+</section>
+</div><div class="column">
+<section id="the-population-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-population-1">The Population</h3>
+<p><span class="math display">\[
+\begin{array}{r|rrrrrr|r}
+j &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; \dots &amp;   7.23M &amp; \bar{y}_{7.23M}  \\
+y_{j} &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; \dots &amp; 1   &amp; 0.70  \\
+\end{array}
+\]</span></p>
+</section>
+</div>
+</div>
+<p>When the election occurs, we get to see who turns out to vote. 5.05M people, or roughly 70% of registered voters, actually vote. You—and future employers—can see how well you did. And how well everybody else did.</p>
+<p><span class="polld">Your interval</span> missed the target. It doesn’t contain <span class="target">the turnout proportion</span>. Your point estimate is only off by 2%. But you overstated your precision. Now you’re kicking yourself. You’d briefly considered saying ± 3% or ± 4%. That would’ve done it. But that didn’t sound as good, so you went for ± 1%.</p>
+<p>You hope you’re not the only one who missed. So you check out the competition.</p>
+</section>
+<section id="the-competition" class="level2">
+<h2 class="anchored" data-anchor-id="the-competition">The Competition</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Your Competitors’ Polls</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Visualizing the Competition</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><span class="math display">\[
+\begin{array}{r|rr|rr|r|rr|r}
+\text{call} &amp;  1 &amp; &amp; 2 &amp; &amp; \dots &amp; 625 &amp; &amp;  \\
+\text{poll} &amp; J_1 &amp; Y_1 &amp; J_2 &amp; Y_2   &amp; \dots &amp; J_{625} &amp; Y_{625}  &amp; \overline{Y}_{625}  \\
+\hline
+\color[RGB]{7,59,76}1   
+    &amp; \color[RGB]{7,59,76}869369    &amp; \color[RGB]{7,59,76}1
+    &amp; \color[RGB]{7,59,76}4428455   &amp; \color[RGB]{7,59,76}1           &amp; \color[RGB]{7,59,76}\dots
+    &amp; \color[RGB]{7,59,76}1268868   &amp; \color[RGB]{7,59,76}1           &amp; \color[RGB]{7,59,76}0.68 \\
+\color[RGB]{239,71,111}2   
+    &amp; \color[RGB]{239,71,111}600481    &amp; \color[RGB]{239,71,111}0
+    &amp; \color[RGB]{239,71,111}6793745   &amp; \color[RGB]{239,71,111}1          &amp; \color[RGB]{239,71,111}\dots
+    &amp; \color[RGB]{239,71,111}1377933   &amp; \color[RGB]{239,71,111}1           &amp; \color[RGB]{239,71,111}0.71 \\
+\color[RGB]{17,138,178}3   
+    &amp; \color[RGB]{17,138,178}3830847    &amp; \color[RGB]{17,138,178}1
+    &amp; \color[RGB]{17,138,178}5887416   &amp; \color[RGB]{17,138,178}1           &amp; \color[RGB]{17,138,178}\dots
+    &amp; \color[RGB]{17,138,178}4706637   &amp; \color[RGB]{17,138,178}1           &amp; \color[RGB]{17,138,178}0.70 \\
+{\vdots} &amp; {\vdots} &amp; {\vdots}  &amp; {\vdots} &amp; {\vdots}  &amp; {\vdots} &amp; {\vdots} &amp; {\vdots} &amp;  {\vdots} \\
+\color[RGB]{6,214,160}1M   
+    &amp; \color[RGB]{6,214,160}1487507    &amp; \color[RGB]{6,214,160}1
+    &amp; \color[RGB]{6,214,160}393580   &amp; \color[RGB]{6,214,160}1           &amp; \color[RGB]{6,214,160}\dots
+    &amp; \color[RGB]{6,214,160}1247545   &amp; \color[RGB]{6,214,160}0           &amp; \color[RGB]{6,214,160}0.72 \\
+{\vdots} &amp; {\vdots} &amp; {\vdots} &amp; {\vdots} &amp; {\vdots}  &amp; {\vdots} &amp; {\vdots} &amp; {\vdots}  &amp; {\vdots} \\
+\end{array}
+\]</span></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-5-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>It turns out that everyone got their point estimate exactly like you did. Each of them rolled their 7.23M-sided die 625 times. And after making their 625 calls, they reported their sample proportion.</p>
+<p>You’re not the only one who missed, but you’re part of a pretty small club. 5% of the other polls got it wrong. But you are the only one who claimed they’d get within 1%. Everyone else claimed they’d get within roughly 4%. Most were right. About 95%. And a lot of them had worse point estimates than you.</p>
+<p>What you have is a <em>calibration</em> problem.</p>
+</section>
+<section id="calibration-using-the-sampling-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="calibration-using-the-sampling-distribution">Calibration using the Sampling Distribution</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-6-1.svg" height="400" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You’d have seen that your interval was miscalibrated if you knew what you do now: your competitors’ point estimates, which they got exactly like you got yours, and who actually turned out, so you could simulate even more polls if you wanted to.</p>
+<p>You’d have drawn ± 1% intervals around all these point estimates.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> And noticed that many of these intervals cover <span class="target">the target</span>. About 43% do. Or, if leaving the target out of it, that only 43% of them cover <span class="blue">the mean</span> of all these estimates. Same thing. The mean and target are right on top of one another. Like this: <span class="blue target">|</span>.</p>
+<p>And you’d have known how to choose the right interval width. One that makes 95% of these intervals cover. Right?</p>
+</section>
+<section id="quiz" class="level2">
+<h2 class="anchored" data-anchor-id="quiz">Quiz</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-7-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>I’ve drawn the sampling distribution of an estimator, 100 draws from it as <span class="purple">●</span>s, and 3 interval estimates. One of these interval estimates is calibrated to have exactly 95% coverage. Which is it?</p>
+<ul>
+<li>A. The one around the <span class="polla">●</span> on top.</li>
+<li>B. The one around the <span class="pollb">●</span> in the middle.</li>
+<li>C. The one around the <span class="pollc">●</span> on the bottom.</li>
+</ul>
+<p><em>Hint</em>. You can reach your twin with your arms if your twin can reach you with theirs.</p>
+<p><em>Hint</em>. Maybe you look like this <span class="purple">●</span> and your twin like this <span class="blue target">|</span>.</p>
+</section>
+<section id="calibration-in-reality" class="level2">
+<h2 class="anchored" data-anchor-id="calibration-in-reality">Calibration in Reality</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-8-1.svg" class="img-fluid figure-img"></p>
+<figcaption>What You Know Now</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-8-2.svg" class="img-fluid figure-img"></p>
+<figcaption>What You Knew Then</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>But you didn’t know any of this. You just knew <span class="polld">your own point estimate</span>. Without all that post-election information, you didn’t know how to calibrate an interval estimate. But everyone else did. Their widths were almost the same as the width you’d choose now.</p>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-9-1.svg" class="img-fluid figure-img"></p>
+<figcaption>Your competitors’ intervals, recentered for easy comparison of width to the sampling distribution’s.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<p>They didn’t know the point estimator’s actual sampling distribution, but they knew enough <em>about it</em> to choose the right interval width. That’s what we’re going to look into now. Over the course of this lecture and the next, we’ll work out what the sampling distributon of our estimator <em>can</em> look like and how what it <em>does</em> look like depends on the population. And we’ll see how to use that information to calibrate our intervals.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sampling-with-replacement" class="level1">
+<h1>Sampling with Replacement</h1>
+<p>To calibrate our intervals, we need to understand the sampling distribution of our estimator. That means doing some probability calculations. The machinery isn’t complicated—we’ll count equally likely configurations and add up probabilities—but it gets notationally heavy when we apply it to the polling problem. So let’s warm up on something simpler first.</p>
+<section id="warm-up-card-probabilities" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up-card-probabilities">Warm-up: Card Probabilities</h2>
+<p>A deck of cards. A standard deck has 52 cards. If we shuffle well and draw one card, each of the 52 cards is equally likely. That’s our starting point: equally likely configurations.</p>
+<section id="one-card" class="level3">
+<h3 class="anchored" data-anchor-id="one-card">One Card</h3>
+<section id="single-card-probabilities" class="level4 callout-exercise">
+<h4 class="anchored" data-anchor-id="single-card-probabilities">Single Card Probabilities</h4>
+<p>You draw one card from a well-shuffled deck.</p>
+<ol type="1">
+<li>What is the probability of drawing a heart?</li>
+<li>What is the probability of drawing a 5?</li>
+<li>What is the probability of drawing a face card (J, Q, or K)?</li>
+</ol>
+</section>
+<div class="callout-solution">
+<p>Each of the 52 cards is equally likely, so we just count.</p>
+<ol type="1">
+<li>There are 13 hearts, so <span class="math inline">\(P(\text{heart}) = 13/52 = 1/4\)</span>.</li>
+<li>There are 4 fives (one per suit), so <span class="math inline">\(P(\text{five}) = 4/52 = 1/13\)</span>.</li>
+<li>There are 12 face cards (3 per suit × 4 suits), so <span class="math inline">\(P(\text{face card}) = 12/52 = 3/13\)</span>.</li>
+</ol>
+</div>
+</section>
+<section id="two-cards-with-replacement" class="level3">
+<h3 class="anchored" data-anchor-id="two-cards-with-replacement">Two Cards with Replacement</h3>
+<p>Now suppose we draw two cards <em>with replacement</em>—we draw one, note it, put it back, shuffle, and draw again. Each draw is equally likely to be any of the 52 cards, so there are <span class="math inline">\(52 \times 52 = 2704\)</span> equally likely pairs.</p>
+<section id="two-cards-with-replacement-1" class="level4 callout-exercise">
+<h4 class="anchored" data-anchor-id="two-cards-with-replacement-1">Two Cards with Replacement</h4>
+<p>You draw two cards with replacement from a well-shuffled deck.</p>
+<ol type="1">
+<li>What is the probability that both cards are hearts?</li>
+<li>What is the probability that both cards have the same suit?</li>
+<li>What is the probability of drawing a pair (two cards of the same rank)?</li>
+</ol>
+</section>
+<div class="callout-solution">
+<p>We count configurations.</p>
+<ol type="1">
+<li><p>There are <span class="math inline">\(13 \times 13 = 169\)</span> ways to draw two hearts, so <span class="math inline">\(P(\text{both hearts}) = 169/2704 = 1/16\)</span>.</p></li>
+<li><p>There are 4 suits, and for each suit there are <span class="math inline">\(13 \times 13 = 169\)</span> ways to draw two cards from that suit. So there are <span class="math inline">\(4 \times 169 = 676\)</span> same-suit pairs, giving <span class="math inline">\(P(\text{same suit}) = 676/2704 = 1/4\)</span>.</p></li>
+<li><p>There are 13 ranks. For each rank, there are <span class="math inline">\(4 \times 4 = 16\)</span> ways to draw two cards of that rank (4 choices for the first card’s suit, 4 for the second). So there are <span class="math inline">\(13 \times 16 = 208\)</span> pairs, giving <span class="math inline">\(P(\text{pair}) = 208/2704 = 1/13\)</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="thinking-about-marginalization" class="level3">
+<h3 class="anchored" data-anchor-id="thinking-about-marginalization">Thinking about Marginalization</h3>
+<p>Notice what we did in the “same suit” calculation. We could have listed all 2704 pairs and counted which ones had matching suits. Instead, we <em>grouped</em> them: 676 pairs have matching suits (169 for each of the 4 suits), and the rest don’t. This grouping—summing probabilities over configurations that share some property—is <em>marginalization</em>. We’ll use it constantly.</p>
+<p>Now let’s apply this same machinery—equally likely configurations, counting, marginalization—to the polling problem.</p>
+</section>
+</section>
+<section id="finding-the-distribution-of-y_1-in-a-small-population" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-distribution-of-y_1-in-a-small-population">Finding the Distribution of <span class="math inline">\(Y_1\)</span> in a Small Population</h2>
+<p>Let’s start with the distribution of <span class="math inline">\(Y_1\)</span>, the response to <em>one call</em>, when we sample with replacement. And to keep things concrete, let’s suppose we’re polling a population of size <span class="math inline">\(m=3\)</span>. We’re rolling a 3-sided die.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<div class="columns">
+<div class="column" style="width:25%;">
+<section id="the-population-2" class="level4">
+<h4 class="anchored" data-anchor-id="the-population-2">The Population</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(j\)</span></th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\)</span></td>
+<td>Rush</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(2\)</span></td>
+<td>Mitt</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(3\)</span></td>
+<td>Al</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div><div class="column" style="width:30%;">
+<section id="the-joint" class="level4">
+<h4 class="anchored" data-anchor-id="the-joint">The Joint</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(J_1\)</span></th>
+<th><span class="math inline">\(Y_1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{239,71,111}\frac13\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(\color[RGB]{239,71,111}0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\color[RGB]{239,71,111}\frac13\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(\color[RGB]{239,71,111}0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{17,138,178}\frac13\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(\color[RGB]{17,138,178}1\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div><div class="column" style="width:20%;">
+<section id="the-marginal" class="level4">
+<h4 class="anchored" data-anchor-id="the-marginal">The Marginal</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(Y_1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{239,71,111}\frac23\)</span></td>
+<td><span class="math inline">\(\color[RGB]{239,71,111}0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\color[RGB]{17,138,178}\frac13\)</span></td>
+<td><span class="math inline">\(\color[RGB]{17,138,178}1\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div><div class="column" style="width:25%;">
+
+</div>
+</div>
+<p>We have two Nos (0s) and one Yes (1). The ‘Yes’ frequency in the population is <span class="math inline">\(\theta_1 = 1/3\)</span>. Here’s how we find the distribution of <span class="math inline">\(Y_1\)</span>.</p>
+<ol type="1">
+<li><p>We write the probability distribution of our die roll in a table. It has two columns: one for the roll <span class="math inline">\(J_1\)</span> and another for its probability <span class="math inline">\(p\)</span>. It has <span class="math inline">\(m=3\)</span> rows, one for each possible outcome of the roll. Each roll is equally likely, so the probability in each row is <span class="math inline">\(1/3\)</span>.</p></li>
+<li><p>We add a column for the response to our call, <span class="math inline">\(Y_1\)</span>. Adding this row is ‘free’—it doesn’t change the row’s probability—because what we hear is determined by the roll. E.g. if we roll a 1, we’re going to hear Mitt say ‘Yes’. So the probability we roll a 1 <em>and</em> hear a ‘Yes’ is the same as the probability we roll a 1.</p></li>
+<li><p>We <em>marginalize</em> over rolls to find the distribution of our call’s outcome. We can color each row according to the call’s outcome <span class="math inline">\(Y_1\)</span>, then sum the probabilities in each color. The probability of hearing ‘Yes’ is the probability that we roll a 1 or 2: <span class="math inline">\(1/3+1/3 = 2/3\)</span>. The probability of hearing ‘No’ is the probability that we roll a 3: <span class="math inline">\(1/3\)</span>. These probabilities match the frequencies of ‘Yes’ and ‘No’ in our population.</p></li>
+</ol>
+<section id="generalizing-to-larger-populations" class="level3">
+<h3 class="anchored" data-anchor-id="generalizing-to-larger-populations">Generalizing to Larger Populations</h3>
+<p>Is this probabilities-match-frequencies phenomenon a fluke? Or is it a general rule? To find out, we’ll work through the same steps in abstract, i.e.&nbsp;for a binary population <span class="math inline">\(y_1 \ldots y_m\)</span> of arbitrary size <span class="math inline">\(m\)</span>. To ground us while we do it, we’ll think about our population of <span class="math inline">\(m=7.23M\)</span> registered voters in Georgia. But we’ll handle the general case. Plugging in 7.23M ones and zeros wouldn’t exactly make things easier.</p>
+</section>
+</section>
+<section id="finding-the-distribution-of-y_1-in-a-large-population" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-distribution-of-y_1-in-a-large-population">Finding the Distribution of <span class="math inline">\(Y_1\)</span> in a Large Population</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<section id="the-population-3" class="level3">
+<h3 class="anchored" data-anchor-id="the-population-3">The Population</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(j\)</span></th>
+<th><span class="math inline">\(y_j\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\)</span></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(2\)</span></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(3\)</span></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(4\)</span></td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>⋮</td>
+<td>⋮</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(m\)</span></td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div><div class="column" style="width:30%;">
+<section id="the-joint-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-joint-1">The Joint</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(J_1\)</span></th>
+<th><span class="math inline">\(Y_1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1/m\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1/m\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1/m\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1/m\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1/m\)</span></td>
+<td><span class="math inline">\(m\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div><div class="column" style="width:40%;">
+<section id="the-marginal-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-marginal-1">The Marginal</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(Y_1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\underset{\color{gray}\approx 0.30}{\sum\limits_{j:y_j=0} \frac{1}{m}}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\underset{\color{gray}\approx 0.70}{\sum\limits_{j:y_j=1}  \frac{1}{m}}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div>
+<section id="generalizing-to-larger-populations-1" class="level3">
+<h3 class="anchored" data-anchor-id="generalizing-to-larger-populations-1">Generalizing to Larger Populations</h3>
+<ol type="1">
+<li><p>We start by writing the probability distribution of our dice rolls. The person we call, <span class="math inline">\(J_1\)</span>, is equally likely to be anyone in the population of <span class="math inline">\(m \approx 7.23M\)</span> people. It takes on each value <span class="math inline">\(1 \ldots m\)</span> with probability <span class="math inline">\(1/m\)</span>.</p></li>
+<li><p>We add a column for the response to our call, <span class="math inline">\(Y_1\)</span>. This is ‘for free’. The roll determines what we hear, so the probabilities don’t change. Still <span class="math inline">\(1/m\)</span>.</p></li>
+<li><p>And we <em>marginalize</em> to find the distribution of <span class="math inline">\(Y_1\)</span>. We sum the probabilities in rows where <span class="math inline">\(Y_1=0\)</span> and <span class="math inline">\(Y_1=1\)</span>. What we saw in our small population does generalize. The <em>probability</em> of hearing a response <span class="math inline">\(y \in \{0,1\}\)</span> is the <em>frequency</em> of that response in the population. We’ll call these frequencies <span class="math inline">\(\theta_0\)</span> and <span class="math inline">\(\theta_1\)</span>. This is a little redundant because <span class="math inline">\(\theta_0 = 1 - \theta_1\)</span>. Our estimation target is just the ‘Yes’ frequency <span class="math inline">\(\theta_1\)</span>. Some people call it the <em>success rate</em>.</p></li>
+</ol>
+<p>To find the distribution of a sum of <span class="math inline">\(Y_1+Y_2\)</span>, we can follow the same steps. There’s a bit more to it, so we’ll break down the marginalization step to make it a little more tractable.</p>
+</section>
+</section>
+<section id="sec-two-calls-to-small" class="level2">
+<h2 class="anchored" data-anchor-id="sec-two-calls-to-small">Exercise: Two Calls to A Small Population</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(j\)</span></th>
+<th>name</th>
+<th><span class="math inline">\(y_j\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\)</span></td>
+<td>Rush</td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(2\)</span></td>
+<td>Mitt</td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(3\)</span></td>
+<td>Al</td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-12-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Instructions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Blank Space</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ol type="1">
+<li>Make a table for the joint distribution of three rolls of a 3-sided die. Add columns for the responses.</li>
+<li>Partially marginalize to get the joint distribution of the responses. Add a column for their sum.</li>
+<li>Marginalize to get the distribution of the sum.</li>
+</ol>
+<div class="footnotestyle">
+<p>Aren’t you happy that, even though you can’t make a 3-sided die, I didn’t ask you to use 4-sided one?</p>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="columns">
+<div class="column" style="width:40%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(J_1\)</span></th>
+<th><span class="math inline">\(J_2\)</span></th>
+<th><span class="math inline">\(Y_1\)</span></th>
+<th><span class="math inline">\(Y_2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{239,71,111}1/9\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\color[RGB]{239,71,111}1/9\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{17,138,178}1/9\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\color[RGB]{239,71,111}1/9\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{239,71,111}1/9\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\color[RGB]{17,138,178}1/9\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{17,138,178}1/9\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\color[RGB]{17,138,178}1/9\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{6,214,160}1/9\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:30%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(Y_1\)</span></th>
+<th><span class="math inline">\(Y_2\)</span></th>
+<th><span class="math inline">\(Y_1 + Y_2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{239,71,111}\frac{4}{9}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\color[RGB]{17,138,178}\frac{2}{9}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{17,138,178}\frac{2}{9}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\color[RGB]{6,214,160}\frac{1}{9}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:30%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(Y_1 + Y_2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{239,71,111}\frac{4}{9}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\color[RGB]{17,138,178}\frac{4}{9}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\color[RGB]{6,214,160}\frac{1}{9}\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-sampling-to-sums-two" class="level2">
+<h2 class="anchored" data-anchor-id="sec-sampling-to-sums-two">From Sampling to Coin Flip Sums: Two Responses</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<section id="the-joint-2" class="level3">
+<h3 class="anchored" data-anchor-id="the-joint-2">The Joint</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(J_1\)</span></th>
+<th><span class="math inline">\(J_2\)</span></th>
+<th><span class="math inline">\(Y_1\)</span></th>
+<th><span class="math inline">\(Y_2\)</span></th>
+<th><span class="math inline">\(Y_1 + Y_2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\frac{1}{m^2}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(y_1\)</span></td>
+<td><span class="math inline">\(y_1\)</span></td>
+<td><span class="math inline">\(y_1+y_1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\frac{1}{m^2}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(y_1\)</span></td>
+<td><span class="math inline">\(y_2\)</span></td>
+<td><span class="math inline">\(y_1+y_2\)</span></td>
+</tr>
+<tr class="odd">
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\frac{1}{m^2}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(m\)</span></td>
+<td><span class="math inline">\(y_1\)</span></td>
+<td><span class="math inline">\(y_m\)</span></td>
+<td><span class="math inline">\(y_1+y_m\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\frac{1}{m^2}\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(y_2\)</span></td>
+<td><span class="math inline">\(y_1\)</span></td>
+<td><span class="math inline">\(y_2+y_1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\frac{1}{m^2}\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(y_2\)</span></td>
+<td><span class="math inline">\(y_2\)</span></td>
+<td><span class="math inline">\(y_2+y_2\)</span></td>
+</tr>
+<tr class="odd">
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\frac{1}{m^2}\)</span></td>
+<td><span class="math inline">\(m\)</span></td>
+<td><span class="math inline">\(m\)</span></td>
+<td><span class="math inline">\(y_m\)</span></td>
+<td><span class="math inline">\(y_m\)</span></td>
+<td><span class="math inline">\(y_m+y_m\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div><div class="column" style="width:40%;">
+<section id="partially-marginalized" class="level3">
+<h3 class="anchored" data-anchor-id="partially-marginalized">Partially Marginalized</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 27%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(Y_1\)</span></th>
+<th><span class="math inline">\(Y_2\)</span></th>
+<th><span class="math inline">\(Y_1 + Y_2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\textcolor[RGB]{239,71,111}{\sum\limits_{\substack{j_1,j_2 \\ y_{j_1},y_{j_2} = 0,0}} \frac{1}{m^2}}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(\textcolor[RGB]{239,71,111}{0}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\textcolor[RGB]{17,138,178}{\sum\limits_{\substack{j_1,j_2 \\ y_{j_1},y_{j_2} = 0,1}} \frac{1}{m^2}}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(\textcolor[RGB]{17,138,178}{1}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\textcolor[RGB]{17,138,178}{\sum\limits_{\substack{j_1,j_2 \\ y_{j_1},y_{j_2} = 1,0}} \frac{1}{m^2}}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(\textcolor[RGB]{17,138,178}{1}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\textcolor[RGB]{6,214,160}{\sum\limits_{\substack{j_1,j_2 \\ y_{j_1},y_{j_2} = 1,1}} \frac{1}{m^2}}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(\textcolor[RGB]{6,214,160}{2}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div><div class="column" style="width:25%;">
+<section id="fully-marginalized" class="level3">
+<h3 class="anchored" data-anchor-id="fully-marginalized">Fully Marginalized</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(Y_1 + Y_2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\textcolor[RGB]{239,71,111}{\sum\limits_{\substack{j_1,j_2 \\ y_{j_1}+y_{j_2} = 0}} \frac{1}{m^2}}\)</span></td>
+<td><span class="math inline">\(\textcolor[RGB]{239,71,111}{0}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\textcolor[RGB]{17,138,178}{\sum\limits_{\substack{j_1,j_2 \\ y_{j_1}+y_{j_2} = 1}} \frac{1}{m^2}}\)</span></td>
+<td><span class="math inline">\(\textcolor[RGB]{17,138,178}{1}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\textcolor[RGB]{6,214,160}{\sum\limits_{\substack{j_1,j_2 \\ y_{j_1}+y_{j_2} = 2}} \frac{1}{m^2}}\)</span></td>
+<td><span class="math inline">\(\textcolor[RGB]{6,214,160}{2}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div>
+<section id="two-step-approach" class="level3">
+<h3 class="anchored" data-anchor-id="two-step-approach">Two-Step Approach</h3>
+<p>To find the distribution of a sum of two responses, <span class="math inline">\(Y_1+Y_2\)</span>, we do the same thing. We start with the joint distribution of two dice rolls. Our rolls are equally likely to be any pair of numbers in <span class="math inline">\(1\ldots m\)</span>. And there are <span class="math inline">\(m^2\)</span> pairs, so the probability is <span class="math inline">\(1/m^2\)</span> for each pair. Then we add columns that are functions of the rolls: <span class="math inline">\(Y_1\)</span>, <span class="math inline">\(Y_2\)</span>, and <span class="math inline">\(Y_1+Y_2\)</span>. This is ‘for free’ as before. If we know who we’re calling, we know the responses we’ll hear and their sum.</p>
+<p>Then we <em>marginalize</em> to find the distribution of the sum. We’ll do this in two steps.</p>
+<ol type="1">
+<li>We <em>partially marginalize</em> over <span class="math inline">\(J_1,J_2\)</span>, to find the joint distribution of the response sequence <span class="math inline">\(Y_1, Y_2\)</span>.</li>
+<li>We <em>fully marginalize</em> the result to find the distribution of <span class="math inline">\(Y_1+Y_2\)</span>.</li>
+</ol>
+</section>
+<section id="step-1.-partial-marginalization" class="level3">
+<h3 class="anchored" data-anchor-id="step-1.-partial-marginalization">Step 1. Partial Marginalization</h3>
+<p>To sum over pairs of responses, we sum over one response then the other. This is exactly like what we did for one response. Except twice. And what we get is pretty similar too.</p>
+<p>The probability of observing the pair of responses is determined by their frequencies in the population. It’s the <em>product</em> of the frequencies of those responses. For ‘Yes,Yes’ it’s <span class="math inline">\(\theta_1^2\)</span>. For ‘No,No’ it’s <span class="math inline">\(\theta_0^2\)</span>. And for ‘Yes,No’ and ‘No,Yes’ it’s <span class="math inline">\(\theta_1\theta_0\)</span>.</p>
+<p>This is, for what it’s worth, the <em>product</em> of the marginal probabilities of those responses. When this happens for any pair of random variables, we say they are <em>independent</em>. More on that soon. And the probability of any response pair <span class="math inline">\(a,b\)</span> depends only on its sum <span class="math inline">\(a+b\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum\limits_{\substack{j_1,j_2\\ y_{j_1},y_{j_2} = a,b}} \frac{1}{m^2}
+&amp;= \sum\limits_{\substack{j_1 \\ y_{j_1}=a}} \qty{ \sum\limits_{\substack{j_2 \\ y_{j_2}=b}} \frac{1}{m^2} } \\
+&amp;= \sum\limits_{\substack{j_1 \\ y_{j_1}=a}} \qty{ m_b \times \frac{1}{m^2} } \qfor m_y = \sum\limits_{j:y_j=y} 1 \\
+&amp;= m_a \times m_b \times \frac{1}{m^2} = \theta_a \times \theta_b \qfor \theta_y = \frac{m_y}{m} \\
+&amp;= \theta_1^{s} \theta_0^{1-s} \qfor s = a+b
+\end{aligned}
+\]</span></p>
+</section>
+<section id="step-2.-full-marginalization" class="level3">
+<h3 class="anchored" data-anchor-id="step-2.-full-marginalization">Step 2. Full Marginalization</h3>
+<p>To calculate the marginal probability that <span class="math inline">\(Y_1+Y_2=s\)</span>, we sum the probabilities of all pairs with that sum. This is pretty easy because there aren’t too many pairs. And I’ve color coded the pairs to make it even easier.</p>
+</section>
+</section>
+<section id="from-sampling-to-coin-flip-sums-n-responses." class="level2">
+<h2 class="anchored" data-anchor-id="from-sampling-to-coin-flip-sums-n-responses.">From Sampling to Coin Flip Sums: <span class="math inline">\(n\)</span> Responses.</h2>
+<p>To find the distribution of a sum <span class="math inline">\(Y_1 + \ldots + Y_n\)</span>, we do the same thing. We start by writing out the joint distribution of <span class="math inline">\(n\)</span> dice rolls. We’re equally likely to roll any sequence of <span class="math inline">\(n\)</span> numbers in <span class="math inline">\(1\ldots m\)</span>. And there are <span class="math inline">\(m^n\)</span> sequences, so the probability is <span class="math inline">\(1/m^n\)</span> for each sequence. Then we add columns for the corresponding responses ‘for free’. And the sums.</p>
+<p>Then we marginalize in two steps.</p>
+<ol type="1">
+<li>Sum over roll sequences leading to the same response sequence <span class="math inline">\(a_1 \ldots a_n\)</span>.</li>
+<li>Sum over response sequences leading to the same sum <span class="math inline">\(s=a_1+\ldots+a_n\)</span>.</li>
+</ol>
+<section id="step-1.-partial-marginalization-1" class="level3">
+<h3 class="anchored" data-anchor-id="step-1.-partial-marginalization-1">Step 1. Partial Marginalization</h3>
+<p>To sum over roll sequences, we sum over one roll after another. This is exactly like what we did for one response. Except over and over. You can think of this sum ‘inside out.’</p>
+<p>Suppose we’re calculating the probability of the response sequence <span class="math inline">\(a_1 \ldots a_n = 0,0,...,0,0\)</span>.</p>
+<ol type="1">
+<li>We consider any ‘head’ <span class="math inline">\(j_1\ldots j_{n-1}\)</span> where <span class="math inline">\(y_{j_1} \ldots y_{j_{n-1}}=0,0,...0\)</span> and think about choosing the last element. No matter what the head is, there are <span class="math inline">\(m_0\)</span> ways to complete it by choosing <span class="math inline">\(j_{n}\)</span> with <span class="math inline">\(y_{j_n}=0\)</span>.</li>
+<li>We repeat with shortened ‘head’ <span class="math inline">\(j_1 \ldots j_{n-2}\)</span> to consider the choice of <span class="math inline">\(j_{n-1}\)</span>. We have <span class="math inline">\(m_0\)</span> choices and our last step tells us that each choice results in <span class="math inline">\(m_0\)</span> call sequences, so there are <span class="math inline">\(m_0^2\)</span> sequences with head <span class="math inline">\(j_1 \ldots j_{n-2}\)</span> ending in <span class="math inline">\(0,0\)</span>.</li>
+<li>Repeat <span class="math inline">\(n-2\)</span> more times.</li>
+</ol>
+<p>What we get is pretty similar to the two-response case. The probability of observing the sequence is determined by the frequency of Yeses and Nos in the population. It’s the <em>product</em> of the frequencies of those responses. For ‘Yes,Yes,…,Yes’ it’s <span class="math inline">\(\theta_1^n\)</span>. For ‘No,No,…,No’ it’s <span class="math inline">\(\theta_0^n\)</span>. And if we have <span class="math inline">\(s\)</span> Yeses and therefore <span class="math inline">\(n-s\)</span> Nos, it’s <span class="math inline">\(\theta_1^s\theta_0^{n-s}\)</span>.</p>
+<p>This is, again, the <em>product</em> of the marginal probabilities of those <span class="math inline">\(n\)</span> responses.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{\substack{j_1 \ldots j_n  \\ y_{j_1} \ldots y_{j_n} = a_1 \ldots a_n}} \frac{1}{m^n}
+&amp;= \sum_{\substack{j_1 \ldots j_{n-1} \\ y_{j_1} \ldots y_{j_{n-1}} = a_1 \ldots a_{n-1}}} \sum_{\substack{j_n \\ y_n=a_n}} \frac{1}{m^n} \\
+&amp;= \sum_{\substack{j_1 \ldots j_{n-1} \\ y_{j_1} \ldots y_{j_{n-1}} = a_1 \ldots a_{n-1}}} \sum_{\substack{j_n \\ y_n=a_n}} m_{a_n} \times \frac{1}{m^n} \\
+&amp;= \sum_{\substack{j_1 \ldots j_{n-2} \\ y_{j_1} \ldots y_{j_{n-2}} = a_1 \ldots a_{n-2}}} \sum_{\substack{j_{n-1} \\ y_n=a_{n-1}}} m_{a_n} \times \frac{1}{m^n} \\
+&amp;= \sum_{\substack{j_1 \ldots j_{n-2} \\ y_{j_1} \ldots y_{j_{n-2}} = a_1 \ldots a_{n-2}}} \sum_{\substack{j_{n-1} \\ y_n=a_{n-1}}} m_{a_{n-1}} m_{a_n} \times \frac{1}{m^n} \\
+&amp;= m_{a_1} \ldots m_{a_{n}} \times \frac{1}{m^n} \qqtext{after repeating $n-2$ more times} \\
+&amp;= \theta_{a_i} \ldots \theta_{a_n} \\
+&amp;= \prod_{i:a_i=1} \theta_1 \prod_{i:a_i=0} \theta_0 = \theta_1^{s} \theta_0^{n-s} \qfor s = a_1 + \ldots + a_n
+\end{aligned}
+\]</span></p>
+</section>
+<section id="step-2.-full-marginalization-1" class="level3">
+<h3 class="anchored" data-anchor-id="step-2.-full-marginalization-1">Step 2. Full Marginalization</h3>
+<p>The full marginalization step is a bit trickier. But we can take advantage of our partial marginalization. To calculate the probability that the sum takes on the value <span class="math inline">\(s\)</span>, we order our sum of probabilities thoughtfully. We sum over response sequences <span class="math inline">\(a_1 \ldots a_n\)</span> with <span class="math inline">\(s\)</span> Yeses and <span class="math inline">\(n-s\)</span> Nos. And within that, we sum over calls where we’d hear those responses.</p>
+<p>The inner sum we’ve done. That was our partial marginalization. And the outer sum boils down to counting the number of sequences with <span class="math inline">\(s\)</span> Yeses. The probability of all these sequences is the same: <span class="math inline">\(\theta_1^s\theta_0^{n-s}\)</span>. So summing is counting and multiplying. You may have done the counting part in high school in a unit on ‘permutations and combinations’. In any case, that count has a name. It’s spoken ‘<span class="math inline">\(n\)</span> choose <span class="math inline">\(s\)</span>’ and written <span class="math inline">\(\binom{n}{s}\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum\limits_{\substack{j_1 \ldots j_n \\ y_{j_1} + \ldots + y_{j_n} = s}} \frac{1}{m^n}
+&amp;= \sum\limits_{\substack{a_1 \dots a_n \\ a_1 + \ldots + a_n = s}} \ \ \sum_{\substack{j_1 \ldots j_n \\ y_{j_1} \ldots y_{j_n} = a_1 \ldots a_n}} \frac{1}{m^n} \\
+&amp; =\sum\limits_{\substack{a_1 \dots a_n \\ a_1 + \ldots + a_n = s}} \theta_1^{s}\theta_0^{n-s} \\
+&amp;= \binom{s}{n} \theta_1^{s} \theta_0^{n-s} \qqtext{ where } \binom{s}{n} = \sum\limits_{\substack{a_1 \dots a_n \\ a_1 + \ldots + a_n = s}} 1
+\end{aligned}
+\]</span></p>
+</section>
+<section id="using-r" class="level3">
+<h3 class="anchored" data-anchor-id="using-r">Using <strong>R</strong></h3>
+<p><span class="math display">\[
+P\qty(\sum_{i=1}^n Y_i = s) =  \binom{s}{n} \theta_1^{s}\theta_0^{n-s}
+\ \ \text{ where } \ \ \binom{s}{n} \text{ is the number of binary sequences $a_1 \ldots a_n$ summing to $s$.}
+\]</span></p>
+<p>We don’t actually have to do all this sequence-summing-to-<span class="math inline">\(s\)</span> counting ourselves. The <code>choose</code> function in <strong>R</strong> will do it for us: <span class="math inline">\(\binom{s}{n}\)</span> is <code>choose(n,s)</code>. The <code>dbinom</code> function will give us the whole probability: <span class="math inline">\(\binom{s}{n}\theta_1^s\theta_0^{n-s}\)</span> is <code>dbinom(s, n, theta_1)</code>. And the <code>rbinom</code> function will draw samples from this distribution: <code>rbinom(10000, n, theta_1)</code> gives us 10,000.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>theta_1 <span class="ot">=</span> .<span class="dv">7</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">625</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span>n, n, theta_1)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>S <span class="ot">=</span> <span class="fu">rbinom</span>(<span class="dv">10000</span>, n, theta_1)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span>n,   <span class="at">y=</span>p), <span class="at">color=</span>pollc, <span class="at">alpha=</span>.<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>           <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>S, <span class="at">y=</span><span class="fu">after_stat</span>(prop)), <span class="at">alpha=</span>.<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>           <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>S[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>],   <span class="at">y=</span><span class="fu">max</span>(p)<span class="sc">*</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">length.out=</span><span class="dv">100</span>)), </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color=</span><span class="st">'purple'</span>, <span class="at">alpha=</span>.<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-13-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-binomial-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="the-binomial-distribution">The Binomial Distribution</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-14-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\overset{\color{gray}=P\qty(\frac{1}{n}\sum_{i=1}^n Y_i = \frac{s}{n})}{P\qty(\sum_{i=1}^n Y_i = s)} =  \binom{s}{n} \theta_1^{s}\theta_0^{n-s} \\
+&amp;\qfor n =625 \\
+&amp;\qand \theta_1 \in \{\textcolor[RGB]{239,71,111}{0.68}, \textcolor[RGB]{17,138,178}{0.7}, \textcolor[RGB]{6,214,160}{0.72} \}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+<p>These functions have ‘binom’ in their name because we call this distribution the <em>Binomial distribution</em>. The Binomial distribution on <span class="math inline">\(n\)</span> <em>trials</em> with <em>success probability</em> <span class="math inline">\(\theta\)</span> is our name for the distribution of the sum of <span class="math inline">\(n\)</span> independent binary random variables with probability <span class="math inline">\(\theta\)</span> of being <span class="math inline">\(1\)</span>. E.g. the number of heads in <span class="math inline">\(n\)</span> coin flips is Binomial with <span class="math inline">\(n\)</span> trials and success probability <span class="math inline">\(1/2\)</span>.</p>
+<p>We’ve shown that’s the sampling distribution of the <em>sum of responses</em>, <span class="math inline">\(Y_1 + \ldots + Y_n\)</span>, when we sample with replacement from a population of binary responses <span class="math inline">\(y_1 \ldots y_m\)</span> in which <span class="math inline">\(\theta\)</span> is the frequency of ones. We’re interested in the <em>mean of responses</em>, so we divide by <span class="math inline">\(n\)</span>: <span class="math inline">\(\color{gray} \sum_{i=1}^n Y_i = s \ \text{ when } \ \frac{1}{n}\sum_{i=1}^n Y_i = s/n\)</span>.</p>
+<p>It’s easy to estimate—and talk about estimating—this sampling distribution. It depends only on one thing we don’t know: the population frequency <span class="math inline">\(\theta\)</span>. And that’s exactly the thing we’re trying to estimate anyway. That’s why we’ve started here—the case of sampling with replacement from a population of binary responses.</p>
+</section>
+<section id="payoff" class="level2">
+<h2 class="anchored" data-anchor-id="payoff">Payoff</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-16-1.svg" class="img-fluid figure-img"></p>
+<figcaption>You vs.&nbsp;Your Competitors Now</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-16-2.svg" class="img-fluid figure-img"></p>
+<figcaption>How You’re Calibrating</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>To estimate this sampling distribution, you plug your point estimate <span class="math inline">\(\hat\theta\)</span> into the Binomial formula. <span class="math display">\[
+\hat P\qty(\sum_{i=1}^n Y_i = s) = \binom{s}{n} \hat\theta^{s} (1-\hat\theta)^{n-s} \qqtext{ estimates }
+P\qty(\sum_{i=1}^n Y_i = s) = \binom{s}{n} \theta^{s} (1-\theta)^{n-s}
+\]</span></p>
+<p>To calibrate <span class="polld">your interval estimate</span>, you use <code>rbinom</code> to draw 10,000 samples from this estimate of the sampling distribution. Even remembering to divide by <span class="math inline">\(n\)</span>. And use the function <code>width</code> from the <a href="https://qtm285-1.github.io/assets/homework/week1-homework.html#exr-interval-estimate">Week 1 Homework</a> to find an interval that covers 95% of them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>theta.hat <span class="ot">=</span> <span class="fu">mean</span>(Y)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">=</span> <span class="fu">rbinom</span>(<span class="dv">10000</span>, n, theta.hat) <span class="sc">/</span> n</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>interval.width <span class="ot">=</span> <span class="fu">width</span>(samples, <span class="at">alpha=</span>.<span class="dv">05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You nail it. Your interval covers the estimation target <span class="math inline">\(\theta\)</span> just like 95% of your competitors’ do.</p>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-18-1.svg" class="img-fluid figure-img"></p>
+<figcaption>You and your competitors’ intervals, recentered for easy comparison of width to your estimators’ sampling distribution’s middle-95% width.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<p>It’s not just that you’ve widened your interval enough. You’ve widened it almost exactly the right amount. Just like your competitors. Almost as if you all knew how to estimate your estimator’s sampling distribution.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sampling-without-replacement" class="level1">
+<h1>Sampling without Replacement</h1>
+<section id="warm-up-card-probabilities-without-replacement" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up-card-probabilities-without-replacement">Warm-up: Card Probabilities without Replacement</h2>
+<p>Now let’s revisit the card problems, but this time drawing <em>without replacement</em>—we don’t put cards back after drawing them.</p>
+<section id="two-cards-without-replacement" class="level3">
+<h3 class="anchored" data-anchor-id="two-cards-without-replacement">Two Cards without Replacement</h3>
+<p>When we draw two cards without replacement, there are <span class="math inline">\(52 \times 51 = 2652\)</span> equally likely ordered pairs—52 choices for the first card, then 51 remaining choices for the second.</p>
+<section id="two-cards-without-replacement-1" class="level4 callout-exercise">
+<h4 class="anchored" data-anchor-id="two-cards-without-replacement-1">Two Cards without Replacement</h4>
+<p>You draw two cards without replacement from a well-shuffled deck.</p>
+<ol type="1">
+<li>What is the probability that both cards are hearts?</li>
+<li>What is the probability of drawing a pair (two cards of the same rank)?</li>
+</ol>
+</section>
+<div class="callout-solution">
+<ol type="1">
+<li><p>There are 13 hearts. For the first card, 13 choices. For the second, 12 remaining hearts. So there are <span class="math inline">\(13 \times 12 = 156\)</span> ways to draw two hearts, giving <span class="math inline">\(P(\text{both hearts}) = 156/2652 = 1/17\)</span>.</p>
+<p>Compare to with replacement: <span class="math inline">\(1/16\)</span>. Drawing without replacement makes two hearts slightly less likely because we’ve “used up” one heart.</p></li>
+<li><p>There are 13 ranks. For each rank, there are <span class="math inline">\(4 \times 3 = 12\)</span> ways to draw two cards of that rank (4 choices for the first card’s suit, 3 remaining for the second). So there are <span class="math inline">\(13 \times 12 = 156\)</span> pairs, giving <span class="math inline">\(P(\text{pair}) = 156/2652 = 1/17\)</span>.</p>
+<p>Compare to with replacement: <span class="math inline">\(1/13\)</span>. Pairs are less likely without replacement because we can’t draw the exact same card twice.</p></li>
+</ol>
+</div>
+</section>
+<section id="the-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="the-pattern">The Pattern</h3>
+<p>Notice what’s different. With replacement, drawing a heart doesn’t change the probability that the next card is a heart—it’s still <span class="math inline">\(13/52 = 1/4\)</span>. Without replacement, drawing a heart <em>does</em> change things—now there are only 12 hearts among 51 remaining cards, so the probability is <span class="math inline">\(12/51\)</span>, slightly less than <span class="math inline">\(1/4\)</span>.</p>
+<p>This “using up” of options is what makes without-replacement calculations more involved. Let’s see how it plays out in the polling context.</p>
+</section>
+</section>
+<section id="marginalization" class="level2">
+<h2 class="anchored" data-anchor-id="marginalization">Marginalization</h2>
+<p>To find the distribution of a sum <span class="math inline">\(Y_1 + \ldots + Y_n\)</span> when we sample <em>without replacement</em> we do the same thing. We start by writing out the joint distribution of <span class="math inline">\(n\)</span> dice rolls. We’re equally likely to pull any sequence of <span class="math inline">\(n\)</span> <em>distinct</em> numbers in <span class="math inline">\(1\ldots m\)</span>. There are <span class="math inline">\(m \times (m-1) \times \ldots \times  (m-n+1)=m!/(m-n)!\)</span> sequences, so the probability is <span class="math inline">\((m-n)!/m!\)</span> for each sequence. Then we add the responses and sums as columns. That doesn’t change.</p>
+<p>Then we marginalize in two steps.</p>
+<ol type="1">
+<li>Sum over roll sequences leading to the same response sequence <span class="math inline">\(a_1 \ldots a_n\)</span>.</li>
+<li>Sum over response sequences leading to the same sum <span class="math inline">\(s=a_1+\ldots+a_n\)</span>.</li>
+</ol>
+<section id="step-1.-partial-marginalization-2" class="level3">
+<h3 class="anchored" data-anchor-id="step-1.-partial-marginalization-2">Step 1. Partial Marginalization</h3>
+<p>To sum over roll sequences, we sum over one roll after another. Suppose we’re calculating the probability of the response sequence <span class="math inline">\(a_1 \ldots a_n = 0,0,...,0,0\)</span>.</p>
+<ol type="1">
+<li>We consider any ‘head’ <span class="math inline">\(j_1\ldots j_{n-1}\)</span> where <span class="math inline">\(y_{j_1} \ldots y_{j_{n-1}}=0,0,...0\)</span> and think about choosing the last element. No matter what the head is, we’ve ‘used up’ <span class="math inline">\(n-1\)</span> people with response <span class="math inline">\(y_j=0\)</span>. So there are <span class="math inline">\(m_0-(n-1)=m_0-n+1\)</span> ways to complete the sequence by choosing <em>an as-yet unused</em> <span class="math inline">\(j_{n}\)</span> with <span class="math inline">\(y_{j_n}=0\)</span>.</li>
+<li>We repeat with shortened ‘head’ <span class="math inline">\(j_1 \ldots j_{n-2}\)</span> to consider the choice of <span class="math inline">\(j_{n-1}\)</span>. We have <span class="math inline">\(m_0-n+2\)</span> as-yet unused choices and our last step tells us that each choice results in <span class="math inline">\(m_0-(n-1)\)</span> call sequences, so there are <span class="math inline">\((m_0 - n + 1)(m_0 - n + 2)\)</span> sequences with head <span class="math inline">\(j_1 \ldots j_{n-2}\)</span> ending in <span class="math inline">\(0,0\)</span>.</li>
+<li>Repeat <span class="math inline">\(n-2\)</span> more times. We get <span class="math inline">\((m_0 - n + 1) \times \ldots \times m_0 = m_0!/(m_0-n)!\)</span> rows.</li>
+</ol>
+<p>When we work through the same argument for sequences with a mix of 0s and 1s, we see that a call in the head forecloses possibilities for later calls <em>with the same response only</em>. Thus, when we have <span class="math inline">\(s\)</span> ones and <span class="math inline">\(n-s\)</span> zeros, we can think of ourselves as choosing calls with response zero and response one separately. We have <span class="math inline">\(m_0!/(m_0-(n-s))! \times m_1!/(m_1-s)!\)</span> rows. Multiplying by the probability of each row, we get the probability of seeing a response sequence with <span class="math inline">\(s\)</span> ones.</p>
+<p><span class="math display">\[
+\frac{m_0!}{(m_0-(n-s))!} \times \frac{m_1!}{(m_1-s)!} \times \frac{(m-n)!}{m!}
+\]</span></p>
+</section>
+<section id="step-2.-full-marginalization-2" class="level3">
+<h3 class="anchored" data-anchor-id="step-2.-full-marginalization-2">Step 2. Full Marginalization</h3>
+<p>To calculate the probability that the sum takes on the value <span class="math inline">\(s\)</span>, we sum over response sequences with <span class="math inline">\(s\)</span> ones. Just like in the with-replacement case, the probability of all these sequences is the same—it depends only on how many ones and zeros are in the sequence, not their order. So summing is counting and multiplying.</p>
+<p>The count is the same as before: the number of binary sequences of length <span class="math inline">\(n\)</span> with <span class="math inline">\(s\)</span> ones is <span class="math inline">\(\binom{n}{s}\)</span>. Multiplying, we get</p>
+<p><span class="math display">\[
+P\qty(\sum_{i=1}^n Y_i = s) = \binom{n}{s} \times \frac{m_0!}{(m_0-(n-s))!} \times \frac{m_1!}{(m_1-s)!} \times \frac{(m-n)!}{m!}.
+\]</span></p>
+<p>This is the <em>Hypergeometric distribution</em>. It’s a bit uglier than the Binomial, but the same R tricks work.</p>
+</section>
+<section id="using-r-1" class="level3">
+<h3 class="anchored" data-anchor-id="using-r-1">Using <strong>R</strong></h3>
+<p>The <code>dhyper</code> function gives us the probability: <code>dhyper(s, m1, m0, n)</code> is <span class="math inline">\(P(\sum_{i=1}^n Y_i = s)\)</span> when we sample <span class="math inline">\(n\)</span> times without replacement from a population with <span class="math inline">\(m_1\)</span> ones and <span class="math inline">\(m_0\)</span> zeros. The <code>rhyper</code> function draws samples: <code>rhyper(10000, m1, m0, n)</code> gives us 10,000.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>theta_1 <span class="ot">=</span> .<span class="dv">7</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">=</span> m <span class="sc">*</span> theta_1</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">=</span> m <span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>theta_1)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">dhyper</span>(<span class="dv">0</span><span class="sc">:</span>n, m1, m0, n)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>S <span class="ot">=</span> <span class="fu">rhyper</span>(<span class="dv">10000</span>, m1, m0, n)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span>n, <span class="at">y=</span>p), <span class="at">color=</span>pollc, <span class="at">alpha=</span>.<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>           <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>S, <span class="at">y=</span><span class="fu">after_stat</span>(prop)), <span class="at">alpha=</span>.<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>S[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>], <span class="at">y=</span><span class="fu">max</span>(p)<span class="sc">*</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">length.out=</span><span class="dv">100</span>)), </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color=</span><span class="st">'purple'</span>, <span class="at">alpha=</span>.<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-19-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-hypergeometric-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="the-hypergeometric-distribution">The Hypergeometric Distribution</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture3-prose_files/figure-html/unnamed-chunk-20-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+\begin{aligned}
+&amp;P\qty(\sum_{i=1}^n Y_i = s) = \binom{n}{s} \frac{m_0!}{(m_0-n+s)!} \frac{m_1!}{(m_1-s)!} \frac{(m-n)!}{m!} \\
+&amp;\qfor n = 100, \ m = 200 \\
+&amp;\qand \theta_1 \in \{\textcolor[RGB]{239,71,111}{0.68}, \textcolor[RGB]{17,138,178}{0.7}, \textcolor[RGB]{6,214,160}{0.72} \}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+<p>These functions have ‘hyper’ in their name because we call this distribution the <em>Hypergeometric distribution</em>. The Hypergeometric distribution describes the number of successes when we draw <span class="math inline">\(n\)</span> items without replacement from a population containing <span class="math inline">\(m_1\)</span> successes and <span class="math inline">\(m_0\)</span> failures.</p>
+<p>We’ve shown that’s the sampling distribution of the <em>sum of responses</em>, <span class="math inline">\(Y_1 + \ldots + Y_n\)</span>, when we sample without replacement from a population of binary responses <span class="math inline">\(y_1 \ldots y_m\)</span> in which <span class="math inline">\(m_1\)</span> are ones.</p>
+<p>It’s a bit harder to estimate than the Binomial because it depends on two things we don’t know: the population size <span class="math inline">\(m\)</span> and the number of ones <span class="math inline">\(m_1\)</span>. We usually know <span class="math inline">\(m\)</span>, though. And if we do, we can estimate <span class="math inline">\(m_1\)</span> by <span class="math inline">\(m\hat\theta\)</span> where <span class="math inline">\(\hat\theta\)</span> is our sample proportion. That’s usually good enough.</p>
+<p>The Hypergeometric looks a lot like the Binomial when <span class="math inline">\(n\)</span> is small relative to <span class="math inline">\(m\)</span>. That’s because sampling without replacement is almost like sampling with replacement when you’re unlikely to pick the same person twice anyway. When <span class="math inline">\(n\)</span> is a meaningful fraction of <span class="math inline">\(m\)</span>, the Hypergeometric is narrower—you get better precision by not wasting calls on people you’ve already talked to.</p>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>You say that’s how often, anyway. Hence ‘nominal’.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In technical terms, these estimates are draws from your estimator’s <em>sampling distribution</em>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Impossible. I know.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../lectures";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lectures/Lecture2-prose.html" class="pagination-link" aria-label="Point and Interval Estimates">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Point and Interval Estimates</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

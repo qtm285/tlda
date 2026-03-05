@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Point and Interval Estimates – Prediction, Inference, and Causality</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../lectures/Lecture3-prose.html" rel="next">
+<link href="../lectures/Lab1-prose.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-88e56ac79f6d00081da8a857611ab47f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-418dd549c579b3478655ef3aa4206478.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/image-toggle-1.0.0/image-toggle.js"></script>
+<link href="../site_libs/quarto-contrib/image-toggle-1.0.0/image-toggle.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script>
+  window.MathJax = {
+    options : {
+      menuOptions: {
+        settings: {
+          assistiveMml: false,
+          collapsible: false,
+          explorer: false
+        }
+      }
+    },
+    loader: {load: ['[tex]/physics', '[tex]/unicode']},
+    tex: {packages: {'[+]': ['physics', 'unicode']}}
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1-one-sample.html">One-Sample Problems</a></li><li class="breadcrumb-item"><a href="../lectures/Lecture2-prose.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Point and Interval Estimates</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Prediction, Inference, and Causality</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part1-one-sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">One-Sample Problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lab1-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture2-prose.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Point and Interval Estimates</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture3-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calibrating Interval Estimates with Binary Observations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="-1">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sampling-review" id="toc-sampling-review" class="nav-link active" data-scroll-target="#sampling-review">Sampling Review</a>
+  <ul class="collapse">
+  <li><a href="#sampling-distributions-in-real-studies" id="toc-sampling-distributions-in-real-studies" class="nav-link" data-scroll-target="#sampling-distributions-in-real-studies">Sampling Distributions in Real Studies</a></li>
+  <li><a href="#what-do-we-do-with-a-sampling-distribution" id="toc-what-do-we-do-with-a-sampling-distribution" class="nav-link" data-scroll-target="#what-do-we-do-with-a-sampling-distribution">What Do We Do with a Sampling Distribution?</a></li>
+  <li><a href="#sampling-mechanisms" id="toc-sampling-mechanisms" class="nav-link" data-scroll-target="#sampling-mechanisms">Sampling Mechanisms</a></li>
+  </ul></li>
+  <li><a href="#polling" id="toc-polling" class="nav-link" data-scroll-target="#polling">Polling</a>
+  <ul class="collapse">
+  <li><a href="#important-questions" id="toc-important-questions" class="nav-link" data-scroll-target="#important-questions">Important Questions</a></li>
+  <li><a href="#sampling" id="toc-sampling" class="nav-link" data-scroll-target="#sampling">Sampling</a></li>
+  <li><a href="#sampling-distributions" id="toc-sampling-distributions" class="nav-link" data-scroll-target="#sampling-distributions">Sampling Distributions</a></li>
+  <li><a href="#the-sampling-distribution-of-our-estimate" id="toc-the-sampling-distribution-of-our-estimate" class="nav-link" data-scroll-target="#the-sampling-distribution-of-our-estimate">The Sampling Distribution of our Estimate</a></li>
+  <li><a href="#interval-estimation" id="toc-interval-estimation" class="nav-link" data-scroll-target="#interval-estimation">Interval Estimation</a></li>
+  <li><a href="#calculating-the-coverage-probability" id="toc-calculating-the-coverage-probability" class="nav-link" data-scroll-target="#calculating-the-coverage-probability">Calculating the Coverage Probability</a></li>
+  <li><a href="#calibrating-interval-estimates" id="toc-calibrating-interval-estimates" class="nav-link" data-scroll-target="#calibrating-interval-estimates">Calibrating Interval Estimates</a>
+  <ul class="collapse">
+  <li><a href="#a-problem" id="toc-a-problem" class="nav-link" data-scroll-target="#a-problem">A Problem</a></li>
+  </ul></li>
+  <li><a href="#communication" id="toc-communication" class="nav-link" data-scroll-target="#communication">Communication</a>
+  <ul class="collapse">
+  <li><a href="#dont-make-this-mistake" id="toc-dont-make-this-mistake" class="nav-link" data-scroll-target="#dont-make-this-mistake">Don’t Make this Mistake!</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part1-one-sample.html">One-Sample Problems</a></li><li class="breadcrumb-item"><a href="../lectures/Lecture2-prose.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Point and Interval Estimates</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Point and Interval Estimates</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sampling-review" class="level1">
+<h1>Sampling Review</h1>
+<div class="hidden">
+$$ \newcommand{X}{} \newcommand{Y}{}
+<p>$$</p>
+</div>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-2-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<p><span class="math display">\[
+\color{gray}
+\begin{array}{r|rrrrrr|r}
+j &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp;
+\bar{y}  \\
+y_{j} &amp; 0 &amp; 1 &amp; \textcolor[RGB]{7,59,76}{1} &amp; 1 &amp; \textcolor[RGB]{7,59,76}{0} &amp; \textcolor[RGB]{7,59,76}{1}
+&amp; \textcolor{black}{4/6}  \\
+\end{array}
+\]</span></p>
+</div>
+</div>
+<p>In the last chapter, we talked about how to use sampling to summarize a population without surveying everyone in it. For example, we might estimate the proportion of people in a population of six who prefer chocolate to sour candy. In the fake population shown above, 4/6 people prefer chocolate. Those who prefer chocolate are in the top row, at y=1. Those who prefer sour candy are below at y=0.</p>
+<p>We considered a few different sampling schemes: sampling with replacement, sampling without replacement, and convenience sampling. Suppose we chose sampling with replacement. We’d randomly pick people from our population to survey, putting them back each time so they could be picked again. Of the <span class="polla">3 people we sampled</span>, 2 prefer chocolate to sour candy. So our estimate of the proportion of the population who preferred chocolate was 2/3.</p>
+<div class="columns">
+<div class="column">
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-nrow="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-3-1.svg" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div><div class="column">
+<p><span class="math display">\[
+\color{gray}
+\begin{array}{r|rrrrrr|r}
+j &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp;
+\bar{Y}  \\
+y_{j} &amp; 0 &amp; 1 &amp; \textcolor[RGB]{7,59,76}{1} &amp; 1 &amp; \textcolor[RGB]{7,59,76}{0} &amp; \textcolor[RGB]{7,59,76}{1}
+&amp; \textcolor[RGB]{7,59,76}{2/3}  \\
+y_{j} &amp; 0 &amp; 1 &amp; 1 &amp; \textcolor[RGB]{239,71,111}{1} &amp; 0 &amp; \textcolor[RGB]{239,71,111}{1}
+&amp; \textcolor[RGB]{239,71,111}{2/2}  \\
+y_{j} &amp; \textcolor[RGB]{17,138,178}{0} &amp; 1 &amp; \textcolor[RGB]{17,138,178}{1} &amp; \textcolor[RGB]{17,138,178}{1} &amp; 0 &amp; \textcolor[RGB]{17,138,178}{1}
+&amp; \textcolor[RGB]{17,138,178}{3/4}  \\
+\end{array}
+\]</span></p>
+</div>
+</div>
+<p>Sampling was a huge time-saver. But is our estimate trustworthy? How close was our estimate to the actual proportion in the population of 6? We looked into it ahead of time by running a <strong>simulation</strong> of our survey on a fake population. We did exactly what we did in our actual survey, but we did it over and over. This let us look at what our estimator does, knowing what we want it to do: be <span class="math inline">\(\textcolor{gray}{ \approx 4/6}\)</span>. Above, we’ve shown the results of three of these simulations. We call the distribution of estimates we get like this our estimator’s <strong>sampling distribution</strong>. These three estimates are three <em>draws</em> from the sampling distribution. That’s three equally-likely outcomes of our survey. And we do ok in these three. But that’s just three. To get a better sense of what’s likely, we should look at a lot more.</p>
+<div id="fig-viz-sampling-dist" class="image-toggle drawable quarto-float quarto-figure quarto-figure-center anchored" data-steps=".viz-step" data-labels="Dots,Bars,Histogram" data-mode="steps">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-viz-sampling-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-5-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-6-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-7-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-viz-sampling-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Visualizing 1000 draws from the sampling distribution.
+</figcaption>
+</figure>
+</div>
+<div class="viz-step">
+<p><strong>Dots.</strong> 1000 <span class="purple">●</span>s, one per simulated poll. The green line marks the population proportion. Estimates are usually close, but not always.</p>
+</div>
+<div class="viz-step">
+<p><strong>Bars.</strong> Count the dots in each column. But the columns have uneven spacing—most dots are in the middle, spread across many columns. No single bar is tall there.</p>
+</div>
+<div class="viz-step">
+<p><strong>Histogram.</strong> Group nearby columns into <em>equal-width bins</em>. This shows the <em>density</em> of estimates. The area of the histogram between any two values gives the fraction of estimates there.</p>
+</div>
+<section id="sampling-distributions-in-real-studies" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-distributions-in-real-studies">Sampling Distributions in Real Studies</h2>
+<div class="linked-cameras">
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-8-1.svg" class="img-fluid figure-img" width="672"></p>
+<figcaption>Your Estimator in a Simulated Study</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-8-2.svg" class="img-fluid figure-img" width="672"></p>
+<figcaption>Your Estimator in a Real Study</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>It’s easy to think about sampling distributions when we’re running a <strong>simulation</strong> of our study. We can run our simulation as many times as we want and plot the sampling distribution. And we can use our knowledge of the population to see if we’re happy with it.</p>
+<p>In a real study, we don’t have any of this. All we get is one estimate. But that doesn’t stop us from filling in the rest of the picture by thinking of it as one draw from our estimator’s sampling distribution, working out where that sampling distribution is in relation to the estimation target, and using the data we have to estimate the sampling distribution.</p>
+</section>
+<section id="what-do-we-do-with-a-sampling-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="what-do-we-do-with-a-sampling-distribution">What Do We Do with a Sampling Distribution?</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-9-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A sampling distribution is an odd summary of the proportion of people who prefer chocolate. It’s not what you asked for. You asked for a single number describing a population. What you got was 1000 numbers describing 1000 samples.</p>
+<p>But it does tell you something if you look at it right. How often is the estimate exactly equal to the population proportion? 45% of the time. How often is it off by <span class="math inline">\(\textcolor[RGB]{17,138,178}{1/3}\)</span> or less? 96% of the time.</p>
+<p>To make this sound like a statement about the population, we report two things.</p>
+<ol type="1">
+<li>An <strong>interval</strong> you can expect the population proportion to be in. For example, we think it’s in the interval <span class="math inline">\(\textcolor[RGB]{7,59,76}{2/3} \pm \textcolor[RGB]{17,138,178}{1/3}\)</span> because <span class="math inline">\(\textcolor[RGB]{7,59,76}{2/3}\)</span> is our sample proportion.</li>
+<li>The degree of <strong>confidence</strong> you have that it’s actually in it. For example, it’s in <em>an interval calculated exactly like this</em> in 96% of surveys <em>run exactly like this</em>.</li>
+</ol>
+</section>
+<section id="sampling-mechanisms" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-mechanisms">Sampling Mechanisms</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-compare-sampling" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-compare-sampling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Lecture2-prose_files/figure-html/fig-compare-sampling-1.svg" id="fig-compare-sampling" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-compare-sampling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s take a moment to get a sense of how different sampling schemes affect our estimate. To do this, we’ll look at 1000 draws from the sampling distribution we get using each. To help it a bit easier, we’ll display a histogram of each too (<a href="#fig-compare-sampling" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>).</p>
+<p>2/3 of the mechanisms we’ve plotted give us fairly similar sampling distributions. They have a peak around 2/3, which is the population proportion. That’s where most of our estimates wind up being—where we want them.</p>
+<p>The one that’s different is convenience sampling. It was most convenient for me to sample the first three people in our population. That doesn’t change, so neither does our estimate. In this case, it’s a good one. That happens sometimes. But you can’t count on it. Without a random mechanism, it’s hard to <em>know</em> your estimate will be good. Using multiple, meaningfully different fake populations can help you catch stuff that works by luck in one. Today, we’ll focus on <em>sampling with replacement</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-with-replacement-dist" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-with-replacement-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Lecture2-prose_files/figure-html/fig-with-replacement-dist-1.svg" id="fig-with-replacement-dist" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-with-replacement-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>That’s just to keep things simple and concrete. Most of what we’ll say will apply to any sampling scheme. We’ll really be talking about the relationship between three things.</p>
+<ol type="1">
+<li>Our estimator</li>
+<li>Its sampling distribution</li>
+<li>Our estimation target</li>
+</ol>
+<p>Later, we’ll look into this more generally. We’ll talk about how we want these three things to be related and when we know they’re related that way.</p>
+</section>
+</section>
+<section id="polling" class="level1">
+<h1>Polling</h1>
+<p>Suppose that, week before the 2020 presidential election, you did some polling. You use a list of the <span class="math inline">\(m \approx 7.23M\)</span> people registered to vote in Georgia. And you make <span class="math inline">\(n=625\)</span> phone calls. Each call, you select a voter uniformly at random from the list, e.g.&nbsp;by rolling a 7.23M -sided die. And then you ask the potential voter whether they plan to vote.</p>
+<p>Suppose also that all these registered voters will pick up the phone when called, respond honestly to your questions, and not change their minds about voting. That is, suppose they tell us whether they do ultimately vote on election day.</p>
+<p>You put your polling results in a table. It has one column for each call. In that columns, you record the call number <span class="math inline">\(i\)</span>—a number from <span class="math inline">\(1 \ldots 625\)</span>, and the response <span class="math inline">\(Y_i\)</span> of the person you called—<span class="math inline">\(1\)</span> for ‘yes and <span class="math inline">\(0\)</span> for no’.</p>
+<p><span class="math display">\[
+\begin{array}{r|rrrr|r}
+i    &amp;   1 &amp; 2 &amp; \dots &amp; 625 &amp; \bar{Y}_{625}  \\
+Y_i  &amp;  1 &amp; 1 &amp; \dots &amp; 1 &amp; 0.68 \\
+\end{array}
+\]</span></p>
+<p>You summarized the results with an extra column: the mean of the responses. Remember that the mean of a binary variable is a frequency. Or a proportion.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> You found that 68% of the people polled said they would vote.</p>
+<p>We want to estimate the proportion of <em>all registered voters</em> — our population — who will vote. To do this, we use the proportion of <em>polled voters</em> — our sample — who said they would. When the election occurs, we get to see who turns out to vote. 5.05M people, or roughly 70% of registered voters, actually vote.</p>
+<p>Outcomes for the population of registered voters. To enumerate our population, we give each registered voter a number <span class="math inline">\(j \in 1 \ldots 7.23M\)</span> and write <span class="math inline">\(y_j\)</span> for the turnout of the person with ID <span class="math inline">\(j\)</span>.</p>
+<div class="columns">
+<div class="column">
+<section id="before-the-election" class="level3">
+<h3 class="anchored" data-anchor-id="before-the-election">Before the Election</h3>
+<p><span class="math display">\[\
+\begin{array}{r|rrrr|r}\ni    &amp;   1 &amp; 2 &amp; \dots &amp; 625 &amp; \bar{Y}_{625}  \\
+Y_i  &amp;  1 &amp; 1 &amp; \dots &amp; 1 &amp; 0.68 \\
+\end{array}\
+\]</span><br>
+</p>
+</section>
+</div><div class="column">
+<section id="after-the-election" class="level3">
+<h3 class="anchored" data-anchor-id="after-the-election">After the Election</h3>
+<p><span class="math display">\[
+\begin{array}{r|rrrrrr|r}
+j &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; \dots &amp;   7.23M &amp; \bar{y}_{7.23M}  \\
+y_{j} &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; \dots &amp; 1   &amp; 0.70  \\
+\end{array}
+\]</span></p>
+</section>
+</div>
+</div>
+<p>Our sample proportion <span class="math inline">\(425 / 625 \approx 0.68\)</span> is close to the population proportion <span class="math inline">\(5.05M / 7.23M \approx 0.70\)</span></p>
+<p>That’s pretty accurate. Our reputation as a turnout pollster is intact for now. But unless we’re looking to retire, one success isn’t enough. We’re going to poll again. If our methods aren’t reliable, we’ve got work to do fixing them. Even if they are, if we overstate our accuracy, we’re going to have to answer for it. For example, we could say we’ll be off by at most 2%, since that’s what happened this time. But if it’s 4% next time, that’s not going to look good.</p>
+<section id="important-questions" class="level3">
+<h3 class="anchored" data-anchor-id="important-questions">Important Questions</h3>
+<ol type="1">
+<li>Was it luck that we got as close as we did?<br>
+</li>
+<li>Could we have predicted how close we’d get <em>before</em> the election happened?</li>
+</ol>
+<p>To find answers, we’ll think about what would happen if our friends had run identical polls. Each friend would choose a different random sample <span class="math inline">\(Y_1 \ldots Y_{625}\)</span> and estimate the population proportion using the proportion in their sample. We’ll see how accurate these estimates tend to be.</p>
+</section>
+<section id="sampling" class="level2">
+<h2 class="anchored" data-anchor-id="sampling">Sampling</h2>
+<p>To answer these questions, let’s first be precise about how we run our poll. For each call <span class="math inline">\(i\)</span>, we randomly select a voter with an ID we’ll call <span class="math inline">\(J_i\)</span>. And we record as that call’s outcome the turnout of that voter: <span class="math inline">\(Y_i = y_{J_i}\)</span>. On each call, each registered voter has a <span class="math inline">\(1/7.23M\)</span> chance of being called. This is called sampling with replacement because we could call the same person twice—though in our poll, this is unlikely because we’re making a small number of calls relative to population size.</p>
+<div id="fig-sampling-process" class="image-toggle quarto-float quarto-figure quarto-figure-center anchored" data-steps=".sample-step" data-layout="sidebar" data-labels="First calls,All calls,Our estimate" data-mode="steps">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sampling-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-12-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="poll-table">
+<tbody><tr>
+<td>
+call
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+…
+</td>
+<td>
+625
+</td>
+<td>
+<span class="math inline">\(\bar Y\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(J\)</span>
+</td>
+<td class="polla">
+869369
+</td>
+<td class="polla">
+4428455
+</td>
+<td class="polla">
+…
+</td>
+<td class="empty">
+1268868
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(Y\)</span>
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+…
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+0.00
+</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-14-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="poll-table">
+<tbody><tr>
+<td>
+call
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+…
+</td>
+<td>
+625
+</td>
+<td>
+<span class="math inline">\(\bar Y\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(J\)</span>
+</td>
+<td class="polla">
+869369
+</td>
+<td class="polla">
+4428455
+</td>
+<td class="polla">
+…
+</td>
+<td class="polla">
+1268868
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(Y\)</span>
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+…
+</td>
+<td class="polla">
+1
+</td>
+<td class="empty">
+0.00
+</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-16-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="poll-table">
+<tbody><tr>
+<td>
+call
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+…
+</td>
+<td>
+625
+</td>
+<td>
+<span class="math inline">\(\bar Y\)</span>
+</td>
+</tr>
+<tr>
+<td class="strikethrough">
+<span class="math inline">\(J\)</span>
+</td>
+<td class="strikethrough">
+869369
+</td>
+<td class="strikethrough">
+4428455
+</td>
+<td class="strikethrough">
+…
+</td>
+<td class="strikethrough">
+1268868
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(Y\)</span>
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+…
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+0.68
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sampling-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: The sampling process: making calls and recording responses.
+</figcaption>
+</figure>
+</div>
+<div class="sample-step">
+<p><strong>First few calls.</strong> The first reaches <span class="math inline">\(J_1 = 869369\)</span>, who says <span class="math inline">\(Y_1 = 1\)</span>. The second reaches <span class="math inline">\(J_2 = 4428455\)</span>, who says <span class="math inline">\(Y_2 = 1\)</span>.</p>
+</div>
+<div class="sample-step">
+<p><strong>All 625 calls.</strong> After 625 calls: <span class="math inline">\(Y_1 \ldots Y_{625}\)</span>. Each call is independent.</p>
+</div>
+<div class="sample-step">
+<p><strong>Our estimate.</strong> Now we discard the IDs—all that matters is the responses. Voters (colored) vs non-voters (gray). Sample mean <span class="math inline">\(\overline{Y}_{625} =\)</span> <span class="polla">0.68</span>.</p>
+</div>
+<p><strong>What happened?</strong> Our estimate is close to the population mean (0.70). That’s what we wanted. But was that luck?</p>
+</section>
+<section id="sampling-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-distributions">Sampling Distributions</h2>
+<p>To find out, imagine our friends ran identical polls. Same method, same population—but different random samples, so different estimates.</p>
+<div id="fig-friends-polls" class="image-toggle quarto-float quarto-figure quarto-figure-center anchored" data-steps=".dist-step" data-layout="sidebar" data-labels="Our poll,Friend 1,Friend 2,All three,Many more" data-mode="steps">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-friends-polls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-19-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="poll-table">
+<tbody><tr>
+<td>
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+…
+</td>
+<td>
+625
+</td>
+<td>
+<span class="math inline">\(\bar Y\)</span>
+</td>
+</tr>
+<tr>
+<td class="polla">
+us
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+…
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+0.68
+</td>
+</tr>
+<tr>
+<td class="empty">
+friend 1
+</td>
+<td class="empty">
+0
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+0.71
+</td>
+</tr>
+<tr>
+<td class="empty">
+friend 2
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+0.70
+</td>
+</tr>
+<tr>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+</tr>
+<tr>
+<td class="empty">
+friend 10k
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+0.71
+</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-21-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="poll-table">
+<tbody><tr>
+<td>
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+…
+</td>
+<td>
+625
+</td>
+<td>
+<span class="math inline">\(\bar Y\)</span>
+</td>
+</tr>
+<tr>
+<td class="polla">
+us
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+…
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+0.68
+</td>
+</tr>
+<tr>
+<td class="pollb">
+friend 1
+</td>
+<td class="pollb">
+0
+</td>
+<td class="pollb">
+1
+</td>
+<td class="pollb">
+…
+</td>
+<td class="pollb">
+1
+</td>
+<td class="pollb">
+0.71
+</td>
+</tr>
+<tr>
+<td class="empty">
+friend 2
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+0.70
+</td>
+</tr>
+<tr>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+</tr>
+<tr>
+<td class="empty">
+friend 10k
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+0.71
+</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-23-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="poll-table">
+<tbody><tr>
+<td>
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+…
+</td>
+<td>
+625
+</td>
+<td>
+<span class="math inline">\(\bar Y\)</span>
+</td>
+</tr>
+<tr>
+<td class="polla">
+us
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+…
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+0.68
+</td>
+</tr>
+<tr>
+<td class="pollb">
+friend 1
+</td>
+<td class="pollb">
+0
+</td>
+<td class="pollb">
+1
+</td>
+<td class="pollb">
+…
+</td>
+<td class="pollb">
+1
+</td>
+<td class="pollb">
+0.71
+</td>
+</tr>
+<tr>
+<td class="pollc">
+friend 2
+</td>
+<td class="pollc">
+1
+</td>
+<td class="pollc">
+1
+</td>
+<td class="pollc">
+…
+</td>
+<td class="pollc">
+1
+</td>
+<td class="pollc">
+0.70
+</td>
+</tr>
+<tr>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+</tr>
+<tr>
+<td class="empty">
+friend 10k
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+0.71
+</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-25-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="poll-table">
+<tbody><tr>
+<td>
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+…
+</td>
+<td>
+625
+</td>
+<td>
+<span class="math inline">\(\bar Y\)</span>
+</td>
+</tr>
+<tr>
+<td class="polla">
+us
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+…
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+0.68
+</td>
+</tr>
+<tr>
+<td class="pollb">
+friend 1
+</td>
+<td class="pollb">
+0
+</td>
+<td class="pollb">
+1
+</td>
+<td class="pollb">
+…
+</td>
+<td class="pollb">
+1
+</td>
+<td class="pollb">
+0.71
+</td>
+</tr>
+<tr>
+<td class="pollc">
+friend 2
+</td>
+<td class="pollc">
+1
+</td>
+<td class="pollc">
+1
+</td>
+<td class="pollc">
+…
+</td>
+<td class="pollc">
+1
+</td>
+<td class="pollc">
+0.70
+</td>
+</tr>
+<tr>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+…
+</td>
+</tr>
+<tr>
+<td class="empty">
+friend 10k
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+…
+</td>
+<td class="empty">
+1
+</td>
+<td class="empty">
+0.71
+</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-27-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="poll-table">
+<tbody><tr>
+<td>
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+…
+</td>
+<td>
+625
+</td>
+<td>
+<span class="math inline">\(\bar Y\)</span>
+</td>
+</tr>
+<tr>
+<td class="polla">
+us
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+…
+</td>
+<td class="polla">
+1
+</td>
+<td class="polla">
+0.68
+</td>
+</tr>
+<tr>
+<td class="pollb">
+friend 1
+</td>
+<td class="pollb">
+0
+</td>
+<td class="pollb">
+1
+</td>
+<td class="pollb">
+…
+</td>
+<td class="pollb">
+1
+</td>
+<td class="pollb">
+0.71
+</td>
+</tr>
+<tr>
+<td class="pollc">
+friend 2
+</td>
+<td class="pollc">
+1
+</td>
+<td class="pollc">
+1
+</td>
+<td class="pollc">
+…
+</td>
+<td class="pollc">
+1
+</td>
+<td class="pollc">
+0.70
+</td>
+</tr>
+<tr>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<td class="polld">
+friend 10k
+</td>
+<td class="polld">
+1
+</td>
+<td class="polld">
+1
+</td>
+<td class="polld">
+…
+</td>
+<td class="polld">
+1
+</td>
+<td class="polld">
+0.71
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-friends-polls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.2: Comparing polls: different random samples yield different estimates.
+</figcaption>
+</figure>
+</div>
+<div class="dist-step">
+<p><strong>Our poll.</strong> Estimate: <span class="polla">0.68</span>.</p>
+</div>
+<div class="dist-step">
+<p><strong>Friend 1.</strong> Same method, different luck: <span class="pollb">0.71</span>.</p>
+</div>
+<div class="dist-step">
+<p><strong>Friend 2.</strong> Another sample: <span class="pollc">0.70</span>.</p>
+</div>
+<div class="dist-step">
+<p><strong>All three.</strong> All close to the truth (0.70).</p>
+</div>
+<div class="dist-step">
+<p><strong>Many more friends.</strong> Imagine 10,000 friends, each running the same poll. 10,000 estimates—a whole distribution.</p>
+</div>
+<p>This thought experiment illustrates the <em>sampling distribution</em>: the distribution of estimates we’d get running the same poll many times.</p>
+</section>
+<section id="the-sampling-distribution-of-our-estimate" class="level2">
+<h2 class="anchored" data-anchor-id="the-sampling-distribution-of-our-estimate">The Sampling Distribution of our Estimate</h2>
+<p>We run 10,000 simulated polls and store who we call (J) and what they say (Y).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Js <span class="ot">=</span> <span class="fu">array</span>(<span class="at">dim=</span><span class="fu">c</span>(<span class="dv">10000</span>, n))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Ys <span class="ot">=</span> <span class="fu">array</span>(<span class="at">dim=</span><span class="fu">c</span>(<span class="dv">10000</span>, n))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  Js[rr,] <span class="ot">=</span> <span class="fu">sample</span>(m, n, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  Ys[rr,] <span class="ot">=</span> y[Js[rr,]]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We calculate the sample proportion for each poll.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>meanY.samples <span class="ot">=</span> <span class="fu">rowMeans</span>(Ys)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And histogram the result. That’s the human-readable version. If you’re a computer or a person who just really like tables, you can just put all the numbers—including our sample proportions—in a table. Before we look at the real thing, let’s sketch the histogram we expect to see.</p>
+<p>If you take it seriously, sketching is a great way to develop your intution. As you sketch your histogram, think about what you’re doing. Are you drawing your histogram in the <em>location</em> you think it should be in? What about the <em>shape</em>? Is its <em>spread</em> what you really think it should be?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-sketch-space" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sketch-space-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Lecture2-prose_files/figure-html/fig-sketch-space-1.svg" id="fig-sketch-space" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-sketch-space-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.3
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Histogram
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-32-1.svg" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+As a Table
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\begin{array}{r|rr|rr|r|rr|r}
+\text{call} &amp;  1 &amp; &amp; 2 &amp; &amp; \dots &amp; 625 &amp; &amp;  \\
+\text{pollster} &amp; J_1 &amp; Y_1 &amp; J_2 &amp; Y_2   &amp; \dots &amp; J_{625} &amp; Y_{625}  &amp; \overline{Y}_{625}  \\
+\hline
+\color[RGB]{7,59,76}1   
+    &amp; \color[RGB]{7,59,76}869369    &amp; \color[RGB]{7,59,76}1
+    &amp; \color[RGB]{7,59,76}4428455   &amp; \color[RGB]{7,59,76}1           &amp; \color[RGB]{7,59,76}\dots
+    &amp; \color[RGB]{7,59,76}1268868   &amp; \color[RGB]{7,59,76}1           &amp; \color[RGB]{7,59,76}0.68 \\
+\color[RGB]{239,71,111}2   
+    &amp; \color[RGB]{239,71,111}600481    &amp; \color[RGB]{239,71,111}0
+    &amp; \color[RGB]{239,71,111}6793745   &amp; \color[RGB]{239,71,111}1          &amp; \color[RGB]{239,71,111}\dots
+    &amp; \color[RGB]{239,71,111}1377933   &amp; \color[RGB]{239,71,111}1           &amp; \color[RGB]{239,71,111}0.71 \\
+\color[RGB]{17,138,178}3   
+    &amp; \color[RGB]{17,138,178}3830847    &amp; \color[RGB]{17,138,178}1
+    &amp; \color[RGB]{17,138,178}5887416   &amp; \color[RGB]{17,138,178}1           &amp; \color[RGB]{17,138,178}\dots
+    &amp; \color[RGB]{17,138,178}4706637   &amp; \color[RGB]{17,138,178}1           &amp; \color[RGB]{17,138,178}0.70 \\
+{\vdots} &amp; {\vdots} &amp; {\vdots}  &amp; {\vdots} &amp; {\vdots}  &amp; {\vdots} &amp; {\vdots} &amp; {\vdots} &amp;  {\vdots} \\\\
+\color[RGB]{6,214,160}1M   
+    &amp; \color[RGB]{6,214,160}2533350    &amp; \color[RGB]{6,214,160}1
+    &amp; \color[RGB]{6,214,160}5539770   &amp; \color[RGB]{6,214,160}1           &amp; \color[RGB]{6,214,160}\dots
+    &amp; \color[RGB]{6,214,160}7068692   &amp; \color[RGB]{6,214,160}1           &amp; \color[RGB]{6,214,160}0.71 \\\\
+{\vdots} &amp; {\vdots} &amp; {\vdots} &amp; {\vdots} &amp; {\vdots}  &amp; {\vdots} &amp; {\vdots} &amp; {\vdots}  &amp; {\vdots} \\\\
+\end{array}
+\]</span></p>
+</div>
+</div>
+</div>
+<p>There are a few features of our sampling distribution that we may want to highlight. In <a href="#fig-annotated-hist" class="quarto-xref">Figure&nbsp;<span>5.4</span></a> below, the <em>mean of the sampling distribution</em> is the solid blue line. The middle 2/3 of the sampling distribution lies between the dashed blue lines. The middle 95% of the sampling distribution lies between the dotted blue lines.</p>
+<p>Our estimation target — the turnout frequency in the population — is drawn as a wide green line. It’s in exactly the same place as the solid blue line.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> What does this tell us about our estimator?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-annotated-hist" class="quarto-float quarto-figure quarto-figure-center anchored" width="672" height="500px">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-annotated-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Lecture2-prose_files/figure-html/fig-annotated-hist-1.svg" id="fig-annotated-hist" width="672" height="500" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-annotated-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.4
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observation</strong>. Our point estimate (the ● in <a href="#fig-annotated-hist" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>) is close to our estimation target. It’s within 2%. Did we get lucky? Not really. In 68% of polls, the estimator is within 2% of the target. In 95% of polls, the estimator is within 4% of the target.</p>
+<p>Could we have predicted how close we’d get before the election happened? Yes, in a sense. We will use an interval estimate—a <em>range of values</em> the estimation target is likely to be in. The <em>width</em> of this interval speaks to the ‘how close’ question. The <em>coverage probability</em> — the probability our estimate is actually that close — qualifies this answer.</p>
+</section>
+<section id="interval-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="interval-estimation">Interval Estimation</h2>
+<p>Our <em>point estimate</em> of the turnout frequency in our population is the turnout frequency in our sample: <span class="math inline">\(\overline{Y}_{625}\)</span>. So let’s try an interval of width 0.02 centered on it: <span class="math inline">\(\overline{Y}_{625} \pm 0.01\)</span>. This is just a width we chose arbitarily. Maybe it’s wishful thinking. Being off by at most 1% sounds good. What we want is for our interval to <strong>cover</strong> our estimation target, i.e.&nbsp;for the population frequency to be in our interval. This one doesn’t. Is that just bad luck? Or is it typical of <span class="math inline">\(\pm 0.01\)</span> intervals? Let’s see what happens when our friends try intervals like this.</p>
+<div id="fig-interval-est" class="image-toggle quarto-float quarto-figure quarto-figure-center anchored" data-steps=".interval-step" data-layout="sidebar" data-labels="Our poll,Friends' polls,100 polls" data-mode="steps">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-interval-est-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-34-1.svg" width="672" height="500" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-35-1.svg" width="672" height="500" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-36-1.svg" width="672" height="500" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-interval-est-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.5: Interval estimates: how often do they cover the target?
+</figcaption>
+</figure>
+</div>
+<div class="interval-step">
+<p><strong>Our interval.</strong> We draw <span class="math inline">\(\pm .01\)</span> around our estimate. It misses the target (green line). Bad luck?</p>
+</div>
+<div class="interval-step">
+<p><strong>Friends’ intervals.</strong> The <span class="pollb">pink</span> and <span class="pollc">teal</span> intervals from our friends. One covers, one doesn’t. 1/3 coverage so far.</p>
+</div>
+<div class="interval-step">
+<p><strong>100 polls.</strong> <span class="math inline">\(45/100\)</span> cover the target. This gives us a sense of the <em>coverage probability</em>.</p>
+</div>
+<p>To be more precise about coverage, we could simulate millions of polls. But there’s a more direct way to calculate the <strong>coverage probability</strong>.</p>
+</section>
+<section id="calculating-the-coverage-probability" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-the-coverage-probability">Calculating the Coverage Probability</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-coverage-prob-setup" class="quarto-float quarto-figure quarto-figure-center anchored" width="672" height="500px">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coverage-prob-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Lecture2-prose_files/figure-html/fig-coverage-prob-setup-1.svg" id="fig-coverage-prob-setup" width="672" height="500" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-coverage-prob-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.6
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Activity</strong>. Explain how to calculate this <em>coverage probability</em> using the <em>sampling distribution</em> of your point estimate <span class="math inline">\(\bar Y_{625}\)</span>.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 1. Counting
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Suppose you want to use a diagram like this to count how many of our 100 intervals cover the estimation target. But you don’t want to look at the horizontal segments for each poll. They’re small and hard to see. You just want to use the dots representing each poll’s point estimate <span class="math inline">\(\bar Y_{625}\)</span>. <strong>Sketch</strong> something on top of our diagram to help you count.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint for Step 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>What should you sketch? Think of an interval estimate as a point—a ‘body’—with ‘arms’ of a certain length. It’s not so different from you. Suppose you had an identical twin. And you’re not sure whether you’re standing close enough to touch them. But you don’t want to put your arms out. You’re tired from all that polling. Could your twin check for you?</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step 2. From Counting to Probability
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Now you’ve worked out how to count how many of 100 intervals cover the estimation target. What would you do if you had a million? Or a billion? That’d be good enough. If x% of a billion intervals cover, you’re pretty safe saying that x% is the <em>coverage probability</em>. You can’t look at a billion dots one by one, but you can look at <em>a histogram</em> of a billion dots. <strong>Explain</strong> how to use that histogram to calculate the coverage probability. Use your sketch from Step 1.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-coverage-calc-viz" class="quarto-float quarto-figure quarto-figure-center anchored" width="672" height="500px">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coverage-calc-viz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Lecture2-prose_files/figure-html/fig-coverage-calc-viz-1.svg" id="fig-coverage-calc-viz" width="672" height="500" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-coverage-calc-viz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.7
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Shade in an interval of width .02 centered on the estimation target. This gives it ‘arms’ the same length as our interval estimates have. And its arms touch a point estimate <em>if and only if</em> the point estimate’s arms touch it. That means we can count the intervals that cover by counting the point estimates between the dotted lines.</p>
+<p>What, in terms of the sampling distribution of the point estimate, is the coverage probability? It’s the probability that a random draw from the sampling distribution lies in the <span class="green">green</span> shaded area. <span class="math display">\[
+\text{coverage probability} = P\qty(\overline{Y}_{625} \in \overline{y}_{7.23M} \pm .01)
+\]</span></p>
+<p>And it’s about 43%. We can get that by counting dots.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">mean</span>(y) <span class="sc">-</span> .<span class="dv">01</span> <span class="sc">&lt;=</span> meanY.samples <span class="sc">&amp;</span> meanY.samples <span class="sc">&lt;=</span> <span class="fu">mean</span>(y) <span class="sc">+</span> .<span class="dv">01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4278</code></pre>
+</div>
+</div>
+<p>Or by finding the area of the histogram that’s shaded <span class="green">green</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="calibrating-interval-estimates" class="level2">
+<h2 class="anchored" data-anchor-id="calibrating-interval-estimates">Calibrating Interval Estimates</h2>
+<div id="fig-calibration" class="image-toggle quarto-float quarto-figure quarto-figure-center anchored" data-steps=".calib-step" data-layout="sidebar" data-labels="Narrow intervals,Wide intervals" data-mode="steps">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-calibration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-38-1.svg" width="672" height="500" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lecture2-prose_files/figure-html/unnamed-chunk-39-1.svg" width="672" height="500" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-calibration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.8: Calibrating intervals: choosing width to achieve desired coverage.
+</figcaption>
+</figure>
+</div>
+<div class="calib-step">
+<p><strong>Narrow intervals (<span class="math inline">\(\pm .01\)</span>).</strong> Coverage is about 43%. Think of how you’d advertise: “I’m right about half the time.” Not great.</p>
+</div>
+<div class="calib-step">
+<p><strong>Wide intervals (95%).</strong> The green shading now spans the dotted lines—the middle 95% of the sampling distribution. Coverage is 95%.</p>
+</div>
+<p>What we just did was choose a width and calculate a coverage probability. Instead, let’s go backward. We’ll choose a coverage probability—95% is conventional—and calculate the width we need to get it. An interval estimate <em>calibrated</em> like this is called a <em>confidence interval</em>.</p>
+<p><strong>Question</strong>. How wide do you have to make intervals to actually get 95% coverage?</p>
+<p><strong>Answer</strong>. The width should match the distance between the dotted blue lines. That’s the range containing 95% of estimates from the sampling distribution.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>coverage <span class="ot">=</span> <span class="fu">mean</span>(<span class="fu">mean</span>(y)<span class="sc">-</span> dotted.width<span class="sc">/</span><span class="dv">2</span> <span class="sc">&lt;=</span> meanY.samples <span class="sc">&amp;</span> meanY.samples <span class="sc">&lt;=</span> <span class="fu">mean</span>(y) <span class="sc">+</span> dotted.width<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>coverage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9516</code></pre>
+</div>
+</div>
+<section id="a-problem" class="level3">
+<h3 class="anchored" data-anchor-id="a-problem">A Problem</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-comm-mistake" class="quarto-float quarto-figure quarto-figure-center anchored" width="672" height="500px">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-comm-mistake-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Lecture2-prose_files/figure-html/fig-comm-mistake-1.svg" id="fig-comm-mistake" width="672" height="500" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-comm-mistake-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.9
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We can’t calibrate intervals like this in real life. When we run our a poll, we get a single point estimate <span class="math inline">\(\bar Y_{625}\)</span> based on our sample. We don’t know the sampling distribution of this point estimate until election day. But what we actually do is <em>almost</em> the same. We <em>do</em> the same thing. But we use an <em>estimate</em> of the sampling distribution in place of the thing itself. That’s what we’ll talk about next class.</p>
+</section>
+</section>
+<section id="communication" class="level2">
+<h2 class="anchored" data-anchor-id="communication">Communication</h2>
+<p>Talking about calibrated interval estimates, a.k.a. confidence intervals, has some advantages. It focuses on what we actually want to know: where the estimation target is. It reminds us that we’re not (usually) going to be able to know it exactly. It gives us a sense of how close we can expect that we’ve gotten.</p>
+<p>But there’s something about them that is a bit infuriating when you’re not used to them. Fundamentally, you’re talking about what would happen in surveys you aren’t doing. You can imagine someone saying ‘I don’t have time for imaginary surveys. What did this one tell you?’ And being pretty unhappy when the answer is ‘If that’s how you want to think about it, almost nothing.’</p>
+<p>This isn’t a problem with intervals. This is something that’s fundamentally uncomfortable about sampling. It might feel like a miracle that you can say anything about 7.23M people after 625 phone calls. But once someone thinks you can, it can be hard for them to accept that you also kind of can’t. We really are just saying ‘I think it’s between 64% and 72%, but I’m wrong sometimes.’ We are being clear about what ‘sometimes’ means. But that feels like it’s about you more than it is about what they want to know.</p>
+<section id="dont-make-this-mistake" class="level3">
+<h3 class="anchored" data-anchor-id="dont-make-this-mistake">Don’t Make this Mistake!</h3>
+<p>Talking about surveys you aren’t doing is pretty awkward. So awkward that you’ll want to try to avoid it. It’s tempting to say something nonsensical, e.g.&nbsp;“the turnout frequency in the election is in my confidence interval, 0.64-0.72, 95% of the time.” This a really weird thing to say. It’s like saying that 95% of the time 2 is between 1 and 3. It either is or it isn’t. The only way it could make sense is if the turnout frequency were random. Because 0.64 and 0.72 aren’t. People do that. Don’t. And please don’t encourage it by saying stuff like this.</p>
+<p>This doesn’t come up that often because you can just say ‘confidence interval’ most of the time. So you really only have to deal with all of this awkwardness in two situations.</p>
+<ol type="1">
+<li>When you say ‘confidence interval’ and someone asks what that means.</li>
+<li>When someone else says ‘confidence interval’ but clearly doesn’t know what it means.</li>
+</ol>
+<p>It takes a bit of practice to get good at this. And you’ll get some.</p>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>This is one of those instances where language is complicated. We say the ‘frequency a person said yes’ or the ‘proportion of people who said yes’. If we’re leaving the people out of the sentence, we say either: ‘the sample frequency’ or ‘the sample proportion’. Using only one or the other really limits how you phrase things.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>That’s why it looks like the solid blue line is ‘highlighted’ in green.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../lectures";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lectures/Lab1-prose.html" class="pagination-link" aria-label="Sampling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sampling</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lectures/Lecture3-prose.html" class="pagination-link" aria-label="Calibrating Interval Estimates with Binary Observations">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calibrating Interval Estimates with Binary Observations</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

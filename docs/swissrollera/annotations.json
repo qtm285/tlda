@@ -1,0 +1,620 @@
+{
+  "room": "doc-swissrollera",
+  "doc": "swissrollera",
+  "exportedAt": "2026-03-05T22:21:11.944Z",
+  "liveUrl": "http://10.110.65.206:5176/?doc=swissrollera",
+  "records": {
+    "shape:swissrollera-page-15": {
+      "x": 0,
+      "y": 16009.411764705887,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-15",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 15
+      },
+      "parentId": "page:page",
+      "index": "aGcIYqkV",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-16": {
+      "x": 0,
+      "y": 17076.705882352944,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-16",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 16
+      },
+      "parentId": "page:page",
+      "index": "aHOdlaEV",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-10": {
+      "x": 0,
+      "y": 10320,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-10",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=10"
+      },
+      "parentId": "page:page",
+      "index": "aShOm5zl",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-11": {
+      "x": 0,
+      "y": 11352,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-11",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=11"
+      },
+      "parentId": "page:page",
+      "index": "aTLr40WV",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-12": {
+      "x": 0,
+      "y": 12384,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-12",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=12"
+      },
+      "parentId": "page:page",
+      "index": "aUyUySzt",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-13": {
+      "x": 0,
+      "y": 13416,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-13",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=13"
+      },
+      "parentId": "page:page",
+      "index": "aVA3B5FV",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-14": {
+      "x": 0,
+      "y": 14448,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-14",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=14"
+      },
+      "parentId": "page:page",
+      "index": "aWztDzct",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-15": {
+      "x": 0,
+      "y": 15480,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-15",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=15"
+      },
+      "parentId": "page:page",
+      "index": "aXibVmuV",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-16": {
+      "x": 0,
+      "y": 16512,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-16",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=16"
+      },
+      "parentId": "page:page",
+      "index": "aYzgQOtG",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-0": {
+      "x": 0,
+      "y": 0,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-0",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=0"
+      },
+      "parentId": "page:page",
+      "index": "aIfZik6V",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-1": {
+      "x": 0,
+      "y": 1032,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-1",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=1"
+      },
+      "parentId": "page:page",
+      "index": "aJUEICkG",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-2": {
+      "x": 0,
+      "y": 2064,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-2",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=2"
+      },
+      "parentId": "page:page",
+      "index": "aK5sQfqV",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-3": {
+      "x": 0,
+      "y": 3096,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-3",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=3"
+      },
+      "parentId": "page:page",
+      "index": "aLLSwUDG",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-4": {
+      "x": 0,
+      "y": 4128,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-4",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=4"
+      },
+      "parentId": "page:page",
+      "index": "aMUYUUyZ",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-5": {
+      "x": 0,
+      "y": 5160,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-5",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=5"
+      },
+      "parentId": "page:page",
+      "index": "aNWrwoIV",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-6": {
+      "x": 0,
+      "y": 6192,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-6",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=6"
+      },
+      "parentId": "page:page",
+      "index": "aOtT6VgV",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-7": {
+      "x": 0,
+      "y": 7224,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-7",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=7"
+      },
+      "parentId": "page:page",
+      "index": "aPNglUKG",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-0": {
+      "x": 0,
+      "y": 0,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-0",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 0
+      },
+      "parentId": "page:page",
+      "index": "a1AJ2fDV",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-8": {
+      "x": 0,
+      "y": 8256,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-8",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=8"
+      },
+      "parentId": "page:page",
+      "index": "aQqmd0dV",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-1": {
+      "x": 0,
+      "y": 1067.2941176470588,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-1",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 1
+      },
+      "parentId": "page:page",
+      "index": "a2R5y6kV",
+      "typeName": "shape"
+    },
+    "shape:Swiss Roll Era-slide-9": {
+      "x": 0,
+      "y": 9288,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:Swiss Roll Era-slide-9",
+      "type": "html-page",
+      "props": {
+        "w": 1290,
+        "h": 1000,
+        "url": "/docs/swissrollera/swissrollera.html?_ctdSlide=9"
+      },
+      "parentId": "page:page",
+      "index": "aREz1Vjl",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-2": {
+      "x": 0,
+      "y": 2134.5882352941176,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-2",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 2
+      },
+      "parentId": "page:page",
+      "index": "a3BKRh5V",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-3": {
+      "x": 0,
+      "y": 3201.8823529411766,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-3",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 3
+      },
+      "parentId": "page:page",
+      "index": "a4UaYAcl",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-4": {
+      "x": 0,
+      "y": 4269.176470588235,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-4",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 4
+      },
+      "parentId": "page:page",
+      "index": "a5uixiaV",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-5": {
+      "x": 0,
+      "y": 5336.470588235294,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-5",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 5
+      },
+      "parentId": "page:page",
+      "index": "a6kFWi3V",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-6": {
+      "x": 0,
+      "y": 6403.764705882352,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-6",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 6
+      },
+      "parentId": "page:page",
+      "index": "a7lxHhvV",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-7": {
+      "x": 0,
+      "y": 7471.058823529411,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-7",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 7
+      },
+      "parentId": "page:page",
+      "index": "a8JarTUl",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-10": {
+      "x": 0,
+      "y": 10672.94117647059,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-10",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 10
+      },
+      "parentId": "page:page",
+      "index": "aBhQBU2l",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-8": {
+      "x": 0,
+      "y": 8538.35294117647,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-8",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 8
+      },
+      "parentId": "page:page",
+      "index": "a9LZwO2V",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-11": {
+      "x": 0,
+      "y": 11740.235294117649,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-11",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 11
+      },
+      "parentId": "page:page",
+      "index": "aClw04QV",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-9": {
+      "x": 0,
+      "y": 9605.64705882353,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-9",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 9
+      },
+      "parentId": "page:page",
+      "index": "aAbuP1NV",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-12": {
+      "x": 0,
+      "y": 12807.529411764708,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-12",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 12
+      },
+      "parentId": "page:page",
+      "index": "aDKqGr1V",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-13": {
+      "x": 0,
+      "y": 13874.823529411768,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-13",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 13
+      },
+      "parentId": "page:page",
+      "index": "aEB1zXlG",
+      "typeName": "shape"
+    },
+    "shape:swissrollera-page-14": {
+      "x": 0,
+      "y": 14942.117647058827,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:swissrollera-page-14",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 14
+      },
+      "parentId": "page:page",
+      "index": "aFQ1ablV",
+      "typeName": "shape"
+    }
+  }
+}

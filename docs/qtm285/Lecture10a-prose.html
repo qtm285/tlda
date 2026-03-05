@@ -1,0 +1,2654 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>20&nbsp; Randomized Experiments – Prediction, Inference, and Causality</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../homework/week10-homework.html" rel="next">
+<link href="../homework/week5-homework.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-88e56ac79f6d00081da8a857611ab47f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-418dd549c579b3478655ef3aa4206478.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/image-toggle-1.0.0/image-toggle.js"></script>
+<link href="../site_libs/quarto-contrib/image-toggle-1.0.0/image-toggle.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/drawable-tldraw-1.0.0/drawable.js"></script>
+<link href="../site_libs/quarto-contrib/drawable-tldraw-1.0.0/drawable.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script>
+  window.MathJax = {
+    options : {
+      menuOptions: {
+        settings: {
+          assistiveMml: false,
+          collapsible: false,
+          explorer: false
+        }
+      }
+    },
+    loader: {load: ['[tex]/physics', '[tex]/unicode']},
+    tex: {packages: {'[+]': ['physics', 'unicode']}}
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part2-two-sample.html">Two-Sample Problems</a></li><li class="breadcrumb-item"><a href="../lectures/Lecture10a-prose.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Randomized Experiments</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Prediction, Inference, and Causality</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About This Book</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part1-one-sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">One-Sample Problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lab1-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week0-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Homework: Review</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture2-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Point and Interval Estimates</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week1-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Homework: The Idea of Calibration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture3-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Calibrating Interval Estimates with Binary Observations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week2-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Homework: Calibration with Binary Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture4-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Calibrating Interval Estimates using the Bootstrap</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lab4-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Probability Review</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture5-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Normal Approximation and Sample Size Calculation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week2b-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Homework: Biased Estimators</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture5b-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Bias and Coverage</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week3-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Homework: Comparing Estimators</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/enrichment-clt-proof.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Why the CLT Works: Stein’s Method</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/practice-midterm-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Practice Midterm 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/sample-size-enrichment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sample Size Calculations (Enrichment)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/enrichment-probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Enrichment: Probability Tools</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part2-two-sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Two-Sample Problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture6-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Comparing Two Groups</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week5-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Homework: Variance of Comparisons</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture10a-prose.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Randomized Experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week10-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Homework: Randomized Experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture10aa-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Randomization and Sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/enrichment-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Why Do Models Work?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/practice-midterm-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Practice Midterm 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/causality-questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Causality Questions for Unit 2 Exam</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture7-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Summarizing Trends involving Many Groups</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture9-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Multivariate Analysis and Adjustment</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week7-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Homework: Covariate Shift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lab5-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">A Game of Telephone</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture8-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Inference for Adjusted Comparisons</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week9a-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Homework: Point Estimation for Complex Summaries</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week9b-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Homework: Calibration for Complex Summaries</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture10b-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Conditional Randomization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture14a-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Inverse Probability Weighting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/practice-midterm-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Practice Midterm 3</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture11-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Least Squares Regression in Linear Models</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lab6-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Least Squares in <strong>R</strong></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week13a-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Homework: Simulating Experiments and Identifying the ATE</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture12-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">The Behavior of Least Squares Predictors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture13-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Misspecification and Inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lab7-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Misspecification and Averaging</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week13b-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Homework: IPW and Estimating Treatment Effects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture14-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Inverse Probability Weighted Least Squares</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture15-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Application: Profit vs.&nbsp;Outcomes in Heart Attack Patients</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/week13c-homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Homework: Misspecification and Bias</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/practice-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Practice Final</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../part0-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/Lecture0-prose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">The Social Pressure Experiment</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="-1">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-classroom-experiment" id="toc-a-classroom-experiment" class="nav-link active" data-scroll-target="#a-classroom-experiment">A Classroom Experiment</a>
+  <ul class="collapse">
+  <li><a href="#the-quiz" id="toc-the-quiz" class="nav-link" data-scroll-target="#the-quiz">The Quiz</a></li>
+  <li><a href="#the-reveal" id="toc-the-reveal" class="nav-link" data-scroll-target="#the-reveal">The Reveal</a></li>
+  </ul></li>
+  <li><a href="#potential-outcomes" id="toc-potential-outcomes" class="nav-link" data-scroll-target="#potential-outcomes">Potential Outcomes</a>
+  <ul class="collapse">
+  <li><a href="#your-potential-outcomes" id="toc-your-potential-outcomes" class="nav-link" data-scroll-target="#your-potential-outcomes">Your Potential Outcomes</a></li>
+  <li><a href="#the-fundamental-problem" id="toc-the-fundamental-problem" class="nav-link" data-scroll-target="#the-fundamental-problem">The Fundamental Problem</a></li>
+  <li><a href="#what-we-want-vs.-what-we-can-calculate" id="toc-what-we-want-vs.-what-we-can-calculate" class="nav-link" data-scroll-target="#what-we-want-vs.-what-we-can-calculate">What We Want vs.&nbsp;What We Can Calculate</a></li>
+  </ul></li>
+  <li><a href="#why-randomization-works" id="toc-why-randomization-works" class="nav-link" data-scroll-target="#why-randomization-works">Why Randomization Works</a>
+  <ul class="collapse">
+  <li><a href="#the-setup" id="toc-the-setup" class="nav-link" data-scroll-target="#the-setup">The Setup</a></li>
+  <li><a href="#a-tiny-example" id="toc-a-tiny-example" class="nav-link" data-scroll-target="#a-tiny-example">A Tiny Example</a></li>
+  <li><a href="#visualizing-randomization" id="toc-visualizing-randomization" class="nav-link" data-scroll-target="#visualizing-randomization">Visualizing Randomization</a>
+  <ul class="collapse">
+  <li><a href="#randomization-variability" id="toc-randomization-variability" class="nav-link" data-scroll-target="#randomization-variability">Randomization variability</a></li>
+  </ul></li>
+  <li><a href="#proving-unbiasedness" id="toc-proving-unbiasedness" class="nav-link" data-scroll-target="#proving-unbiasedness">Proving Unbiasedness</a></li>
+  <li><a href="#what-made-this-work" id="toc-what-made-this-work" class="nav-link" data-scroll-target="#what-made-this-work">What Made This Work?</a></li>
+  </ul></li>
+  <li><a href="#connection-to-lecture-6" id="toc-connection-to-lecture-6" class="nav-link" data-scroll-target="#connection-to-lecture-6">Connection to Lecture 6</a></li>
+  <li><a href="#the-potential-outcomes-formalism" id="toc-the-potential-outcomes-formalism" class="nav-link" data-scroll-target="#the-potential-outcomes-formalism">The Potential Outcomes Formalism</a>
+  <ul class="collapse">
+  <li><a href="#a-donation-example" id="toc-a-donation-example" class="nav-link" data-scroll-target="#a-donation-example">A Donation Example</a>
+  <ul class="collapse">
+  <li><a href="#potential-outcomes-as-functions" id="toc-potential-outcomes-as-functions" class="nav-link" data-scroll-target="#potential-outcomes-as-functions">Potential Outcomes as Functions</a></li>
+  <li><a href="#why-think-like-this" id="toc-why-think-like-this" class="nav-link" data-scroll-target="#why-think-like-this">Why Think Like This?</a></li>
+  </ul></li>
+  <li><a href="#the-fundamental-problem-of-causal-inference" id="toc-the-fundamental-problem-of-causal-inference" class="nav-link" data-scroll-target="#the-fundamental-problem-of-causal-inference">The Fundamental Problem of Causal Inference</a></li>
+  </ul></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#sec-conditional-probability" id="toc-sec-conditional-probability" class="nav-link" data-scroll-target="#sec-conditional-probability">Why <span class="math inline">\(M_w/m\)</span> is the Conditional Probability</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part2-two-sample.html">Two-Sample Problems</a></li><li class="breadcrumb-item"><a href="../lectures/Lecture10a-prose.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Randomized Experiments</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Randomized Experiments</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+$$ \newcommand{X}{} \newcommand{Y}{}
+<p>$$</p>
+</div>
+<section id="a-classroom-experiment" class="level1">
+<h1>A Classroom Experiment</h1>
+<section id="the-quiz" class="level2">
+<h2 class="anchored" data-anchor-id="the-quiz">The Quiz</h2>
+<div class="callout callout-style-simple callout-exercise no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="callout-exercise">
+<p>Let <span class="math inline">\((X_1, Y_1) \ldots (X_n, Y_n)\)</span> be drawn with replacement from a population, where <span class="math inline">\(X_i \in \{0,1\}\)</span>. Define subsample means <span class="math display">\[\hat\mu(0) = \frac{1}{N_0}\sum_{i:X_i=0} Y_i \qquad \hat\mu(1) = \frac{1}{N_1}\sum_{i:X_i=1} Y_i\]</span> for <span class="math inline">\(N_x = \sum_i 1_{=x}(X_i)\)</span>. Show that <span class="math display">\[\mathop{\mathrm{E}}[(\hat\mu(0) - \mu(0))(\hat\mu(1) - \mu(1))] = 0.\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-reveal" class="level2">
+<h2 class="anchored" data-anchor-id="the-reveal">The Reveal</h2>
+<p>Last week’s homework included a problem very similar to this one. Some of you had access to a hint; some of you didn’t. We randomized who got the hint key.</p>
+<p>Let’s see what happened. Write your quiz score on a slip of paper with your name.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Classroom Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sort the slips into two piles: students who got the hint key and students who didn’t. Tally the scores on the board.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Got hint (<span class="math inline">\(w=1\)</span>)</th>
+<th>No hint (<span class="math inline">\(w=0\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>Calculate the group means <span class="math inline">\(\hat\mu(1)\)</span> and <span class="math inline">\(\hat\mu(0)\)</span>, and the difference <span class="math inline">\(\hat\tau = \hat\mu(1) - \hat\mu(0)\)</span>.</p>
+</div>
+</div>
+<p>Is this a real effect, or just noise? Did the hint help, hurt, or do nothing?</p>
+<p>Unlike the simulations we’ve been running, we can’t answer this by repeating the experiment 10,000 times and looking at the sampling distribution. You can only do the homework for the first time once. This is the situation researchers are usually in: you run the experiment, you get one estimate, and you need theory to tell you what it means.</p>
+<p>To answer these questions, we need to think carefully about what we’re trying to estimate and why randomization helps us estimate it.</p>
+</section>
+</section>
+<section id="potential-outcomes" class="level1">
+<h1>Potential Outcomes</h1>
+<section id="your-potential-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="your-potential-outcomes">Your Potential Outcomes</h2>
+<p>Let’s think about this experiment more carefully. Each of you has two <em>potential outcomes</em>:</p>
+<ul>
+<li><span class="math inline">\(y_j(1)\)</span> is the quiz score student <span class="math inline">\(j\)</span> <em>would get</em> if they had access to the hint</li>
+<li><span class="math inline">\(y_j(0)\)</span> is the quiz score student <span class="math inline">\(j\)</span> <em>would get</em> if they didn’t have access to the hint</li>
+</ul>
+<p>These are fixed numbers—characteristics of each student. The <em>treatment effect</em> for student <span class="math inline">\(j\)</span> is the difference: <span class="math display">\[\tau_j = y_j(1) - y_j(0).\]</span></p>
+<p>This is how much the hint helps (or hurts) that particular student.</p>
+</section>
+<section id="the-fundamental-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-fundamental-problem">The Fundamental Problem</h2>
+<p>Here’s the catch: you can’t see both potential outcomes for any student. If you got the hint, we observe <span class="math inline">\(y_j(1)\)</span>. If you didn’t, we observe <span class="math inline">\(y_j(0)\)</span>. We never observe <span class="math inline">\(\tau_j = y_j(1) - y_j(0)\)</span> for anyone.</p>
+<p>This is called the <em>fundamental problem of causal inference</em>. We want to know causal effects—comparisons of what <em>would happen</em> under different treatments—but each person only takes one treatment.</p>
+</section>
+<section id="what-we-want-vs.-what-we-can-calculate" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-want-vs.-what-we-can-calculate">What We Want vs.&nbsp;What We Can Calculate</h2>
+<p><strong>What we want</strong>: the <em>average treatment effect</em> in our population (the class). <span class="math display">\[\bar\tau = \frac{1}{m}\sum_{j=1}^m \tau_j = \frac{1}{m}\sum_{j=1}^m \{y_j(1) - y_j(0)\}\]</span></p>
+<p><strong>What we can calculate</strong>: a comparison of observed outcomes for the two groups. <span class="math display">\[\hat\tau = \frac{1}{m_1}\sum_{j:w_j=1} y_j(w_j) - \frac{1}{m_0}\sum_{j:w_j=0} y_j(w_j)\]</span> where <span class="math inline">\(w_j \in \{0,1\}\)</span> is the treatment student <span class="math inline">\(j\)</span> actually received and <span class="math inline">\(m_w = \sum_j 1_{=w}(w_j)\)</span> is the number of students who received treatment <span class="math inline">\(w\)</span>.</p>
+<p>Is <span class="math inline">\(\hat\tau\)</span> a good estimate of <span class="math inline">\(\bar\tau\)</span>? That depends on how we assigned treatments.</p>
+</section>
+</section>
+<section id="why-randomization-works" class="level1">
+<h1>Why Randomization Works</h1>
+<section id="the-setup" class="level2">
+<h2 class="anchored" data-anchor-id="the-setup">The Setup</h2>
+<p>We have a population of <span class="math inline">\(m\)</span> individuals. Each has potential outcomes <span class="math inline">\(y_j(0)\)</span> and <span class="math inline">\(y_j(1)\)</span>. We assign treatments <span class="math inline">\(W_1 \ldots W_m\)</span> by randomization—say, by flipping a coin for each person: <span class="math display">\[W_j = \begin{cases} 1 &amp; \text{with probability } 1/2 \\ 0 &amp; \text{with probability } 1/2 \end{cases}\]</span> with flips independent across people.</p>
+<p>The realized outcome for person <span class="math inline">\(j\)</span> is <span class="math display">\[Y_j = y_j(W_j) = \begin{cases} y_j(1) &amp; \text{if } W_j = 1 \\ y_j(0) &amp; \text{if } W_j = 0. \end{cases}\]</span></p>
+<p>Our estimator is <span class="math display">\[\hat\tau = \hat\mu(1) - \hat\mu(0) = \frac{1}{M_1}\sum_{j:W_j=1} Y_j - \frac{1}{M_0}\sum_{j:W_j=0} Y_j\]</span> where <span class="math inline">\(M_w = \sum_{j=1}^m 1_{=w}(W_j)\)</span> is the (random) number of people assigned to treatment <span class="math inline">\(w\)</span>.</p>
+</section>
+<section id="a-tiny-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-tiny-example">A Tiny Example</h2>
+<div class="columns">
+<div class="column">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(j\)</span></th>
+<th><span class="math inline">\(y_j(1)\)</span></th>
+<th><span class="math inline">\(y_j(0)\)</span></th>
+<th><span class="math inline">\(\tau_j\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>6</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>7</td>
+<td>7</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>8</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column">
+<p>The average treatment effect is <span class="math display">\[\bar\tau = \frac{1}{6}\sum_{j=1}^6 \tau_j = \frac{13}{6} = 2.17.\]</span></p>
+<p>But we can’t calculate this—we don’t observe both potential outcomes for anyone.</p>
+</div>
+</div>
+</section>
+<section id="visualizing-randomization" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-randomization">Visualizing Randomization</h2>
+<div id="fig-randomization-variability" class="image-toggle quarto-float quarto-figure quarto-figure-center anchored" data-mode="steps" data-steps=".rand-step" data-labels="Population,Randomize 1,Randomize 2,Randomize 3" data-layout="sidebar">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-randomization-variability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<p></p><div class="ctd-inline-svg" style="max-width:100%;height:auto"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="504.00" height="604.80" viewbox="0 0 504.00 604.80">
+<g class="svglite">
+<defs>
+  <style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  </style>
+</defs>
+<rect width="100%" height="100%" style="stroke: none; fill: none;"></rect>
+<defs>
+  <clippath id="svg1-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=">
+    <rect x="0.00" y="0.00" width="504.00" height="604.80"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg1-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=)">
+<rect x="0.00" y="0.00" width="504.00" height="604.80" style="stroke-width: 1.07; stroke: none;"></rect>
+</g>
+<defs>
+  <clippath id="svg1-cpMjAuNDR8NDk4LjUyfDUuNDh8NTg4LjQz">
+    <rect x="20.44" y="5.48" width="478.08" height="582.95"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg1-cpMjAuNDR8NDk4LjUyfDUuNDh8NTg4LjQz)">
+<rect x="20.44" y="5.48" width="478.08" height="582.95" style="stroke-width: 1.07; stroke: none;"></rect>
+<polyline points="20.44,575.18 498.52,575.18 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,442.69 498.52,442.69 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,310.20 498.52,310.20 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,177.71 498.52,177.71 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,45.23 498.52,45.23 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="259.48,588.43 259.48,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,508.94 498.52,508.94 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,376.45 498.52,376.45 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,243.96 498.52,243.96 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,111.47 498.52,111.47 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="114.61,588.43 114.61,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="404.35,588.43 404.35,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<circle class="ctd-semantic" cx="82.73" cy="402.95" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="82.73" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="82.73" cy="455.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.48" cy="137.97" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.48" cy="296.95" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.48" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="146.48" cy="190.96" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="146.48" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="146.48" cy="296.95" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="436.22" cy="137.97" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="436.22" cy="84.97" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="436.22" cy="402.95" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<line x1="82.73" y1="402.95" x2="146.48" y2="190.96" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="82.73" y1="508.94" x2="146.48" y2="508.94" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="82.73" y1="455.94" x2="146.48" y2="296.95" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="372.48" y1="137.97" x2="436.22" y2="137.97" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="372.48" y1="296.95" x2="436.22" y2="84.97" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="372.48" y1="508.94" x2="436.22" y2="402.95" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+</g>
+<g clip-path="url(#svg1-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=)">
+<text x="11.59" y="512.09" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">0.0</text>
+<text x="11.59" y="379.60" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">2.5</text>
+<text x="11.59" y="247.11" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">5.0</text>
+<text x="11.59" y="114.62" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">7.5</text>
+<text x="114.61" y="598.40" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">55</text>
+<text x="404.35" y="598.40" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">75</text>
+</g>
+</g>
+</svg>
+</div><p></p>
+</div>
+</div>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<p></p><div class="ctd-inline-svg" style="max-width:100%;height:auto"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="504.00" height="604.80" viewbox="0 0 504.00 604.80">
+<g class="svglite">
+<defs>
+  <style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  </style>
+</defs>
+<rect width="100%" height="100%" style="stroke: none; fill: none;"></rect>
+<defs>
+  <clippath id="svg2-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=">
+    <rect x="0.00" y="0.00" width="504.00" height="604.80"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg2-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=)">
+<rect x="0.00" y="0.00" width="504.00" height="604.80" style="stroke-width: 1.07; stroke: none;"></rect>
+</g>
+<defs>
+  <clippath id="svg2-cpMjAuNDR8NDk4LjUyfDUuNDh8NTg4LjQz">
+    <rect x="20.44" y="5.48" width="478.08" height="582.95"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg2-cpMjAuNDR8NDk4LjUyfDUuNDh8NTg4LjQz)">
+<rect x="20.44" y="5.48" width="478.08" height="582.95" style="stroke-width: 1.07; stroke: none;"></rect>
+<polyline points="20.44,575.18 498.52,575.18 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,442.69 498.52,442.69 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,310.20 498.52,310.20 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,177.71 498.52,177.71 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,45.23 498.52,45.23 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="259.48,588.43 259.48,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,508.94 498.52,508.94 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,376.45 498.52,376.45 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,243.96 498.52,243.96 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,111.47 498.52,111.47 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="114.61,588.43 114.61,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="404.35,588.43 404.35,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<circle class="ctd-semantic" cx="82.73" cy="402.95" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="79.18" y1="406.50" x2="86.29" y2="399.39" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="79.18" y1="399.39" x2="86.29" y2="406.50" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="82.73" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="82.73" cy="455.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="79.18" y1="459.50" x2="86.29" y2="452.39" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="79.18" y1="452.39" x2="86.29" y2="459.50" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="372.48" cy="137.97" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.48" cy="296.95" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="368.93" y1="300.51" x2="376.04" y2="293.40" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="368.93" y1="293.40" x2="376.04" y2="300.51" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="372.48" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="146.48" cy="190.96" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="146.48" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="142.92" y1="512.49" x2="150.03" y2="505.38" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="142.92" y1="505.38" x2="150.03" y2="512.49" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="146.48" cy="296.95" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="436.22" cy="137.97" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="432.67" y1="141.52" x2="439.78" y2="134.41" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="432.67" y1="134.41" x2="439.78" y2="141.52" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="436.22" cy="84.97" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="436.22" cy="402.95" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="432.67" y1="406.50" x2="439.78" y2="399.39" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="432.67" y1="399.39" x2="439.78" y2="406.50" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="82.73" y1="402.95" x2="146.48" y2="190.96" style="stroke-width: 1.07; stroke: #00BFC4; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="82.73" y1="508.94" x2="146.48" y2="508.94" style="stroke-width: 1.07; stroke: #F8766D; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="82.73" y1="455.94" x2="146.48" y2="296.95" style="stroke-width: 1.07; stroke: #00BFC4; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="372.48" y1="137.97" x2="436.22" y2="137.97" style="stroke-width: 1.07; stroke: #F8766D; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="372.48" y1="296.95" x2="436.22" y2="84.97" style="stroke-width: 1.07; stroke: #00BFC4; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="372.48" y1="508.94" x2="436.22" y2="402.95" style="stroke-width: 1.07; stroke: #F8766D; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+</g>
+<g clip-path="url(#svg2-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=)">
+<text x="11.59" y="512.09" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">0.0</text>
+<text x="11.59" y="379.60" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">2.5</text>
+<text x="11.59" y="247.11" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">5.0</text>
+<text x="11.59" y="114.62" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">7.5</text>
+<text x="114.61" y="598.40" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">55</text>
+<text x="404.35" y="598.40" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">75</text>
+</g>
+</g>
+</svg>
+</div><p></p>
+</div>
+</div>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<p></p><div class="ctd-inline-svg" style="max-width:100%;height:auto"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="504.00" height="604.80" viewbox="0 0 504.00 604.80">
+<g class="svglite">
+<defs>
+  <style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  </style>
+</defs>
+<rect width="100%" height="100%" style="stroke: none; fill: none;"></rect>
+<defs>
+  <clippath id="svg3-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=">
+    <rect x="0.00" y="0.00" width="504.00" height="604.80"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg3-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=)">
+<rect x="0.00" y="0.00" width="504.00" height="604.80" style="stroke-width: 1.07; stroke: none;"></rect>
+</g>
+<defs>
+  <clippath id="svg3-cpMjAuNDR8NDk4LjUyfDUuNDh8NTg4LjQz">
+    <rect x="20.44" y="5.48" width="478.08" height="582.95"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg3-cpMjAuNDR8NDk4LjUyfDUuNDh8NTg4LjQz)">
+<rect x="20.44" y="5.48" width="478.08" height="582.95" style="stroke-width: 1.07; stroke: none;"></rect>
+<polyline points="20.44,575.18 498.52,575.18 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,442.69 498.52,442.69 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,310.20 498.52,310.20 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,177.71 498.52,177.71 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,45.23 498.52,45.23 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="259.48,588.43 259.48,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,508.94 498.52,508.94 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,376.45 498.52,376.45 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,243.96 498.52,243.96 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,111.47 498.52,111.47 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="114.61,588.43 114.61,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="404.35,588.43 404.35,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<circle class="ctd-semantic" cx="82.73" cy="402.95" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="82.73" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="79.18" y1="512.49" x2="86.29" y2="505.38" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="79.18" y1="505.38" x2="86.29" y2="512.49" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="82.73" cy="455.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.48" cy="137.97" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.48" cy="296.95" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="368.93" y1="300.51" x2="376.04" y2="293.40" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="368.93" y1="293.40" x2="376.04" y2="300.51" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="372.48" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="368.93" y1="512.49" x2="376.04" y2="505.38" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="368.93" y1="505.38" x2="376.04" y2="512.49" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="146.48" cy="190.96" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="142.92" y1="194.52" x2="150.03" y2="187.41" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="142.92" y1="187.41" x2="150.03" y2="194.52" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="146.48" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="146.48" cy="296.95" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="142.92" y1="300.51" x2="150.03" y2="293.40" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="142.92" y1="293.40" x2="150.03" y2="300.51" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="436.22" cy="137.97" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="432.67" y1="141.52" x2="439.78" y2="134.41" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="432.67" y1="134.41" x2="439.78" y2="141.52" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="436.22" cy="84.97" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="436.22" cy="402.95" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<line class="ctd-semantic" x1="82.73" y1="402.95" x2="146.48" y2="190.96" style="stroke-width: 1.07; stroke: #F8766D; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="82.73" y1="508.94" x2="146.48" y2="508.94" style="stroke-width: 1.07; stroke: #00BFC4; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="82.73" y1="455.94" x2="146.48" y2="296.95" style="stroke-width: 1.07; stroke: #F8766D; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="372.48" y1="137.97" x2="436.22" y2="137.97" style="stroke-width: 1.07; stroke: #F8766D; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="372.48" y1="296.95" x2="436.22" y2="84.97" style="stroke-width: 1.07; stroke: #00BFC4; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="372.48" y1="508.94" x2="436.22" y2="402.95" style="stroke-width: 1.07; stroke: #00BFC4; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+</g>
+<g clip-path="url(#svg3-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=)">
+<text x="11.59" y="512.09" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">0.0</text>
+<text x="11.59" y="379.60" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">2.5</text>
+<text x="11.59" y="247.11" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">5.0</text>
+<text x="11.59" y="114.62" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">7.5</text>
+<text x="114.61" y="598.40" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">55</text>
+<text x="404.35" y="598.40" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">75</text>
+</g>
+</g>
+</svg>
+</div><p></p>
+</div>
+</div>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<p></p><div class="ctd-inline-svg" style="max-width:100%;height:auto"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="504.00" height="604.80" viewbox="0 0 504.00 604.80">
+<g class="svglite">
+<defs>
+  <style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  </style>
+</defs>
+<rect width="100%" height="100%" style="stroke: none; fill: none;"></rect>
+<defs>
+  <clippath id="svg4-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=">
+    <rect x="0.00" y="0.00" width="504.00" height="604.80"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg4-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=)">
+<rect x="0.00" y="0.00" width="504.00" height="604.80" style="stroke-width: 1.07; stroke: none;"></rect>
+</g>
+<defs>
+  <clippath id="svg4-cpMjAuNDR8NDk4LjUyfDUuNDh8NTg4LjQz">
+    <rect x="20.44" y="5.48" width="478.08" height="582.95"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg4-cpMjAuNDR8NDk4LjUyfDUuNDh8NTg4LjQz)">
+<rect x="20.44" y="5.48" width="478.08" height="582.95" style="stroke-width: 1.07; stroke: none;"></rect>
+<polyline points="20.44,575.18 498.52,575.18 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,442.69 498.52,442.69 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,310.20 498.52,310.20 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,177.71 498.52,177.71 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,45.23 498.52,45.23 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="259.48,588.43 259.48,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,508.94 498.52,508.94 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,376.45 498.52,376.45 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,243.96 498.52,243.96 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="20.44,111.47 498.52,111.47 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="114.61,588.43 114.61,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="404.35,588.43 404.35,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<circle class="ctd-semantic" cx="82.73" cy="402.95" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="82.73" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="79.18" y1="512.49" x2="86.29" y2="505.38" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="79.18" y1="505.38" x2="86.29" y2="512.49" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="82.73" cy="455.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.48" cy="137.97" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="368.93" y1="141.52" x2="376.04" y2="134.41" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="368.93" y1="134.41" x2="376.04" y2="141.52" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="372.48" cy="296.95" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.48" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="368.93" y1="512.49" x2="376.04" y2="505.38" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="368.93" y1="505.38" x2="376.04" y2="512.49" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="146.48" cy="190.96" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="142.92" y1="194.52" x2="150.03" y2="187.41" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="142.92" y1="187.41" x2="150.03" y2="194.52" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="146.48" cy="508.94" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="146.48" cy="296.95" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="142.92" y1="300.51" x2="150.03" y2="293.40" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="142.92" y1="293.40" x2="150.03" y2="300.51" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="436.22" cy="137.97" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="436.22" cy="84.97" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></circle>
+<line class="ctd-semantic" x1="432.67" y1="88.53" x2="439.78" y2="81.42" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<line class="ctd-semantic" x1="432.67" y1="81.42" x2="439.78" y2="88.53" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.30;"></line>
+<circle class="ctd-semantic" cx="436.22" cy="402.95" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<line class="ctd-semantic" x1="82.73" y1="402.95" x2="146.48" y2="190.96" style="stroke-width: 1.07; stroke: #F8766D; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="82.73" y1="508.94" x2="146.48" y2="508.94" style="stroke-width: 1.07; stroke: #00BFC4; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="82.73" y1="455.94" x2="146.48" y2="296.95" style="stroke-width: 1.07; stroke: #F8766D; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="372.48" y1="137.97" x2="436.22" y2="137.97" style="stroke-width: 1.07; stroke: #00BFC4; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="372.48" y1="296.95" x2="436.22" y2="84.97" style="stroke-width: 1.07; stroke: #F8766D; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="372.48" y1="508.94" x2="436.22" y2="402.95" style="stroke-width: 1.07; stroke: #00BFC4; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+</g>
+<g clip-path="url(#svg4-cpMC4wMHw1MDQuMDB8MC4wMHw2MDQuODA=)">
+<text x="11.59" y="512.09" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">0.0</text>
+<text x="11.59" y="379.60" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">2.5</text>
+<text x="11.59" y="247.11" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">5.0</text>
+<text x="11.59" y="114.62" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="12.22px" lengthadjust="spacingAndGlyphs">7.5</text>
+<text x="114.61" y="598.40" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">55</text>
+<text x="404.35" y="598.40" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">75</text>
+</g>
+</g>
+</svg>
+</div><p></p>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-randomization-variability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;23.1: Randomization variability: different treatment assignments give different estimates.
+</figcaption>
+</figure>
+</div>
+<div class="rand-step">
+<p><strong>Population.</strong> Each person has two potential outcomes: a <span class="groupa">control outcome</span> (red) and a <span class="groupb">treatment outcome</span> (green). The connected dots show these pairs. We observe the entire population—no sampling.</p>
+</div>
+<section id="randomization-variability" class="level3 step-group rand-step">
+<h3 class="anchored" data-anchor-id="randomization-variability">Randomization variability</h3>
+<div class="substep">
+<p><strong>Randomize 1.</strong> We flip coins to assign treatment. ✗ marks unrealized potential outcomes. This assignment gives estimate <span class="math inline">\(\hat\tau = 3.67\)</span>.</p>
+</div>
+<div class="substep">
+<p><strong>Randomize 2.</strong> Flip again. Different people get treated. Now <span class="math inline">\(\hat\tau = 0\)</span>.</p>
+</div>
+<div class="substep">
+<p><strong>Randomize 3.</strong> And again. Same population, different treatment assignments, different estimates. <span class="math inline">\(\hat\tau = 0.67\)</span>. The true effect is <span class="math inline">\(\bar\tau = 2.17\)</span>.</p>
+</div>
+</section>
+<p>The only source of randomness here is treatment assignment. We observe everyone in the population—there’s no sampling. Each randomization gives a different estimate because different people end up in each group.</p>
+<p>If we repeat this randomization many times, we get a distribution of estimates. The <span class="target">green line</span> marks the true average treatment effect <span class="math inline">\(\bar\tau\)</span>. The <span class="blue">blue line</span> marks the mean of our estimates. They coincide—our estimator is unbiased.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p></p><div class="ctd-inline-svg" style="max-width:100%;height:auto"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="504.00" height="302.40" viewbox="0 0 504.00 302.40">
+<g class="svglite">
+<defs>
+  <style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  </style>
+</defs>
+<rect width="100%" height="100%" style="stroke: none; fill: none;"></rect>
+<defs>
+  <clippath id="svg5-cpMC4wMHw1MDQuMDB8MC4wMHwzMDIuNDA=">
+    <rect x="0.00" y="0.00" width="504.00" height="302.40"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg5-cpMC4wMHw1MDQuMDB8MC4wMHwzMDIuNDA=)">
+<rect x="0.00" y="0.00" width="504.00" height="302.40" style="stroke-width: 1.07; stroke: none;"></rect>
+</g>
+<defs>
+  <clippath id="svg5-cpMjUuMzN8NDk4LjUyfDUuNDh8Mjg2LjAz">
+    <rect x="25.33" y="5.48" width="473.19" height="280.55"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg5-cpMjUuMzN8NDk4LjUyfDUuNDh8Mjg2LjAz)">
+<rect x="25.33" y="5.48" width="473.19" height="280.55" style="stroke-width: 1.07; stroke: none;"></rect>
+<polyline points="25.33,224.97 498.52,224.97 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="25.33,128.37 498.52,128.37 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="25.33,31.76 498.52,31.76 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="66.58,286.03 66.58,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="162.26,286.03 162.26,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="257.94,286.03 257.94,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="353.62,286.03 353.62,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="449.29,286.03 449.29,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="25.33,273.28 498.52,273.28 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="25.33,176.67 498.52,176.67 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="25.33,80.06 498.52,80.06 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="114.42,286.03 114.42,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="210.10,286.03 210.10,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="305.78,286.03 305.78,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="401.45,286.03 401.45,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="497.13,286.03 497.13,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<rect x="150.70" y="41.90" width="7.18" height="231.38" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="174.62" y="19.20" width="7.18" height="254.08" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="198.54" y="40.93" width="7.18" height="232.34" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="206.51" y="20.16" width="7.18" height="253.11" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="214.48" y="26.44" width="7.18" height="246.83" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="222.46" y="27.89" width="7.18" height="245.39" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="230.43" y="61.71" width="7.18" height="211.57" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="246.38" y="37.55" width="7.18" height="235.72" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="246.38" y="34.17" width="7.18" height="239.11" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="254.35" y="18.23" width="7.18" height="255.05" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="262.32" y="30.31" width="7.18" height="242.97" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="270.30" y="32.72" width="7.18" height="240.56" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="270.30" y="40.45" width="7.18" height="232.83" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="286.24" y="29.34" width="7.18" height="243.94" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="294.22" y="22.10" width="7.18" height="251.18" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="302.19" y="19.68" width="7.18" height="253.60" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="310.16" y="33.21" width="7.18" height="240.07" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="318.14" y="26.93" width="7.18" height="246.35" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="342.05" y="44.32" width="7.18" height="228.96" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<rect x="365.97" y="27.89" width="7.18" height="245.39" style="stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.30;"></rect>
+<line class="ctd-semantic" x1="261.92" y1="286.03" x2="261.92" y2="5.48" style="stroke-width: 6.40; stroke: #00FF00; stroke-opacity: 0.80; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="110.62" y1="273.28" x2="325.52" y2="273.28" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="126.57" y1="110.67" x2="341.47" y2="110.67" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="180.02" x2="413.23" y2="180.02" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="262.11" y1="191.97" x2="477.01" y2="191.97" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="142.51" y1="65.24" x2="357.41" y2="65.24" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="158.46" y1="170.45" x2="373.36" y2="170.45" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="142.51" y1="239.80" x2="357.41" y2="239.80" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="182.38" y1="77.19" x2="397.28" y2="77.19" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="166.43" y1="132.19" x2="381.33" y2="132.19" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="142.51" y1="151.32" x2="357.41" y2="151.32" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="142.51" y1="70.02" x2="357.41" y2="70.02" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="118.60" y1="223.06" x2="333.50" y2="223.06" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="166.43" y1="144.15" x2="381.33" y2="144.15" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="46.84" y1="96.32" x2="261.74" y2="96.32" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="102.65" y1="256.54" x2="317.55" y2="256.54" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="118.60" y1="98.71" x2="333.50" y2="98.71" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="94.68" y1="84.37" x2="309.58" y2="84.37" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="126.57" y1="184.80" x2="341.47" y2="184.80" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="262.11" y1="74.80" x2="477.01" y2="74.80" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="46.84" y1="41.32" x2="261.74" y2="41.32" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="168.06" x2="413.23" y2="168.06" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="166.43" y1="72.41" x2="381.33" y2="72.41" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="238.19" y1="194.37" x2="453.09" y2="194.37" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="46.84" y1="189.58" x2="261.74" y2="189.58" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="105.89" x2="413.23" y2="105.89" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="94.68" y1="43.71" x2="309.58" y2="43.71" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="238.19" y1="172.84" x2="453.09" y2="172.84" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="118.60" y1="182.41" x2="333.50" y2="182.41" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="225.45" x2="413.23" y2="225.45" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="142.51" y1="206.32" x2="357.41" y2="206.32" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="142.51" y1="101.10" x2="357.41" y2="101.10" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="206.30" y1="81.97" x2="421.20" y2="81.97" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="262.11" y1="177.63" x2="477.01" y2="177.63" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="46.84" y1="108.28" x2="261.74" y2="108.28" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="213.50" x2="413.23" y2="213.50" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="118.60" y1="36.54" x2="333.50" y2="36.54" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="110.62" y1="55.67" x2="325.52" y2="55.67" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="93.93" x2="413.23" y2="93.93" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="102.65" y1="258.93" x2="317.55" y2="258.93" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="206.30" y1="215.89" x2="421.20" y2="215.89" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="110.62" y1="196.76" x2="325.52" y2="196.76" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="118.60" y1="48.50" x2="333.50" y2="48.50" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="126.57" y1="268.50" x2="341.47" y2="268.50" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="70.76" y1="165.67" x2="285.66" y2="165.67" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="182.38" y1="230.23" x2="397.28" y2="230.23" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="126.57" y1="220.67" x2="341.47" y2="220.67" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="94.68" y1="53.28" x2="309.58" y2="53.28" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="158.46" y1="58.06" x2="373.36" y2="58.06" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="190.35" y1="38.93" x2="405.25" y2="38.93" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="190.35" y1="120.23" x2="405.25" y2="120.23" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="190.35" y1="34.15" x2="405.25" y2="34.15" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="262.11" y1="125.02" x2="477.01" y2="125.02" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="102.65" y1="218.28" x2="317.55" y2="218.28" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="113.06" x2="413.23" y2="113.06" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="206.30" y1="156.10" x2="421.20" y2="156.10" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="102.65" y1="153.71" x2="317.55" y2="153.71" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="214.27" y1="117.84" x2="429.17" y2="117.84" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="262.11" y1="246.97" x2="477.01" y2="246.97" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="232.63" x2="413.23" y2="232.63" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="126.57" y1="187.19" x2="341.47" y2="187.19" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="206.30" y1="242.19" x2="421.20" y2="242.19" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="126.57" y1="115.45" x2="341.47" y2="115.45" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="238.19" y1="160.89" x2="453.09" y2="160.89" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="46.84" y1="158.50" x2="261.74" y2="158.50" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="46.84" y1="91.54" x2="261.74" y2="91.54" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="46.84" y1="203.93" x2="261.74" y2="203.93" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="190.35" y1="136.97" x2="405.25" y2="136.97" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="141.76" x2="413.23" y2="141.76" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="262.11" y1="89.15" x2="477.01" y2="89.15" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="126.57" y1="103.50" x2="341.47" y2="103.50" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="70.76" y1="244.58" x2="285.66" y2="244.58" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="166.43" y1="235.02" x2="381.33" y2="235.02" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="148.93" x2="413.23" y2="148.93" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="238.19" y1="79.58" x2="453.09" y2="79.58" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="70.76" y1="60.45" x2="285.66" y2="60.45" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="70.76" y1="163.28" x2="285.66" y2="163.28" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="166.43" y1="122.63" x2="381.33" y2="122.63" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="94.68" y1="251.76" x2="309.58" y2="251.76" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="126.57" y1="67.63" x2="341.47" y2="67.63" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="46.84" y1="227.84" x2="261.74" y2="227.84" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="46.84" y1="139.37" x2="261.74" y2="139.37" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="126.57" y1="129.80" x2="341.47" y2="129.80" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="206.30" y1="46.10" x2="421.20" y2="46.10" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="94.68" y1="249.37" x2="309.58" y2="249.37" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="211.10" x2="413.23" y2="211.10" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="150.49" y1="237.41" x2="365.39" y2="237.41" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="118.60" y1="86.76" x2="333.50" y2="86.76" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="142.51" y1="201.54" x2="357.41" y2="201.54" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="70.76" y1="266.10" x2="285.66" y2="266.10" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="94.68" y1="134.58" x2="309.58" y2="134.58" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="46.84" y1="127.41" x2="261.74" y2="127.41" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="70.76" y1="199.15" x2="285.66" y2="199.15" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="142.51" y1="208.71" x2="357.41" y2="208.71" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="214.27" y1="254.15" x2="429.17" y2="254.15" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="94.68" y1="175.23" x2="309.58" y2="175.23" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="190.35" y1="146.54" x2="405.25" y2="146.54" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="190.35" y1="50.89" x2="405.25" y2="50.89" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="70.76" y1="261.32" x2="285.66" y2="261.32" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="198.33" y1="62.84" x2="413.23" y2="62.84" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="238.19" y1="263.71" x2="453.09" y2="263.71" style="stroke-width: 1.07; stroke: #A020F0; stroke-opacity: 0.15; stroke-linecap: butt;"></line>
+<circle class="ctd-semantic" cx="218.07" cy="273.28" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="234.02" cy="110.67" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="180.02" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="369.56" cy="191.97" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="249.96" cy="65.24" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="265.91" cy="170.45" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="249.96" cy="239.80" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="289.83" cy="77.19" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="273.88" cy="132.19" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="249.96" cy="151.32" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="249.96" cy="70.02" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="226.05" cy="223.06" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="273.88" cy="144.15" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="154.29" cy="96.32" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="210.10" cy="256.54" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="226.05" cy="98.71" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="202.13" cy="84.37" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="234.02" cy="184.80" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="369.56" cy="74.80" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="154.29" cy="41.32" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="168.06" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="273.88" cy="72.41" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="345.64" cy="194.37" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="154.29" cy="189.58" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="105.89" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="202.13" cy="43.71" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="345.64" cy="172.84" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="226.05" cy="182.41" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="225.45" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="249.96" cy="206.32" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="249.96" cy="101.10" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="313.75" cy="81.97" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="369.56" cy="177.63" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="154.29" cy="108.28" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="213.50" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="226.05" cy="36.54" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="218.07" cy="55.67" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="93.93" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="210.10" cy="258.93" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="313.75" cy="215.89" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="218.07" cy="196.76" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="226.05" cy="48.50" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="234.02" cy="268.50" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="178.21" cy="165.67" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="289.83" cy="230.23" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="234.02" cy="220.67" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="202.13" cy="53.28" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="265.91" cy="58.06" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="297.80" cy="38.93" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="297.80" cy="120.23" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="297.80" cy="34.15" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="369.56" cy="125.02" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="210.10" cy="218.28" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="113.06" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="313.75" cy="156.10" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="210.10" cy="153.71" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="321.72" cy="117.84" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="369.56" cy="246.97" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="232.63" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="234.02" cy="187.19" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="313.75" cy="242.19" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="234.02" cy="115.45" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="345.64" cy="160.89" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="154.29" cy="158.50" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="154.29" cy="91.54" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="154.29" cy="203.93" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="297.80" cy="136.97" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="141.76" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="369.56" cy="89.15" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="234.02" cy="103.50" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="178.21" cy="244.58" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="273.88" cy="235.02" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="148.93" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="345.64" cy="79.58" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="178.21" cy="60.45" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="178.21" cy="163.28" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="273.88" cy="122.63" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="202.13" cy="251.76" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="234.02" cy="67.63" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="154.29" cy="227.84" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="154.29" cy="139.37" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="234.02" cy="129.80" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="313.75" cy="46.10" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="202.13" cy="249.37" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="211.10" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="257.94" cy="237.41" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="226.05" cy="86.76" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="249.96" cy="201.54" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="178.21" cy="266.10" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="202.13" cy="134.58" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="154.29" cy="127.41" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="178.21" cy="199.15" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="249.96" cy="208.71" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="321.72" cy="254.15" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="202.13" cy="175.23" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="297.80" cy="146.54" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="297.80" cy="50.89" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="178.21" cy="261.32" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="305.78" cy="62.84" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<circle class="ctd-semantic" cx="345.64" cy="263.71" r="2.84" style="stroke-width: 1.42; stroke: #A020F0; stroke-opacity: 0.15; fill: #A020F0; fill-opacity: 0.15;"></circle>
+<line class="ctd-semantic" x1="262.11" y1="286.03" x2="262.11" y2="5.48" style="stroke-width: 1.07; stroke: #0000FF; stroke-opacity: 0.80; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="210.10" y1="286.03" x2="210.10" y2="5.48" style="stroke-width: 1.07; stroke: #0000FF; stroke-opacity: 0.80; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="314.13" y1="286.03" x2="314.13" y2="5.48" style="stroke-width: 1.07; stroke: #0000FF; stroke-opacity: 0.80; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="154.66" y1="286.03" x2="154.66" y2="5.48" style="stroke-width: 1.07; stroke: #0000FF; stroke-opacity: 0.80; stroke-dasharray: 1.42,4.27; stroke-linecap: butt;"></line>
+<line class="ctd-semantic" x1="369.56" y1="286.03" x2="369.56" y2="5.48" style="stroke-width: 1.07; stroke: #0000FF; stroke-opacity: 0.80; stroke-dasharray: 1.42,4.27; stroke-linecap: butt;"></line>
+</g>
+<g clip-path="url(#svg5-cpMC4wMHw1MDQuMDB8MC4wMHwzMDIuNDA=)">
+<text x="14.03" y="276.43" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="17.11px" lengthadjust="spacingAndGlyphs">0.00</text>
+<text x="14.03" y="179.82" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="17.11px" lengthadjust="spacingAndGlyphs">0.02</text>
+<text x="14.03" y="83.21" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="17.11px" lengthadjust="spacingAndGlyphs">0.04</text>
+<text x="114.42" y="296.00" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="7.81px" lengthadjust="spacingAndGlyphs">-4</text>
+<text x="210.10" y="296.00" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">0</text>
+<text x="305.78" y="296.00" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">4</text>
+<text x="401.45" y="296.00" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">8</text>
+<text x="497.13" y="296.00" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">12</text>
+</g>
+</g>
+</svg>
+</div><p></p>
+</div>
+</div>
+</section>
+<section id="proving-unbiasedness" class="level2">
+<h2 class="anchored" data-anchor-id="proving-unbiasedness">Proving Unbiasedness</h2>
+<p>We’ll show that <span class="math inline">\(\mathop{\mathrm{E}}[\hat\mu(w)] = \bar\mu(w)\)</span> where <span class="math inline">\(\bar\mu(w) = \frac{1}{m}\sum_{j=1}^m y_j(w)\)</span> is the population mean of potential outcomes under treatment <span class="math inline">\(w\)</span>. It follows that <span class="math inline">\(\mathop{\mathrm{E}}[\hat\tau] = \bar\mu(1) - \bar\mu(0) = \bar\tau\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat\mu(w)
+&amp;= \frac{1}{M_w}\sum_{j:W_j=w} Y_j \\
+&amp;= \frac{1}{M_w}\sum_{j=1}^m Y_j \cdot 1_{=w}(W_j) \\
+&amp;= \frac{1}{M_w}\sum_{j=1}^m y_j(W_j) \cdot 1_{=w}(W_j) \\
+&amp;= \frac{1}{M_w}\sum_{j=1}^m y_j(w) \cdot 1_{=w}(W_j). &amp;&amp; \text{indicator trick}
+\end{aligned}
+\]</span></p>
+<p>Now take expectations. We condition on <span class="math inline">\(M_w\)</span> (the number assigned to treatment <span class="math inline">\(w\)</span>) and use the fact that, given <span class="math inline">\(M_w\)</span>, each person has conditional probability <span class="math inline">\(M_w/m\)</span> of being in the treatment-<span class="math inline">\(w\)</span> group:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathop{\mathrm{E}}[\hat\mu(w)]
+&amp;= \mathop{\mathrm{E}}\qty[\frac{1}{M_w}\sum_{j=1}^m y_j(w) \cdot 1_{=w}(W_j)] \\
+&amp;= \mathop{\mathrm{E}}\qty[\mathop{\mathrm{E}}\qty[\frac{1}{M_w}\sum_{j=1}^m y_j(w) \cdot 1_{=w}(W_j) \mid M_w]] \\
+&amp;= \mathop{\mathrm{E}}\qty[\frac{1}{M_w}\sum_{j=1}^m y_j(w) \cdot \mathop{\mathrm{E}}[1_{=w}(W_j) \mid M_w]] \\
+&amp;= \mathop{\mathrm{E}}\qty[\frac{1}{M_w}\sum_{j=1}^m y_j(w) \cdot \frac{M_w}{m}] \\
+&amp;= \frac{1}{m}\sum_{j=1}^m y_j(w) = \bar\mu(w).
+\end{aligned}
+\]</span></p>
+<p>So the group means are unbiased for the potential outcome means, and therefore <span class="math inline">\(\hat\tau\)</span> is unbiased for <span class="math inline">\(\bar\tau\)</span>.</p>
+</section>
+<section id="what-made-this-work" class="level2">
+<h2 class="anchored" data-anchor-id="what-made-this-work">What Made This Work?</h2>
+<p>Two things:</p>
+<ol type="1">
+<li><p><strong>The indicator trick</strong>: <span class="math inline">\(y_j(W_j) \cdot 1_{=w}(W_j) = y_j(w) \cdot 1_{=w}(W_j)\)</span>. This lets us pull the fixed potential outcomes <span class="math inline">\(y_j(w)\)</span> out of the randomness.</p></li>
+<li><p><strong>Randomization</strong>: Each person has equal probability of assignment to treatment <span class="math inline">\(w\)</span>, regardless of their potential outcomes. This is what makes <span class="math inline">\(\mathop{\mathrm{E}}[1_{=w}(W_j) \mid M_w] = M_w/m\)</span> the same for everyone.</p></li>
+</ol>
+<p>If we’d assigned treatment based on something related to outcomes—say, giving hints to students who seemed to be struggling—this wouldn’t work.</p>
+</section>
+</section>
+<section id="connection-to-lecture-6" class="level1">
+<h1>Connection to Lecture 6</h1>
+<p>In Lecture 6, we compared two groups: Black vs non-Black voters, degree vs no degree. Those were <em>pre-existing</em> groups. We sampled from a population and calculated subsample means.</p>
+<p>Here, the groups don’t exist until we create them by randomization. There’s no sampling—we observe the entire population (the class). The only randomness is the treatment assignment.</p>
+<p>This is the simplest causal inference setup. Next, we’ll see what happens when we combine randomization with sampling.</p>
+</section>
+<section id="the-potential-outcomes-formalism" class="level1">
+<h1>The Potential Outcomes Formalism</h1>
+<p>Now that we’ve seen the basic idea with our classroom experiment, let’s develop the formalism more carefully using a different example.</p>
+<section id="a-donation-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-donation-example">A Donation Example</h2>
+<p>Suppose we’re running a fundraising campaign. We have a list of potential donors and we’re deciding whether to contact each one by <span class="groupa">email</span> or by <span class="groupb">phone call</span>. Calling is more expensive, so we want to know: does calling actually raise more money?</p>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<p></p><div class="ctd-inline-svg" style="max-width:100%;height:auto"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="432.00" height="648.00" viewbox="0 0 432.00 648.00">
+<g class="svglite">
+<defs>
+  <style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  </style>
+</defs>
+<rect width="100%" height="100%" style="stroke: none; fill: none;"></rect>
+<defs>
+  <clippath id="svg6-cpMC4wMHw0MzIuMDB8MC4wMHw2NDguMDA=">
+    <rect x="0.00" y="0.00" width="432.00" height="648.00"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg6-cpMC4wMHw0MzIuMDB8MC4wMHw2NDguMDA=)">
+<rect x="0.00" y="0.00" width="432.00" height="648.00" style="stroke-width: 1.07; stroke: none;"></rect>
+</g>
+<defs>
+  <clippath id="svg6-cpMTMuMTF8NDI2LjUyfDUuNDh8NjMxLjYz">
+    <rect x="13.11" y="5.48" width="413.41" height="626.15"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg6-cpMTMuMTF8NDI2LjUyfDUuNDh8NjMxLjYz)">
+<rect x="13.11" y="5.48" width="413.41" height="626.15" style="stroke-width: 1.07; stroke: none;"></rect>
+<polyline points="13.11,532.02 426.52,532.02 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,389.71 426.52,389.71 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,247.40 426.52,247.40 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,105.09 426.52,105.09 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="219.82,631.63 219.82,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,603.17 426.52,603.17 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,460.86 426.52,460.86 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,318.55 426.52,318.55 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,176.25 426.52,176.25 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,33.94 426.52,33.94 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="94.54,631.63 94.54,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="345.09,631.63 345.09,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<circle class="ctd-semantic" cx="66.98" cy="460.86" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="66.98" cy="603.17" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="66.98" cy="532.02" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="317.53" cy="105.09" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="317.53" cy="318.55" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="317.53" cy="603.17" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70; fill: #F8766D; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="122.10" cy="176.25" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="122.10" cy="603.17" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="122.10" cy="318.55" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.65" cy="105.09" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.65" cy="33.94" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.65" cy="460.86" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70; fill: #00BFC4; fill-opacity: 0.70;"></circle>
+<line x1="66.98" y1="460.86" x2="122.10" y2="176.25" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="66.98" y1="603.17" x2="122.10" y2="603.17" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="66.98" y1="532.02" x2="122.10" y2="318.55" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="317.53" y1="105.09" x2="372.65" y2="105.09" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="317.53" y1="318.55" x2="372.65" y2="33.94" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="317.53" y1="603.17" x2="372.65" y2="460.86" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+</g>
+<g clip-path="url(#svg6-cpMC4wMHw0MzIuMDB8MC4wMHw2NDguMDA=)">
+<text x="7.92" y="606.32" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">0</text>
+<text x="7.92" y="464.01" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">2</text>
+<text x="7.92" y="321.70" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">4</text>
+<text x="7.92" y="179.40" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">6</text>
+<text x="7.92" y="37.09" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">8</text>
+<text x="94.54" y="641.60" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">55</text>
+<text x="345.09" y="641.60" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">75</text>
+</g>
+</g>
+</svg>
+</div><p></p>
+</div>
+</div>
+</div><div class="column">
+<div id="tbl-tiny-pop" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-tiny-pop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;25.1
+</figcaption>
+<div aria-describedby="tbl-tiny-pop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(j\)</span></th>
+<th><span class="math inline">\(x_j\)</span></th>
+<th><span class="math inline">\(y_j(1)\)</span></th>
+<th><span class="math inline">\(y_j(0)\)</span></th>
+<th><span class="math inline">\(\tau_j\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>55</td>
+<td>6</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>55</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>55</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>75</td>
+<td>7</td>
+<td>7</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>75</td>
+<td>8</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>75</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>To reason about cause and effect formally, we use <strong>potential outcomes</strong>.</p>
+<ul>
+<li><span class="math inline">\(\textcolor[RGB]{248,118,109}{y_j(0)}\)</span> is the amount person <span class="math inline">\(j\)</span> would donate if they were emailed.</li>
+<li><span class="math inline">\(\textcolor[RGB]{0,191,196}{y_j(1)}\)</span> is the amount person <span class="math inline">\(j\)</span> would donate if they were called.</li>
+</ul>
+<p>We call the actions we can take <strong>treatments</strong>. Each individual in our population has a potential outcome for each treatment. In this case, we have two treatments and therefore two potential outcomes—a pair—for each individual. Each individual’s potential outcomes are drawn as a connected pair of dots, one <span class="groupa">red</span> and one <span class="groupb">green</span>.</p>
+<p><em>Treatment effects</em> are estimation targets that involve comparisons of potential outcomes. For example, how much higher would our average donation be if we <span class="groupb">called</span> everyone vs.&nbsp;if we <span class="groupa">emailed</span> everyone? In terms of potential outcomes, we’d write that out like this.</p>
+<p><span class="math display">\[
+\text{target} = \textcolor[RGB]{0,191,196}{\frac 1m \sum_{j=1}^m y_j(1)} - \textcolor[RGB]{248,118,109}{\frac 1m \sum_{j=1}^m y_j(0)}
+= \frac1m \sum_{j=1}^m \tau_j \quad \text{for} \quad \tau_j = y_j(1) - y_j(0).
+\]</span></p>
+<p>We call the differences <span class="math inline">\(\tau_j\)</span> <em>individual treatment effects</em>. <span class="math inline">\(\tau_j\)</span> is the effect of calling (vs.&nbsp;emailing) person <span class="math inline">\(j\)</span> in our population. We call the average of these individualized effects the <em>average treatment effect</em>.</p>
+<section id="potential-outcomes-as-functions" class="level3">
+<h3 class="anchored" data-anchor-id="potential-outcomes-as-functions">Potential Outcomes as Functions</h3>
+<p>It’s convenient to think of each individual’s potential outcomes as <em>one function</em> instead of <em>two values</em>. And the notation only really lets us define that function <span class="math inline">\(y_j(\cdot)\)</span> one way.</p>
+<p><span class="math display">\[
+y_j(w) = \begin{cases}  
+y_j(1) &amp; \text{if } w=1 \\
+y_j(0) &amp; \text{if } w=0
+\end{cases}
+\]</span> For example, looking at <a href="#tbl-tiny-pop" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-tiny-pop</span></a>, we see that <span class="math display">\[
+y_1(w) = \begin{cases}
+\underset{\textcolor[RGB]{192,192,192}{y_1(1)}}{6} &amp; \text{if } w=1 \\
+\underset{\textcolor[RGB]{192,192,192}{y_1(0)}}{2} &amp; \text{if } w=0.
+\end{cases}
+\]</span></p>
+<p>That individual’s <strong>realized outcome</strong> is the value <span class="math inline">\(y_j(w_j)\)</span> their potential outcome function returns when we plug in the treatment <span class="math inline">\(w_j\)</span> that they actually receive.</p>
+</section>
+<section id="why-think-like-this" class="level3">
+<h3 class="anchored" data-anchor-id="why-think-like-this">Why Think Like This?</h3>
+<ul>
+<li>It works for any number of treatments.</li>
+<li>It’s useful for thinking about <em>random treatments</em>.
+<ul>
+<li>If <span class="math inline">\(W\)</span> is a random variable taking on <span class="math inline">\(k\)</span> values, so is <span class="math inline">\(y_j(W)\)</span>.</li>
+<li>The alternative is to write <span class="math inline">\(1_{=1}(W)y_j(1) + 1_{=0}(W)y_j(0)\)</span> where we’d write <span class="math inline">\(y_j(W)\)</span>.
+<ul>
+<li>Or more generally <span class="math inline">\(\sum_w 1_{=w}(W)y_j(w)\)</span>.</li>
+<li>In function terms, that’s using the <em>indicator trick</em> everywhere instead of just where we need it.</li>
+<li>People do it, but it tends to make things more difficult than they need to be.</li>
+</ul></li>
+</ul></li>
+</ul>
+<div id="exr-potential-outcomes-as-functions" class="callout callout-style-simple callout-exercise no-icon callout-titled theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 25.1</strong></span> &nbsp;</p>
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="callout-exercise">
+<p>Suppose <span class="math inline">\(W\)</span> is a coin flip: a random variable taking on the values <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> with equal probability. Write out a table describing the joint distribution of <span class="math inline">\(W\)</span> and <span class="math inline">\(y_3(W)\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\text{probability}\)</span></th>
+<th><span class="math inline">\(W\)</span></th>
+<th><span class="math inline">\(y_3(W)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1/2</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1/2</td>
+<td>1</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-fundamental-problem-of-causal-inference" class="level2">
+<h2 class="anchored" data-anchor-id="the-fundamental-problem-of-causal-inference">The Fundamental Problem of Causal Inference</h2>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<p></p><div class="ctd-inline-svg" style="max-width:100%;height:auto"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="432.00" height="540.00" viewbox="0 0 432.00 540.00">
+<g class="svglite">
+<defs>
+  <style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  </style>
+</defs>
+<rect width="100%" height="100%" style="stroke: none; fill: none;"></rect>
+<defs>
+  <clippath id="svg7-cpMC4wMHw0MzIuMDB8MC4wMHw1NDAuMDA=">
+    <rect x="0.00" y="0.00" width="432.00" height="540.00"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg7-cpMC4wMHw0MzIuMDB8MC4wMHw1NDAuMDA=)">
+<rect x="0.00" y="0.00" width="432.00" height="540.00" style="stroke-width: 1.07; stroke: none;"></rect>
+</g>
+<defs>
+  <clippath id="svg7-cpMTMuMTF8NDI2LjUyfDUuNDh8NTIzLjYz">
+    <rect x="13.11" y="5.48" width="413.41" height="518.15"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#svg7-cpMTMuMTF8NDI2LjUyfDUuNDh8NTIzLjYz)">
+<rect x="13.11" y="5.48" width="413.41" height="518.15" style="stroke-width: 1.07; stroke: none;"></rect>
+<polyline points="13.11,441.20 426.52,441.20 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,323.44 426.52,323.44 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,205.67 426.52,205.67 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,87.91 426.52,87.91 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="219.82,523.63 219.82,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,500.08 426.52,500.08 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,382.32 426.52,382.32 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,264.55 426.52,264.55 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,146.79 426.52,146.79 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="13.11,29.03 426.52,29.03 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="94.54,523.63 94.54,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="345.09,523.63 345.09,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<circle class="ctd-semantic" cx="66.98" cy="382.32" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="66.98" cy="500.08" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="66.98" cy="441.20" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="317.53" cy="87.91" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="317.53" cy="264.55" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="317.53" cy="500.08" r="3.56" style="stroke-width: 0.71; stroke: #F8766D; stroke-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="122.10" cy="146.79" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="122.10" cy="500.08" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="122.10" cy="264.55" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.65" cy="87.91" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.65" cy="29.03" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70;"></circle>
+<circle class="ctd-semantic" cx="372.65" cy="382.32" r="3.56" style="stroke-width: 0.71; stroke: #00BFC4; stroke-opacity: 0.70;"></circle>
+<line x1="66.98" y1="382.32" x2="122.10" y2="146.79" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="66.98" y1="500.08" x2="122.10" y2="500.08" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="66.98" y1="441.20" x2="122.10" y2="264.55" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="317.53" y1="87.91" x2="372.65" y2="87.91" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="317.53" y1="264.55" x2="372.65" y2="29.03" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+<line x1="317.53" y1="500.08" x2="372.65" y2="382.32" style="stroke-width: 1.07; stroke: #808080; stroke-opacity: 0.20; stroke-linecap: butt;"></line>
+</g>
+<g clip-path="url(#svg7-cpMC4wMHw0MzIuMDB8MC4wMHw1NDAuMDA=)">
+<text x="7.92" y="503.23" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">0</text>
+<text x="7.92" y="385.47" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">2</text>
+<text x="7.92" y="267.70" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">4</text>
+<text x="7.92" y="149.94" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">6</text>
+<text x="7.92" y="32.18" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="4.89px" lengthadjust="spacingAndGlyphs">8</text>
+<text x="94.54" y="533.60" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">55</text>
+<text x="345.09" y="533.60" text-anchor="middle" style="font-size: 8.80px;fill: #AAAAAA; font-family: &quot;Arial&quot;;" textlength="9.78px" lengthadjust="spacingAndGlyphs">75</text>
+</g>
+</g>
+</svg>
+</div><p></p>
+</div>
+</div>
+</div><div class="column">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(j\)</span></th>
+<th><span class="math inline">\(x_j\)</span></th>
+<th><span class="math inline">\(y_j(1)\)</span></th>
+<th><span class="math inline">\(y_j(0)\)</span></th>
+<th><span class="math inline">\(\tau_j\)</span></th>
+<th><span class="math inline">\(w_j\)</span></th>
+<th><span class="math inline">\(y_j(w_j)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>55</td>
+<td>6</td>
+<td>2</td>
+<td>4</td>
+<td>1</td>
+<td><span class="bgcolor">6</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>55</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td><span class="bgcolor">0</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>55</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td><span class="bgcolor">4</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>75</td>
+<td>7</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td><span class="bgcolor">7</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>75</td>
+<td>8</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td><span class="bgcolor">8</span></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>75</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td><span class="bgcolor">0</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>In concrete terms, you can’t both call and not call someone. You can see what happens when you call someone or what happens when you don’t, but not both. In abstract terms, each individual can take only one treatment,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> so only one of each individual’s potential outcomes is realized. That means that, even if we can choose everyone’s treatment however we want, we can’t calculate anybody’s <em>individual treatment effect</em> <span class="math inline">\(\tau_j = y_j(1) - y_j(0)\)</span>. And we can’t calculate the average of them, <span class="math inline">\(\bar\tau = \frac1m \sum_{j=1}^m \tau_j\)</span>, either.</p>
+<div class="callout callout-style-simple callout-exercise no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="callout-exercise">
+<p>Look at the treatments <span class="math inline">\(w_j\)</span> in the table above. For each individual:</p>
+<ol type="1">
+<li>Fill in the realized outcome <span class="math inline">\(y_j(w_j)\)</span> for each row in the table.</li>
+<li>Shade in the dot corresponding to the realized outcome in the plot.</li>
+<li>Draw arrows to indicate the individual treatment effects <span class="math inline">\(\tau_j\)</span> in the plot. Make them point up for positive effects, down for negative effects.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The realized outcomes are filled in in the table. Person 1 got treatment 1 (called), so their realized outcome is <span class="math inline">\(y_1(1) = 6\)</span>. Person 2 got treatment 0 (emailed), so their realized outcome is <span class="math inline">\(y_2(0) = 0\)</span>. And so on.</p>
+<p>The individual treatment effects <span class="math inline">\(\tau_j = y_j(1) - y_j(0)\)</span> are: 4, 0, 3, 0, 4, 2. These would be arrows pointing up (positive effect) except for persons 2 and 4 where the effect is zero.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="appendix" class="level1">
+<h1>Appendix</h1>
+<section id="sec-conditional-probability" class="level2">
+<h2 class="anchored" data-anchor-id="sec-conditional-probability">Why <span class="math inline">\(M_w/m\)</span> is the Conditional Probability</h2>
+<p>When we condition on <span class="math inline">\(M_w\)</span> (the number of people assigned to treatment <span class="math inline">\(w\)</span>), why is the conditional probability that person <span class="math inline">\(j\)</span> gets treatment <span class="math inline">\(w\)</span> equal to <span class="math inline">\(M_w/m\)</span>?</p>
+<p>The flips are identically distributed, so <span class="math inline">\(\mathop{\mathrm{E}}[1_{=w}(W_j) \mid M_w]\)</span> must be the same for each <span class="math inline">\(j\)</span>. And they sum to <span class="math inline">\(M_w\)</span>. This lets us write an equation we can solve for the conditional expectation.</p>
+<p><span class="math display">\[
+\begin{aligned}
+M_w
+&amp;= \mathop{\mathrm{E}}[M_w \mid M_w] &amp;&amp; \text{a constant equals its own expectation} \\
+&amp;= \mathop{\mathrm{E}}\qty[\sum_{j=1}^m 1_{=w}(W_j) \mid M_w] &amp;&amp; \text{definition of } M_w \\
+&amp;= \sum_{j=1}^m \mathop{\mathrm{E}}[1_{=w}(W_j) \mid M_w] &amp;&amp; \text{linearity} \\
+&amp;= m \times \mathop{\mathrm{E}}[1_{=w}(W_j) \mid M_w]. &amp;&amp; \text{identical distribution}
+\end{aligned}
+\]</span></p>
+<p>Solving: <span class="math inline">\(\mathop{\mathrm{E}}[1_{=w}(W_j) \mid M_w] = M_w / m\)</span>.</p>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+<script>
+function toggleDrawable(id) {
+  var overlay = document.getElementById(id);
+  var btn = overlay.nextElementSibling;
+  var resetBtn = overlay.resetBtn;
+  
+  // Lazy init on first click
+  if (!overlay.dataset.drawableInit) {
+    initDrawable(id);
+  }
+  
+  var isDrawing = overlay.dataset.drawing === 'true';
+  var syncCamera = overlay.dataset.syncCamera === 'true';
+  if (!isDrawing) {
+    // Enable drawing mode
+    overlay.dataset.drawing = 'true';
+    overlay.style.pointerEvents = 'auto';
+    btn.textContent = '✕';
+    if (resetBtn) {
+      resetBtn.style.pointerEvents = 'auto';
+    }
+    // Add drawing-active class after a delay to let TLDraw mount
+    setTimeout(function() {
+      overlay.classList.add('drawing-active');
+    }, 100);
+    Drawable.setDrawingMode(id, true);
+    if (syncCamera) {
+      Drawable.setCameraActive(id, true);
+    }
+  } else {
+    // Disable drawing mode (but keep canvas visible)
+    overlay.dataset.drawing = 'false';
+    overlay.style.pointerEvents = 'none';
+    overlay.classList.remove('drawing-active');
+    btn.textContent = '✏️';
+    if (resetBtn) {
+      resetBtn.style.pointerEvents = 'none';
+    }
+    Drawable.setDrawingMode(id, false);
+    if (syncCamera) {
+      Drawable.setCameraActive(id, false);
+    }
+  }
+}
+
+// Initialize drawable lazily when first clicked
+function initDrawable(id) {
+  var overlay = document.getElementById(id);
+  if (!overlay || overlay.dataset.drawableInit) return;
+  
+  var syncCamera = overlay.dataset.syncCamera === 'true';
+  var isScrolly = overlay.dataset.scrolly === 'true';
+  overlay.dataset.drawableInit = 'true';
+  overlay.dataset.drawing = 'false';
+  
+  // For scrolly, find the image-toggle container
+  var scrollyContainer = null;
+  if (isScrolly) {
+    var figureCol = overlay.closest('.image-toggle-figure');
+    scrollyContainer = figureCol?.querySelector('.image-toggle');
+  }
+  
+  Drawable.mount(overlay, { 
+    persist: overlay.dataset.persist === 'true', 
+    id: id,
+    syncCamera: syncCamera,
+    scrolly: isScrolly,
+    scrollyContainer: scrollyContainer
+  });
+  
+  // Register linked camera group if specified
+  var linkedGroup = overlay.dataset.linkedGroup;
+  if (linkedGroup) {
+    // Small delay to ensure editor is mounted
+    setTimeout(function() {
+      Drawable.registerLinkedCamera(id, linkedGroup);
+    }, 100);
+  }
+}
+
+// Inject drawable into image-toggle figures AFTER image-toggle has set up its structure
+// Run after a delay to let image-toggle do its work first
+setTimeout(function() {
+  // Check if image-toggle has run yet
+  if (!document.querySelector('.image-toggle-sidebar')) {
+    setTimeout(arguments.callee, 500);
+    return;
+  }
+  var figCounter = 0;
+  document.querySelectorAll('.image-toggle.drawable').forEach(function(toggle) {
+    figCounter++;
+    var id = 'drawable-toggle-' + figCounter;
+    
+    // For sidebar layout, find the figure column; otherwise use the toggle itself
+    var sidebar = toggle.closest('.image-toggle-sidebar');
+    var figureCol = sidebar?.querySelector('.image-toggle-figure') || toggle;
+    
+    // Make the target position:relative if not already
+    figureCol.style.position = 'relative';
+    
+    // Create overlay
+    var overlay = document.createElement('div');
+    overlay.className = 'drawable-overlay';
+    overlay.id = id;
+    overlay.dataset.drawable = '';
+    overlay.dataset.persist = 'false';
+    overlay.dataset.syncCamera = 'true';
+    overlay.dataset.scrolly = 'true';
+    overlay.style.cssText = 'position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; pointer-events: none;';
+    figureCol.appendChild(overlay);
+    
+    // Create toggle button
+    var btn = document.createElement('button');
+    btn.className = 'drawable-toggle';
+    btn.textContent = '✏️';
+    btn.style.cssText = 'position: absolute; top: 8px; right: 8px; z-index: 101; width: 36px; height: 36px; background: rgba(255,255,255,0.9); border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);';
+    btn.onclick = function(e) { 
+      e.stopPropagation();
+      toggleDrawable(id); 
+    };
+    figureCol.appendChild(btn);
+    
+    // Create reset button
+    var resetBtn = document.createElement('button');
+    resetBtn.className = 'drawable-reset';
+    resetBtn.textContent = '⟲';
+    resetBtn.title = 'Reset view';
+    resetBtn.style.cssText = 'position: absolute; top: 8px; right: 52px; z-index: 101; width: 36px; height: 36px; background: rgba(255,255,255,0.9); border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); pointer-events: none;';
+    resetBtn.onclick = function(e) {
+      e.stopPropagation();
+      Drawable.resetCamera(id);
+    };
+    figureCol.appendChild(resetBtn);
+    
+    // Show reset button when drawing is active
+    overlay.resetBtn = resetBtn;
+  });
+  
+  // Handle linked-cameras groups
+  var linkedGroupCounter = 0;
+  document.querySelectorAll('.linked-cameras').forEach(function(group) {
+    linkedGroupCounter++;
+    var groupName = group.dataset.group || ('linked-group-' + linkedGroupCounter);
+    var figCounter = 0;
+    
+    // Find all figures/plots inside this group
+    group.querySelectorAll('.cell-output-display, .quarto-layout-cell').forEach(function(cell) {
+      if (cell.closest('.image-toggle')) return; // Skip scrolly images
+      if (!cell.querySelector('svg, img')) return; // No image
+      
+      figCounter++;
+      var id = 'linked-' + groupName + '-' + figCounter;
+      
+      // Make cell position relative
+      cell.style.position = 'relative';
+      
+      // Create overlay
+      var overlay = document.createElement('div');
+      overlay.className = 'drawable-overlay';
+      overlay.id = id;
+      overlay.dataset.drawable = '';
+      overlay.dataset.persist = 'false';
+      overlay.dataset.syncCamera = 'true';
+      overlay.dataset.linkedGroup = groupName;
+      overlay.style.cssText = 'position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; pointer-events: none;';
+      cell.appendChild(overlay);
+      
+      // Create toggle button
+      var btn = document.createElement('button');
+      btn.className = 'drawable-toggle';
+      btn.textContent = '✏️';
+      btn.style.cssText = 'position: absolute; top: 8px; right: 8px; z-index: 101; width: 36px; height: 36px; background: rgba(255,255,255,0.9); border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);';
+      btn.onclick = function(e) { 
+        e.stopPropagation();
+        // Init all drawables in this linked group first
+        document.querySelectorAll('[data-linked-group="' + groupName + '"]').forEach(function(o) {
+          if (!o.dataset.drawableInit) {
+            initDrawable(o.id);
+          }
+        });
+        toggleDrawable(id); 
+      };
+      cell.appendChild(btn);
+      
+      // Create reset button
+      var resetBtn = document.createElement('button');
+      resetBtn.className = 'drawable-reset';
+      resetBtn.textContent = '⟲';
+      resetBtn.title = 'Reset view';
+      resetBtn.style.cssText = 'position: absolute; top: 8px; right: 52px; z-index: 101; width: 36px; height: 36px; background: rgba(255,255,255,0.9); border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); pointer-events: none;';
+      resetBtn.onclick = function(e) {
+        e.stopPropagation();
+        // Reset all cameras in the group
+        document.querySelectorAll('[data-linked-group="' + groupName + '"]').forEach(function(o) {
+          Drawable.resetCamera(o.id);
+        });
+      };
+      cell.appendChild(resetBtn);
+      
+      overlay.resetBtn = resetBtn;
+    });
+  });
+}, 100);
+</script>
+
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>This is inconsistent with everyday use of the term <em>treatment</em> because you can, e.g., take both ibuprofen and acetaminophen. In potential outcomes language, we’d say that ibuprofen alone, acetaminophen alone, and ibuprofen plus acetaminophen are three different treatments.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../lectures";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../homework/week5-homework.html" class="pagination-link" aria-label="Homework: Variance of Comparisons">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Homework: Variance of Comparisons</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../homework/week10-homework.html" class="pagination-link" aria-label="Homework: Randomized Experiments">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Homework: Randomized Experiments</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

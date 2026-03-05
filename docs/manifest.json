@@ -14,6 +14,16 @@
       "title": "Synthetic Randomization",
       "pages": 74,
       "format": "svg"
+    },
+    "swissrollera": {
+      "title": "Swiss Roll Era",
+      "pages": 17,
+      "format": "slides"
+    },
+    "markdown-demo": {
+      "title": "Markdown Demo",
+      "pages": 1,
+      "format": "markdown"
     }
   }
 }
