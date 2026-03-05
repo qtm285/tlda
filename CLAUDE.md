@@ -267,7 +267,39 @@ Dependencies are sorted by page distance descending (furthest first). Same-page 
 
 **Test in WebKit.** The user views on Safari/iPad. If you can't reproduce a reported problem, test in WebKit — Chromium passing doesn't mean Safari passes. Playwright supports WebKit: `playwright.webkit.launch()`.
 
+**Never tell the user to force-refresh.** Open a new tab instead: `open -a Safari http://localhost:5176/?doc=NAME` or use playwright to open a fresh page. A new tab has no cache to worry about.
+
+**Don't claim it'll work in Safari without justification.** If WebKit playwright fails, don't assert "that's just a playwright quirk, real Safari will be fine" unless you have a concrete reason. That's punting with extra steps.
+
+If something works in Chromium but fails in WebKit playwright, and you genuinely believe it's a playwright-specific issue: explain why (e.g. known TDZ bug in minified bundles under strict mode). If you can't explain it, don't claim it.
+
+If a bug isn't reproducible in playwright: try both Chromium and WebKit to narrow it down. If still not reproducible after trying both, you can involve the user — but set it up first: open the page, use MCP tools to scroll and screenshot as much as possible, and give them a specific thing to confirm rather than "go check if it works."
+
 **Debug with live tools.** When something is visually broken in the viewer, use playwright/puppeteer to inspect the live page (console errors, DOM state, network requests). `tlda preview` renders static SVGs — it can't diagnose viewer runtime issues like blank pages, broken WebSocket, or CSS problems.
+
+**If headless can't verify it, go headed.** If iframes, canvas rendering, or animations don't work in headless playwright, launch headed (`headless: false`), take screenshots at each step, and read them yourself. Don't punt to the user because your default verification tool has limits.
+
+**For motion/interaction issues, record a video.** If the bug is about how something animates, transitions, or responds to a sequence of interactions, screenshots won't capture it. Use playwright's video recording:
+
+```js
+const context = await browser.newContext({ recordVideo: { dir: '/tmp/tlda-video/' } });
+const page = await context.newPage();
+// ... your test ...
+await context.close(); // flushes the video
+```
+
+Then extract frames and read them:
+```bash
+ffmpeg -i /tmp/tlda-video/*.webm -vf fps=15 /tmp/frames/frame-%03d.png 2>/dev/null
+```
+
+Read the frames as images to see the full interaction sequence. For a specific moment, seek to a timestamp: `ffmpeg -ss 2.5 -i video.webm -frames:v 1 /tmp/frame.png`.
+
+**When a feature is built, fixed, and verified, offer a tour.** After you've confirmed it works yourself, offer to run a headed playwright walkthrough — so the user sees the same thing you saw. This is confirmation, not verification. Don't offer before you've verified it yourself, and don't kick it off without asking.
+
+**Read this file before starting any tlda session.** The self-service rule, verification patterns, TLDraw-native UI rules, and tool permissions are all here. Don't wait to be corrected on something that's already documented.
+
+**Test exactly what the user said is broken.** If the user says "button X doesn't navigate to a new page," the test is: click button X, assert page changed. Not a broader test suite that touches the same code path. Don't test something adjacent and declare the reported issue fixed.
 
 ## Permissions
 
