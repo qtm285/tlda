@@ -19,6 +19,11 @@
       "title": "Markdown Demo",
       "pages": 1,
       "format": "markdown"
+    },
+    "spinoff3": {
+      "title": "spinoff3",
+      "pages": 29,
+      "format": "svg"
     }
   }
 }
