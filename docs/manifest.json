@@ -1,19 +1,14 @@
 {
   "documents": {
-    "spinoff3": {
-      "title": "spinoff3",
-      "pages": 25,
+    "synth-randomization": {
+      "title": "Synthetic Randomization",
+      "pages": 74,
       "format": "svg"
     },
     "qtm285": {
       "title": "QTM 285: Prediction, Inference, and Causality",
       "pages": 29,
       "format": "html"
-    },
-    "synth-randomization": {
-      "title": "Synthetic Randomization",
-      "pages": 74,
-      "format": "svg"
     },
     "swissrollera": {
       "title": "Swiss Roll Era",
