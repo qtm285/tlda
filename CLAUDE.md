@@ -14,6 +14,8 @@ Collaborative annotation system for reviewing LaTeX papers. Renders PDFs as SVGs
 | LaTeX errors | `tlda errors <name>` |
 | Visual check | `tlda preview <name> [page ...]` |
 | Push files manually | `tlda push <name> --dir /path/to/project` |
+| Monitor doc | `tlda monitor add <doc>` (auto-detect feedback via hook) |
+| Block for feedback | `tlda listen <doc>` (one-shot, for idle agents) |
 | Publish snapshot | `npm run publish-snapshot -- doc-name` |
 
 **`tlda watch-all start`** auto-discovers all projects with a `sourceDir` and watches them. It polls for new projects every 30s, so `tlda create` picks them up automatically. This is the standard way to run watchers — no per-project `./watch` scripts needed.
@@ -157,7 +159,12 @@ When the user asks to review or view a paper (e.g. "let's review this", "review 
 2. Start all watchers: `tlda watch-all start`
 3. Open in browser: `tlda open <name>`
 
-For an **iPad review session** (not just viewing), also:
+**If you'll be doing other work while the doc is open** (editing code, running sims, writing), enable background monitoring so feedback appears automatically:
+```bash
+tlda monitor add <name>
+```
+
+For an **iPad review session** (dedicated to review, not multitasking):
 1. Print a QR code: `node -e "import('qrcode-terminal').then(m => m.default.generate('http://IP:5176/?doc=DOC', {small: true}))"`
    - Get IP from `ifconfig | grep 'inet 100\.'` (Tailscale) or LAN
 2. Open the tex file in Zed: `open -a Zed /path/to/file.tex`
@@ -169,6 +176,30 @@ Call `wait_for_feedback(doc)` in a loop. It blocks until:
 - Text selection — 2s debounce
 - Drawn shape (pen, highlight, arrow, geo) — 5s debounce
 - Annotation edit — 5s debounce
+
+### Background listening (work + monitor)
+
+When you need to do other work while monitoring a document, use `tlda monitor` to enable automatic feedback detection via a PostToolUse hook:
+
+```bash
+tlda monitor add spinoff3    # start monitoring
+tlda monitor list            # show what's monitored
+tlda monitor remove spinoff3 # stop
+tlda monitor clear           # stop all
+```
+
+Once monitoring is active, the hook checks for new annotations, pings, and drawn shapes after every tool call (throttled to every 10s). Feedback appears automatically between tool calls — no polling, no re-launching, no background tasks. Just work normally and feedback shows up as `[tlda feedback] New note on spinoff3: "..."`.
+
+For **idle agents** (nothing to do, waiting for input), use `tlda listen` instead — it blocks until feedback arrives, suitable for `run_in_background`:
+
+```bash
+tlda listen spinoff3 --timeout 600
+```
+
+**Summary:**
+- **`tlda monitor`** — hook-based, automatic, for agents actively working
+- **`tlda listen`** — blocking CLI, for idle agents or scripts
+- **`wait_for_feedback`** — MCP tool, for dedicated review sessions (richer output, heartbeat)
 
 ### Reading annotations
 - `read_pen_annotations(doc)` — all drawn shapes with source line mapping
