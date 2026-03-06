@@ -1,7 +1,7 @@
 {
   "room": "doc-spinoff3",
   "doc": "spinoff3",
-  "exportedAt": "2026-03-06T00:32:59.250Z",
+  "exportedAt": "2026-03-06T01:00:43.509Z",
   "liveUrl": "http://10.110.65.206:5176/?doc=spinoff3",
   "records": {
     "shape:spinoff3-page-0": {
@@ -201,6 +201,33 @@
       "parentId": "page:page",
       "index": "aLNoxkyV",
       "typeName": "shape"
+    },
+    "shape:k9y01lrdwaemt53nlbff": {
+      "id": "shape:k9y01lrdwaemt53nlbff",
+      "type": "math-note",
+      "typeName": "shape",
+      "x": 690,
+      "y": 121.07843137254903,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "props": {
+        "w": 200,
+        "h": 435,
+        "text": "Hey Todd! This is a demo note on spinoff3. Can you see this and tell me what the paper is about?",
+        "color": "orange",
+        "autoSize": true
+      },
+      "meta": {
+        "sourceAnchor": {
+          "file": "./spinoff3.tex",
+          "column": -1,
+          "content": ""
+        },
+        "createdAt": 1772758440042
+      },
+      "parentId": "page:page",
+      "index": "aUBYGREV"
     },
     "shape:spinoff3-page-10": {
       "x": 0,
