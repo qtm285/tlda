@@ -182,11 +182,13 @@ Call `wait_for_feedback(doc)` in a loop. It blocks until:
 When you need to do other work while monitoring a document, use `tlda monitor` to enable automatic feedback detection via a PostToolUse hook:
 
 ```bash
-tlda monitor add spinoff3    # start monitoring
+tlda monitor add spinoff3    # start monitoring (uses $AGENT_WIN)
 tlda monitor list            # show what's monitored
 tlda monitor remove spinoff3 # stop
 tlda monitor clear           # stop all
 ```
+
+Monitoring is scoped per agent via `$AGENT_WIN` — each agent has its own watch list and state. If `$AGENT_WIN` isn't set, pass `--id <name>` explicitly.
 
 Once monitoring is active, the hook checks for new annotations, pings, and drawn shapes after every tool call (throttled to every 10s). Feedback appears automatically between tool calls — no polling, no re-launching, no background tasks. Just work normally and feedback shows up as `[tlda feedback] New note on spinoff3: "..."`.
 
