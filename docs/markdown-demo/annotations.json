@@ -1,26 +1,7 @@
 {
   "room": "doc-markdown-demo",
   "doc": "markdown-demo",
-  "exportedAt": "2026-03-06T01:54:16.056Z",
+  "exportedAt": "2026-03-06T09:04:15.538Z",
   "liveUrl": "http://10.110.65.206:5176/?doc=markdown-demo",
-  "records": {
-    "shape:Markdown Demo-page-0": {
-      "x": 0,
-      "y": 0,
-      "rotation": 0,
-      "isLocked": true,
-      "opacity": 1,
-      "meta": {},
-      "id": "shape:Markdown Demo-page-0",
-      "type": "html-page",
-      "parentId": "page:page",
-      "props": {
-        "w": 800,
-        "h": 1200,
-        "url": "/docs/markdown-demo/index.html"
-      },
-      "index": "a1ixWn4V",
-      "typeName": "shape"
-    }
-  }
+  "records": {}
 }

@@ -1,7 +1,7 @@
 {
   "meta": {
     "texFile": "/Users/skip/work/claude-tldraw/server/projects/spinoff3/source/spinoff3.tex",
-    "generated": "2026-03-05T05:04:32.243Z"
+    "generated": "2026-03-06T08:56:56.816Z"
   },
   "pairs": [
     {
@@ -9,8 +9,8 @@
       "type": "corollary",
       "title": "cor:inference",
       "statementLines": [
-        1660,
-        1668
+        1662,
+        1670
       ],
       "statementRegion": {
         "page": 12,
@@ -25,8 +25,8 @@
         }
       ],
       "proofLines": [
-        1669,
-        1673
+        1671,
+        1675
       ],
       "proofRegions": [
         {
@@ -43,8 +43,8 @@
       "type": "corollary",
       "title": "cor:slb-quasi",
       "statementLines": [
-        2260,
-        2269
+        2273,
+        2282
       ],
       "statementRegion": {
         "page": 16,
@@ -59,8 +59,8 @@
         }
       ],
       "proofLines": [
-        2271,
-        2282
+        2284,
+        2295
       ],
       "proofRegions": [
         {
@@ -77,8 +77,8 @@
       "type": "lemma",
       "title": "lem:efron-stein-quasi",
       "statementLines": [
-        2191,
-        2199
+        2204,
+        2212
       ],
       "statementRegion": {
         "page": 16,
@@ -93,8 +93,8 @@
         }
       ],
       "proofLines": [
-        2284,
-        2307
+        2297,
+        2320
       ],
       "proofRegions": [
         {
@@ -116,8 +116,8 @@
       "type": "lemma",
       "title": "lem:talagrand",
       "statementLines": [
-        2201,
-        2213
+        2214,
+        2226
       ],
       "statementRegion": {
         "page": 16,
@@ -132,8 +132,8 @@
         }
       ],
       "proofLines": [
-        2309,
-        2339
+        2322,
+        2352
       ],
       "proofRegions": [
         {
@@ -150,8 +150,8 @@
       "type": "lemma",
       "title": "lem:symmetrization-quasi",
       "statementLines": [
-        2215,
-        2228
+        2228,
+        2241
       ],
       "statementRegion": {
         "page": 16,
@@ -166,8 +166,8 @@
         }
       ],
       "proofLines": [
-        2341,
-        2363
+        2354,
+        2376
       ],
       "proofRegions": [
         {
@@ -184,8 +184,8 @@
       "type": "lemma",
       "title": "lem:contraction-quasi",
       "statementLines": [
-        2230,
-        2242
+        2243,
+        2255
       ],
       "statementRegion": {
         "page": 16,
@@ -200,8 +200,8 @@
         }
       ],
       "proofLines": [
-        2365,
-        2379
+        2378,
+        2392
       ],
       "proofRegions": [
         {
@@ -218,8 +218,8 @@
       "type": "lemma",
       "title": "lem:rademacher-comparison",
       "statementLines": [
-        2244,
-        2258
+        2257,
+        2271
       ],
       "statementRegion": {
         "page": 16,
@@ -234,8 +234,8 @@
         }
       ],
       "proofLines": [
-        2381,
-        2397
+        2394,
+        2410
       ],
       "proofRegions": [
         {
@@ -252,8 +252,8 @@
       "type": "lemma",
       "title": "lem:linearization",
       "statementLines": [
-        3006,
-        3030
+        3020,
+        3044
       ],
       "statementRegion": {
         "page": 21,
@@ -268,8 +268,8 @@
         }
       ],
       "proofLines": [
-        3032,
-        3053
+        3046,
+        3067
       ],
       "proofRegions": [
         {
@@ -286,8 +286,8 @@
       "type": "lemma",
       "title": "lem:stability",
       "statementLines": [
-        3055,
-        3060
+        3069,
+        3074
       ],
       "statementRegion": {
         "page": 22,
@@ -302,8 +302,8 @@
         }
       ],
       "proofLines": [
-        3062,
-        3075
+        3076,
+        3089
       ],
       "proofRegions": [
         {
@@ -325,8 +325,8 @@
       "type": "proposition",
       "title": "prop:pml-hazard",
       "statementLines": [
-        3151,
-        3214
+        3165,
+        3228
       ],
       "statementRegion": {
         "page": 22,
@@ -346,8 +346,8 @@
         }
       ],
       "proofLines": [
-        3216,
-        3344
+        3230,
+        3358
       ],
       "proofRegions": [
         {
@@ -386,208 +386,211 @@
     }
   ],
   "lineRefs": {
-    "327": [
+    "328": [
       "eq:quasi-empirical"
     ],
-    "919": [
+    "920": [
       "eq:survival-deriv"
     ],
-    "923": [
+    "924": [
       "eq:survival-riesz"
     ],
-    "934": [
+    "935": [
       "eq:survival-orthogonality"
     ],
-    "966": [
+    "967": [
       "eq:survival-tangent"
     ],
-    "1014": [
+    "1015": [
       "eq:survival-orthogonality"
     ],
-    "1061": [
+    "1062": [
       "eq:survival-deriv"
     ],
-    "1082": [
+    "1083": [
       "eq:riesz-cts"
     ],
-    "1094": [
+    "1095": [
       "eq:one-step-general"
-    ],
-    "1125": [
-      "eq:survival-riesz"
     ],
     "1126": [
-      "eq:riesz-cts"
-    ],
-    "1137": [
-      "eq:rmst-riesz"
-    ],
-    "1138": [
-      "eq:rmst-riesz-cts"
-    ],
-    "1155": [
-      "eq:one-step-general"
-    ],
-    "1209": [
-      "eq:survival-cts"
-    ],
-    "1227": [
-      "eq:dual"
-    ],
-    "1239": [
       "eq:survival-riesz"
     ],
-    "1258": [
+    "1127": [
+      "eq:riesz-cts"
+    ],
+    "1138": [
+      "eq:rmst-riesz"
+    ],
+    "1139": [
+      "eq:rmst-riesz-cts"
+    ],
+    "1156": [
+      "eq:one-step-general"
+    ],
+    "1210": [
+      "eq:survival-cts"
+    ],
+    "1228": [
       "eq:dual"
     ],
-    "1360": [
+    "1240": [
+      "eq:survival-riesz"
+    ],
+    "1259": [
+      "eq:dual"
+    ],
+    "1361": [
       "eq:foc-hazard-body"
     ],
-    "1397": [
+    "1398": [
       "eq:dpsi-weight"
     ],
-    "1404": [
+    "1405": [
       "eq:foc-weight-body"
     ],
-    "1466": [
+    "1467": [
       "lem:stability"
     ],
-    "1549": [
+    "1551": [
       "lem:stability"
     ],
-    "1644": [
+    "1646": [
       "eq:survival-variance-estimate"
     ],
-    "2138": [
-      "eq:block-jensen"
+    "1771": [
+      "eq:hazard-dual"
     ],
-    "2220": [
-      "cor:slb-quasi"
+    "2151": [
+      "eq:block-jensen"
     ],
     "2233": [
+      "cor:slb-quasi"
+    ],
+    "2246": [
       "lem:efron-stein-quasi"
     ],
-    "2250": [
+    "2263": [
       "eq:block-jensen"
     ],
-    "2258": [
+    "2271": [
       "lem:talagrand"
     ],
-    "2276": [
+    "2289": [
       "eq:block-jensen"
     ],
-    "2290": [
+    "2303": [
       "lem:symmetrization-quasi"
     ],
-    "2314": [
+    "2327": [
       "lem:contraction-quasi"
     ],
-    "2330": [
+    "2343": [
       "lem:rademacher-comparison"
     ],
-    "2349": [
+    "2362": [
       "thm:survival"
     ],
-    "2416": [
+    "2429": [
       "eq:survival-deriv"
     ],
-    "2518": [
+    "2531": [
       "eq:joint-rate-assumption"
     ],
-    "2711": [
+    "2724": [
       "lem:stability"
     ],
-    "2797": [
+    "2810": [
       "eq:bootstrap-expansion"
     ],
-    "2840": [
+    "2854": [
       "eq:temporal-separability"
     ],
-    "3041": [
+    "3055": [
       "eq:pqv-cts"
     ],
-    "3143": [
+    "3157": [
       "eq:kl-lower"
     ],
-    "3144": [
+    "3158": [
       "eq:pml-excess-risk"
     ],
-    "3152": [
+    "3166": [
       "eq:pml-excess-risk"
     ],
-    "3190": [
+    "3204": [
       "lem:contraction-quasi"
     ],
-    "3191": [
+    "3205": [
       "eq:pml-excess-risk"
     ],
-    "3203": [
+    "3217": [
       "eq:kl-lower"
     ],
-    "3214": [
+    "3228": [
       "eq:kl-lower"
     ],
-    "3215": [
+    "3229": [
       "eq:pml-excess-risk"
     ],
-    "3216": [
+    "3230": [
       "eq:pml-l2-rate"
     ],
-    "3220": [
+    "3234": [
       "eq:pml-seminorm-rate"
     ],
-    "3223": [
+    "3237": [
       "eq:pml-excess-risk"
     ],
-    "3266": [
+    "3280": [
       "eq:pml-seminorm-rate"
     ],
-    "3365": [
+    "3379": [
       "eq:kl-lower"
     ],
-    "3438": [
+    "3452": [
       "eq:foc-hazard-rearranged"
     ],
-    "3474": [
+    "3488": [
       "eq:representer-weight"
     ],
-    "3546": [
+    "3560": [
       "eq:foc-hazard-rearranged",
       "eq:foc-weight"
     ],
-    "3587": [
+    "3601": [
       "eq:dpsi-weight"
     ],
-    "3597": [
+    "3611": [
       "eq:cgam"
     ],
-    "3663": [
+    "3677": [
       "eq:dpsi-weight"
     ],
-    "3833": [
+    "3847": [
       "eq:hazard-alpha"
     ],
-    "3885": [
+    "3899": [
       "eq:integrand-gi"
     ],
-    "3926": [
+    "3940": [
       "eq:representer-hazard"
     ],
-    "3931": [
+    "3945": [
       "eq:trap-bound"
     ],
-    "3974": [
+    "3988": [
       "eq:trap-bound"
     ],
-    "3976": [
+    "3990": [
       "eq:holder-bound"
     ]
   },
   "labelRegions": {
     "thm:survival": {
       "page": 11,
-      "yTop": 339.2,
-      "yBottom": 589.3,
+      "yTop": 339.4,
+      "yBottom": 589.1,
       "type": "theorem",
       "displayLabel": "thm:survival"
     },
@@ -964,8 +967,8 @@
     },
     "eq:survival-variance-estimate": {
       "page": 11,
-      "yTop": 516,
-      "yBottom": 589.3,
+      "yTop": 515.7,
+      "yBottom": 589.1,
       "type": "equation",
       "displayLabel": "eq:survival-variance-estimate"
     },
@@ -978,8 +981,8 @@
     },
     "eq:temporal-separability": {
       "page": 13,
-      "yTop": 608.5,
-      "yBottom": 638.5,
+      "yTop": 626,
+      "yBottom": 656,
       "type": "equation",
       "displayLabel": "eq:temporal-separability"
     },
