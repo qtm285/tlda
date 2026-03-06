@@ -1,7 +1,7 @@
 {
   "room": "doc-spinoff3",
   "doc": "spinoff3",
-  "exportedAt": "2026-03-05T23:57:55.158Z",
+  "exportedAt": "2026-03-06T00:16:02.255Z",
   "liveUrl": "http://10.110.65.206:5176/?doc=spinoff3",
   "records": {
     "shape:spinoff3-page-0": {
@@ -364,6 +364,24 @@
       "index": "aFyh9fLV",
       "typeName": "shape"
     },
+    "shape:spinoff3-page-25": {
+      "x": 0,
+      "y": 26682.35294117648,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:spinoff3-page-25",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 25
+      },
+      "parentId": "page:page",
+      "index": "aQw2WUNl",
+      "typeName": "shape"
+    },
     "shape:spinoff3-page-15": {
       "x": 0,
       "y": 16009.411764705887,
@@ -380,6 +398,24 @@
       },
       "parentId": "page:page",
       "index": "aGbvVWwV",
+      "typeName": "shape"
+    },
+    "shape:spinoff3-page-26": {
+      "x": 0,
+      "y": 27749.64705882354,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:spinoff3-page-26",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 26
+      },
+      "parentId": "page:page",
+      "index": "aRunyTuV",
       "typeName": "shape"
     },
     "shape:spinoff3-page-16": {
@@ -400,6 +436,24 @@
       "index": "aHFsgKJV",
       "typeName": "shape"
     },
+    "shape:spinoff3-page-27": {
+      "x": 0,
+      "y": 28816.9411764706,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:spinoff3-page-27",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 27
+      },
+      "parentId": "page:page",
+      "index": "aSWXVx9V",
+      "typeName": "shape"
+    },
     "shape:spinoff3-page-17": {
       "x": 0,
       "y": 18144.000000000004,
@@ -416,6 +470,24 @@
       },
       "parentId": "page:page",
       "index": "aI05y6qV",
+      "typeName": "shape"
+    },
+    "shape:spinoff3-page-28": {
+      "x": 0,
+      "y": 29884.235294117658,
+      "rotation": 0,
+      "isLocked": true,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:spinoff3-page-28",
+      "type": "svg-page",
+      "props": {
+        "w": 800,
+        "h": 1035.2941176470588,
+        "pageIndex": 28
+      },
+      "parentId": "page:page",
+      "index": "aTku5MPV",
       "typeName": "shape"
     },
     "shape:spinoff3-page-18": {
