@@ -1,0 +1,25 @@
+{
+  "_source": "/Users/skip/work/claude-tldraw/server/projects/bregman/source/bregman-lower-bound.tex",
+  "_extracted": "2026-03-05T04:25:14.623Z",
+  "macros": {
+    "\\customlabel": "%\n  \\phantomsection\\begingroup\\def\\@currentlabel{#2}\\label{#1}\\endgroup",
+    "\\model": "\\mathcal{M}",
+    "\\vmodel": "\\mathcal{V}",
+    "\\F": "\\mathcal{F}",
+    "\\G": "\\mathcal{G}",
+    "\\hPn": "\\frac{1}{n}\\sum_{i=1}^n",
+    "\\setupvariants": "%        % call once before the first variant\n  \\stepcounter{theorem}%\n  \\xdef\\variantbase{\\arabic{theorem}}%\n  \\addtocounter{theorem}{-1}%\n",
+    "\\theoremvariant": "%    % call before each \\begin{corollary} etc.\n  \\setcounter{theorem}{\\numexpr\\variantbase-1\\relax}%\n  \\renewcommand{\\thetheorem}{\\thesection.\\variantbase\\textup{#1}}%\n",
+    "\\resettheorem": "%         % call after each \\end{corollary} etc.\n  \\renewcommand{\\thetheorem}{\\thesection.\\arabic{theorem}}%\n",
+    "\\calS": "\\mathcal{S}",
+    "\\hgammazero": "\\hat\\gamma_0",
+    "\\hL": "\\hat{L}",
+    "\\tL": "\\tilde{L}",
+    "\\xs": "x^\\conj",
+    "\\ys": "y^\\conj",
+    "\\zs": "z^\\conj",
+    "\\KL": "\\operatorname{KL}",
+    "\\Cov": "\\operatorname{Cov}",
+    "\\laplacian": "\\operatorname{\\Delta}"
+  }
+}
