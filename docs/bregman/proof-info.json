@@ -1,7 +1,7 @@
 {
   "meta": {
     "texFile": "/Users/skip/work/claude-tldraw/server/projects/bregman/source/bregman-lower-bound.tex",
-    "generated": "2026-03-05T04:25:40.190Z"
+    "generated": "2026-03-17T20:36:16.863Z"
   },
   "pairs": [
     {
@@ -13,15 +13,15 @@
         1970
       ],
       "statementRegion": {
-        "page": 21,
-        "yTop": 433.9,
-        "yBottom": 475.9
+        "page": 19,
+        "yTop": 561.6,
+        "yBottom": 603.6
       },
       "statementRegions": [
         {
-          "page": 21,
-          "yTop": 433.9,
-          "yBottom": 475.9
+          "page": 19,
+          "yTop": 561.6,
+          "yBottom": 603.6
         }
       ],
       "proofLines": [
@@ -30,9 +30,9 @@
       ],
       "proofRegions": [
         {
-          "page": 21,
-          "yTop": 465.9,
-          "yBottom": 507.9
+          "page": 19,
+          "yTop": 593.6,
+          "yBottom": 635.6
         }
       ],
       "samePage": true,
@@ -47,15 +47,20 @@
         1995
       ],
       "statementRegion": {
-        "page": 21,
-        "yTop": 509.9,
-        "yBottom": 600.5
+        "page": 19,
+        "yTop": -20.5,
+        "yBottom": 9.5
       },
       "statementRegions": [
         {
-          "page": 21,
-          "yTop": 509.9,
-          "yBottom": 600.5
+          "page": 19,
+          "yTop": -20.5,
+          "yBottom": 9.5
+        },
+        {
+          "page": 20,
+          "yTop": 14.5,
+          "yBottom": 105
         }
       ],
       "proofLines": [
@@ -64,14 +69,9 @@
       ],
       "proofRegions": [
         {
-          "page": 21,
-          "yTop": -20.5,
-          "yBottom": 650.9
-        },
-        {
-          "page": 22,
-          "yTop": 11.899999999999999,
-          "yBottom": 82.1
+          "page": 20,
+          "yTop": 97.5,
+          "yBottom": 219.7
         }
       ],
       "samePage": false,
@@ -86,15 +86,15 @@
         2036
       ],
       "statementRegion": {
-        "page": 22,
-        "yTop": 74,
-        "yBottom": 148.8
+        "page": 20,
+        "yTop": 211.8,
+        "yBottom": 286.6
       },
       "statementRegions": [
         {
-          "page": 22,
-          "yTop": 74,
-          "yBottom": 148.8
+          "page": 20,
+          "yTop": 211.8,
+          "yBottom": 286.6
         }
       ],
       "proofLines": [
@@ -103,9 +103,9 @@
       ],
       "proofRegions": [
         {
-          "page": 22,
-          "yTop": 146.7,
-          "yBottom": 188.7
+          "page": 20,
+          "yTop": 285.6,
+          "yBottom": 327.6
         }
       ],
       "samePage": true,
@@ -120,15 +120,15 @@
         2057
       ],
       "statementRegion": {
-        "page": 22,
-        "yTop": 178.5,
-        "yBottom": 240.9
+        "page": 20,
+        "yTop": 317.6,
+        "yBottom": 380.1
       },
       "statementRegions": [
         {
-          "page": 22,
-          "yTop": 178.5,
-          "yBottom": 240.9
+          "page": 20,
+          "yTop": 317.6,
+          "yBottom": 380.1
         }
       ],
       "proofLines": [
@@ -137,9 +137,9 @@
       ],
       "proofRegions": [
         {
-          "page": 22,
-          "yTop": 228.7,
-          "yBottom": 258.7
+          "page": 20,
+          "yTop": 369,
+          "yBottom": 399
         }
       ],
       "samePage": true,
@@ -154,15 +154,15 @@
         2088
       ],
       "statementRegion": {
-        "page": 22,
-        "yTop": 296.6,
-        "yBottom": 364.7
+        "page": 20,
+        "yTop": 438.2,
+        "yBottom": 506.3
       },
       "statementRegions": [
         {
-          "page": 22,
-          "yTop": 296.6,
-          "yBottom": 364.7
+          "page": 20,
+          "yTop": 438.2,
+          "yBottom": 506.3
         }
       ],
       "proofLines": [
@@ -171,9 +171,9 @@
       ],
       "proofRegions": [
         {
-          "page": 22,
-          "yTop": 365.6,
-          "yBottom": 497.4
+          "page": 20,
+          "yTop": 508.29999999999995,
+          "yBottom": 640.2
         }
       ],
       "samePage": true,
@@ -185,10 +185,10 @@
           "shortType": "eq",
           "region": {
             "page": 2,
-            "yTop": 176.2,
-            "yBottom": 242.3
+            "yTop": 164.9,
+            "yBottom": 231.7
           },
-          "pageDist": 20
+          "pageDist": 18
         }
       ]
     },
@@ -201,15 +201,20 @@
         2310
       ],
       "statementRegion": {
-        "page": 23,
-        "yTop": 255.2,
-        "yBottom": 603.3
+        "page": 21,
+        "yTop": -20.5,
+        "yBottom": 634
       },
       "statementRegions": [
         {
-          "page": 23,
-          "yTop": 255.2,
-          "yBottom": 603.3
+          "page": 21,
+          "yTop": -20.5,
+          "yBottom": 634
+        },
+        {
+          "page": 22,
+          "yTop": 14.5,
+          "yBottom": 132.5
         }
       ],
       "proofLines": [
@@ -218,18 +223,26 @@
       ],
       "proofRegions": [
         {
-          "page": 23,
-          "yTop": -20.5,
-          "yBottom": 656
-        },
-        {
-          "page": 24,
-          "yTop": 14.5,
-          "yBottom": 271.7
+          "page": 22,
+          "yTop": 130.5,
+          "yBottom": 427
         }
       ],
       "samePage": false,
-      "dependencies": []
+      "dependencies": [
+        {
+          "label": "eq:e-type",
+          "displayLabel": "eq:e-type",
+          "type": "equation",
+          "shortType": "eq",
+          "region": {
+            "page": 21,
+            "yTop": 292.9,
+            "yBottom": 344.9
+          },
+          "pageDist": 1
+        }
+      ]
     },
     {
       "id": "lem:quadratic-bregman",
@@ -240,15 +253,15 @@
         2387
       ],
       "statementRegion": {
-        "page": 24,
-        "yTop": 265.1,
-        "yBottom": 334.5
+        "page": 22,
+        "yTop": 420.1,
+        "yBottom": 488.5
       },
       "statementRegions": [
         {
-          "page": 24,
-          "yTop": 265.1,
-          "yBottom": 334.5
+          "page": 22,
+          "yTop": 420.1,
+          "yBottom": 488.5
         }
       ],
       "proofLines": [
@@ -257,9 +270,9 @@
       ],
       "proofRegions": [
         {
-          "page": 24,
-          "yTop": 332,
-          "yBottom": 442.2
+          "page": 22,
+          "yTop": 484.8,
+          "yBottom": 592.8
         }
       ],
       "samePage": true,
@@ -274,15 +287,20 @@
         2435
       ],
       "statementRegion": {
-        "page": 24,
-        "yTop": 432.2,
-        "yBottom": 568
+        "page": 22,
+        "yTop": -20.5,
+        "yBottom": 654.1
       },
       "statementRegions": [
         {
-          "page": 24,
-          "yTop": 432.2,
-          "yBottom": 568
+          "page": 22,
+          "yTop": -20.5,
+          "yBottom": 654.1
+        },
+        {
+          "page": 23,
+          "yTop": 14.5,
+          "yBottom": 80.5
         }
       ],
       "proofLines": [
@@ -291,61 +309,9 @@
       ],
       "proofRegions": [
         {
-          "page": 24,
-          "yTop": 558,
-          "yBottom": 643.8
-        }
-      ],
-      "samePage": true,
-      "dependencies": [
-        {
-          "label": "eq:interpolation",
-          "displayLabel": "eq:interpolation",
-          "type": "equation",
-          "shortType": "eq",
-          "region": {
-            "page": 12,
-            "yTop": 202.4,
-            "yBottom": 313.1
-          },
-          "pageDist": 12
-        }
-      ]
-    },
-    {
-      "id": "lem:jensen-lower",
-      "type": "lemma",
-      "title": "lem:jensen-lower",
-      "statementLines": [
-        2477,
-        2519
-      ],
-      "statementRegion": {
-        "page": 25,
-        "yTop": 184.8,
-        "yBottom": 372
-      },
-      "statementRegions": [
-        {
-          "page": 25,
-          "yTop": 184.8,
-          "yBottom": 372
-        }
-      ],
-      "proofLines": [
-        2521,
-        2598
-      ],
-      "proofRegions": [
-        {
-          "page": 25,
-          "yTop": -20.5,
-          "yBottom": 655.6
-        },
-        {
-          "page": 26,
-          "yTop": 14.5,
-          "yBottom": 178.4
+          "page": 23,
+          "yTop": 68.6,
+          "yBottom": 154.4
         }
       ],
       "samePage": false,
@@ -360,7 +326,59 @@
             "yTop": 202.4,
             "yBottom": 313.1
           },
-          "pageDist": 13
+          "pageDist": 11
+        }
+      ]
+    },
+    {
+      "id": "lem:jensen-lower",
+      "type": "lemma",
+      "title": "lem:jensen-lower",
+      "statementLines": [
+        2477,
+        2519
+      ],
+      "statementRegion": {
+        "page": 23,
+        "yTop": 317.4,
+        "yBottom": 508.7
+      },
+      "statementRegions": [
+        {
+          "page": 23,
+          "yTop": 317.4,
+          "yBottom": 508.7
+        }
+      ],
+      "proofLines": [
+        2521,
+        2598
+      ],
+      "proofRegions": [
+        {
+          "page": 23,
+          "yTop": -20.5,
+          "yBottom": 657.6
+        },
+        {
+          "page": 24,
+          "yTop": 14.5,
+          "yBottom": 331.7
+        }
+      ],
+      "samePage": false,
+      "dependencies": [
+        {
+          "label": "eq:interpolation",
+          "displayLabel": "eq:interpolation",
+          "type": "equation",
+          "shortType": "eq",
+          "region": {
+            "page": 12,
+            "yTop": 202.4,
+            "yBottom": 313.1
+          },
+          "pageDist": 11
         }
       ]
     },
@@ -373,15 +391,15 @@
         2620
       ],
       "statementRegion": {
-        "page": 26,
-        "yTop": 259.3,
-        "yBottom": 478.7
+        "page": 24,
+        "yTop": 412.7,
+        "yBottom": 632
       },
       "statementRegions": [
         {
-          "page": 26,
-          "yTop": 259.3,
-          "yBottom": 478.7
+          "page": 24,
+          "yTop": 412.7,
+          "yBottom": 632
         }
       ],
       "proofLines": [
@@ -390,24 +408,19 @@
       ],
       "proofRegions": [
         {
+          "page": 27,
+          "yTop": -20.5,
+          "yBottom": 656
+        },
+        {
           "page": 28,
-          "yTop": 541.5,
-          "yBottom": 631.5
+          "yTop": 14.5,
+          "yBottom": 656
         },
         {
           "page": 29,
-          "yTop": 50.5,
-          "yBottom": 643.6
-        },
-        {
-          "page": 30,
           "yTop": 14.5,
-          "yBottom": 640.5
-        },
-        {
-          "page": 31,
-          "yTop": 110.5,
-          "yBottom": 370.8
+          "yBottom": 532.1
         }
       ],
       "samePage": false,
@@ -422,15 +435,20 @@
         2840
       ],
       "statementRegion": {
-        "page": 32,
-        "yTop": 493.4,
-        "yBottom": 523.4
+        "page": 30,
+        "yTop": -20.5,
+        "yBottom": 9.5
       },
       "statementRegions": [
         {
-          "page": 32,
-          "yTop": 493.4,
-          "yBottom": 523.4
+          "page": 30,
+          "yTop": -20.5,
+          "yBottom": 9.5
+        },
+        {
+          "page": 31,
+          "yTop": 14.5,
+          "yBottom": 44.5
         }
       ],
       "proofLines": [
@@ -439,12 +457,12 @@
       ],
       "proofRegions": [
         {
-          "page": 32,
-          "yTop": 525.3,
-          "yBottom": 567.3
+          "page": 31,
+          "yTop": 46.5,
+          "yBottom": 88.5
         }
       ],
-      "samePage": true,
+      "samePage": false,
       "dependencies": []
     },
     {
@@ -456,15 +474,15 @@
         2857
       ],
       "statementRegion": {
-        "page": 32,
-        "yTop": 557.3,
-        "yBottom": 614.1
+        "page": 31,
+        "yTop": 78.5,
+        "yBottom": 135.2
       },
       "statementRegions": [
         {
-          "page": 32,
-          "yTop": 557.3,
-          "yBottom": 614.1
+          "page": 31,
+          "yTop": 78.5,
+          "yBottom": 135.2
         }
       ],
       "proofLines": [
@@ -473,17 +491,12 @@
       ],
       "proofRegions": [
         {
-          "page": 32,
-          "yTop": 604,
-          "yBottom": 656
-        },
-        {
-          "page": 33,
-          "yTop": 14.5,
-          "yBottom": 258.5
+          "page": 31,
+          "yTop": 125.19999999999999,
+          "yBottom": 416.1
         }
       ],
-      "samePage": false,
+      "samePage": true,
       "dependencies": []
     },
     {
@@ -495,20 +508,15 @@
         2997
       ],
       "statementRegion": {
-        "page": 33,
-        "yTop": -20.5,
-        "yBottom": 9.5
+        "page": 32,
+        "yTop": 176.3,
+        "yBottom": 277.2
       },
       "statementRegions": [
         {
-          "page": 33,
-          "yTop": -20.5,
-          "yBottom": 9.5
-        },
-        {
-          "page": 34,
-          "yTop": 14.5,
-          "yBottom": 115.9
+          "page": 32,
+          "yTop": 176.3,
+          "yBottom": 277.2
         }
       ],
       "proofLines": [
@@ -517,12 +525,12 @@
       ],
       "proofRegions": [
         {
-          "page": 34,
-          "yTop": 106.6,
-          "yBottom": 148.6
+          "page": 32,
+          "yTop": 267.8,
+          "yBottom": 309.8
         }
       ],
-      "samePage": false,
+      "samePage": true,
       "dependencies": []
     },
     {
@@ -534,15 +542,15 @@
         3011
       ],
       "statementRegion": {
-        "page": 34,
-        "yTop": 225.5,
-        "yBottom": 317.1
+        "page": 32,
+        "yTop": 386.5,
+        "yBottom": 477.6
       },
       "statementRegions": [
         {
-          "page": 34,
-          "yTop": 225.5,
-          "yBottom": 317.1
+          "page": 32,
+          "yTop": 386.5,
+          "yBottom": 477.6
         }
       ],
       "proofLines": [
@@ -551,12 +559,17 @@
       ],
       "proofRegions": [
         {
-          "page": 34,
-          "yTop": 330.6,
-          "yBottom": 619.3
+          "page": 32,
+          "yTop": -20.5,
+          "yBottom": 651.6
+        },
+        {
+          "page": 33,
+          "yTop": 14.600000000000001,
+          "yBottom": 142.6
         }
       ],
-      "samePage": true,
+      "samePage": false,
       "dependencies": []
     },
     {
@@ -568,15 +581,15 @@
         3040
       ],
       "statementRegion": {
-        "page": 34,
-        "yTop": 609.2,
-        "yBottom": 639.2
+        "page": 33,
+        "yTop": 132.6,
+        "yBottom": 162.6
       },
       "statementRegions": [
         {
-          "page": 34,
-          "yTop": 609.2,
-          "yBottom": 639.2
+          "page": 33,
+          "yTop": 132.6,
+          "yBottom": 162.6
         }
       ],
       "proofLines": [
@@ -585,17 +598,12 @@
       ],
       "proofRegions": [
         {
-          "page": 34,
-          "yTop": -20.5,
-          "yBottom": 9.5
-        },
-        {
-          "page": 35,
-          "yTop": 14.5,
-          "yBottom": 237.9
+          "page": 33,
+          "yTop": 170.7,
+          "yBottom": 394.2
         }
       ],
-      "samePage": false,
+      "samePage": true,
       "dependencies": []
     },
     {
@@ -607,15 +615,20 @@
         3283
       ],
       "statementRegion": {
-        "page": 37,
-        "yTop": 550.3,
-        "yBottom": 656
+        "page": 35,
+        "yTop": -20.5,
+        "yBottom": 9.5
       },
       "statementRegions": [
         {
-          "page": 37,
-          "yTop": 550.3,
-          "yBottom": 656
+          "page": 35,
+          "yTop": -20.5,
+          "yBottom": 9.5
+        },
+        {
+          "page": 36,
+          "yTop": 78.1,
+          "yBottom": 185.3
         }
       ],
       "proofLines": [
@@ -624,9 +637,9 @@
       ],
       "proofRegions": [
         {
-          "page": 39,
-          "yTop": 70.9,
-          "yBottom": 220.9
+          "page": 37,
+          "yTop": 312,
+          "yBottom": 462
         }
       ],
       "samePage": false,
@@ -641,15 +654,15 @@
         3341
       ],
       "statementRegion": {
-        "page": 38,
-        "yTop": 124.80000000000001,
-        "yBottom": 340
+        "page": 36,
+        "yTop": 293.4,
+        "yBottom": 518.3
       },
       "statementRegions": [
         {
-          "page": 38,
-          "yTop": 124.80000000000001,
-          "yBottom": 340
+          "page": 36,
+          "yTop": 293.4,
+          "yBottom": 518.3
         }
       ],
       "proofLines": [
@@ -658,14 +671,14 @@
       ],
       "proofRegions": [
         {
-          "page": 39,
+          "page": 37,
           "yTop": -20.5,
-          "yBottom": 624.7
+          "yBottom": 614
         },
         {
-          "page": 40,
+          "page": 38,
           "yTop": 14.5,
-          "yBottom": 313.9
+          "yBottom": 518.8
         }
       ],
       "samePage": false,
@@ -680,15 +693,15 @@
         3363
       ],
       "statementRegion": {
-        "page": 38,
-        "yTop": 358.6,
-        "yBottom": 420.1
+        "page": 36,
+        "yTop": 540.3,
+        "yBottom": 601.8
       },
       "statementRegions": [
         {
-          "page": 38,
-          "yTop": 358.6,
-          "yBottom": 420.1
+          "page": 36,
+          "yTop": 540.3,
+          "yBottom": 601.8
         }
       ],
       "proofLines": [
@@ -697,9 +710,9 @@
       ],
       "proofRegions": [
         {
-          "page": 40,
-          "yTop": 305.8,
-          "yBottom": 399.2
+          "page": 38,
+          "yTop": 507.4,
+          "yBottom": 598.8
         }
       ],
       "samePage": false,
@@ -710,9 +723,9 @@
           "type": "equation",
           "shortType": "eq",
           "region": {
-            "page": 38,
-            "yTop": 249.5,
-            "yBottom": 306.1
+            "page": 36,
+            "yTop": 426.6,
+            "yBottom": 483.2
           },
           "pageDist": 2
         }
@@ -727,20 +740,20 @@
         3424
       ],
       "statementRegion": {
-        "page": 38,
+        "page": 36,
         "yTop": -20.5,
-        "yBottom": 652.1
+        "yBottom": 9.5
       },
       "statementRegions": [
         {
-          "page": 38,
+          "page": 36,
           "yTop": -20.5,
-          "yBottom": 652.1
+          "yBottom": 9.5
         },
         {
-          "page": 39,
-          "yTop": 14.5,
-          "yBottom": 56.5
+          "page": 37,
+          "yTop": 100.9,
+          "yBottom": 297.6
         }
       ],
       "proofLines": [
@@ -749,14 +762,14 @@
       ],
       "proofRegions": [
         {
-          "page": 40,
-          "yTop": -20.5,
-          "yBottom": 591.3
+          "page": 38,
+          "yTop": 602,
+          "yBottom": 644
         },
         {
-          "page": 41,
+          "page": 39,
           "yTop": 14.5,
-          "yBottom": 294.3
+          "yBottom": 441.6
         }
       ],
       "samePage": false,
@@ -788,14 +801,14 @@
       ],
       "proofRegions": [
         {
-          "page": 47,
+          "page": 45,
           "yTop": -20.5,
-          "yBottom": 642.9
+          "yBottom": 9.5
         },
         {
-          "page": 48,
+          "page": 46,
           "yTop": 14.5,
-          "yBottom": 225.7
+          "yBottom": 325.2
         }
       ],
       "samePage": false,
@@ -810,7 +823,7 @@
             "yTop": 135.6,
             "yBottom": 271.4
           },
-          "pageDist": 43
+          "pageDist": 41
         }
       ]
     },
@@ -823,15 +836,15 @@
         4078
       ],
       "statementRegion": {
-        "page": 47,
-        "yTop": 484.9,
-        "yBottom": 514.9
+        "page": 45,
+        "yTop": 560.9,
+        "yBottom": 590.9
       },
       "statementRegions": [
         {
-          "page": 47,
-          "yTop": 484.9,
-          "yBottom": 514.9
+          "page": 45,
+          "yTop": 560.9,
+          "yBottom": 590.9
         }
       ],
       "proofLines": [
@@ -840,9 +853,9 @@
       ],
       "proofRegions": [
         {
-          "page": 48,
-          "yTop": 227,
-          "yBottom": 269
+          "page": 46,
+          "yTop": 327.2,
+          "yBottom": 369.2
         }
       ],
       "samePage": false,
@@ -857,15 +870,15 @@
         4078
       ],
       "statementRegion": {
-        "page": 47,
-        "yTop": 484.9,
-        "yBottom": 514.9
+        "page": 45,
+        "yTop": 560.9,
+        "yBottom": 590.9
       },
       "statementRegions": [
         {
-          "page": 47,
-          "yTop": 484.9,
-          "yBottom": 514.9
+          "page": 45,
+          "yTop": 560.9,
+          "yBottom": 590.9
         }
       ],
       "proofLines": [
@@ -874,19 +887,24 @@
       ],
       "proofRegions": [
         {
+          "page": 46,
+          "yTop": -20.5,
+          "yBottom": 654.6
+        },
+        {
+          "page": 47,
+          "yTop": -20.5,
+          "yBottom": 620
+        },
+        {
           "page": 48,
           "yTop": -20.5,
-          "yBottom": 632
+          "yBottom": 654.1
         },
         {
           "page": 49,
-          "yTop": -20.5,
-          "yBottom": 644
-        },
-        {
-          "page": 50,
           "yTop": 14.5,
-          "yBottom": 472.3
+          "yBottom": 80
         }
       ],
       "samePage": false,
@@ -901,15 +919,15 @@
         4336
       ],
       "statementRegion": {
-        "page": 51,
-        "yTop": 254.60000000000002,
-        "yBottom": 414.9
+        "page": 49,
+        "yTop": 476.4,
+        "yBottom": 625.8
       },
       "statementRegions": [
         {
-          "page": 51,
-          "yTop": 254.60000000000002,
-          "yBottom": 414.9
+          "page": 49,
+          "yTop": 476.4,
+          "yBottom": 625.8
         }
       ],
       "proofLines": [
@@ -918,14 +936,14 @@
       ],
       "proofRegions": [
         {
-          "page": 51,
-          "yTop": 402.4,
-          "yBottom": 646.2
+          "page": 49,
+          "yTop": -20.5,
+          "yBottom": 656
         },
         {
-          "page": 52,
+          "page": 50,
           "yTop": 14.5,
-          "yBottom": 56.5
+          "yBottom": 258.9
         }
       ],
       "samePage": false,
@@ -940,15 +958,15 @@
         4446
       ],
       "statementRegion": {
-        "page": 52,
-        "yTop": 114.5,
-        "yBottom": 323.6
+        "page": 50,
+        "yTop": 316.9,
+        "yBottom": 526.1
       },
       "statementRegions": [
         {
-          "page": 52,
-          "yTop": 114.5,
-          "yBottom": 323.6
+          "page": 50,
+          "yTop": 316.9,
+          "yBottom": 526.1
         }
       ],
       "proofLines": [
@@ -957,14 +975,130 @@
       ],
       "proofRegions": [
         {
+          "page": 50,
+          "yTop": -20.5,
+          "yBottom": 639.4
+        },
+        {
+          "page": 51,
+          "yTop": 14.5,
+          "yBottom": 222.7
+        }
+      ],
+      "samePage": false,
+      "dependencies": [
+        {
+          "label": "eq:interpolation",
+          "displayLabel": "eq:interpolation",
+          "type": "equation",
+          "shortType": "eq",
+          "region": {
+            "page": 12,
+            "yTop": 202.4,
+            "yBottom": 313.1
+          },
+          "pageDist": 38
+        },
+        {
+          "label": "eq:psc-discount",
+          "displayLabel": "eq:psc-discount",
+          "type": "equation",
+          "shortType": "eq",
+          "region": {
+            "page": 22,
+            "yTop": 582.6,
+            "yBottom": 654.1
+          },
+          "pageDist": 28
+        }
+      ]
+    },
+    {
+      "id": "lem:xi-jensen",
+      "type": "lemma",
+      "title": "lem:xi-jensen",
+      "statementLines": [
+        4514,
+        4549
+      ],
+      "statementRegion": {
+        "page": 51,
+        "yTop": 256.7,
+        "yBottom": 446.6
+      },
+      "statementRegions": [
+        {
+          "page": 51,
+          "yTop": 256.7,
+          "yBottom": 446.6
+        }
+      ],
+      "proofLines": [
+        4551,
+        4628
+      ],
+      "proofRegions": [
+        {
+          "page": 51,
+          "yTop": -20.5,
+          "yBottom": 641.6
+        },
+        {
           "page": 52,
-          "yTop": 313.6,
-          "yBottom": 602.6
+          "yTop": 14.5,
+          "yBottom": 244.8
+        }
+      ],
+      "samePage": false,
+      "dependencies": [
+        {
+          "label": "eq:interpolation",
+          "displayLabel": "eq:interpolation",
+          "type": "equation",
+          "shortType": "eq",
+          "region": {
+            "page": 12,
+            "yTop": 202.4,
+            "yBottom": 313.1
+          },
+          "pageDist": 39
+        }
+      ]
+    },
+    {
+      "id": "thm:xi-all-regimes",
+      "type": "theorem",
+      "title": "thm:xi-all-regimes",
+      "statementLines": [
+        4630,
+        4671
+      ],
+      "statementRegion": {
+        "page": 52,
+        "yTop": 242.8,
+        "yBottom": 458.9
+      },
+      "statementRegions": [
+        {
+          "page": 52,
+          "yTop": 242.8,
+          "yBottom": 458.9
+        }
+      ],
+      "proofLines": [
+        4676,
+        4760
+      ],
+      "proofRegions": [
+        {
+          "page": 52,
+          "yTop": -20.5,
+          "yBottom": 648.7
         },
         {
           "page": 53,
           "yTop": 14.5,
-          "yBottom": 56.5
+          "yBottom": 244
         }
       ],
       "samePage": false,
@@ -980,132 +1114,6 @@
             "yBottom": 313.1
           },
           "pageDist": 40
-        },
-        {
-          "label": "eq:psc-discount",
-          "displayLabel": "eq:psc-discount",
-          "type": "equation",
-          "shortType": "eq",
-          "region": {
-            "page": 24,
-            "yTop": 432.2,
-            "yBottom": 504.8
-          },
-          "pageDist": 28
-        }
-      ]
-    },
-    {
-      "id": "lem:xi-jensen",
-      "type": "lemma",
-      "title": "lem:xi-jensen",
-      "statementLines": [
-        4514,
-        4549
-      ],
-      "statementRegion": {
-        "page": 52,
-        "yTop": -20.5,
-        "yBottom": 9.5
-      },
-      "statementRegions": [
-        {
-          "page": 52,
-          "yTop": -20.5,
-          "yBottom": 9.5
-        },
-        {
-          "page": 53,
-          "yTop": 90.5,
-          "yBottom": 280.4
-        }
-      ],
-      "proofLines": [
-        4551,
-        4628
-      ],
-      "proofRegions": [
-        {
-          "page": 53,
-          "yTop": 272.2,
-          "yBottom": 576.1
-        },
-        {
-          "page": 54,
-          "yTop": 14.5,
-          "yBottom": 132.1
-        }
-      ],
-      "samePage": false,
-      "dependencies": [
-        {
-          "label": "eq:interpolation",
-          "displayLabel": "eq:interpolation",
-          "type": "equation",
-          "shortType": "eq",
-          "region": {
-            "page": 12,
-            "yTop": 202.4,
-            "yBottom": 313.1
-          },
-          "pageDist": 41
-        }
-      ]
-    },
-    {
-      "id": "thm:xi-all-regimes",
-      "type": "theorem",
-      "title": "thm:xi-all-regimes",
-      "statementLines": [
-        4630,
-        4671
-      ],
-      "statementRegion": {
-        "page": 53,
-        "yTop": -20.5,
-        "yBottom": 9.5
-      },
-      "statementRegions": [
-        {
-          "page": 53,
-          "yTop": -20.5,
-          "yBottom": 9.5
-        },
-        {
-          "page": 54,
-          "yTop": 130.1,
-          "yBottom": 346.2
-        }
-      ],
-      "proofLines": [
-        4676,
-        4760
-      ],
-      "proofRegions": [
-        {
-          "page": 54,
-          "yTop": -20.5,
-          "yBottom": 638.7
-        },
-        {
-          "page": 55,
-          "yTop": 14.5,
-          "yBottom": 120.7
-        }
-      ],
-      "samePage": false,
-      "dependencies": [
-        {
-          "label": "eq:interpolation",
-          "displayLabel": "eq:interpolation",
-          "type": "equation",
-          "shortType": "eq",
-          "region": {
-            "page": 12,
-            "yTop": 202.4,
-            "yBottom": 313.1
-          },
-          "pageDist": 42
         }
       ]
     },
@@ -1118,15 +1126,15 @@
         4800
       ],
       "statementRegion": {
-        "page": 55,
-        "yTop": 246.3,
-        "yBottom": 296.4
+        "page": 53,
+        "yTop": 381.2,
+        "yBottom": 436.2
       },
       "statementRegions": [
         {
-          "page": 55,
-          "yTop": 246.3,
-          "yBottom": 296.4
+          "page": 53,
+          "yTop": 381.2,
+          "yBottom": 436.2
         }
       ],
       "proofLines": [
@@ -1135,19 +1143,14 @@
       ],
       "proofRegions": [
         {
+          "page": 54,
+          "yTop": -20.5,
+          "yBottom": 636.1
+        },
+        {
           "page": 55,
-          "yTop": -20.5,
-          "yBottom": 9.5
-        },
-        {
-          "page": 56,
-          "yTop": -20.5,
-          "yBottom": 649.6
-        },
-        {
-          "page": 57,
-          "yTop": 14.5,
-          "yBottom": 56.5
+          "yTop": 11.8,
+          "yBottom": 301.5
         }
       ],
       "samePage": false,
@@ -1162,15 +1165,15 @@
         4833
       ],
       "statementRegion": {
-        "page": 55,
-        "yTop": 312.5,
-        "yBottom": 452.3
+        "page": 53,
+        "yTop": 453.1,
+        "yBottom": 612.4
       },
       "statementRegions": [
         {
-          "page": 55,
-          "yTop": 312.5,
-          "yBottom": 452.3
+          "page": 53,
+          "yTop": 453.1,
+          "yBottom": 612.4
         }
       ],
       "proofLines": [
@@ -1179,9 +1182,9 @@
       ],
       "proofRegions": [
         {
-          "page": 57,
-          "yTop": 48.2,
-          "yBottom": 102.2
+          "page": 55,
+          "yTop": 293.1,
+          "yBottom": 347.1
         }
       ],
       "samePage": false,
@@ -1196,15 +1199,20 @@
         4877
       ],
       "statementRegion": {
-        "page": 55,
-        "yTop": 438.4,
-        "yBottom": 656
+        "page": 53,
+        "yTop": -20.5,
+        "yBottom": 9.5
       },
       "statementRegions": [
         {
-          "page": 55,
-          "yTop": 438.4,
-          "yBottom": 656
+          "page": 53,
+          "yTop": -20.5,
+          "yBottom": 9.5
+        },
+        {
+          "page": 54,
+          "yTop": 14.5,
+          "yBottom": 251.5
         }
       ],
       "proofLines": [
@@ -1213,9 +1221,9 @@
       ],
       "proofRegions": [
         {
-          "page": 57,
-          "yTop": 92.2,
-          "yBottom": 239.1
+          "page": 55,
+          "yTop": 336.9,
+          "yBottom": 480.8
         }
       ],
       "samePage": false,
@@ -1230,7 +1238,7 @@
             "yTop": 202.4,
             "yBottom": 313.1
           },
-          "pageDist": 45
+          "pageDist": 43
         }
       ]
     },
@@ -1243,15 +1251,15 @@
         5236
       ],
       "statementRegion": {
-        "page": 58,
-        "yTop": 162.5,
-        "yBottom": 274.6
+        "page": 56,
+        "yTop": 395.9,
+        "yBottom": 508
       },
       "statementRegions": [
         {
-          "page": 58,
-          "yTop": 162.5,
-          "yBottom": 274.6
+          "page": 56,
+          "yTop": 395.9,
+          "yBottom": 508
         }
       ],
       "proofLines": [
@@ -1260,12 +1268,17 @@
       ],
       "proofRegions": [
         {
-          "page": 58,
-          "yTop": 284.6,
-          "yBottom": 591.1
+          "page": 56,
+          "yTop": -20.5,
+          "yBottom": 652
+        },
+        {
+          "page": 57,
+          "yTop": 14.5,
+          "yBottom": 191
         }
       ],
-      "samePage": true,
+      "samePage": false,
       "dependencies": []
     },
     {
@@ -1277,15 +1290,15 @@
         5380
       ],
       "statementRegion": {
-        "page": 59,
-        "yTop": 92,
-        "yBottom": 198.4
+        "page": 57,
+        "yTop": 309,
+        "yBottom": 421.4
       },
       "statementRegions": [
         {
-          "page": 59,
-          "yTop": 92,
-          "yBottom": 198.4
+          "page": 57,
+          "yTop": 309,
+          "yBottom": 421.4
         }
       ],
       "proofLines": [
@@ -1294,12 +1307,17 @@
       ],
       "proofRegions": [
         {
-          "page": 59,
-          "yTop": 243.4,
-          "yBottom": 656
+          "page": 57,
+          "yTop": -20.5,
+          "yBottom": 623.9
+        },
+        {
+          "page": 58,
+          "yTop": 14.5,
+          "yBottom": 300.5
         }
       ],
-      "samePage": true,
+      "samePage": false,
       "dependencies": []
     },
     {
@@ -1311,20 +1329,15 @@
         5526
       ],
       "statementRegion": {
-        "page": 59,
-        "yTop": -20.5,
-        "yBottom": 9.5
+        "page": 58,
+        "yTop": 290.4,
+        "yBottom": 432.2
       },
       "statementRegions": [
         {
-          "page": 59,
-          "yTop": -20.5,
-          "yBottom": 9.5
-        },
-        {
-          "page": 60,
-          "yTop": 14.5,
-          "yBottom": 145.8
+          "page": 58,
+          "yTop": 290.4,
+          "yBottom": 432.2
         }
       ],
       "proofLines": [
@@ -1333,9 +1346,14 @@
       ],
       "proofRegions": [
         {
-          "page": 60,
-          "yTop": 166.7,
-          "yBottom": 542.7
+          "page": 58,
+          "yTop": -20.5,
+          "yBottom": 656
+        },
+        {
+          "page": 59,
+          "yTop": 14.5,
+          "yBottom": 222.1
         }
       ],
       "samePage": false,
@@ -1350,15 +1368,15 @@
         5770
       ],
       "statementRegion": {
-        "page": 61,
-        "yTop": 483.1,
-        "yBottom": 617.7
+        "page": 60,
+        "yTop": 157.4,
+        "yBottom": 289.3
       },
       "statementRegions": [
         {
-          "page": 61,
-          "yTop": 483.1,
-          "yBottom": 617.7
+          "page": 60,
+          "yTop": 157.4,
+          "yBottom": 289.3
         }
       ],
       "proofLines": [
@@ -1367,17 +1385,12 @@
       ],
       "proofRegions": [
         {
-          "page": 61,
-          "yTop": -20.5,
-          "yBottom": 9.5
-        },
-        {
-          "page": 62,
-          "yTop": 14.5,
-          "yBottom": 351.7
+          "page": 60,
+          "yTop": 278.5,
+          "yBottom": 642.9
         }
       ],
-      "samePage": false,
+      "samePage": true,
       "dependencies": []
     },
     {
@@ -1389,15 +1402,15 @@
         5880
       ],
       "statementRegion": {
-        "page": 63,
-        "yTop": 82.8,
-        "yBottom": 243
+        "page": 61,
+        "yTop": 359.8,
+        "yBottom": 518.9
       },
       "statementRegions": [
         {
-          "page": 63,
-          "yTop": 82.8,
-          "yBottom": 243
+          "page": 61,
+          "yTop": 359.8,
+          "yBottom": 518.9
         }
       ],
       "proofLines": [
@@ -1406,12 +1419,17 @@
       ],
       "proofRegions": [
         {
-          "page": 63,
-          "yTop": 232.4,
-          "yBottom": 480.8
+          "page": 61,
+          "yTop": -20.5,
+          "yBottom": 617.1
+        },
+        {
+          "page": 62,
+          "yTop": 14.5,
+          "yBottom": 147.9
         }
       ],
-      "samePage": true,
+      "samePage": false,
       "dependencies": []
     },
     {
@@ -1423,20 +1441,15 @@
         5992
       ],
       "statementRegion": {
-        "page": 63,
-        "yTop": -20.5,
-        "yBottom": 653.3
+        "page": 62,
+        "yTop": 161.9,
+        "yBottom": 386.9
       },
       "statementRegions": [
         {
-          "page": 63,
-          "yTop": -20.5,
-          "yBottom": 653.3
-        },
-        {
-          "page": 64,
-          "yTop": 14.5,
-          "yBottom": 100.5
+          "page": 62,
+          "yTop": 161.9,
+          "yBottom": 386.9
         }
       ],
       "proofLines": [
@@ -1445,14 +1458,14 @@
       ],
       "proofRegions": [
         {
-          "page": 64,
-          "yTop": 90.5,
-          "yBottom": 647.4
+          "page": 62,
+          "yTop": -20.5,
+          "yBottom": 656
         },
         {
-          "page": 65,
+          "page": 63,
           "yTop": 14.5,
-          "yBottom": 298.6
+          "yBottom": 527.4
         }
       ],
       "samePage": false,
@@ -1463,11 +1476,11 @@
           "type": "equation",
           "shortType": "eq",
           "region": {
-            "page": 61,
-            "yTop": 526.2,
-            "yBottom": 587.2
+            "page": 60,
+            "yTop": 199.9,
+            "yBottom": 259.8
           },
-          "pageDist": 3
+          "pageDist": 2
         }
       ]
     },
@@ -1480,20 +1493,15 @@
         6257
       ],
       "statementRegion": {
-        "page": 65,
-        "yTop": -20.5,
-        "yBottom": 656
+        "page": 64,
+        "yTop": 90.5,
+        "yBottom": 337.8
       },
       "statementRegions": [
         {
-          "page": 65,
-          "yTop": -20.5,
-          "yBottom": 656
-        },
-        {
-          "page": 66,
-          "yTop": 14.5,
-          "yBottom": 120.1
+          "page": 64,
+          "yTop": 90.5,
+          "yBottom": 337.8
         }
       ],
       "proofLines": [
@@ -1502,12 +1510,12 @@
       ],
       "proofRegions": [
         {
-          "page": 66,
-          "yTop": 106.8,
-          "yBottom": 400.6
+          "page": 64,
+          "yTop": 327.8,
+          "yBottom": 624.4
         }
       ],
-      "samePage": false,
+      "samePage": true,
       "dependencies": [
         {
           "label": "eq:surviving-bregman",
@@ -1515,11 +1523,11 @@
           "type": "equation",
           "shortType": "eq",
           "region": {
-            "page": 61,
-            "yTop": 526.2,
-            "yBottom": 587.2
+            "page": 60,
+            "yTop": 199.9,
+            "yBottom": 259.8
           },
-          "pageDist": 5
+          "pageDist": 4
         }
       ]
     },
@@ -1532,20 +1540,15 @@
         6393
       ],
       "statementRegion": {
-        "page": 66,
-        "yTop": -20.5,
-        "yBottom": 9.5
+        "page": 65,
+        "yTop": 318.7,
+        "yBottom": 403.3
       },
       "statementRegions": [
         {
-          "page": 66,
-          "yTop": -20.5,
-          "yBottom": 9.5
-        },
-        {
-          "page": 67,
-          "yTop": 37.7,
-          "yBottom": 123
+          "page": 65,
+          "yTop": 318.7,
+          "yBottom": 403.3
         }
       ],
       "proofLines": [
@@ -1554,14 +1557,14 @@
       ],
       "proofRegions": [
         {
-          "page": 67,
+          "page": 65,
           "yTop": -20.5,
-          "yBottom": 657
+          "yBottom": 652.6
         },
         {
-          "page": 68,
+          "page": 66,
           "yTop": 14.5,
-          "yBottom": 216.9
+          "yBottom": 509
         }
       ],
       "samePage": false,
@@ -1576,15 +1579,15 @@
         6559
       ],
       "statementRegion": {
-        "page": 68,
-        "yTop": 288.2,
-        "yBottom": 359.3
+        "page": 66,
+        "yTop": 583.4,
+        "yBottom": 654.5
       },
       "statementRegions": [
         {
-          "page": 68,
-          "yTop": 288.2,
-          "yBottom": 359.3
+          "page": 66,
+          "yTop": 583.4,
+          "yBottom": 654.5
         }
       ],
       "proofLines": [
@@ -1593,12 +1596,17 @@
       ],
       "proofRegions": [
         {
-          "page": 68,
-          "yTop": 351.3,
-          "yBottom": 458.2
+          "page": 66,
+          "yTop": -20.5,
+          "yBottom": 9.5
+        },
+        {
+          "page": 67,
+          "yTop": 14.5,
+          "yBottom": 121.3
         }
       ],
-      "samePage": true,
+      "samePage": false,
       "dependencies": []
     },
     {
@@ -1610,15 +1618,15 @@
         6622
       ],
       "statementRegion": {
-        "page": 68,
-        "yTop": 447.4,
-        "yBottom": 582.6
+        "page": 67,
+        "yTop": 111.3,
+        "yBottom": 261.8
       },
       "statementRegions": [
         {
-          "page": 68,
-          "yTop": 447.4,
-          "yBottom": 582.6
+          "page": 67,
+          "yTop": 111.3,
+          "yBottom": 261.8
         }
       ],
       "proofLines": [
@@ -1627,9 +1635,9 @@
       ],
       "proofRegions": [
         {
-          "page": 68,
-          "yTop": 602,
-          "yBottom": 656
+          "page": 67,
+          "yTop": 285,
+          "yBottom": 339
         }
       ],
       "samePage": true,
@@ -1644,7 +1652,7 @@
             "yTop": 202.4,
             "yBottom": 313.1
           },
-          "pageDist": 56
+          "pageDist": 55
         },
         {
           "label": "eq:variance-equiv-bound",
@@ -1652,11 +1660,11 @@
           "type": "equation",
           "shortType": "eq",
           "region": {
-            "page": 66,
-            "yTop": -20.5,
-            "yBottom": 9.5
+            "page": 65,
+            "yTop": 318.7,
+            "yBottom": 403.3
           },
-          "pageDist": 1
+          "pageDist": 2
         }
       ]
     },
@@ -1669,15 +1677,15 @@
         6777
       ],
       "statementRegion": {
-        "page": 69,
-        "yTop": 569.8,
-        "yBottom": 613.4
+        "page": 68,
+        "yTop": 322.1,
+        "yBottom": 365.7
       },
       "statementRegions": [
         {
-          "page": 69,
-          "yTop": 569.8,
-          "yBottom": 613.4
+          "page": 68,
+          "yTop": 322.1,
+          "yBottom": 365.7
         }
       ],
       "proofLines": [
@@ -1686,17 +1694,12 @@
       ],
       "proofRegions": [
         {
-          "page": 69,
-          "yTop": -20.5,
-          "yBottom": 9.5
-        },
-        {
-          "page": 70,
-          "yTop": 32.9,
-          "yBottom": 77.9
+          "page": 68,
+          "yTop": 425.7,
+          "yBottom": 470.8
         }
       ],
-      "samePage": false,
+      "samePage": true,
       "dependencies": []
     },
     {
@@ -1708,15 +1711,15 @@
         6752
       ],
       "statementRegion": {
-        "page": 69,
-        "yTop": 463.1,
-        "yBottom": 507.6
+        "page": 68,
+        "yTop": 203.9,
+        "yBottom": 248.5
       },
       "statementRegions": [
         {
-          "page": 69,
-          "yTop": 463.1,
-          "yBottom": 507.6
+          "page": 68,
+          "yTop": 203.9,
+          "yBottom": 248.5
         }
       ],
       "proofLines": [
@@ -1725,9 +1728,14 @@
       ],
       "proofRegions": [
         {
-          "page": 70,
-          "yTop": 68.3,
-          "yBottom": 356.7
+          "page": 68,
+          "yTop": -20.5,
+          "yBottom": 632.5
+        },
+        {
+          "page": 69,
+          "yTop": 7.300000000000001,
+          "yBottom": 148.8
         }
       ],
       "samePage": false,
@@ -1739,10 +1747,10 @@
           "shortType": "eq",
           "region": {
             "page": 7,
-            "yTop": 539.1,
-            "yBottom": 632.7
+            "yTop": 543.4,
+            "yBottom": 636.9
           },
-          "pageDist": 63
+          "pageDist": 61
         }
       ]
     },
@@ -1755,15 +1763,20 @@
         6730
       ],
       "statementRegion": {
-        "page": 69,
-        "yTop": 247,
-        "yBottom": 437.8
+        "page": 67,
+        "yTop": -20.5,
+        "yBottom": 643
       },
       "statementRegions": [
         {
-          "page": 69,
-          "yTop": 247,
-          "yBottom": 437.8
+          "page": 67,
+          "yTop": -20.5,
+          "yBottom": 643
+        },
+        {
+          "page": 68,
+          "yTop": 11.899999999999999,
+          "yBottom": 172.5
         }
       ],
       "proofLines": [
@@ -1772,14 +1785,14 @@
       ],
       "proofRegions": [
         {
-          "page": 70,
+          "page": 69,
           "yTop": -20.5,
-          "yBottom": 644
+          "yBottom": 648.2
         },
         {
-          "page": 71,
-          "yTop": 7,
-          "yBottom": 428.6
+          "page": 70,
+          "yTop": 7.300000000000001,
+          "yBottom": 194.5
         }
       ],
       "samePage": false,
@@ -1791,10 +1804,10 @@
           "shortType": "eq",
           "region": {
             "page": 2,
-            "yTop": 557.2,
-            "yBottom": 609.6
+            "yTop": 552.5,
+            "yBottom": 605.5
           },
-          "pageDist": 68
+          "pageDist": 67
         }
       ]
     },
@@ -1807,20 +1820,15 @@
         7134
       ],
       "statementRegion": {
-        "page": 71,
-        "yTop": -20.5,
-        "yBottom": 656
+        "page": 70,
+        "yTop": 381.5,
+        "yBottom": 558.2
       },
       "statementRegions": [
         {
-          "page": 71,
-          "yTop": -20.5,
-          "yBottom": 656
-        },
-        {
-          "page": 72,
-          "yTop": 14.5,
-          "yBottom": 150.8
+          "page": 70,
+          "yTop": 381.5,
+          "yBottom": 558.2
         }
       ],
       "proofLines": [
@@ -1829,9 +1837,14 @@
       ],
       "proofRegions": [
         {
-          "page": 72,
-          "yTop": 135.4,
-          "yBottom": 293.8
+          "page": 70,
+          "yTop": 545.7,
+          "yBottom": 641.3
+        },
+        {
+          "page": 71,
+          "yTop": 11.899999999999999,
+          "yBottom": 95.2
         }
       ],
       "samePage": false,
@@ -1846,15 +1859,15 @@
         7235
       ],
       "statementRegion": {
-        "page": 72,
-        "yTop": 352.1,
-        "yBottom": 437.6
+        "page": 71,
+        "yTop": 156.1,
+        "yBottom": 246.6
       },
       "statementRegions": [
         {
-          "page": 72,
-          "yTop": 352.1,
-          "yBottom": 437.6
+          "page": 71,
+          "yTop": 156.1,
+          "yBottom": 246.6
         }
       ],
       "proofLines": [
@@ -1863,17 +1876,12 @@
       ],
       "proofRegions": [
         {
-          "page": 72,
-          "yTop": -20.5,
-          "yBottom": 656
-        },
-        {
-          "page": 73,
-          "yTop": 14.5,
-          "yBottom": 68.5
+          "page": 71,
+          "yTop": 235.9,
+          "yBottom": 524.5
         }
       ],
-      "samePage": false,
+      "samePage": true,
       "dependencies": []
     },
     {
@@ -1885,15 +1893,15 @@
         7335
       ],
       "statementRegion": {
-        "page": 73,
-        "yTop": 99.7,
-        "yBottom": 194.5
+        "page": 71,
+        "yTop": 557.5,
+        "yBottom": 656
       },
       "statementRegions": [
         {
-          "page": 73,
-          "yTop": 99.7,
-          "yBottom": 194.5
+          "page": 71,
+          "yTop": 557.5,
+          "yBottom": 656
         }
       ],
       "proofLines": [
@@ -1902,12 +1910,12 @@
       ],
       "proofRegions": [
         {
-          "page": 73,
-          "yTop": 179.6,
-          "yBottom": 236.3
+          "page": 72,
+          "yTop": 11.8,
+          "yBottom": 68.5
         }
       ],
-      "samePage": true,
+      "samePage": false,
       "dependencies": []
     },
     {
@@ -1919,15 +1927,15 @@
         7449
       ],
       "statementRegion": {
-        "page": 73,
-        "yTop": 366,
-        "yBottom": 551.7
+        "page": 72,
+        "yTop": 200.7,
+        "yBottom": 393
       },
       "statementRegions": [
         {
-          "page": 73,
-          "yTop": 366,
-          "yBottom": 551.7
+          "page": 72,
+          "yTop": 200.7,
+          "yBottom": 393
         }
       ],
       "proofLines": [
@@ -1936,17 +1944,12 @@
       ],
       "proofRegions": [
         {
-          "page": 73,
-          "yTop": 548.8,
+          "page": 72,
+          "yTop": 392.2,
           "yBottom": 656
-        },
-        {
-          "page": 74,
-          "yTop": 14.5,
-          "yBottom": 171.7
         }
       ],
-      "samePage": false,
+      "samePage": true,
       "dependencies": []
     },
     {
@@ -1958,15 +1961,20 @@
         8036
       ],
       "statementRegion": {
-        "page": 77,
-        "yTop": 118.1,
-        "yBottom": 303.5
+        "page": 75,
+        "yTop": -20.5,
+        "yBottom": 9.5
       },
       "statementRegions": [
         {
-          "page": 77,
-          "yTop": 118.1,
-          "yBottom": 303.5
+          "page": 75,
+          "yTop": -20.5,
+          "yBottom": 9.5
+        },
+        {
+          "page": 76,
+          "yTop": 14.5,
+          "yBottom": 201.4
         }
       ],
       "proofLines": [
@@ -1975,14 +1983,14 @@
       ],
       "proofRegions": [
         {
-          "page": 77,
-          "yTop": 293,
-          "yBottom": 658.5
+          "page": 76,
+          "yTop": 191.4,
+          "yBottom": 647.2
         },
         {
-          "page": 78,
+          "page": 77,
           "yTop": 14.5,
-          "yBottom": 191.3
+          "yBottom": 106.1
         }
       ],
       "samePage": false,
@@ -1997,15 +2005,15 @@
         8205
       ],
       "statementRegion": {
-        "page": 78,
-        "yTop": 181.3,
-        "yBottom": 235.3
+        "page": 77,
+        "yTop": 96.1,
+        "yBottom": 150.1
       },
       "statementRegions": [
         {
-          "page": 78,
-          "yTop": 181.3,
-          "yBottom": 235.3
+          "page": 77,
+          "yTop": 96.1,
+          "yBottom": 150.1
         }
       ],
       "proofLines": [
@@ -2014,9 +2022,9 @@
       ],
       "proofRegions": [
         {
-          "page": 78,
-          "yTop": 225.3,
-          "yBottom": 255.3
+          "page": 77,
+          "yTop": 140.1,
+          "yBottom": 170.1
         }
       ],
       "samePage": true,
@@ -2027,11 +2035,11 @@
           "type": "equation",
           "shortType": "eq",
           "region": {
-            "page": 76,
-            "yTop": -20.5,
-            "yBottom": 632
+            "page": 75,
+            "yTop": 509.29999999999995,
+            "yBottom": 606.9
           },
-          "pageDist": 1
+          "pageDist": 2
         }
       ]
     },
@@ -2044,15 +2052,15 @@
         8382
       ],
       "statementRegion": {
-        "page": 79,
-        "yTop": 179.5,
-        "yBottom": 372
+        "page": 78,
+        "yTop": 130.2,
+        "yBottom": 323.1
       },
       "statementRegions": [
         {
-          "page": 79,
-          "yTop": 179.5,
-          "yBottom": 372
+          "page": 78,
+          "yTop": 130.2,
+          "yBottom": 323.1
         }
       ],
       "proofLines": [
@@ -2061,14 +2069,14 @@
       ],
       "proofRegions": [
         {
-          "page": 79,
-          "yTop": -20.5,
-          "yBottom": 656
+          "page": 78,
+          "yTop": 324.4,
+          "yBottom": 657.5
         },
         {
-          "page": 80,
-          "yTop": 7.300000000000001,
-          "yBottom": 234.2
+          "page": 79,
+          "yTop": 14.5,
+          "yBottom": 186.2
         }
       ],
       "samePage": false,
@@ -2083,15 +2091,15 @@
         8546
       ],
       "statementRegion": {
-        "page": 80,
-        "yTop": 224.2,
-        "yBottom": 278.2
+        "page": 79,
+        "yTop": 176,
+        "yBottom": 230
       },
       "statementRegions": [
         {
-          "page": 80,
-          "yTop": 224.2,
-          "yBottom": 278.2
+          "page": 79,
+          "yTop": 176,
+          "yBottom": 230
         }
       ],
       "proofLines": [
@@ -2100,9 +2108,9 @@
       ],
       "proofRegions": [
         {
-          "page": 80,
-          "yTop": 268.2,
-          "yBottom": 322.2
+          "page": 79,
+          "yTop": 219,
+          "yBottom": 273
         }
       ],
       "samePage": true,
@@ -2113,9 +2121,9 @@
           "type": "equation",
           "shortType": "eq",
           "region": {
-            "page": 79,
-            "yTop": 76.3,
-            "yBottom": 139.1
+            "page": 78,
+            "yTop": 26.5,
+            "yBottom": 89.5
           },
           "pageDist": 1
         }
@@ -2130,20 +2138,20 @@
         8819
       ],
       "statementRegion": {
-        "page": 81,
+        "page": 80,
         "yTop": -20.5,
-        "yBottom": 9.5
+        "yBottom": 656
       },
       "statementRegions": [
         {
-          "page": 81,
+          "page": 80,
           "yTop": -20.5,
-          "yBottom": 9.5
+          "yBottom": 656
         },
         {
-          "page": 82,
+          "page": 81,
           "yTop": 14.5,
-          "yBottom": 239.5
+          "yBottom": 166.2
         }
       ],
       "proofLines": [
@@ -2152,14 +2160,14 @@
       ],
       "proofRegions": [
         {
-          "page": 82,
+          "page": 81,
           "yTop": -20.5,
-          "yBottom": 650.7
+          "yBottom": 656
         },
         {
-          "page": 83,
+          "page": 82,
           "yTop": 14.5,
-          "yBottom": 471.9
+          "yBottom": 379.7
         }
       ],
       "samePage": false,
@@ -2170,9 +2178,9 @@
           "type": "equation",
           "shortType": "eq",
           "region": {
-            "page": 80,
-            "yTop": 547.2,
-            "yBottom": 577.2
+            "page": 79,
+            "yTop": 495.3,
+            "yBottom": 525.3
           },
           "pageDist": 2
         },
@@ -2182,9 +2190,9 @@
           "type": "equation",
           "shortType": "eq",
           "region": {
-            "page": 81,
-            "yTop": 72.8,
-            "yBottom": 136
+            "page": 79,
+            "yTop": -20.5,
+            "yBottom": 9.5
           },
           "pageDist": 1
         }
@@ -3436,8 +3444,8 @@
   "labelRegions": {
     "def:differentiable": {
       "page": 2,
-      "yTop": 156.8,
-      "yBottom": 266.4,
+      "yTop": 144.9,
+      "yBottom": 256.5,
       "type": "definition",
       "displayLabel": "def:differentiable"
     },
@@ -3470,422 +3478,422 @@
       "displayLabel": "cor:sobolev-main"
     },
     "lem:efron-stein": {
-      "page": 21,
-      "yTop": 433.9,
-      "yBottom": 475.9,
+      "page": 19,
+      "yTop": 561.6,
+      "yBottom": 603.6,
       "type": "lemma",
       "displayLabel": "lem:efron-stein"
     },
     "lem:talagrand": {
-      "page": 21,
-      "yTop": 509.9,
-      "yBottom": 600.5,
+      "page": 19,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "lemma",
       "displayLabel": "lem:talagrand"
     },
     "lem:symmetrization": {
-      "page": 22,
-      "yTop": 74,
-      "yBottom": 148.8,
+      "page": 20,
+      "yTop": 211.8,
+      "yBottom": 286.6,
       "type": "lemma",
       "displayLabel": "lem:symmetrization"
     },
     "lem:contraction": {
-      "page": 22,
-      "yTop": 178.5,
-      "yBottom": 240.9,
+      "page": 20,
+      "yTop": 317.6,
+      "yBottom": 380.1,
       "type": "lemma",
       "displayLabel": "lem:contraction"
     },
     "prop:riesz-existence": {
-      "page": 22,
-      "yTop": 296.6,
-      "yBottom": 364.7,
+      "page": 20,
+      "yTop": 438.2,
+      "yBottom": 506.3,
       "type": "proposition",
       "displayLabel": "prop:riesz-existence"
     },
     "lem:e-type-bounds": {
-      "page": 23,
-      "yTop": 255.2,
-      "yBottom": 603.3,
+      "page": 21,
+      "yTop": -20.5,
+      "yBottom": 634,
       "type": "lemma",
       "displayLabel": "lem:e-type-bounds"
     },
     "lem:quadratic-bregman": {
-      "page": 24,
-      "yTop": 265.1,
-      "yBottom": 334.5,
+      "page": 22,
+      "yTop": 420.1,
+      "yBottom": 488.5,
       "type": "lemma",
       "displayLabel": "lem:quadratic-bregman"
     },
     "lem:psc-discount": {
-      "page": 24,
-      "yTop": 432.2,
-      "yBottom": 568,
+      "page": 22,
+      "yTop": -20.5,
+      "yBottom": 654.1,
       "type": "lemma",
       "displayLabel": "lem:psc-discount"
     },
     "lem:sobolev-interpolation": {
-      "page": 24,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 23,
+      "yTop": 174.1,
+      "yBottom": 241.1,
       "type": "lemma",
       "displayLabel": "lem:sobolev-interpolation"
     },
     "lem:jensen-lower": {
-      "page": 25,
-      "yTop": 184.8,
-      "yBottom": 372,
+      "page": 23,
+      "yTop": 317.4,
+      "yBottom": 508.7,
       "type": "lemma",
       "displayLabel": "lem:jensen-lower"
     },
     "prop:duality-full": {
-      "page": 26,
-      "yTop": 259.3,
-      "yBottom": 478.7,
+      "page": 24,
+      "yTop": 412.7,
+      "yBottom": 632,
       "type": "proposition",
       "displayLabel": "prop:duality-full"
     },
     "prop:anticonc-linear": {
-      "page": 32,
-      "yTop": 493.4,
-      "yBottom": 523.4,
+      "page": 30,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "proposition",
       "displayLabel": "prop:anticonc-linear"
     },
     "prop:anticonc-sobolev": {
-      "page": 32,
-      "yTop": 557.3,
-      "yBottom": 614.1,
+      "page": 31,
+      "yTop": 78.5,
+      "yBottom": 135.2,
       "type": "proposition",
       "displayLabel": "prop:anticonc-sobolev"
     },
     "cor:entropy-approx": {
-      "page": 33,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 32,
+      "yTop": 176.3,
+      "yBottom": 277.2,
       "type": "corollary",
       "displayLabel": "cor:entropy-approx"
     },
     "prop:curvature-control": {
-      "page": 34,
-      "yTop": 225.5,
-      "yBottom": 317.1,
+      "page": 32,
+      "yTop": 386.5,
+      "yBottom": 477.6,
       "type": "proposition",
       "displayLabel": "prop:curvature-control"
     },
     "prop:strict-overlap": {
-      "page": 34,
-      "yTop": 609.2,
-      "yBottom": 639.2,
+      "page": 33,
+      "yTop": 132.6,
+      "yBottom": 162.6,
       "type": "proposition",
       "displayLabel": "prop:strict-overlap"
     },
     "def:slb-general": {
-      "page": 36,
-      "yTop": 169,
-      "yBottom": 280.2,
+      "page": 34,
+      "yTop": 300,
+      "yBottom": 413.1,
       "type": "definition",
       "displayLabel": "def:slb-general"
     },
     "lem:bregman-shell": {
-      "page": 36,
+      "page": 34,
       "yTop": -20.5,
-      "yBottom": 609.7,
+      "yBottom": 605.8,
       "type": "lemma",
       "displayLabel": "lem:bregman-shell"
     },
     "thm:bregman-lower": {
-      "page": 37,
-      "yTop": 124.9,
-      "yBottom": 316.2,
+      "page": 35,
+      "yTop": 273.1,
+      "yBottom": 474.6,
       "type": "theorem",
       "displayLabel": "thm:bregman-lower"
     },
     "lem:slb-bounded": {
-      "page": 37,
-      "yTop": 362.1,
-      "yBottom": 420.9,
+      "page": 35,
+      "yTop": 523.1,
+      "yBottom": 581.9,
       "type": "lemma",
       "displayLabel": "lem:slb-bounded"
     },
     "cor:ulb-quadratic": {
-      "page": 37,
-      "yTop": 550.3,
-      "yBottom": 656,
+      "page": 35,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "corollary",
       "displayLabel": "cor:ulb-quadratic"
     },
     "lem:two-pile": {
-      "page": 38,
-      "yTop": 124.80000000000001,
-      "yBottom": 340,
+      "page": 36,
+      "yTop": 293.4,
+      "yBottom": 518.3,
       "type": "lemma",
       "displayLabel": "lem:two-pile"
     },
     "cor:two-pile-polynomial": {
-      "page": 38,
-      "yTop": 358.6,
-      "yBottom": 420.1,
+      "page": 36,
+      "yTop": 540.3,
+      "yBottom": 601.8,
       "type": "corollary",
       "displayLabel": "cor:two-pile-polynomial"
     },
     "cor:ulb-entropy": {
-      "page": 38,
+      "page": 36,
       "yTop": -20.5,
-      "yBottom": 652.1,
+      "yBottom": 9.5,
       "type": "corollary",
       "displayLabel": "cor:ulb-entropy"
     },
     "thm:bias-decomp-restate": {
-      "page": 46,
-      "yTop": 322.8,
-      "yBottom": 390.2,
+      "page": 44,
+      "yTop": 439.5,
+      "yBottom": 502.8,
       "type": "theorem",
       "displayLabel": "thm:bias-decomp-restate"
     },
     "lem:bias-bound": {
-      "page": 47,
-      "yTop": 484.9,
-      "yBottom": 514.9,
+      "page": 45,
+      "yTop": 560.9,
+      "yBottom": 590.9,
       "type": "lemma",
       "displayLabel": "lem:bias-bound"
     },
     "lem:xi-bounded": {
-      "page": 51,
-      "yTop": 254.60000000000002,
-      "yBottom": 414.9,
+      "page": 49,
+      "yTop": 476.4,
+      "yBottom": 625.8,
       "type": "lemma",
       "displayLabel": "lem:xi-bounded"
     },
     "lem:xi-psc": {
-      "page": 52,
-      "yTop": 114.5,
-      "yBottom": 323.6,
+      "page": 50,
+      "yTop": 316.9,
+      "yBottom": 526.1,
       "type": "lemma",
       "displayLabel": "lem:xi-psc"
     },
     "lem:xi-jensen": {
-      "page": 52,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 51,
+      "yTop": 256.7,
+      "yBottom": 446.6,
       "type": "lemma",
       "displayLabel": "lem:xi-jensen"
     },
     "thm:xi-all-regimes": {
-      "page": 53,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 52,
+      "yTop": 242.8,
+      "yBottom": 458.9,
       "type": "theorem",
       "displayLabel": "thm:xi-all-regimes"
     },
     "lem:offset-convex": {
-      "page": 55,
-      "yTop": 246.3,
-      "yBottom": 296.4,
+      "page": 53,
+      "yTop": 381.2,
+      "yBottom": 436.2,
       "type": "lemma",
       "displayLabel": "lem:offset-convex"
     },
     "cor:offset-positive-part": {
-      "page": 55,
-      "yTop": 312.5,
-      "yBottom": 452.3,
+      "page": 53,
+      "yTop": 453.1,
+      "yBottom": 612.4,
       "type": "corollary",
       "displayLabel": "cor:offset-positive-part"
     },
     "cor:unconditional-bias": {
-      "page": 55,
-      "yTop": 438.4,
-      "yBottom": 656,
+      "page": 53,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "corollary",
       "displayLabel": "cor:unconditional-bias"
     },
     "prop:penalty-bias-Q": {
-      "page": 58,
-      "yTop": 162.5,
-      "yBottom": 274.6,
+      "page": 56,
+      "yTop": 395.9,
+      "yBottom": 508,
       "type": "proposition",
       "displayLabel": "prop:penalty-bias-Q"
     },
     "prop:penalty-bias-E": {
-      "page": 59,
-      "yTop": 92,
-      "yBottom": 198.4,
+      "page": 57,
+      "yTop": 309,
+      "yBottom": 421.4,
       "type": "proposition",
       "displayLabel": "prop:penalty-bias-E"
     },
     "prop:penalty-bias-balance": {
-      "page": 59,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 58,
+      "yTop": 290.4,
+      "yBottom": 432.2,
       "type": "proposition",
       "displayLabel": "prop:penalty-bias-balance"
     },
     "lem:generic-rate": {
-      "page": 61,
-      "yTop": 483.1,
-      "yBottom": 617.7,
+      "page": 60,
+      "yTop": 157.4,
+      "yBottom": 289.3,
       "type": "lemma",
       "displayLabel": "lem:generic-rate"
     },
     "lem:rkhs-ulb": {
-      "page": 63,
-      "yTop": 82.8,
-      "yBottom": 243,
+      "page": 61,
+      "yTop": 359.8,
+      "yBottom": 518.9,
       "type": "lemma",
       "displayLabel": "lem:rkhs-ulb"
     },
     "cor:rkhs": {
-      "page": 63,
-      "yTop": -20.5,
-      "yBottom": 653.3,
+      "page": 62,
+      "yTop": 161.9,
+      "yBottom": 386.9,
       "type": "corollary",
       "displayLabel": "cor:rkhs"
     },
     "cor:sobolev-two-pile": {
-      "page": 65,
-      "yTop": -20.5,
-      "yBottom": 656,
+      "page": 64,
+      "yTop": 90.5,
+      "yBottom": 337.8,
       "type": "corollary",
       "displayLabel": "cor:sobolev-two-pile"
     },
     "lem:variance-equiv": {
-      "page": 66,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 65,
+      "yTop": 318.7,
+      "yBottom": 403.3,
       "type": "lemma",
       "displayLabel": "lem:variance-equiv"
     },
     "cor:variance-equiv-quadratic": {
-      "page": 68,
-      "yTop": 288.2,
-      "yBottom": 359.3,
+      "page": 66,
+      "yTop": 583.4,
+      "yBottom": 654.5,
       "type": "corollary",
       "displayLabel": "cor:variance-equiv-quadratic"
     },
     "cor:variance-interpolation": {
-      "page": 68,
-      "yTop": 447.4,
-      "yBottom": 582.6,
+      "page": 67,
+      "yTop": 111.3,
+      "yBottom": 261.8,
       "type": "corollary",
       "displayLabel": "cor:variance-interpolation"
     },
     "thm:asymptotic-normality": {
-      "page": 69,
-      "yTop": 247,
-      "yBottom": 437.8,
+      "page": 67,
+      "yTop": -20.5,
+      "yBottom": 643,
       "type": "theorem",
       "displayLabel": "thm:asymptotic-normality"
     },
     "prop:variance-consistency": {
-      "page": 69,
-      "yTop": 463.1,
-      "yBottom": 507.6,
+      "page": 68,
+      "yTop": 203.9,
+      "yBottom": 248.5,
       "type": "proposition",
       "displayLabel": "prop:variance-consistency"
     },
     "cor:efficient-variance": {
-      "page": 69,
-      "yTop": 569.8,
-      "yBottom": 613.4,
+      "page": 68,
+      "yTop": 322.1,
+      "yBottom": 365.7,
       "type": "corollary",
       "displayLabel": "cor:efficient-variance"
     },
     "thm:general-clt": {
-      "page": 71,
-      "yTop": -20.5,
-      "yBottom": 656,
+      "page": 70,
+      "yTop": 381.5,
+      "yBottom": 558.2,
       "type": "theorem",
       "displayLabel": "thm:general-clt"
     },
     "cor:outcome-estimator": {
-      "page": 72,
-      "yTop": 352.1,
-      "yBottom": 437.6,
+      "page": 71,
+      "yTop": 156.1,
+      "yBottom": 246.6,
       "type": "corollary",
       "displayLabel": "cor:outcome-estimator"
     },
     "lem:denominator-anchoring": {
-      "page": 73,
-      "yTop": 99.7,
-      "yBottom": 194.5,
+      "page": 71,
+      "yTop": 557.5,
+      "yBottom": 656,
       "type": "lemma",
       "displayLabel": "lem:denominator-anchoring"
     },
     "cor:tuning-window": {
-      "page": 73,
-      "yTop": 366,
-      "yBottom": 551.7,
+      "page": 72,
+      "yTop": 200.7,
+      "yBottom": 393,
       "type": "corollary",
       "displayLabel": "cor:tuning-window"
     },
     "cor:tsm": {
-      "page": 77,
-      "yTop": 118.1,
-      "yBottom": 303.5,
+      "page": 75,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "corollary",
       "displayLabel": "cor:tsm"
     },
     "cor:tsm-outcome": {
-      "page": 78,
-      "yTop": 181.3,
-      "yBottom": 235.3,
+      "page": 77,
+      "yTop": 96.1,
+      "yBottom": 150.1,
       "type": "corollary",
       "displayLabel": "cor:tsm-outcome"
     },
     "cor:regression": {
-      "page": 79,
-      "yTop": 179.5,
-      "yBottom": 372,
+      "page": 78,
+      "yTop": 130.2,
+      "yBottom": 323.1,
       "type": "corollary",
       "displayLabel": "cor:regression"
     },
     "cor:regression-outcome": {
-      "page": 80,
-      "yTop": 224.2,
-      "yBottom": 278.2,
+      "page": 79,
+      "yTop": 176,
+      "yBottom": 230,
       "type": "corollary",
       "displayLabel": "cor:regression-outcome"
     },
     "cor:vcate": {
-      "page": 81,
+      "page": 80,
       "yTop": -20.5,
-      "yBottom": 9.5,
+      "yBottom": 656,
       "type": "corollary",
       "displayLabel": "cor:vcate"
     },
     "eq:riesz-rep": {
       "page": 2,
-      "yTop": 176.2,
-      "yBottom": 242.3,
+      "yTop": 164.9,
+      "yBottom": 231.7,
       "type": "equation",
       "displayLabel": "eq:riesz-rep"
     },
     "eq:empirical-product": {
       "page": 2,
-      "yTop": 332.4,
-      "yBottom": 391.2,
+      "yTop": 323.3,
+      "yBottom": 382.7,
       "type": "equation",
       "displayLabel": "eq:empirical-product"
     },
     "eq:P-def": {
       "page": 2,
-      "yTop": 392.5,
-      "yBottom": 452.8,
+      "yTop": 384.7,
+      "yBottom": 445.7,
       "type": "equation",
       "displayLabel": "eq:P-def"
     },
     "eq:orthogonality": {
       "page": 2,
-      "yTop": 474.1,
-      "yBottom": 504.1,
+      "yTop": 468.5,
+      "yBottom": 498.5,
       "type": "equation",
       "displayLabel": "eq:orthogonality"
     },
     "eq:one-step": {
       "page": 2,
-      "yTop": 557.2,
-      "yBottom": 609.6,
+      "yTop": 552.5,
+      "yBottom": 605.5,
       "type": "equation",
       "displayLabel": "eq:one-step"
     },
@@ -3961,22 +3969,22 @@
     },
     "eq:decomposition": {
       "page": 6,
-      "yTop": 477.7,
-      "yBottom": 573.2,
+      "yTop": 484.6,
+      "yBottom": 581.1,
       "type": "equation",
       "displayLabel": "eq:decomposition"
     },
     "eq:variance-estimate": {
       "page": 7,
-      "yTop": 539.1,
-      "yBottom": 632.7,
+      "yTop": 543.4,
+      "yBottom": 636.9,
       "type": "equation",
       "displayLabel": "eq:variance-estimate"
     },
     "eq:lasso-seminorm": {
       "page": 9,
-      "yTop": 198.9,
-      "yBottom": 301,
+      "yTop": 225.9,
+      "yBottom": 327.3,
       "type": "equation",
       "displayLabel": "eq:lasso-seminorm"
     },
@@ -4044,975 +4052,975 @@
       "displayLabel": "eq:vcate-linearization"
     },
     "eq:e-type": {
-      "page": 23,
-      "yTop": 144.8,
-      "yBottom": 196.2,
+      "page": 21,
+      "yTop": 292.9,
+      "yBottom": 344.9,
       "type": "equation",
       "displayLabel": "eq:e-type"
     },
     "eq:curvature-ratio-psc": {
-      "page": 23,
-      "yTop": 296.1,
-      "yBottom": 326.1,
+      "page": 21,
+      "yTop": 446.9,
+      "yBottom": 476.9,
       "type": "equation",
       "displayLabel": "eq:curvature-ratio-psc"
     },
     "eq:bregman-sandwich": {
-      "page": 23,
-      "yTop": 335,
-      "yBottom": 384.1,
+      "page": 21,
+      "yTop": 486.5,
+      "yBottom": 535.7,
       "type": "equation",
       "displayLabel": "eq:bregman-sandwich"
     },
     "eq:derivative-lipschitz": {
-      "page": 23,
-      "yTop": 429.3,
-      "yBottom": 459.3,
+      "page": 21,
+      "yTop": 582,
+      "yBottom": 612,
       "type": "equation",
       "displayLabel": "eq:derivative-lipschitz"
     },
     "eq:weighted-l2-from-bregman": {
-      "page": 23,
-      "yTop": 505,
-      "yBottom": 535,
+      "page": 22,
+      "yTop": 35.4,
+      "yBottom": 65.4,
       "type": "equation",
       "displayLabel": "eq:weighted-l2-from-bregman"
     },
     "eq:curvature-growth-bregman": {
-      "page": 23,
-      "yTop": 573.3,
-      "yBottom": 603.3,
+      "page": 21,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "equation",
       "displayLabel": "eq:curvature-growth-bregman"
     },
     "eq:bregman-quadratic": {
-      "page": 24,
-      "yTop": 265.1,
-      "yBottom": 334.5,
+      "page": 22,
+      "yTop": 420.1,
+      "yBottom": 488.5,
       "type": "equation",
       "displayLabel": "eq:bregman-quadratic"
     },
     "eq:psc-discount": {
-      "page": 24,
-      "yTop": 432.2,
-      "yBottom": 504.8,
+      "page": 22,
+      "yTop": 582.6,
+      "yBottom": 654.1,
       "type": "equation",
       "displayLabel": "eq:psc-discount"
     },
     "eq:sobolev-interpolation": {
-      "page": 25,
-      "yTop": 117.6,
-      "yBottom": 172.3,
+      "page": 23,
+      "yTop": 249.3,
+      "yBottom": 304.8,
       "type": "equation",
       "displayLabel": "eq:sobolev-interpolation"
     },
     "eq:jensen-quadratic-floor": {
-      "page": 25,
-      "yTop": 289.2,
-      "yBottom": 328.8,
+      "page": 23,
+      "yTop": 424.1,
+      "yBottom": 463.7,
       "type": "equation",
       "displayLabel": "eq:jensen-quadratic-floor"
     },
     "eq:jensen-bregman-lower": {
-      "page": 25,
-      "yTop": 337.9,
-      "yBottom": 372,
+      "page": 23,
+      "yTop": 474.6,
+      "yBottom": 508.7,
       "type": "equation",
       "displayLabel": "eq:jensen-bregman-lower"
     },
     "eq:f-plus-mass": {
-      "page": 25,
-      "yTop": 437,
-      "yBottom": 467,
+      "page": 23,
+      "yTop": 575.5,
+      "yBottom": 605.5,
       "type": "equation",
       "displayLabel": "eq:f-plus-mass"
     },
     "eq:positive-mass-lower": {
-      "page": 25,
-      "yTop": 462.5,
-      "yBottom": 518.3,
+      "page": 23,
+      "yTop": 601.8,
+      "yBottom": 657.6,
       "type": "equation",
       "displayLabel": "eq:positive-mass-lower"
     },
     "eq:dual-bregman-identity": {
-      "page": 28,
-      "yTop": 199.4,
-      "yBottom": 251.4,
+      "page": 26,
+      "yTop": 382.5,
+      "yBottom": 432,
       "type": "equation",
       "displayLabel": "eq:dual-bregman-identity"
     },
     "eq:fr-primal": {
-      "page": 29,
-      "yTop": 62.5,
-      "yBottom": 211.9,
+      "page": 27,
+      "yTop": 239.5,
+      "yBottom": 388.3,
       "type": "equation",
       "displayLabel": "eq:fr-primal"
     },
     "eq:fr-dual": {
-      "page": 29,
-      "yTop": 226,
-      "yBottom": 256,
+      "page": 27,
+      "yTop": 401,
+      "yBottom": 431,
       "type": "equation",
       "displayLabel": "eq:fr-dual"
     },
     "eq:dual-for-bidual-elements": {
-      "page": 29,
-      "yTop": 431.6,
-      "yBottom": 483.6,
+      "page": 27,
+      "yTop": 604.7,
+      "yBottom": 656,
       "type": "equation",
       "displayLabel": "eq:dual-for-bidual-elements"
     },
     "eq:dual-for-primal-elements": {
-      "page": 29,
-      "yTop": 555.6,
-      "yBottom": 643.6,
+      "page": 28,
+      "yTop": 92,
+      "yBottom": 178.8,
       "type": "equation",
       "displayLabel": "eq:dual-for-primal-elements"
     },
     "eq:within-coset-optimality": {
-      "page": 30,
-      "yTop": 180.1,
-      "yBottom": 256.1,
+      "page": 28,
+      "yTop": 331.4,
+      "yBottom": 406.1,
       "type": "equation",
       "displayLabel": "eq:within-coset-optimality"
     },
     "eq:gradient-chain": {
-      "page": 31,
-      "yTop": 170.5,
-      "yBottom": 279,
+      "page": 29,
+      "yTop": 318.1,
+      "yBottom": 430.1,
       "type": "equation",
       "displayLabel": "eq:gradient-chain"
     },
     "eq:approx-competitor": {
-      "page": 32,
-      "yTop": 227.6,
-      "yBottom": 303.5,
+      "page": 30,
+      "yTop": 393,
+      "yBottom": 465.9,
       "type": "equation",
       "displayLabel": "eq:approx-competitor"
     },
     "eq:density-control": {
-      "page": 32,
-      "yTop": 367.9,
-      "yBottom": 457.5,
+      "page": 30,
+      "yTop": 526.6,
+      "yBottom": 613.1,
       "type": "equation",
       "displayLabel": "eq:density-control"
     },
     "eq:el-positive-part": {
-      "page": 32,
-      "yTop": 626,
-      "yBottom": 656,
+      "page": 31,
+      "yTop": 147.2,
+      "yBottom": 177.2,
       "type": "equation",
       "displayLabel": "eq:el-positive-part"
     },
     "eq:bregman-sandwich-app": {
-      "page": 33,
-      "yTop": 597.2,
-      "yBottom": 654.1,
+      "page": 32,
+      "yTop": 123.80000000000001,
+      "yBottom": 181.2,
       "type": "equation",
       "displayLabel": "eq:bregman-sandwich-app"
     },
     "eq:approx-rate": {
-      "page": 33,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 32,
+      "yTop": 176.3,
+      "yBottom": 249.7,
       "type": "equation",
       "displayLabel": "eq:approx-rate"
     },
     "cond:shell-i": {
-      "page": 36,
-      "yTop": 355.9,
-      "yBottom": 385.9,
+      "page": 34,
+      "yTop": 491.1,
+      "yBottom": 521.1,
       "type": "unknown",
       "displayLabel": "cond:shell-i"
     },
     "cond:shell-ii": {
-      "page": 36,
-      "yTop": 367.9,
-      "yBottom": 397.9,
+      "page": 34,
+      "yTop": 503.1,
+      "yBottom": 533.1,
       "type": "unknown",
       "displayLabel": "cond:shell-ii"
     },
     "cond:shell-iii": {
-      "page": 36,
-      "yTop": 407.2,
-      "yBottom": 437.2,
+      "page": 34,
+      "yTop": 543.1,
+      "yBottom": 573.1,
       "type": "unknown",
       "displayLabel": "cond:shell-iii"
     },
     "cond:shell-iv": {
-      "page": 36,
-      "yTop": 462.5,
-      "yBottom": 492.5,
+      "page": 35,
+      "yTop": 14.5,
+      "yBottom": 44.5,
       "type": "unknown",
       "displayLabel": "cond:shell-iv"
     },
     "eq:two-pile-tolerance": {
-      "page": 38,
-      "yTop": 249.5,
-      "yBottom": 306.1,
+      "page": 36,
+      "yTop": 426.6,
+      "yBottom": 483.2,
       "type": "equation",
       "displayLabel": "eq:two-pile-tolerance"
     },
     "eq:truncation-lower": {
-      "page": 42,
-      "yTop": 189.3,
-      "yBottom": 219.3,
+      "page": 40,
+      "yTop": 355.1,
+      "yBottom": 385.1,
       "type": "equation",
       "displayLabel": "eq:truncation-lower"
     },
     "eq:truncation-upper": {
-      "page": 42,
-      "yTop": 497.5,
-      "yBottom": 561.5,
+      "page": 40,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "equation",
       "displayLabel": "eq:truncation-upper"
     },
     "eq:drop-J": {
-      "page": 43,
-      "yTop": 94.1,
-      "yBottom": 143.4,
+      "page": 41,
+      "yTop": 200.5,
+      "yBottom": 251,
       "type": "equation",
       "displayLabel": "eq:drop-J"
     },
     "eq:decomp-Jc": {
-      "page": 42,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 41,
+      "yTop": 241.5,
+      "yBottom": 348.9,
       "type": "equation",
       "displayLabel": "eq:decomp-Jc"
     },
     "eq:net-Jc": {
-      "page": 43,
-      "yTop": 264.4,
-      "yBottom": 306.4,
+      "page": 41,
+      "yTop": 375.8,
+      "yBottom": 417.8,
       "type": "equation",
       "displayLabel": "eq:net-Jc"
     },
     "eq:mean-bound": {
-      "page": 43,
-      "yTop": 596.8,
-      "yBottom": 651.5,
+      "page": 42,
+      "yTop": 82.5,
+      "yBottom": 137.1,
       "type": "equation",
       "displayLabel": "eq:mean-bound"
     },
     "eq:fluctuation-cheb": {
-      "page": 44,
-      "yTop": 215.5,
-      "yBottom": 358.9,
+      "page": 42,
+      "yTop": 355.8,
+      "yBottom": 501.2,
       "type": "equation",
       "displayLabel": "eq:fluctuation-cheb"
     },
     "eq:extension-bound": {
-      "page": 44,
-      "yTop": 417.5,
-      "yBottom": 510.5,
+      "page": 42,
+      "yTop": 562.4,
+      "yBottom": 657.4,
       "type": "equation",
       "displayLabel": "eq:extension-bound"
     },
     "eq:bias-primal": {
-      "page": 46,
-      "yTop": 566.2,
-      "yBottom": 596.2,
+      "page": 44,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "equation",
       "displayLabel": "eq:bias-primal"
     },
     "eq:modulus-primal": {
-      "page": 46,
-      "yTop": 596.1,
-      "yBottom": 626.1,
+      "page": 45,
+      "yTop": 66.4,
+      "yBottom": 154.4,
       "type": "equation",
       "displayLabel": "eq:modulus-primal"
     },
     "eq:abstract-offset-complexity": {
-      "page": 47,
-      "yTop": 243.8,
-      "yBottom": 297.8,
+      "page": 45,
+      "yTop": 319.8,
+      "yBottom": 373.8,
       "type": "equation",
       "displayLabel": "eq:abstract-offset-complexity"
     },
     "eq:foc-population": {
-      "page": 48,
-      "yTop": 14.5,
-      "yBottom": 69.5,
+      "page": 46,
+      "yTop": 100.5,
+      "yBottom": 155.5,
       "type": "equation",
       "displayLabel": "eq:foc-population"
     },
     "eq:residual-decomp": {
-      "page": 47,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 46,
+      "yTop": 143.5,
+      "yBottom": 185.5,
       "type": "equation",
       "displayLabel": "eq:residual-decomp"
     },
     "eq:modulus": {
-      "page": 48,
-      "yTop": 566.7,
-      "yBottom": 608.7,
+      "page": 46,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "equation",
       "displayLabel": "eq:modulus"
     },
     "eq:kernel-balance": {
-      "page": 50,
-      "yTop": 573.8,
-      "yBottom": 627.8,
+      "page": 49,
+      "yTop": 181.1,
+      "yBottom": 235.1,
       "type": "equation",
       "displayLabel": "eq:kernel-balance"
     },
     "eq:curvature-norm": {
-      "page": 50,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 49,
+      "yTop": 275.7,
+      "yBottom": 305.7,
       "type": "equation",
       "displayLabel": "eq:curvature-norm"
     },
     "eq:offset-complexity": {
-      "page": 51,
-      "yTop": 140.7,
-      "yBottom": 170.7,
+      "page": 49,
+      "yTop": 370.8,
+      "yBottom": 400.8,
       "type": "equation",
       "displayLabel": "eq:offset-complexity"
     },
     "eq:bregman-shell-bounded": {
-      "page": 51,
-      "yTop": 254.60000000000002,
-      "yBottom": 323.7,
+      "page": 49,
+      "yTop": 476.4,
+      "yBottom": 541.2,
       "type": "equation",
       "displayLabel": "eq:bregman-shell-bounded"
     },
     "eq:critical-bounded": {
-      "page": 51,
-      "yTop": 319,
-      "yBottom": 387.3,
+      "page": 49,
+      "yTop": 532.4,
+      "yBottom": 600.7,
       "type": "equation",
       "displayLabel": "eq:critical-bounded"
     },
     "eq:bregman-shell-psc": {
-      "page": 52,
-      "yTop": 114.5,
-      "yBottom": 207.2,
+      "page": 50,
+      "yTop": 316.9,
+      "yBottom": 409.6,
       "type": "equation",
       "displayLabel": "eq:bregman-shell-psc"
     },
     "eq:critical-psc": {
-      "page": 52,
-      "yTop": 202.5,
-      "yBottom": 300.1,
+      "page": 50,
+      "yTop": 405,
+      "yBottom": 502.6,
       "type": "equation",
       "displayLabel": "eq:critical-psc"
     },
     "eq:xi-jensen-bound": {
-      "page": 53,
-      "yTop": 190.4,
-      "yBottom": 251.2,
+      "page": 51,
+      "yTop": 356.6,
+      "yBottom": 417.4,
       "type": "equation",
       "displayLabel": "eq:xi-jensen-bound"
     },
     "eq:xi-all-regimes": {
-      "page": 54,
-      "yTop": 233.2,
-      "yBottom": 316.6,
+      "page": 52,
+      "yTop": 345.9,
+      "yBottom": 429.3,
       "type": "equation",
       "displayLabel": "eq:xi-all-regimes"
     },
     "eq:bias-local-complexity": {
-      "page": 55,
-      "yTop": 246.3,
-      "yBottom": 296.4,
+      "page": 53,
+      "yTop": 381.2,
+      "yBottom": 436.2,
       "type": "equation",
       "displayLabel": "eq:bias-local-complexity"
     },
     "eq:offset-positive-part": {
-      "page": 55,
-      "yTop": 382.6,
-      "yBottom": 432.7,
+      "page": 53,
+      "yTop": 533,
+      "yBottom": 588,
       "type": "equation",
       "displayLabel": "eq:offset-positive-part"
     },
     "eq:unconditional-bias": {
-      "page": 55,
-      "yTop": 520.4,
-      "yBottom": 622.5,
+      "page": 53,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "equation",
       "displayLabel": "eq:unconditional-bias"
     },
     "eq:xi-V-to-Xi": {
-      "page": 56,
-      "yTop": 568,
-      "yBottom": 649.6,
+      "page": 55,
+      "yTop": 180.7,
+      "yBottom": 262.3,
       "type": "equation",
       "displayLabel": "eq:xi-V-to-Xi"
     },
     "eq:comparison-bound": {
-      "page": 58,
-      "yTop": 14.5,
-      "yBottom": 66.5,
+      "page": 56,
+      "yTop": 247.89999999999998,
+      "yBottom": 299.9,
       "type": "equation",
       "displayLabel": "eq:comparison-bound"
     },
     "eq:mollification-penalty-bias": {
-      "page": 58,
-      "yTop": 162.5,
-      "yBottom": 252.6,
+      "page": 56,
+      "yTop": 395.9,
+      "yBottom": 486,
       "type": "equation",
       "displayLabel": "eq:mollification-penalty-bias"
     },
     "eq:bregman-mollification-Q": {
-      "page": 58,
-      "yTop": 334.6,
-      "yBottom": 391.3,
+      "page": 56,
+      "yTop": 568,
+      "yBottom": 624.7,
       "type": "equation",
       "displayLabel": "eq:bregman-mollification-Q"
     },
     "eq:penalty-mollification": {
-      "page": 58,
-      "yTop": 436.6,
-      "yBottom": 466.6,
+      "page": 57,
+      "yTop": 36.5,
+      "yBottom": 66.5,
       "type": "equation",
       "displayLabel": "eq:penalty-mollification"
     },
     "eq:mollification-penalty-bias-E": {
-      "page": 59,
-      "yTop": 92,
-      "yBottom": 179.5,
+      "page": 57,
+      "yTop": 309,
+      "yBottom": 399.4,
       "type": "equation",
       "displayLabel": "eq:mollification-penalty-bias-E"
     },
     "eq:lambda-upper-E": {
-      "page": 59,
-      "yTop": 205,
-      "yBottom": 235,
+      "page": 57,
+      "yTop": 433.4,
+      "yBottom": 463.4,
       "type": "equation",
       "displayLabel": "eq:lambda-upper-E"
     },
     "eq:bregman-mollification-E": {
-      "page": 59,
-      "yTop": 321,
-      "yBottom": 386.4,
+      "page": 57,
+      "yTop": 555.4,
+      "yBottom": 623.9,
       "type": "equation",
       "displayLabel": "eq:bregman-mollification-E"
     },
     "eq:bregman-approx-E": {
-      "page": 59,
-      "yTop": 435.5,
-      "yBottom": 496.5,
+      "page": 57,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "equation",
       "displayLabel": "eq:bregman-approx-E"
     },
     "eq:balance-penalty-bias": {
-      "page": 60,
-      "yTop": 77.3,
-      "yBottom": 127.2,
+      "page": 58,
+      "yTop": 358.5,
+      "yBottom": 410.9,
       "type": "equation",
       "displayLabel": "eq:balance-penalty-bias"
     },
     "eq:lambda-upper-edge": {
-      "page": 60,
-      "yTop": 147.4,
-      "yBottom": 177.4,
+      "page": 58,
+      "yTop": 435.9,
+      "yBottom": 465.9,
       "type": "equation",
       "displayLabel": "eq:lambda-upper-edge"
     },
     "eq:foc-quadratic": {
-      "page": 60,
-      "yTop": 222.7,
-      "yBottom": 252.7,
+      "page": 58,
+      "yTop": 514.8,
+      "yBottom": 544.8,
       "type": "equation",
       "displayLabel": "eq:foc-quadratic"
     },
     "eq:balance-equation": {
-      "page": 60,
-      "yTop": 242.5,
-      "yBottom": 291.1,
+      "page": 58,
+      "yTop": 537.2,
+      "yBottom": 588.5,
       "type": "equation",
       "displayLabel": "eq:balance-equation"
     },
     "eq:balance-combined": {
-      "page": 60,
-      "yTop": 304.1,
-      "yBottom": 355.6,
+      "page": 58,
+      "yTop": 601.9,
+      "yBottom": 656,
       "type": "equation",
       "displayLabel": "eq:balance-combined"
     },
     "eq:surviving-bregman": {
-      "page": 61,
-      "yTop": 526.2,
-      "yBottom": 587.2,
+      "page": 60,
+      "yTop": 199.9,
+      "yBottom": 259.8,
       "type": "equation",
       "displayLabel": "eq:surviving-bregman"
     },
     "eq:rate-loss-diff": {
-      "page": 62,
-      "yTop": 34.2,
-      "yBottom": 81.3,
+      "page": 60,
+      "yTop": 301,
+      "yBottom": 348,
       "type": "equation",
       "displayLabel": "eq:rate-loss-diff"
     },
     "eq:path-bound": {
-      "page": 62,
-      "yTop": 108.9,
-      "yBottom": 157.1,
+      "page": 60,
+      "yTop": 378.3,
+      "yBottom": 429.3,
       "type": "equation",
       "displayLabel": "eq:path-bound"
     },
     "eq:rademacher-rkhs": {
-      "page": 62,
-      "yTop": 512.8,
-      "yBottom": 584.5,
+      "page": 61,
+      "yTop": 175.3,
+      "yBottom": 249.5,
       "type": "equation",
       "displayLabel": "eq:rademacher-rkhs"
     },
     "eq:rkhs-slb-condition": {
-      "page": 63,
-      "yTop": 82.8,
-      "yBottom": 196.7,
+      "page": 61,
+      "yTop": 359.8,
+      "yBottom": 473.2,
       "type": "equation",
       "displayLabel": "eq:rkhs-slb-condition"
     },
     "eq:rkhs-condition": {
-      "page": 63,
-      "yTop": 561,
-      "yBottom": 653.3,
+      "page": 62,
+      "yTop": 223.5,
+      "yBottom": 313.7,
       "type": "equation",
       "displayLabel": "eq:rkhs-condition"
     },
     "eq:variance-equiv-bound": {
-      "page": 66,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 65,
+      "yTop": 318.7,
+      "yBottom": 403.3,
       "type": "equation",
       "displayLabel": "eq:variance-equiv-bound"
     },
     "eq:var-decomp": {
-      "page": 67,
-      "yTop": 225.9,
-      "yBottom": 255.9,
+      "page": 65,
+      "yTop": 504.70000000000005,
+      "yBottom": 534.7,
       "type": "equation",
       "displayLabel": "eq:var-decomp"
     },
     "eq:var-bregman-absorb": {
-      "page": 67,
-      "yTop": 295.4,
-      "yBottom": 325.4,
+      "page": 65,
+      "yTop": 572.8,
+      "yBottom": 602.8,
       "type": "equation",
       "displayLabel": "eq:var-bregman-absorb"
     },
     "eq:var-weighted-l2": {
-      "page": 67,
-      "yTop": 317.3,
-      "yBottom": 375.9,
+      "page": 65,
+      "yTop": 594.1,
+      "yBottom": 652.6,
       "type": "equation",
       "displayLabel": "eq:var-weighted-l2"
     },
     "eq:variance-equiv-quadratic": {
-      "page": 68,
-      "yTop": 288.2,
-      "yBottom": 359.3,
+      "page": 66,
+      "yTop": 583.4,
+      "yBottom": 654.5,
       "type": "equation",
       "displayLabel": "eq:variance-equiv-quadratic"
     },
     "eq:var-ratio-interpolation": {
-      "page": 68,
-      "yTop": 507.79999999999995,
-      "yBottom": 560.4,
+      "page": 67,
+      "yTop": 179.3,
+      "yBottom": 235.8,
       "type": "equation",
       "displayLabel": "eq:var-ratio-interpolation"
     },
     "eq:regularized-influence": {
-      "page": 68,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 67,
+      "yTop": 396.5,
+      "yBottom": 448.5,
       "type": "equation",
       "displayLabel": "eq:regularized-influence"
     },
     "eq:tilde-sigma": {
-      "page": 69,
-      "yTop": 106.2,
-      "yBottom": 169.9,
+      "page": 67,
+      "yTop": 441.5,
+      "yBottom": 509,
       "type": "equation",
       "displayLabel": "eq:tilde-sigma"
     },
     "eq:uniform-integrability": {
-      "page": 69,
-      "yTop": 209.8,
-      "yBottom": 248.3,
+      "page": 67,
+      "yTop": 558.1,
+      "yBottom": 596.6,
       "type": "equation",
       "displayLabel": "eq:uniform-integrability"
     },
     "cond:an-A": {
-      "page": 69,
-      "yTop": 289,
-      "yBottom": 319,
+      "page": 68,
+      "yTop": 14.5,
+      "yBottom": 44.5,
       "type": "unknown",
       "displayLabel": "cond:an-A"
     },
     "cond:an-B": {
-      "page": 69,
-      "yTop": 308.8,
-      "yBottom": 338.8,
+      "page": 68,
+      "yTop": 35.8,
+      "yBottom": 65.8,
       "type": "unknown",
       "displayLabel": "cond:an-B"
     },
     "cond:an-C": {
-      "page": 69,
-      "yTop": 328.6,
-      "yBottom": 358.6,
+      "page": 68,
+      "yTop": 57.099999999999994,
+      "yBottom": 87.1,
       "type": "unknown",
       "displayLabel": "cond:an-C"
     },
     "cond:an-D": {
-      "page": 69,
-      "yTop": 348.4,
-      "yBottom": 378.4,
+      "page": 68,
+      "yTop": 78.5,
+      "yBottom": 108.5,
       "type": "unknown",
       "displayLabel": "cond:an-D"
     },
     "cond:an-E": {
-      "page": 69,
-      "yTop": 368.2,
-      "yBottom": 398.2,
+      "page": 67,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "unknown",
       "displayLabel": "cond:an-E"
     },
     "cond:an-F": {
-      "page": 69,
-      "yTop": 388,
-      "yBottom": 418,
+      "page": 68,
+      "yTop": 121.1,
+      "yBottom": 151.1,
       "type": "unknown",
       "displayLabel": "cond:an-F"
     },
     "cond:an-G": {
-      "page": 69,
-      "yTop": 407.8,
-      "yBottom": 437.8,
+      "page": 68,
+      "yTop": 142.5,
+      "yBottom": 172.5,
       "type": "unknown",
       "displayLabel": "cond:an-G"
     },
     "eq:influence-function": {
-      "page": 69,
-      "yTop": 515,
-      "yBottom": 563.1,
+      "page": 68,
+      "yTop": 256.4,
+      "yBottom": 308.4,
       "type": "equation",
       "displayLabel": "eq:influence-function"
     },
     "eq:an-leading": {
-      "page": 70,
-      "yTop": 445.6,
-      "yBottom": 536.8,
+      "page": 69,
+      "yTop": 233.9,
+      "yBottom": 323.4,
       "type": "equation",
       "displayLabel": "eq:an-leading"
     },
     "eq:conditional-clt": {
-      "page": 71,
-      "yTop": 206.1,
-      "yBottom": 247.6,
+      "page": 69,
+      "yTop": 606.7,
+      "yBottom": 648.2,
       "type": "equation",
       "displayLabel": "eq:conditional-clt"
     },
     "eq:sum-of-squares": {
-      "page": 71,
-      "yTop": 250.3,
-      "yBottom": 313.7,
+      "page": 69,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "equation",
       "displayLabel": "eq:sum-of-squares"
     },
     "cond:clt-a": {
-      "page": 72,
-      "yTop": 14.5,
-      "yBottom": 44.5,
+      "page": 70,
+      "yTop": 413.5,
+      "yBottom": 443.5,
       "type": "unknown",
       "displayLabel": "cond:clt-a"
     },
     "cond:clt-b": {
-      "page": 72,
-      "yTop": 33.1,
-      "yBottom": 63.1,
+      "page": 70,
+      "yTop": 433.5,
+      "yBottom": 463.5,
       "type": "unknown",
       "displayLabel": "cond:clt-b"
     },
     "cond:clt-c": {
-      "page": 72,
-      "yTop": 51.7,
-      "yBottom": 81.7,
+      "page": 70,
+      "yTop": 453.5,
+      "yBottom": 483.5,
       "type": "unknown",
       "displayLabel": "cond:clt-c"
     },
     "cond:clt-d": {
-      "page": 71,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 70,
+      "yTop": 473.5,
+      "yBottom": 503.5,
       "type": "unknown",
       "displayLabel": "cond:clt-d"
     },
     "cond:clt-e": {
-      "page": 72,
-      "yTop": 88.9,
-      "yBottom": 118.9,
+      "page": 70,
+      "yTop": 493.5,
+      "yBottom": 523.5,
       "type": "unknown",
       "displayLabel": "cond:clt-e"
     },
     "eq:general-outcome": {
-      "page": 72,
-      "yTop": 352.1,
-      "yBottom": 412.6,
+      "page": 71,
+      "yTop": 156.1,
+      "yBottom": 219.1,
       "type": "equation",
       "displayLabel": "eq:general-outcome"
     },
     "rem:arm-specific-outcome": {
-      "page": 73,
-      "yTop": 57.900000000000006,
-      "yBottom": 87.9,
+      "page": 71,
+      "yTop": 514.3,
+      "yBottom": 544.3,
       "type": "unknown",
       "displayLabel": "rem:arm-specific-outcome"
     },
     "eq:denominator-anchoring": {
-      "page": 73,
-      "yTop": 99.7,
-      "yBottom": 168.5,
+      "page": 71,
+      "yTop": 557.5,
+      "yBottom": 628.2,
       "type": "equation",
       "displayLabel": "eq:denominator-anchoring"
     },
     "eq:structural-balance": {
-      "page": 73,
-      "yTop": 366,
-      "yBottom": 427.3,
+      "page": 72,
+      "yTop": 200.7,
+      "yBottom": 264.5,
       "type": "equation",
       "displayLabel": "eq:structural-balance"
     },
     "eq:general-lambda-window": {
-      "page": 73,
-      "yTop": 416.5,
-      "yBottom": 499.8,
+      "page": 72,
+      "yTop": 256.3,
+      "yBottom": 339.6,
       "type": "equation",
       "displayLabel": "eq:general-lambda-window"
     },
     "eq:general-penalty-bias": {
-      "page": 73,
-      "yTop": 591.7,
-      "yBottom": 656,
+      "page": 72,
+      "yTop": 440.2,
+      "yBottom": 507,
       "type": "equation",
       "displayLabel": "eq:general-penalty-bias"
     },
     "rem:p-equals-1-window": {
-      "page": 74,
-      "yTop": 160.7,
-      "yBottom": 190.7,
+      "page": 73,
+      "yTop": 14.5,
+      "yBottom": 44.5,
       "type": "unknown",
       "displayLabel": "rem:p-equals-1-window"
     },
     "eq:tsm-variance-lower": {
-      "page": 75,
-      "yTop": 132.2,
-      "yBottom": 179.9,
+      "page": 73,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "equation",
       "displayLabel": "eq:tsm-variance-lower"
     },
     "eq:tsm-balance": {
-      "page": 75,
-      "yTop": 199.7,
-      "yBottom": 229.7,
+      "page": 74,
+      "yTop": 89.8,
+      "yBottom": 119.8,
       "type": "equation",
       "displayLabel": "eq:tsm-balance"
     },
     "eq:tsm-balance-bounds": {
-      "page": 75,
-      "yTop": 217.5,
-      "yBottom": 266.5,
+      "page": 74,
+      "yTop": 110.1,
+      "yBottom": 161.7,
       "type": "equation",
       "displayLabel": "eq:tsm-balance-bounds"
     },
     "eq:tsm-lambda-window": {
-      "page": 75,
-      "yTop": 254.2,
-      "yBottom": 302,
+      "page": 74,
+      "yTop": 152.1,
+      "yBottom": 202.5,
       "type": "equation",
       "displayLabel": "eq:tsm-lambda-window"
     },
     "eq:tsm-entropy-denominator": {
-      "page": 76,
-      "yTop": 51.9,
-      "yBottom": 104.7,
+      "page": 74,
+      "yTop": 604,
+      "yBottom": 656,
       "type": "equation",
       "displayLabel": "eq:tsm-entropy-denominator"
     },
     "eq:entropy-comparison": {
-      "page": 76,
-      "yTop": 157,
-      "yBottom": 209.3,
+      "page": 75,
+      "yTop": 75.6,
+      "yBottom": 126.4,
       "type": "equation",
       "displayLabel": "eq:entropy-comparison"
     },
     "eq:tsm-entropy-supnorm": {
-      "page": 76,
-      "yTop": 273.6,
-      "yBottom": 341.7,
+      "page": 75,
+      "yTop": 188.2,
+      "yBottom": 256.3,
       "type": "equation",
       "displayLabel": "eq:tsm-entropy-supnorm"
     },
     "eq:tsm-entropy-window": {
-      "page": 76,
-      "yTop": 330.9,
-      "yBottom": 406,
+      "page": 75,
+      "yTop": 244.6,
+      "yBottom": 318.2,
       "type": "equation",
       "displayLabel": "eq:tsm-entropy-window"
     },
     "eq:tsm-outcome": {
-      "page": 76,
-      "yTop": -20.5,
-      "yBottom": 632,
+      "page": 75,
+      "yTop": 509.29999999999995,
+      "yBottom": 606.9,
       "type": "equation",
       "displayLabel": "eq:tsm-outcome"
     },
     "eq:regression-penalty": {
-      "page": 78,
-      "yTop": 431.4,
-      "yBottom": 483.4,
+      "page": 77,
+      "yTop": 346.1,
+      "yBottom": 398.1,
       "type": "equation",
       "displayLabel": "eq:regression-penalty"
     },
     "eq:regression-outcome": {
-      "page": 79,
-      "yTop": 76.3,
-      "yBottom": 139.1,
+      "page": 78,
+      "yTop": 26.5,
+      "yBottom": 89.5,
       "type": "equation",
       "displayLabel": "eq:regression-outcome"
     },
     "case:reg-structural": {
-      "page": 79,
-      "yTop": 210.6,
-      "yBottom": 240.6,
+      "page": 78,
+      "yTop": 161.4,
+      "yBottom": 191.4,
       "type": "unknown",
       "displayLabel": "case:reg-structural"
     },
     "case:reg-holder": {
-      "page": 79,
-      "yTop": 243.3,
-      "yBottom": 273.3,
+      "page": 78,
+      "yTop": 194.1,
+      "yBottom": 224.1,
       "type": "unknown",
       "displayLabel": "case:reg-holder"
     },
     "case:reg-comparison": {
-      "page": 79,
-      "yTop": 255.3,
-      "yBottom": 285.3,
+      "page": 78,
+      "yTop": 206.1,
+      "yBottom": 236.1,
       "type": "unknown",
       "displayLabel": "case:reg-comparison"
     },
     "case:reg-full": {
-      "page": 79,
-      "yTop": 301.7,
-      "yBottom": 331.7,
+      "page": 78,
+      "yTop": 252.7,
+      "yBottom": 282.7,
       "type": "unknown",
       "displayLabel": "case:reg-full"
     },
     "eq:regression-balance": {
-      "page": 79,
-      "yTop": 469.2,
-      "yBottom": 499.2,
+      "page": 78,
+      "yTop": 420.7,
+      "yBottom": 450.7,
       "type": "equation",
       "displayLabel": "eq:regression-balance"
     },
     "eq:regression-balance-bounds": {
-      "page": 79,
-      "yTop": 553,
-      "yBottom": 619.2,
+      "page": 78,
+      "yTop": 504.70000000000005,
+      "yBottom": 571,
       "type": "equation",
       "displayLabel": "eq:regression-balance-bounds"
     },
     "eq:vcate-outcome": {
-      "page": 80,
-      "yTop": 547.2,
-      "yBottom": 577.2,
+      "page": 79,
+      "yTop": 495.3,
+      "yBottom": 525.3,
       "type": "equation",
       "displayLabel": "eq:vcate-outcome"
     },
     "eq:vcate-outcome-rate": {
-      "page": 80,
-      "yTop": 576.7,
-      "yBottom": 652.7,
+      "page": 79,
+      "yTop": 523.5,
+      "yBottom": 598.2,
       "type": "equation",
       "displayLabel": "eq:vcate-outcome-rate"
     },
     "eq:vcate-cate-rate": {
-      "page": 80,
-      "yTop": -20.5,
-      "yBottom": 9.5,
+      "page": 79,
+      "yTop": 589,
+      "yBottom": 658.7,
       "type": "equation",
       "displayLabel": "eq:vcate-cate-rate"
     },
     "eq:vcate-outcome-window": {
-      "page": 81,
-      "yTop": 72.8,
-      "yBottom": 136,
+      "page": 79,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "equation",
       "displayLabel": "eq:vcate-outcome-window"
     },
     "eq:vcate-denominator-anchor": {
-      "page": 81,
-      "yTop": 191.6,
-      "yBottom": 233.6,
+      "page": 80,
+      "yTop": 131.8,
+      "yBottom": 173.8,
       "type": "equation",
       "displayLabel": "eq:vcate-denominator-anchor"
     },
     "eq:vcate-balance": {
-      "page": 81,
-      "yTop": 252.2,
-      "yBottom": 282.2,
+      "page": 80,
+      "yTop": 190.3,
+      "yBottom": 220.3,
       "type": "equation",
       "displayLabel": "eq:vcate-balance"
     },
     "eq:vcate-balance-bounds": {
-      "page": 81,
-      "yTop": 339,
-      "yBottom": 397.2,
+      "page": 80,
+      "yTop": 275.8,
+      "yBottom": 334.1,
       "type": "equation",
       "displayLabel": "eq:vcate-balance-bounds"
     },
     "eq:vcate-lower-anchor": {
-      "page": 81,
-      "yTop": 385.1,
-      "yBottom": 439.3,
+      "page": 80,
+      "yTop": 321.2,
+      "yBottom": 374.1,
       "type": "equation",
       "displayLabel": "eq:vcate-lower-anchor"
     },
     "case:vcate-structural": {
-      "page": 82,
-      "yTop": 83.9,
-      "yBottom": 113.9,
+      "page": 81,
+      "yTop": 14.5,
+      "yBottom": 44.5,
       "type": "unknown",
       "displayLabel": "case:vcate-structural"
     },
     "case:vcate-holder": {
-      "page": 82,
-      "yTop": 115.9,
-      "yBottom": 145.9,
+      "page": 80,
+      "yTop": -20.5,
+      "yBottom": 9.5,
       "type": "unknown",
       "displayLabel": "case:vcate-holder"
     },
     "case:vcate-comparison": {
-      "page": 82,
-      "yTop": 130.5,
-      "yBottom": 160.5,
+      "page": 81,
+      "yTop": 60.2,
+      "yBottom": 90.2,
       "type": "unknown",
       "displayLabel": "case:vcate-comparison"
     },
     "case:vcate-full": {
-      "page": 82,
-      "yTop": 166.3,
-      "yBottom": 196.3,
+      "page": 81,
+      "yTop": 95.3,
+      "yBottom": 125.3,
       "type": "unknown",
       "displayLabel": "case:vcate-full"
     },
     "eq:vcate-lambda-window": {
-      "page": 82,
-      "yTop": 345.8,
-      "yBottom": 438.2,
+      "page": 81,
+      "yTop": 270.8,
+      "yBottom": 361.2,
       "type": "equation",
       "displayLabel": "eq:vcate-lambda-window"
     },
     "eq:vcate-L4-bound": {
-      "page": 82,
-      "yTop": 532.1,
-      "yBottom": 616.5,
+      "page": 81,
+      "yTop": 453.1,
+      "yBottom": 535.6,
       "type": "equation",
       "displayLabel": "eq:vcate-L4-bound"
     }

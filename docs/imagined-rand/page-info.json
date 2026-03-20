@@ -1,0 +1,245 @@
+[
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "Inference Based on Imagined Randomization",
+    "slideIndex": 0,
+    "indexh": 0,
+    "indexv": 0
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "How We Talk About Randomness in Statistics",
+    "slideIndex": 1,
+    "indexh": 2,
+    "indexv": 0
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "Two stories we tell undergrads",
+    "slideIndex": 2,
+    "indexh": 2,
+    "indexv": 1
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "A poll",
+    "slideIndex": 3,
+    "indexh": 2,
+    "indexv": 2
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "Calibrating the interval",
+    "slideIndex": 4,
+    "indexh": 2,
+    "indexv": 3
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "An Experiment",
+    "slideIndex": 5,
+    "indexh": 3,
+    "indexv": 0
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "The social pressure mailer",
+    "slideIndex": 6,
+    "indexh": 3,
+    "indexv": 1
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "Potential outcomes",
+    "slideIndex": 7,
+    "indexh": 3,
+    "indexv": 2
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "The randomization distribution",
+    "slideIndex": 8,
+    "indexh": 3,
+    "indexv": 3
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "But wait—they were sampled too",
+    "slideIndex": 9,
+    "indexh": 3,
+    "indexv": 4
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "The parallel",
+    "slideIndex": 10,
+    "indexh": 3,
+    "indexv": 5
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "Why models work",
+    "slideIndex": 11,
+    "indexh": 3,
+    "indexv": 6
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "Models",
+    "slideIndex": 12,
+    "indexh": 4,
+    "indexv": 0
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "When things get murkier",
+    "slideIndex": 13,
+    "indexh": 4,
+    "indexv": 1
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "Models as approximations to designed randomness",
+    "slideIndex": 14,
+    "indexh": 4,
+    "indexv": 2
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "Panel data",
+    "slideIndex": 15,
+    "indexh": 4,
+    "indexv": 3
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "What’s random in panel data?",
+    "slideIndex": 16,
+    "indexh": 4,
+    "indexv": 4
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "Imagined Randomization",
+    "slideIndex": 17,
+    "indexh": 5,
+    "indexv": 0
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "The core idea",
+    "slideIndex": 18,
+    "indexh": 5,
+    "indexv": 1
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "What we’re imagining",
+    "slideIndex": 19,
+    "indexh": 5,
+    "indexv": 2
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "The key quantity: \\(T_{\\text{eff}}\\)",
+    "slideIndex": 20,
+    "indexh": 5,
+    "indexv": 3
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "The main result",
+    "slideIndex": 21,
+    "indexh": 5,
+    "indexv": 4
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "When DiD fails and balancing doesn’t",
+    "slideIndex": 22,
+    "indexh": 5,
+    "indexv": 5
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "Skepticism",
+    "slideIndex": 23,
+    "indexh": 5,
+    "indexv": 6
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "Wrapping Up",
+    "slideIndex": 24,
+    "indexh": 6,
+    "indexv": 0
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "The arc of this talk",
+    "slideIndex": 25,
+    "indexh": 6,
+    "indexv": 1
+  },
+  {
+    "file": "imagined-randomization.html",
+    "width": 1290,
+    "height": 1000,
+    "title": "References",
+    "slideIndex": 26,
+    "indexh": 6,
+    "indexv": 2
+  }
+]

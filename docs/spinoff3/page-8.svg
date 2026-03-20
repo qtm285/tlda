@@ -8,458 +8,458 @@
 <style type='text/css'>
 <![CDATA[@font-face{font-family:cmex10;src:url(data:application/x-font-woff2;base64,d09GMgABAAAAAAOsAAoAAAAABhAAAANjAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAATAqFMIQrCxAAATYCJAMcBCAFgj4HIBvKBCiOwzgmPFCpjOLXz+d07ydtJqZamJqfwE94uoAPu7nx0Hv7d5tMdDTQjAMc9SIqTRKPZET9z+X46+HWse0O8NQae/Ha1AskzXguSwPrBVagiQSiKbjt5rjERaxyA+Apj7qADrAbu/FPEDpTAL0JMjAINgCKABQv2Jg4i1OAWLxn4bjIFzWA0MtBAQCSo///w3wMAA5AEA7x22hMAbBjhcEW35nQmf9Z+JLKGe+ZYMc7ZD7KvJfZlVkDhCMsvNznk10HQAMAgAYQR/zmLs/KamzFsPa3P30YUk2FUPKfDIqILEK/IHk/lHwQxGSq9UOfMDujigwkycA+QcE54UER6lEE9TD49FR9QHhQSahfyMqK+YBxngvYDw5gnOyIi8GJGCFUSAglM0uF7DOlhpZaVsSrR1UWlJUPNNcCA6cCyUBSlCQDD06lR1dbl8WqhhTn9zn2KYbSvNKhw6YMJUNFPIrYJk5xqI2rKgMnynO6faJbkuT9wPuhYnpMM3vKJdlv/wqzlop3Q+rRYZX8e9kko+m+B27WSbYX5Lkww6b6pU3kB8fOyX79Ov4+MSsGdI08YRB/csvl3smlG031PnS3CtI9wyRp8q3NczvIDU6cFjxG198rZslQSBK7reswpNi3eW4PeFsusF1cpkxgG0wz4N5M6kFT7j5D9kPAN+v5/9EcOFKFljgi4244ZbvgZ7ZadKJPtpbg+BUgpbCjWNrE3iTwz4s9gS2aM5AjPJvHxSfdFZv6kpIuHNtGEUC8+5JsWy+5lX4LO0+IZdqmWqZYCum9lO/UOVIbi5g127IzEGOnlCk2gbFuA1TV65Dtp1IonmgsIznv/6bwteYl/fY/CmZ5cfgHWyMWGxMcRQHgM6D5hfHF8Fh+ZcVpkI986yrXQBPgaFnqBqTrAduB+8+fMgHCcDCp86BCK6UkAhVwx0swS9MwhKnbquEFpYc8u4opwGPpEGgIPAIdByGBQJA9zk6cMhyqbIBIs+0QaDhFC3TC0gUCp6oqO0NtFyjL/2gdCVlJpXq6L5KMnrZu+9gH8/2JxWkFxSlZsgbahtoG4CBHllxFCiXJJ8tLuhPZvmwJsiQppUdXcNQWSJMjm+ysNt1p4OLOXu6O2xISk/EYVWWiYmkKvniKLLIMaDOkzQAuBw==) format('woff2');}
 @font-face{font-family:cmsy7;src:url(data:application/x-font-woff2;base64,d09GMgABAAAAAAHAAAoAAAAAA1gAAAF5AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAANAo0RwsGAAE2AiQDCAQgBYI4ByAbtAIgPhTYxrSx+h2q9OxUVxRXz4P4jmZDWwRH8fDfful9fyaAoJd1AFVsFIHFtorA9qytJqtqJIHNLZIlX2m27NQxwqGTfzY6IeTSWfFQ5gZkc4mx9wMiJqqEBgDPEfP3qZv8PibYxijxDNd5PoHaQAFnkge2gNLUEuydUccjkl6X2Biz3w5IqRlpoXhf/G/YO8+jeeoBkVbkGglc3KdKWxwcJP/UsBfTCAD+/wcFEoYlgWHZPLIsWBz8/x/+4JcFgAJkBLrRC8iA6L7u/enF5xH6+PzDz6yQA4HgdvFu5rjP1/aU6Y3UDGhXgGBN4aYbkhYFJC4qadGNKnSLlUBNp6cNqg/RZi36QtOiy7Bq1WLuDp0mLUsidwizVsBknQ5Mi1FXplWnx12nhrenJfsLczsZ1W+fRbVUSS3eEp+5eGSRStRLjVLdpoOu32d7YM+xcN9NFEq3zyzYtoOqkoqA3bnbnjEMrA8/U+BCMiEpgrqShpK6BGBrAQ==) format('woff2');}
-@font-face{font-family:cmsy10;src:url(data:application/x-font-woff2;base64,d09GMgABAAAAAAUAAAoAAAAACJAAAAS3AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAAdAqJdIcjCxgAATYCJAMoBCAFgj4HIBt2BhFVo09B/Ewwzy90rOt1bqQX5U/JeKXj6bSflw1YxazgtFvAuctBSrM9wtvuFxAA8Y94mzqFoWvq3doLLMsh6nObRloXBW044AkMOyySYLShDIRnmy0cdoO2sGx6e0YRdARgtJVoLTAAaJtoT/8TwZrdib5pIhCOOAA8JoAsBgApAKE2h7MzLp5laMcU//gWKjAKABAm5QD8DwBAIztF4OAIbDo0HesFGNAhC3JgBsyEWXDe4GNIMLRTGwdAW87/ly8tPXxR8bu/vvvk3b2AwHCeQAngi6GZAOhdAF6gg7VDBdBOTK4J5Udw+Fofvog/Y+yJabnEjfZNmLik3c7bD2MvdUvmSbn2ENJ2gCSfaSTEc+sK8ckKIhinKFxpd10wuSTbKZ5gf+TZToE+i7jMI8SjIvINu24MNh7kWQlCuvnxfvHcgif2c8fQbtyI77FwSS4iAuC+lZLCuRa3lHhu5eHa3UotcchCvgg48MDlpoovU9nEQ/VcUkf2wrj9bOzBoyoA8dbxTGLMsnzC79IuJUKSbRNZrnnSFff9D+9WoN0Uvl/sEpFkI3N0bPkmKcu9ecXGCjSBn4s7dAwREInqNTEee3GnbEIEer/ld2wHdshhB2mX6IlSisLHDiw/NO/wioODHq598/aLPYm9c/c45pL2exOm9xCRlLncinkUfndcnJEr9n02i4kpff17RWMml2Vk3yarg5CipY6fNuSS7FO4I87BgdrTSpiH94pGq1L+wUiDy9RawjDI+do81LREkCVJ91v6m55jXR8yJKZ53Q0Z3KxJr91aHFAI1MfiwPkhbN+rGWhTvX+jPr/4E82qsK3ocBsMSf9s9fObf9LRBmWVPv5b40d3fJMqGJahmNTjBWJ+RUkSj7nH46eXDsk7XV5sdU13BwYnJEzPwg3y7sv6z6yrIhfnV/zfzGuO2ZR2Sd2bFxKKqbybzeLqmYuC9fygD9LhQ2mA+cOi0KInua36HSdTbTyOfaFXPuin/EarnWF+GOiUIsoYQGQE0n7g+ujKfX5T/er5yBi8MD3U+IF42Dt/z5unBF/ahjOLwUfAHillxWbBrrfOCdrV7QJnMrwz5TdUO938MLBDaphs4gd8dvMNtd2bFfCrFsgPo8aN9cZpHb+R9EK40QyZd/5nfhv4bdCpFnZ97XcTV+E3cQl8VJGHzynHQspj8rOKwpsQnssoD7QNeV1khUAKzPshP8SUFdNz49fegFONsn8lf09X+ugRJ4oT49sTxZ20NtRo+NHvRqXaecJ2wqmuhJP5kZw/9d4+9OkT0n/k/4iNehQTzunS8E0fZOYBAAAqH9nywVO80TPhVzZGhzr1v3+xMgwDADbQiJb7TbgJvP9fndAJkFRyMBUA7QPwTqoU0QDykQqmuTAvUk27B5XNGQNScTsCr2byJpY4s1EC9KRWIpg8L/mNR8wfTLrNR2HBoCxEk7Lw6fga+AySHj4T39wkV8TKJ13zj+wKWvsd00JDXh29oUEhY3VfAk5vc3Y7nJ39uvCgiKBwSB/sH5o8qX1EV6h4m6waaO13TAsNqezqju7BAR0ShPokmI0PkPHmCWGbq2WaI97m7HYM6uzXhQdFrN2HYyo=) format('woff2');}
 @font-face{font-family:cmr7;src:url(data:application/x-font-woff2;base64,d09GMgABAAAAAASgAAoAAAAAB2gAAARXAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAAVAqIBIYfCxIAATYCJAMgBCAFgjIHIBu+BUCOxHR7g2wTjuRNx7OtfoaHUlbhVpTn30q8yCrgR7c85N/e3X3+IMVpQG1ZIGFibQkEmLUFIvk8l9NbtPbz2wB+zd/SNo3tRy3SCNKxbQmkaVmgHlC22cQhmzBKGs7u3tWjC4DkZVwOGkA91JP/bbDsKOG3MwAZwQGYWmCFgR70Psf2K4dS810CfoXA6KSh4vdDgNIygG0FdoVW2tNhUVk8VZ3WfIt6FwE50/xe/wv/Gf+J/5L+SwAULGuHCQAHcAHAF4SnVSnoFP6gwZFVaPQkcLZRW1o3v0583qo0H1WClZCtvm1qiuq7IyfdkNufUX27VFSlrQp/9nXq5tdtO4JOyIO6dFu3zy4Af+8X6fUHBAGkHYVFh9xd+6937HUP7Lz+RhvcXehB9ZabbDrI8yis2zPqzBX7gR1hspy16FrIxpg1a2wbEg97div5FxV1Z/xFxcYDGTwGDTStR6xu2/66VVZ9SvXeaKXVeqtFqlPbPvH6H3BbqY+NXe1YGIBr1y1aA3LdGrvsU9WIrSfjDz6UFCX+paSqvn1yU8U6+yIXrFnN7w5QFOn169DN8rg2Xpqh5O9VMj2r14v0+guCAGe9/O1MFBZdcms2bXR4ldzVtsutvK/b9MMLj+48tujIoLjLl+9Wrz0bvbAw/tq1O1VrzkQtMnodbO2AYOll8lAyjAR/HCRNYGsdDrZmUEj7V+mlQ8n1jmmzI8Vp362EhtnsmU6G5JE5tpZvPSkJptoE90F6MB6O22KoSQPx+6X8N08X7YcnI115q0W7e2WeK2oVWU2ixNxdIpT3afd3lnu4kRAwQXVEvZrySVQNQvTv3pUrRp7+UAt4LH7eX/p4gNYb1LRcnF9jDjs+WMMNGP9LU40pNlDfDnvuXptUpvtx/n/unbli1HrSA5vYYSd5rQ4TcV8/qj5pcNtNaDFsxVaqw+aaOeWGUurH9GWEgv8PrguvtfiGg1fLNaEvFTYkmA0q6LLCHHfP0MnZQcf1+/NtxRvqxWpsamOpFabMERX6elOdeHklacWG8SN6YI/+rtKqqdOt+Zjn0ofSfHPvkX3Qiy11BDNq4e9Ttq/DuQbGWu48Uq7dfv3nHmiNo2sTokZOf7B8ZFRCHR1nxRE/Hx9ILe7jc2rHRNi/hvfHun7K/NB0ffBHeHg844OPl+f17pqa8LTig5+Xx/XpUpoAAACA8pH3vv/sRjdj4W9s0TB2+L8m71IvAYBFAf0a4QdAj5BGqHcBLc7mKwBqg4x71pdUExTkHGhXFZAWNTCwgr6tyarhXBAj3lRYJ400jmg0Y+ZqCKyuFi14P88tHIGNAxSsUFwaq6Or4dDT1WKNH/MyTX94jP4N1+o1ZGTOu1glLTnVZz6sX9977IBRY/sNCc1IzkzOgArDDDHcGKP1MVKoOkdvLQ/Vq2qPlENSRhkwOVSoNMlSO/kGhmLQg4fsXe5pwhrubawBRpX7GbLTy5Ascy6fgRg=) format('woff2');}
+@font-face{font-family:cmsy10;src:url(data:application/x-font-woff2;base64,d09GMgABAAAAAAUAAAoAAAAACJAAAAS3AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAAdAqJdIcjCxgAATYCJAMoBCAFgj4HIBt2BhFVo09B/Ewwzy90rOt1bqQX5U/JeKXj6bSflw1YxazgtFvAuctBSrM9wtvuFxAA8Y94mzqFoWvq3doLLMsh6nObRloXBW044AkMOyySYLShDIRnmy0cdoO2sGx6e0YRdARgtJVoLTAAaJtoT/8TwZrdib5pIhCOOAA8JoAsBgApAKE2h7MzLp5laMcU//gWKjAKABAm5QD8DwBAIztF4OAIbDo0HesFGNAhC3JgBsyEWXDe4GNIMLRTGwdAW87/ly8tPXxR8bu/vvvk3b2AwHCeQAngi6GZAOhdAF6gg7VDBdBOTK4J5Udw+Fofvog/Y+yJabnEjfZNmLik3c7bD2MvdUvmSbn2ENJ2gCSfaSTEc+sK8ckKIhinKFxpd10wuSTbKZ5gf+TZToE+i7jMI8SjIvINu24MNh7kWQlCuvnxfvHcgif2c8fQbtyI77FwSS4iAuC+lZLCuRa3lHhu5eHa3UotcchCvgg48MDlpoovU9nEQ/VcUkf2wrj9bOzBoyoA8dbxTGLMsnzC79IuJUKSbRNZrnnSFff9D+9WoN0Uvl/sEpFkI3N0bPkmKcu9ecXGCjSBn4s7dAwREInqNTEee3GnbEIEer/ld2wHdshhB2mX6IlSisLHDiw/NO/wioODHq598/aLPYm9c/c45pL2exOm9xCRlLncinkUfndcnJEr9n02i4kpff17RWMml2Vk3yarg5CipY6fNuSS7FO4I87BgdrTSpiH94pGq1L+wUiDy9RawjDI+do81LREkCVJ91v6m55jXR8yJKZ53Q0Z3KxJr91aHFAI1MfiwPkhbN+rGWhTvX+jPr/4E82qsK3ocBsMSf9s9fObf9LRBmWVPv5b40d3fJMqGJahmNTjBWJ+RUkSj7nH46eXDsk7XV5sdU13BwYnJEzPwg3y7sv6z6yrIhfnV/zfzGuO2ZR2Sd2bFxKKqbybzeLqmYuC9fygD9LhQ2mA+cOi0KInua36HSdTbTyOfaFXPuin/EarnWF+GOiUIsoYQGQE0n7g+ujKfX5T/er5yBi8MD3U+IF42Dt/z5unBF/ahjOLwUfAHillxWbBrrfOCdrV7QJnMrwz5TdUO938MLBDaphs4gd8dvMNtd2bFfCrFsgPo8aN9cZpHb+R9EK40QyZd/5nfhv4bdCpFnZ97XcTV+E3cQl8VJGHzynHQspj8rOKwpsQnssoD7QNeV1khUAKzPshP8SUFdNz49fegFONsn8lf09X+ugRJ4oT49sTxZ20NtRo+NHvRqXaecJ2wqmuhJP5kZw/9d4+9OkT0n/k/4iNehQTzunS8E0fZOYBAAAqH9nywVO80TPhVzZGhzr1v3+xMgwDADbQiJb7TbgJvP9fndAJkFRyMBUA7QPwTqoU0QDykQqmuTAvUk27B5XNGQNScTsCr2byJpY4s1EC9KRWIpg8L/mNR8wfTLrNR2HBoCxEk7Lw6fga+AySHj4T39wkV8TKJ13zj+wKWvsd00JDXh29oUEhY3VfAk5vc3Y7nJ39uvCgiKBwSB/sH5o8qX1EV6h4m6waaO13TAsNqezqju7BAR0ShPokmI0PkPHmCWGbq2WaI97m7HYM6uzXhQdFrN2HYyo=) format('woff2');}
 @font-face{font-family:cmmi7;src:url(data:application/x-font-woff2;base64,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) format('woff2');}
 @font-face{font-family:cmmi10;src:url(data:application/x-font-woff2;base64,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) format('woff2');}
 @font-face{font-family:cmr10;src:url(data:application/x-font-woff2;base64,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) format('woff2');}
 @font-face{font-family:cmbx10;src:url(data:application/x-font-woff2;base64,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) format('woff2');}
-text.f6 {font-family:cmbx10;font-size:9.96264px}
-text.f16 {font-family:cmsy10;font-size:9.96264px}
-text.f17 {font-family:cmsy7;font-size:6.973848px}
-text.f19 {font-family:cmmi10;font-size:9.96264px}
-text.f20 {font-family:cmmi7;font-size:6.973848px}
-text.f22 {font-family:cmr10;font-size:9.96264px}
-text.f23 {font-family:cmr7;font-size:6.973848px}
-text.f25 {font-family:cmex10;font-size:9.96264px}
+text.f7 {font-family:cmbx10;font-size:9.96264px}
+text.f17 {font-family:cmsy10;font-size:9.96264px}
+text.f18 {font-family:cmsy7;font-size:6.973848px}
+text.f20 {font-family:cmmi10;font-size:9.96264px}
+text.f21 {font-family:cmmi7;font-size:6.973848px}
+text.f23 {font-family:cmr10;font-size:9.96264px}
+text.f24 {font-family:cmr7;font-size:6.973848px}
+text.f26 {font-family:cmex10;font-size:9.96264px}
 ]]>
 </style>
 <g id='page8'>
-<text class='f6' x='14.399782' y='24.362422'>The<tspan x='38.158209'>outcome</tspan><tspan x='84.498503'>pro</tspan><tspan x='100.992133'>xy</tspan><tspan x='112.130859'>.</tspan></text>
-<text class='f22' x='125.276007' y='24.362422'>As<tspan x='140.305782'>in</tspan><tspan x='152.236064'>discrete</tspan><tspan x='189.156044'>time,</tspan><tspan x='215.000154'>imagine</tspan><tspan x='252.3906'>observing</tspan><tspan x='297.336085'>surviv</tspan><tspan x='323.432772'>al</tspan><tspan x='334.809577'>status</tspan><tspan x='364.561974'>at</tspan><tspan x='377.045744'>only</tspan><tspan x='399.215453'>a</tspan><tspan x='407.82485'>single</tspan><tspan x='435.861449'>ran-</tspan><tspan x='14.399782' y='36.31759'>domly</tspan><tspan x='44.387175'>c</tspan><tspan x='48.538278'>hosen</tspan><tspan x='76.090336'>time</tspan></text>
-<text class='f19' x='98.605712' y='36.31759'>U</text>
-<text class='f20' x='105.407977' y='37.811971'>i</text>
-<text class='f16' x='111.492156' y='36.31759'>∼</text>
-<text class='f19' x='122.008236' y='36.31759'>ν</text>
-<text class='f22' x='127.563802' y='36.31759'>,<tspan x='133.510192'>where</tspan><tspan x='162.141538'>no</tspan><tspan x='172.380946'>w</tspan></text>
-<text class='f19' x='182.719722' y='36.31759'>ν</text>
-<text class='f22' x='191.04262' y='36.31759'>=<tspan x='201.5587'>Leb</tspan><tspan x='218.024786'>esgue</tspan></text>
-<text class='f19' x='241.326304' y='36.31759'>/t</text>
-<text class='f22' x='253.048793' y='36.31759'>on<tspan x='266.70845'>[0</tspan></text>
-<text class='f19' x='274.457198' y='36.31759'>,<tspan x='278.885006'>t</tspan></text>
-<text class='f22' x='282.48264' y='36.31759'>].<tspan x='292.386176'>In</tspan><tspan x='304.662134'>discrete</tspan><tspan x='341.097572'>time,</tspan><tspan x='366.415837'>the</tspan><tspan x='383.39638'>pro</tspan><tspan x='397.537838'>xy</tspan><tspan x='411.197528'>at</tspan><tspan x='423.196757'>time</tspan></text>
-<text class='f19' x='445.712132' y='36.31759'>U</text>
-<text class='f22' x='14.399782' y='48.272758'>w<tspan x='21.318294'>as</tspan><tspan x='33.603097'>the</tspan><tspan x='50.813871'>ev</tspan><tspan x='60.223062'>en</tspan><tspan x='69.908982'>t</tspan><tspan x='77.157103'>indicator</tspan></text>
-<text class='f6' x='119.302254' y='48.272758'>1</text>
-<text class='f22' x='125.030742' y='48.272758'>(<tspan x='130.847508' y='45.754431'>˜</tspan></text>
-<text class='f19' x='128.905116' y='48.272758'>T</text>
-<text class='f22' x='138.966187' y='48.272758'>=</text>
-<text class='f19' x='149.570377' y='48.272758'>U<tspan x='156.351846'>,</tspan><tspan x='163.635096'>E</tspan></text>
-<text class='f22' x='174.41913' y='48.272758'>=<tspan x='185.02332'>1)—did</tspan><tspan x='221.052475'>the</tspan><tspan x='238.263264'>ev</tspan><tspan x='247.672455'>en</tspan><tspan x='257.358375'>t</tspan><tspan x='264.606496'>happ</tspan><tspan x='286.469034'>en</tspan><tspan x='299.805434'>at</tspan><tspan x='312.034894'>exactly</tspan><tspan x='346.40364'>this</tspan><tspan x='365.883689'>time?</tspan><tspan x='394.546587'>In</tspan><tspan x='407.052776'>con</tspan><tspan x='421.720035'>tin</tspan><tspan x='433.619886'>uous</tspan><tspan x='14.399782' y='60.227926'>time,</tspan><tspan x='39.859925'>the</tspan><tspan x='57.017842'>ev</tspan><tspan x='66.427033'>en</tspan><tspan x='76.112953'>t</tspan></text>
-<text class='f16' x='83.308202' y='60.227926'>{</text>
-<text class='f22' x='90.231933' y='57.709599'>˜</text>
-<text class='f19' x='88.289541' y='60.227926'>T</text>
-<text class='f22' x='98.262503' y='60.227926'>=</text>
-<text class='f19' x='108.778583' y='60.227926'>U</text>
-<text class='f16' x='116.667031' y='60.227926'>}</text>
-<text class='f22' x='124.969245' y='60.227926'>has<tspan x='142.735994'>probabilit</tspan><tspan x='185.105024'>y</tspan><tspan x='193.683986'>zero,</tspan><tspan x='217.511363'>and</tspan><tspan x='236.88321'>the</tspan><tspan x='254.041128'>indicator</tspan><tspan x='296.133408'>is</tspan><tspan x='306.151409'>replaced</tspan><tspan x='345.476271'>b</tspan><tspan x='350.734339'>y</tspan><tspan x='359.313302'>a</tspan><tspan x='367.615516'>p</tspan><tspan x='373.427081'>oin</tspan><tspan x='386.433897'>t</tspan><tspan x='393.629146'>mass:</tspan></text>
-<text class='f19' x='156.930113' y='80.749846'>Y</text>
-<text class='f20' x='164.927918' y='76.63635'>U</text>
-<text class='f22' x='174.368423' y='80.749846'>=</text>
-<text class='f19' x='184.884503' y='80.749846'>dN</text>
-<text class='f22' x='199.160826' y='80.749846'>(</text>
-<text class='f19' x='203.035199' y='80.749846'>U</text>
-<text class='f22' x='210.923647' y='80.749846'>)<tspan x='217.565354'>=</tspan></text>
-<text class='f6' x='228.081434' y='80.749846'>1</text>
-<text class='f22' x='233.809921' y='80.749846'>(</text>
-<text class='f19' x='237.684295' y='80.749846'>E</text>
-<text class='f22' x='248.38022' y='80.749846'>=<tspan x='258.8963'>1)</tspan></text>
-<text class='f19' x='269.412412' y='80.749846'>δ</text>
-<text class='f23' x='275.387066' y='82.00904'>˜</text>
-<text class='f20' x='273.840254' y='83.771884'>T</text>
-<text class='f22' x='280.116371' y='80.749846'>(</text>
-<text class='f19' x='283.990745' y='80.749846'>U</text>
-<text class='f22' x='291.879193' y='80.749846'>)</text>
-<text class='f19' x='297.413966' y='80.749846'>du.</text>
-<text class='f22' x='435.888824' y='80.749846'>(28)<tspan x='14.399782' y='101.271766'>This</tspan><tspan x='37.604841'>is</tspan><tspan x='48.079823'>the</tspan><tspan x='65.694721'>coun</tspan><tspan x='85.896797'>ting</tspan><tspan x='106.832591'>pro</tspan><tspan x='121.527546'>cess</tspan><tspan x='142.020526'>incremen</tspan><tspan x='181.06865'>t</tspan><tspan x='188.72088'>at</tspan><tspan x='201.354448'>time</tspan></text>
-<text class='f19' x='224.504163' y='101.271766'>U</text>
-<text class='f22' x='232.392612' y='101.271766'>.<tspan x='240.958801'>As</tspan><tspan x='256.138373'>a</tspan><tspan x='264.897568'>function</tspan><tspan x='304.375005'>of</tspan></text>
-<text class='f19' x='316.178341' y='101.271766'>U</text>
-<text class='f22' x='324.066789' y='101.271766'>,<tspan x='330.726295'>it</tspan><tspan x='341.145933'>is</tspan><tspan x='351.620915'>not</tspan><tspan x='369.7893'>a</tspan><tspan x='378.548495'>p</tspan><tspan x='384.36006'>oin</tspan><tspan x='397.366876'>t</tspan><tspan x='400.964502'>wise-deﬁned</tspan><tspan x='14.399782' y='113.226934'>function</tspan><tspan x='53.420238'>but</tspan><tspan x='71.68512'>a</tspan><tspan x='79.987334'>measure—a</tspan><tspan x='133.75807'>Dirac</tspan><tspan x='160.767968'>delta</tspan><tspan x='185.674633'>at</tspan><tspan x='197.85122'>the</tspan><tspan x='215.009138'>ev</tspan><tspan x='224.418329'>en</tspan><tspan x='234.104249'>t</tspan><tspan x='241.299497'>time,</tspan><tspan x='266.75964'>w</tspan><tspan x='273.678152'>eigh</tspan><tspan x='291.112819'>ted</tspan><tspan x='308.270737'>b</tspan><tspan x='313.528805'>y</tspan><tspan x='322.107768'>the</tspan><tspan x='339.265685'>uncensoring</tspan><tspan x='394.143386'>indicator.</tspan><tspan x='29.343742' y='125.182102'>The</tspan><tspan x='49.822546'>n</tspan><tspan x='55.080614'>uisance</tspan><tspan x='90.005292'>is</tspan><tspan x='100.023293'>the</tspan><tspan x='117.18121'>hazard</tspan><tspan x='149.864299'>rate</tspan></text>
-<text class='f19' x='170.370789' y='125.182102'>λ</text>
-<text class='f20' x='176.182355' y='126.676483'>U</text>
-<text class='f22' x='182.855527' y='125.182102'>(</text>
-<text class='f19' x='186.729901' y='125.182102'>W<tspan x='195.862339'>,</tspan><tspan x='200.290147'>X</tspan></text>
-<text class='f22' x='209.325703' y='125.182102'>),<tspan x='219.28836'>a</tspan><tspan x='227.590574'>function</tspan><tspan x='266.611029'>of</tspan><tspan x='277.9574'>(</tspan></text>
-<text class='f19' x='281.831774' y='125.182102'>U<tspan x='288.613244'>,</tspan><tspan x='293.041052'>W</tspan><tspan x='302.17349'>,</tspan><tspan x='306.601298'>X</tspan></text>
-<text class='f22' x='315.636854' y='125.182102'>)<tspan x='322.832102'>alone,</tspan><tspan x='144.766194' y='145.704022'>E</tspan><tspan x='151.546341'>(</tspan></text>
-<text class='f19' x='155.420714' y='145.704022'>dN</text>
-<text class='f22' x='169.697037' y='145.704022'>(</text>
-<text class='f19' x='173.571411' y='145.704022'>U</text>
-<text class='f22' x='181.459859' y='145.704022'>)</text>
-<text class='f16' x='188.101565' y='145.704022'>|</text>
-<text class='f22' x='195.578698' y='143.185695'>˜</text>
-<text class='f19' x='193.636306' y='145.704022'>T</text>
-<text class='f16' x='203.609268' y='145.704022'>≥</text>
-<text class='f19' x='214.125348' y='145.704022'>U<tspan x='220.906817'>,</tspan><tspan x='225.334625'>W</tspan><tspan x='234.467064'>,</tspan><tspan x='238.894872'>X</tspan></text>
-<text class='f22' x='247.930427' y='145.704022'>)<tspan x='254.572134'>=</tspan></text>
-<text class='f19' x='265.088214' y='145.704022'>λ</text>
-<text class='f20' x='270.899779' y='147.198403'>U</text>
-<text class='f22' x='277.572951' y='145.704022'>(</text>
-<text class='f19' x='281.447325' y='145.704022'>W<tspan x='290.579763'>,</tspan><tspan x='295.007571'>X</tspan></text>
-<text class='f22' x='304.043127' y='145.704022'>)</text>
-<text class='f19' x='309.5779' y='145.704022'>du,</text>
-<text class='f22' x='435.888824' y='145.704022'>(29)<tspan x='14.399782' y='166.225942'>the</tspan><tspan x='31.31552'>same</tspan><tspan x='56.035349'>relationship</tspan><tspan x='110.117392'>as</tspan><tspan x='122.107129'>in</tspan><tspan x='133.48805'>discrete</tspan><tspan x='169.858668'>time.</tspan><tspan x='196.345053'>As</tspan><tspan x='210.825465'>in</tspan><tspan x='222.206386'>the</tspan><tspan x='239.122123'>discrete</tspan><tspan x='275.492726'>case,</tspan></text>
-<text class='f19' x='299.154038' y='166.225942'>λ</text>
-<text class='f22' x='308.044283' y='166.225942'>do<tspan x='318.837188'>es</tspan><tspan x='330.273453'>not</tspan><tspan x='347.742678'>b</tspan><tspan x='353.554243'>elong</tspan><tspan x='379.325694'>to</tspan></text>
-<text class='f16' x='391.260102' y='166.225942'>H</text>
-<text class='f22' x='399.769894' y='166.225942'>,<tspan x='405.664431'>but</tspan></text>
-<text class='f19' x='423.687134' y='166.225942'>dN</text>
-<text class='f22' x='437.963457' y='166.225942'>(</text>
-<text class='f19' x='441.837831' y='166.225942'>U</text>
-<text class='f22' x='449.726279' y='166.225942'>)<tspan x='14.399782' y='178.18111'>is</tspan><tspan x='24.995648'>a</tspan><tspan x='33.875713'>v</tspan><tspan x='38.580318'>alid</tspan><tspan x='58.530032'>pro</tspan><tspan x='72.67149'>xy:</tspan><tspan x='91.538627'>the</tspan><tspan x='109.27441'>coun</tspan><tspan x='129.476486'>ting</tspan><tspan x='150.533149'>pro</tspan><tspan x='165.228104'>cess</tspan><tspan x='185.841983'>martingale</tspan><tspan x='236.260876'>prop</tspan><tspan x='256.490648'>ert</tspan><tspan x='268.418175'>y</tspan><tspan x='277.574988'>E</tspan></text>
-<text class='f16' x='284.355135' y='178.18111'>{</text>
-<text class='f19' x='289.336474' y='178.18111'>dN</text>
-<text class='f22' x='303.612797' y='178.18111'>(</text>
-<text class='f19' x='307.48717' y='178.18111'>u</text>
-<text class='f22' x='313.190366' y='178.18111'>)</text>
-<text class='f16' x='319.663834' y='178.18111'>−</text>
-<text class='f19' x='330.011691' y='178.18111'>λ</text>
-<text class='f20' x='335.823257' y='179.675491'>u</text>
-<text class='f6' x='342.692182' y='178.18111'>1</text>
-<text class='f22' x='348.42067' y='178.18111'>(<tspan x='354.237436' y='175.662783'>˜</tspan></text>
-<text class='f19' x='352.295043' y='178.18111'>T</text>
-<text class='f16' x='363.231084' y='178.18111'>≥</text>
-<text class='f19' x='374.710243' y='178.18111'>u</text>
-<text class='f22' x='380.413438' y='178.18111'>)</text>
-<text class='f19' x='385.948212' y='178.18111'>du</text>
-<text class='f16' x='400.567251' y='178.18111'>|<tspan x='407.065085'>F</tspan></text>
-<text class='f20' x='414.225714' y='179.675491'>u</text>
-<text class='f17' x='418.936109' y='179.675491'>−</text>
-<text class='f16' x='425.660905' y='178.18111'>}</text>
-<text class='f22' x='434.372655' y='178.18111'>=<tspan x='445.851814'>0,</tspan><tspan x='14.399782' y='190.136278'>where</tspan></text>
-<text class='f16' x='42.247173' y='190.136278'>F</text>
-<text class='f20' x='49.407801' y='191.630659'>u</text>
-<text class='f17' x='54.118196' y='191.630659'>−</text>
-<text class='f22' x='63.202537' y='190.136278'>is<tspan x='72.259223'>the</tspan><tspan x='88.45581'>left-con</tspan><tspan x='120.557747'>tin</tspan><tspan x='132.457597'>uous</tspan><tspan x='154.797848'>ﬁltration</tspan><tspan x='195.375335'>generated</tspan><tspan x='239.827171'>b</tspan><tspan x='245.085239'>y</tspan><tspan x='252.702886'>(</tspan></text>
-<text class='f19' x='256.57726' y='190.136278'>W<tspan x='265.709699'>,</tspan><tspan x='270.137507'>X</tspan><tspan x='278.61958'>,</tspan><tspan x='283.047388'>N</tspan></text>
-<text class='f22' x='292.138279' y='190.136278'>(</text>
-<text class='f19' x='296.012652' y='190.136278'>s</text>
-<text class='f22' x='300.68264' y='190.136278'>)</text>
-<text class='f19' x='304.557014' y='190.136278'>,</text>
-<text class='f6' x='308.984822' y='190.136278'>1</text>
-<text class='f22' x='314.713309' y='190.136278'>(<tspan x='320.530076' y='187.617951'>˜</tspan></text>
-<text class='f19' x='318.587683' y='190.136278'>T</text>
-<text class='f16' x='328.560645' y='190.136278'>≤</text>
-<text class='f19' x='339.076725' y='190.136278'>s</text>
-<text class='f22' x='343.746713' y='190.136278'>))</text>
-<text class='f20' x='351.49546' y='191.630659'>s&lt;u</text>
-<text class='f22' x='366.690873' y='190.136278'>,<tspan x='372.010098'>giv</tspan><tspan x='384.740185'>es</tspan><tspan x='395.457314'>orthogonalit</tspan><tspan x='448.34251'>y</tspan><tspan x='14.399782' y='202.091446'>paralleling</tspan><tspan x='63.272195'>(</tspan></text>
-<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1772788400792/svg/page-06.svg#loc56' xlink:title='equation.19'>
-<text class='f22' x='67.146569' y='202.091446'>19</text>
+<text class='f7' x='14.399782' y='24.362422'>The<tspan x='38.158209'>outcome</tspan><tspan x='84.498503'>pro</tspan><tspan x='100.992133'>xy</tspan><tspan x='112.130859'>.</tspan></text>
+<text class='f23' x='125.276007' y='24.362422'>As<tspan x='140.305782'>in</tspan><tspan x='152.236064'>discrete</tspan><tspan x='189.156044'>time,</tspan><tspan x='215.000154'>imagine</tspan><tspan x='252.3906'>observing</tspan><tspan x='297.336085'>surviv</tspan><tspan x='323.432772'>al</tspan><tspan x='334.809577'>status</tspan><tspan x='364.561974'>at</tspan><tspan x='377.045744'>only</tspan><tspan x='399.215453'>a</tspan><tspan x='407.82485'>single</tspan><tspan x='435.861449'>ran-</tspan><tspan x='14.399782' y='36.31759'>domly</tspan><tspan x='44.387175'>c</tspan><tspan x='48.538278'>hosen</tspan><tspan x='76.090336'>time</tspan></text>
+<text class='f20' x='98.605712' y='36.31759'>U</text>
+<text class='f21' x='105.407977' y='37.811971'>i</text>
+<text class='f17' x='111.492156' y='36.31759'>∼</text>
+<text class='f20' x='122.008236' y='36.31759'>ν</text>
+<text class='f23' x='127.563802' y='36.31759'>,<tspan x='133.510192'>where</tspan><tspan x='162.141538'>no</tspan><tspan x='172.380946'>w</tspan></text>
+<text class='f20' x='182.719722' y='36.31759'>ν</text>
+<text class='f23' x='191.04262' y='36.31759'>=<tspan x='201.5587'>Leb</tspan><tspan x='218.024786'>esgue</tspan></text>
+<text class='f20' x='241.326304' y='36.31759'>/t</text>
+<text class='f23' x='253.048793' y='36.31759'>on<tspan x='266.70845'>[0</tspan></text>
+<text class='f20' x='274.457198' y='36.31759'>,<tspan x='278.885006'>t</tspan></text>
+<text class='f23' x='282.48264' y='36.31759'>].<tspan x='292.386176'>In</tspan><tspan x='304.662134'>discrete</tspan><tspan x='341.097572'>time,</tspan><tspan x='366.415837'>the</tspan><tspan x='383.39638'>pro</tspan><tspan x='397.537838'>xy</tspan><tspan x='411.197528'>at</tspan><tspan x='423.196757'>time</tspan></text>
+<text class='f20' x='445.712132' y='36.31759'>U</text>
+<text class='f23' x='14.399782' y='48.272758'>w<tspan x='21.318294'>as</tspan><tspan x='33.603097'>the</tspan><tspan x='50.813871'>ev</tspan><tspan x='60.223062'>en</tspan><tspan x='69.908982'>t</tspan><tspan x='77.157103'>indicator</tspan></text>
+<text class='f7' x='119.302254' y='48.272758'>1</text>
+<text class='f23' x='125.030742' y='48.272758'>(<tspan x='130.847508' y='45.754431'>˜</tspan></text>
+<text class='f20' x='128.905116' y='48.272758'>T</text>
+<text class='f23' x='138.966187' y='48.272758'>=</text>
+<text class='f20' x='149.570377' y='48.272758'>U<tspan x='156.351846'>,</tspan><tspan x='163.635096'>E</tspan></text>
+<text class='f23' x='174.41913' y='48.272758'>=<tspan x='185.02332'>1)—did</tspan><tspan x='221.052475'>the</tspan><tspan x='238.263264'>ev</tspan><tspan x='247.672455'>en</tspan><tspan x='257.358375'>t</tspan><tspan x='264.606496'>happ</tspan><tspan x='286.469034'>en</tspan><tspan x='299.805434'>at</tspan><tspan x='312.034894'>exactly</tspan><tspan x='346.40364'>this</tspan><tspan x='365.883689'>time?</tspan><tspan x='394.546587'>In</tspan><tspan x='407.052776'>con</tspan><tspan x='421.720035'>tin</tspan><tspan x='433.619886'>uous</tspan><tspan x='14.399782' y='60.227926'>time,</tspan><tspan x='39.859925'>the</tspan><tspan x='57.017842'>ev</tspan><tspan x='66.427033'>en</tspan><tspan x='76.112953'>t</tspan></text>
+<text class='f17' x='83.308202' y='60.227926'>{</text>
+<text class='f23' x='90.231933' y='57.709599'>˜</text>
+<text class='f20' x='88.289541' y='60.227926'>T</text>
+<text class='f23' x='98.262503' y='60.227926'>=</text>
+<text class='f20' x='108.778583' y='60.227926'>U</text>
+<text class='f17' x='116.667031' y='60.227926'>}</text>
+<text class='f23' x='124.969245' y='60.227926'>has<tspan x='142.735994'>probabilit</tspan><tspan x='185.105024'>y</tspan><tspan x='193.683986'>zero,</tspan><tspan x='217.511363'>and</tspan><tspan x='236.88321'>the</tspan><tspan x='254.041128'>indicator</tspan><tspan x='296.133408'>is</tspan><tspan x='306.151409'>replaced</tspan><tspan x='345.476271'>b</tspan><tspan x='350.734339'>y</tspan><tspan x='359.313302'>a</tspan><tspan x='367.615516'>p</tspan><tspan x='373.427081'>oin</tspan><tspan x='386.433897'>t</tspan><tspan x='393.629146'>mass:</tspan></text>
+<text class='f20' x='156.930113' y='80.749846'>Y</text>
+<text class='f21' x='164.927918' y='76.63635'>U</text>
+<text class='f23' x='174.368423' y='80.749846'>=</text>
+<text class='f20' x='184.884503' y='80.749846'>dN</text>
+<text class='f23' x='199.160826' y='80.749846'>(</text>
+<text class='f20' x='203.035199' y='80.749846'>U</text>
+<text class='f23' x='210.923647' y='80.749846'>)<tspan x='217.565354'>=</tspan></text>
+<text class='f7' x='228.081434' y='80.749846'>1</text>
+<text class='f23' x='233.809921' y='80.749846'>(</text>
+<text class='f20' x='237.684295' y='80.749846'>E</text>
+<text class='f23' x='248.38022' y='80.749846'>=<tspan x='258.8963'>1)</tspan></text>
+<text class='f20' x='269.412412' y='80.749846'>δ</text>
+<text class='f24' x='275.387066' y='82.00904'>˜</text>
+<text class='f21' x='273.840254' y='83.771884'>T</text>
+<text class='f23' x='280.116371' y='80.749846'>(</text>
+<text class='f20' x='283.990745' y='80.749846'>U</text>
+<text class='f23' x='291.879193' y='80.749846'>)</text>
+<text class='f20' x='297.413966' y='80.749846'>du.</text>
+<text class='f23' x='435.888824' y='80.749846'>(28)<tspan x='14.399782' y='101.271766'>This</tspan><tspan x='37.604841'>is</tspan><tspan x='48.079823'>the</tspan><tspan x='65.694721'>coun</tspan><tspan x='85.896797'>ting</tspan><tspan x='106.832591'>pro</tspan><tspan x='121.527546'>cess</tspan><tspan x='142.020526'>incremen</tspan><tspan x='181.06865'>t</tspan><tspan x='188.72088'>at</tspan><tspan x='201.354448'>time</tspan></text>
+<text class='f20' x='224.504163' y='101.271766'>U</text>
+<text class='f23' x='232.392612' y='101.271766'>.<tspan x='240.958801'>As</tspan><tspan x='256.138373'>a</tspan><tspan x='264.897568'>function</tspan><tspan x='304.375005'>of</tspan></text>
+<text class='f20' x='316.178341' y='101.271766'>U</text>
+<text class='f23' x='324.066789' y='101.271766'>,<tspan x='330.726295'>it</tspan><tspan x='341.145933'>is</tspan><tspan x='351.620915'>not</tspan><tspan x='369.7893'>a</tspan><tspan x='378.548495'>p</tspan><tspan x='384.36006'>oin</tspan><tspan x='397.366876'>t</tspan><tspan x='400.964502'>wise-deﬁned</tspan><tspan x='14.399782' y='113.226934'>function</tspan><tspan x='53.420238'>but</tspan><tspan x='71.68512'>a</tspan><tspan x='79.987334'>measure—a</tspan><tspan x='133.75807'>Dirac</tspan><tspan x='160.767968'>delta</tspan><tspan x='185.674633'>at</tspan><tspan x='197.85122'>the</tspan><tspan x='215.009138'>ev</tspan><tspan x='224.418329'>en</tspan><tspan x='234.104249'>t</tspan><tspan x='241.299497'>time,</tspan><tspan x='266.75964'>w</tspan><tspan x='273.678152'>eigh</tspan><tspan x='291.112819'>ted</tspan><tspan x='308.270737'>b</tspan><tspan x='313.528805'>y</tspan><tspan x='322.107768'>the</tspan><tspan x='339.265685'>uncensoring</tspan><tspan x='394.143386'>indicator.</tspan><tspan x='29.343742' y='125.182102'>The</tspan><tspan x='49.822546'>n</tspan><tspan x='55.080614'>uisance</tspan><tspan x='90.005292'>is</tspan><tspan x='100.023293'>the</tspan><tspan x='117.18121'>hazard</tspan><tspan x='149.864299'>rate</tspan></text>
+<text class='f20' x='170.370789' y='125.182102'>λ</text>
+<text class='f21' x='176.182355' y='126.676483'>U</text>
+<text class='f23' x='182.855527' y='125.182102'>(</text>
+<text class='f20' x='186.729901' y='125.182102'>W<tspan x='195.862339'>,</tspan><tspan x='200.290147'>X</tspan></text>
+<text class='f23' x='209.325703' y='125.182102'>),<tspan x='219.28836'>a</tspan><tspan x='227.590574'>function</tspan><tspan x='266.611029'>of</tspan><tspan x='277.9574'>(</tspan></text>
+<text class='f20' x='281.831774' y='125.182102'>U<tspan x='288.613244'>,</tspan><tspan x='293.041052'>W</tspan><tspan x='302.17349'>,</tspan><tspan x='306.601298'>X</tspan></text>
+<text class='f23' x='315.636854' y='125.182102'>)<tspan x='322.832102'>alone,</tspan><tspan x='144.766194' y='145.704022'>E</tspan><tspan x='151.546341'>(</tspan></text>
+<text class='f20' x='155.420714' y='145.704022'>dN</text>
+<text class='f23' x='169.697037' y='145.704022'>(</text>
+<text class='f20' x='173.571411' y='145.704022'>U</text>
+<text class='f23' x='181.459859' y='145.704022'>)</text>
+<text class='f17' x='188.101565' y='145.704022'>|</text>
+<text class='f23' x='195.578698' y='143.185695'>˜</text>
+<text class='f20' x='193.636306' y='145.704022'>T</text>
+<text class='f17' x='203.609268' y='145.704022'>≥</text>
+<text class='f20' x='214.125348' y='145.704022'>U<tspan x='220.906817'>,</tspan><tspan x='225.334625'>W</tspan><tspan x='234.467064'>,</tspan><tspan x='238.894872'>X</tspan></text>
+<text class='f23' x='247.930427' y='145.704022'>)<tspan x='254.572134'>=</tspan></text>
+<text class='f20' x='265.088214' y='145.704022'>λ</text>
+<text class='f21' x='270.899779' y='147.198403'>U</text>
+<text class='f23' x='277.572951' y='145.704022'>(</text>
+<text class='f20' x='281.447325' y='145.704022'>W<tspan x='290.579763'>,</tspan><tspan x='295.007571'>X</tspan></text>
+<text class='f23' x='304.043127' y='145.704022'>)</text>
+<text class='f20' x='309.5779' y='145.704022'>du,</text>
+<text class='f23' x='435.888824' y='145.704022'>(29)<tspan x='14.399782' y='166.225942'>the</tspan><tspan x='31.31552'>same</tspan><tspan x='56.035349'>relationship</tspan><tspan x='110.117392'>as</tspan><tspan x='122.107129'>in</tspan><tspan x='133.48805'>discrete</tspan><tspan x='169.858668'>time.</tspan><tspan x='196.345053'>As</tspan><tspan x='210.825465'>in</tspan><tspan x='222.206386'>the</tspan><tspan x='239.122123'>discrete</tspan><tspan x='275.492726'>case,</tspan></text>
+<text class='f20' x='299.154038' y='166.225942'>λ</text>
+<text class='f23' x='308.044283' y='166.225942'>do<tspan x='318.837188'>es</tspan><tspan x='330.273453'>not</tspan><tspan x='347.742678'>b</tspan><tspan x='353.554243'>elong</tspan><tspan x='379.325694'>to</tspan></text>
+<text class='f17' x='391.260102' y='166.225942'>H</text>
+<text class='f23' x='399.769894' y='166.225942'>,<tspan x='405.664431'>but</tspan></text>
+<text class='f20' x='423.687134' y='166.225942'>dN</text>
+<text class='f23' x='437.963457' y='166.225942'>(</text>
+<text class='f20' x='441.837831' y='166.225942'>U</text>
+<text class='f23' x='449.726279' y='166.225942'>)<tspan x='14.399782' y='178.18111'>is</tspan><tspan x='24.995648'>a</tspan><tspan x='33.875713'>v</tspan><tspan x='38.580318'>alid</tspan><tspan x='58.530032'>pro</tspan><tspan x='72.67149'>xy:</tspan><tspan x='91.538627'>the</tspan><tspan x='109.27441'>coun</tspan><tspan x='129.476486'>ting</tspan><tspan x='150.533149'>pro</tspan><tspan x='165.228104'>cess</tspan><tspan x='185.841983'>martingale</tspan><tspan x='236.260876'>prop</tspan><tspan x='256.490648'>ert</tspan><tspan x='268.418175'>y</tspan><tspan x='277.574988'>E</tspan></text>
+<text class='f17' x='284.355135' y='178.18111'>{</text>
+<text class='f20' x='289.336474' y='178.18111'>dN</text>
+<text class='f23' x='303.612797' y='178.18111'>(</text>
+<text class='f20' x='307.48717' y='178.18111'>u</text>
+<text class='f23' x='313.190366' y='178.18111'>)</text>
+<text class='f17' x='319.663834' y='178.18111'>−</text>
+<text class='f20' x='330.011691' y='178.18111'>λ</text>
+<text class='f21' x='335.823257' y='179.675491'>u</text>
+<text class='f7' x='342.692182' y='178.18111'>1</text>
+<text class='f23' x='348.42067' y='178.18111'>(<tspan x='354.237436' y='175.662783'>˜</tspan></text>
+<text class='f20' x='352.295043' y='178.18111'>T</text>
+<text class='f17' x='363.231084' y='178.18111'>≥</text>
+<text class='f20' x='374.710243' y='178.18111'>u</text>
+<text class='f23' x='380.413438' y='178.18111'>)</text>
+<text class='f20' x='385.948212' y='178.18111'>du</text>
+<text class='f17' x='400.567251' y='178.18111'>|<tspan x='407.065085'>F</tspan></text>
+<text class='f21' x='414.225714' y='179.675491'>u</text>
+<text class='f18' x='418.936109' y='179.675491'>−</text>
+<text class='f17' x='425.660905' y='178.18111'>}</text>
+<text class='f23' x='434.372655' y='178.18111'>=<tspan x='445.851814'>0,</tspan><tspan x='14.399782' y='190.136278'>where</tspan></text>
+<text class='f17' x='42.247173' y='190.136278'>F</text>
+<text class='f21' x='49.407801' y='191.630659'>u</text>
+<text class='f18' x='54.118196' y='191.630659'>−</text>
+<text class='f23' x='63.202537' y='190.136278'>is<tspan x='72.259223'>the</tspan><tspan x='88.45581'>left-con</tspan><tspan x='120.557747'>tin</tspan><tspan x='132.457597'>uous</tspan><tspan x='154.797848'>ﬁltration</tspan><tspan x='195.375335'>generated</tspan><tspan x='239.827171'>b</tspan><tspan x='245.085239'>y</tspan><tspan x='252.702886'>(</tspan></text>
+<text class='f20' x='256.57726' y='190.136278'>W<tspan x='265.709699'>,</tspan><tspan x='270.137507'>X</tspan><tspan x='278.61958'>,</tspan><tspan x='283.047388'>N</tspan></text>
+<text class='f23' x='292.138279' y='190.136278'>(</text>
+<text class='f20' x='296.012652' y='190.136278'>s</text>
+<text class='f23' x='300.68264' y='190.136278'>)</text>
+<text class='f20' x='304.557014' y='190.136278'>,</text>
+<text class='f7' x='308.984822' y='190.136278'>1</text>
+<text class='f23' x='314.713309' y='190.136278'>(<tspan x='320.530076' y='187.617951'>˜</tspan></text>
+<text class='f20' x='318.587683' y='190.136278'>T</text>
+<text class='f17' x='328.560645' y='190.136278'>≤</text>
+<text class='f20' x='339.076725' y='190.136278'>s</text>
+<text class='f23' x='343.746713' y='190.136278'>))</text>
+<text class='f21' x='351.49546' y='191.630659'>s&lt;u</text>
+<text class='f23' x='366.690873' y='190.136278'>,<tspan x='372.010098'>giv</tspan><tspan x='384.740185'>es</tspan><tspan x='395.457314'>orthogonalit</tspan><tspan x='448.34251'>y</tspan><tspan x='14.399782' y='202.091446'>paralleling</tspan><tspan x='63.272195'>(</tspan></text>
+<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1773110592236/svg/page-06.svg#loc56' xlink:title='equation.19'>
+<text class='f23' x='67.146569' y='202.091446'>19</text>
 </a>
-<text class='f22' x='77.109247' y='202.091446'>)<tspan x='80.98361'>.</tspan></text>
-<text class='f6' x='14.399782' y='227.746947'>Rao-Blac<tspan x='59.784884'>kw</tspan><tspan x='73.787854'>ellization.</tspan></text>
-<text class='f22' x='132.124405' y='227.746947'>The<tspan x='152.603208'>blo</tspan><tspan x='166.163521'>c</tspan><tspan x='170.314624'>k</tspan><tspan x='178.893587'>a</tspan><tspan x='183.598178'>v</tspan><tspan x='188.579517'>erage</tspan><tspan x='122.008517' y='252.004993'>¯</tspan></text>
-<text class='f19' x='119.863713' y='254.634035'>f</text>
-<text class='f22' x='125.81366' y='254.634035'>(</text>
-<text class='f19' x='129.688034' y='254.634035'>O</text>
-<text class='f20' x='137.2873' y='256.128416'>i</text>
-<text class='f22' x='140.604147' y='254.634035'>)<tspan x='147.245853'>=</tspan><tspan x='157.761933'>E</tspan></text>
-<text class='f20' x='164.54208' y='256.128416'>U</text>
-<text class='f19' x='172.875652' y='254.634035'>f</text>
-<text class='f22' x='178.825599' y='254.634035'>(</text>
-<text class='f19' x='182.699973' y='254.634035'>dN</text>
-<text class='f20' x='195.890113' y='256.128416'>i</text>
-<text class='f22' x='199.206959' y='254.634035'>(</text>
-<text class='f19' x='203.081333' y='254.634035'>U</text>
-<text class='f22' x='210.969781' y='254.634035'>)</text>
-<text class='f19' x='214.844155' y='254.634035'>,<tspan x='219.271963'>Z</tspan></text>
-<text class='f20' x='226.785459' y='250.520539'>U<tspan x='226.07286' y='257.096967'>i</tspan></text>
-<text class='f22' x='233.458631' y='254.634035'>)<tspan x='240.100337'>=</tspan><tspan x='251.811931' y='247.894234'>1</tspan></text>
+<text class='f23' x='77.109247' y='202.091446'>)<tspan x='80.98361'>.</tspan></text>
+<text class='f7' x='14.399782' y='227.746947'>Rao-Blac<tspan x='59.784884'>kw</tspan><tspan x='73.787854'>ellization.</tspan></text>
+<text class='f23' x='132.124405' y='227.746947'>The<tspan x='152.603208'>blo</tspan><tspan x='166.163521'>c</tspan><tspan x='170.314624'>k</tspan><tspan x='178.893587'>a</tspan><tspan x='183.598178'>v</tspan><tspan x='188.579517'>erage</tspan><tspan x='122.008517' y='252.004993'>¯</tspan></text>
+<text class='f20' x='119.863713' y='254.634035'>f</text>
+<text class='f23' x='125.81366' y='254.634035'>(</text>
+<text class='f20' x='129.688034' y='254.634035'>O</text>
+<text class='f21' x='137.2873' y='256.128416'>i</text>
+<text class='f23' x='140.604147' y='254.634035'>)<tspan x='147.245853'>=</tspan><tspan x='157.761933'>E</tspan></text>
+<text class='f21' x='164.54208' y='256.128416'>U</text>
+<text class='f20' x='172.875652' y='254.634035'>f</text>
+<text class='f23' x='178.825599' y='254.634035'>(</text>
+<text class='f20' x='182.699973' y='254.634035'>dN</text>
+<text class='f21' x='195.890113' y='256.128416'>i</text>
+<text class='f23' x='199.206959' y='254.634035'>(</text>
+<text class='f20' x='203.081333' y='254.634035'>U</text>
+<text class='f23' x='210.969781' y='254.634035'>)</text>
+<text class='f20' x='214.844155' y='254.634035'>,<tspan x='219.271963'>Z</tspan></text>
+<text class='f21' x='226.785459' y='250.520539'>U<tspan x='226.07286' y='257.096967'>i</tspan></text>
+<text class='f23' x='233.458631' y='254.634035'>)<tspan x='240.100337'>=</tspan><tspan x='251.811931' y='247.894234'>1</tspan></text>
 <rect x='251.811931' y='251.944126' height='.398484' width='4.981335'/>
-<text class='f19' x='252.503794' y='261.467905'>t</text>
-<text class='f25' x='259.649179' y='241.073665'></text>
-<text class='f20' x='269.611835' y='243.536628'>t</text>
-<text class='f23' x='265.183996' y='263.711217'>0</text>
-<text class='f19' x='274.779924' y='254.634035'>f</text>
-<text class='f22' x='280.729871' y='254.634035'>(</text>
-<text class='f19' x='284.604245' y='254.634035'>dN</text>
-<text class='f20' x='297.794385' y='256.128416'>i</text>
-<text class='f22' x='301.111231' y='254.634035'>(</text>
-<text class='f19' x='304.985605' y='254.634035'>u</text>
-<text class='f22' x='310.688801' y='254.634035'>)</text>
-<text class='f19' x='314.563175' y='254.634035'>,<tspan x='318.990982'>Z</tspan></text>
-<text class='f20' x='326.504479' y='250.520539'>u<tspan x='325.79188' y='257.096967'>i</tspan></text>
-<text class='f22' x='331.713004' y='254.634035'>)</text>
-<text class='f19' x='337.247778' y='254.634035'>du</text>
-<text class='f22' x='435.888824' y='254.634035'>(30)<tspan x='14.399782' y='280.192731'>in</tspan><tspan x='22.425259'>tegrates</tspan><tspan x='61.393432'>the</tspan><tspan x='79.799735'>Dirac</tspan><tspan x='108.058033'>delta</tspan><tspan x='134.213099'>against</tspan><tspan x='169.832709'>a</tspan><tspan x='179.383309'>b</tspan><tspan x='185.194874'>ounded</tspan><tspan x='221.312608'>function</tspan><tspan x='261.581465'>of</tspan></text>
-<text class='f19' x='274.176236' y='280.192731'>u</text>
-<text class='f22' x='279.879432' y='280.192731'>,<tspan x='287.528194'>pro</tspan><tspan x='302.223149'>ducing</tspan><tspan x='335.573474'>a</tspan><tspan x='345.124089'>b</tspan><tspan x='350.935655'>ounded</tspan><tspan x='387.053389'>function</tspan><tspan x='427.32223'>of</tspan></text>
-<text class='f19' x='439.917002' y='280.192731'>O</text>
-<text class='f20' x='447.516268' y='281.687112'>i</text>
-<text class='f22' x='450.833115' y='280.192731'>.<tspan x='14.399782' y='292.147899'>The</tspan><tspan x='34.758948'>in</tspan><tspan x='42.784425'>tegral</tspan><tspan x='70.920024'>against</tspan></text>
-<text class='f19' x='105.17161' y='292.147899'>dN</text>
-<text class='f20' x='118.36175' y='293.64228'>i</text>
-<text class='f22' x='124.879834' y='292.147899'>pic<tspan x='137.333162'>ks</tspan><tspan x='149.722205'>out</tspan><tspan x='167.313971'>the</tspan><tspan x='184.352266'>ev</tspan><tspan x='193.761456'>en</tspan><tspan x='203.447377'>t</tspan><tspan x='210.522987'>time:</tspan><tspan x='237.030274'>for</tspan></text>
-<text class='f19' x='252.159058' y='292.147899'>f</text>
-<text class='f22' x='260.876338' y='292.147899'>=</text>
-<text class='f19' x='271.392418' y='292.147899'>h</text>
-<text class='f16' x='279.107092' y='292.147899'>·</text>
-<text class='f22' x='283.849106' y='292.147899'>(</text>
-<text class='f19' x='287.72348' y='292.147899'>Y</text>
-<text class='f16' x='297.695891' y='292.147899'>−</text>
-<text class='f19' x='307.419243' y='292.147899'>λ</text>
-<text class='f22' x='313.230809' y='292.147899'>),<tspan x='323.097755'>the</tspan><tspan x='340.136035'>blo</tspan><tspan x='353.696348'>c</tspan><tspan x='357.847451'>k</tspan><tspan x='366.30679'>a</tspan><tspan x='371.011381'>v</tspan><tspan x='375.99272'>erage</tspan><tspan x='401.914389'>ev</tspan><tspan x='411.046846'>aluates</tspan><tspan x='444.74493'>to</tspan></text>
-<text class='f19' x='14.399782' y='304.103067'>h</text>
-<text class='f22' x='20.139851' y='304.103067'>(<tspan x='25.956618' y='301.58474'>˜</tspan></text>
-<text class='f19' x='24.014225' y='304.103067'>T</text>
-<text class='f20' x='29.836156' y='305.597448'>i</text>
-<text class='f19' x='33.15299' y='304.103067'>,<tspan x='37.580797'>W</tspan></text>
-<text class='f20' x='46.989969' y='305.597448'>i</text>
-<text class='f19' x='50.306816' y='304.103067'>,<tspan x='54.734624'>X</tspan></text>
-<text class='f20' x='62.988412' y='305.597448'>i</text>
-<text class='f22' x='66.305259' y='304.103067'>)</text>
-<text class='f6' x='71.840032' y='304.103067'>1</text>
-<text class='f22' x='77.56852' y='304.103067'>(</text>
-<text class='f19' x='81.442894' y='304.103067'>E</text>
-<text class='f20' x='88.797269' y='305.597448'>i</text>
-<text class='f22' x='94.881448' y='304.103067'>=<tspan x='105.397528'>1)</tspan><tspan x='116.787515'>min</tspan><tspan x='133.115217'>us</tspan><tspan x='145.114026'>a</tspan><tspan x='152.629654'>comp</tspan><tspan x='176.152635'>ensator</tspan><tspan x='210.318398'>in</tspan><tspan x='218.343875'>tegral—b</tspan><tspan x='259.052471'>oth</tspan><tspan x='275.977275'>b</tspan><tspan x='281.78884'>ounded</tspan><tspan x='315.871573'>when</tspan></text>
-<text class='f19' x='341.098608' y='304.103067'>h</text>
-<text class='f22' x='349.372951' y='304.103067'>and</text>
-<text class='f19' x='367.958198' y='304.103067'>λ</text>
-<text class='f22' x='376.304037' y='304.103067'>are<tspan x='392.149553'>b</tspan><tspan x='397.961118'>ounded.</tspan><tspan x='436.442638'>The</tspan><tspan x='14.399782' y='316.058236'>k</tspan><tspan x='19.381121'>ey</tspan><tspan x='32.757597'>p</tspan><tspan x='38.569162'>oin</tspan><tspan x='51.575978'>t</tspan><tspan x='59.140889'>is</tspan><tspan x='69.528536'>that</tspan><tspan x='91.483977'>the</tspan><tspan x='109.011556'>single-outcome</tspan><tspan x='176.961319'>pro</tspan><tspan x='191.102777'>xy</tspan></text>
-<text class='f19' x='205.309473' y='316.058236'>Y</text>
-<text class='f20' x='213.307279' y='312.442872'>U</text>
-<text class='f22' x='223.670988' y='316.058236'>is<tspan x='234.058651'>a</tspan><tspan x='242.730527'>distributional</tspan><tspan x='305.173159'>ob</tspan><tspan x='316.242781'>ject,</tspan><tspan x='338.567357'>but</tspan><tspan x='357.201901'>the</tspan><tspan x='374.72948'>Rao-Blac</tspan><tspan x='414.303416'>kw</tspan><tspan x='426.480015'>ellized</tspan><tspan x='14.399782' y='328.013404'>a</tspan><tspan x='19.104373'>v</tspan><tspan x='24.085712'>erage</tspan><tspan x='52.117418' y='325.384362'>¯</tspan></text>
-<text class='f19' x='49.972614' y='328.013404'>f</text>
-<text class='f22' x='55.922561' y='328.013404'>(</text>
-<text class='f19' x='59.796935' y='328.013404'>O</text>
-<text class='f20' x='67.396201' y='329.507785'>i</text>
-<text class='f22' x='70.713048' y='328.013404'>)<tspan x='77.753892'>is</tspan><tspan x='87.617489'>an</tspan><tspan x='101.3001'>ordinary</tspan><tspan x='141.32848'>b</tspan><tspan x='147.140045'>ounded</tspan><tspan x='181.854974'>random</tspan><tspan x='218.258032'>v</tspan><tspan x='222.962638'>ariable.</tspan><tspan x='259.468626'>The</tspan><tspan x='279.793025'>to</tspan><tspan x='288.925486'>ols</tspan><tspan x='303.770422'>of</tspan><tspan x='314.962389'>section</tspan></text>
-<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1772788400792/svg/page-16.svg#loc16' xlink:title='appendix.A'>
-<text class='f22' x='348.072218' y='328.013404'>A</text>
+<text class='f20' x='252.503794' y='261.467905'>t</text>
+<text class='f26' x='259.649179' y='241.073665'></text>
+<text class='f21' x='269.611835' y='243.536628'>t</text>
+<text class='f24' x='265.183996' y='263.711217'>0</text>
+<text class='f20' x='274.779924' y='254.634035'>f</text>
+<text class='f23' x='280.729871' y='254.634035'>(</text>
+<text class='f20' x='284.604245' y='254.634035'>dN</text>
+<text class='f21' x='297.794385' y='256.128416'>i</text>
+<text class='f23' x='301.111231' y='254.634035'>(</text>
+<text class='f20' x='304.985605' y='254.634035'>u</text>
+<text class='f23' x='310.688801' y='254.634035'>)</text>
+<text class='f20' x='314.563175' y='254.634035'>,<tspan x='318.990982'>Z</tspan></text>
+<text class='f21' x='326.504479' y='250.520539'>u<tspan x='325.79188' y='257.096967'>i</tspan></text>
+<text class='f23' x='331.713004' y='254.634035'>)</text>
+<text class='f20' x='337.247778' y='254.634035'>du</text>
+<text class='f23' x='435.888824' y='254.634035'>(30)<tspan x='14.399782' y='280.192731'>in</tspan><tspan x='22.425259'>tegrates</tspan><tspan x='61.393432'>the</tspan><tspan x='79.799735'>Dirac</tspan><tspan x='108.058033'>delta</tspan><tspan x='134.213099'>against</tspan><tspan x='169.832709'>a</tspan><tspan x='179.383309'>b</tspan><tspan x='185.194874'>ounded</tspan><tspan x='221.312608'>function</tspan><tspan x='261.581465'>of</tspan></text>
+<text class='f20' x='274.176236' y='280.192731'>u</text>
+<text class='f23' x='279.879432' y='280.192731'>,<tspan x='287.528194'>pro</tspan><tspan x='302.223149'>ducing</tspan><tspan x='335.573474'>a</tspan><tspan x='345.124089'>b</tspan><tspan x='350.935655'>ounded</tspan><tspan x='387.053389'>function</tspan><tspan x='427.32223'>of</tspan></text>
+<text class='f20' x='439.917002' y='280.192731'>O</text>
+<text class='f21' x='447.516268' y='281.687112'>i</text>
+<text class='f23' x='450.833115' y='280.192731'>.<tspan x='14.399782' y='292.147899'>The</tspan><tspan x='34.758948'>in</tspan><tspan x='42.784425'>tegral</tspan><tspan x='70.920024'>against</tspan></text>
+<text class='f20' x='105.17161' y='292.147899'>dN</text>
+<text class='f21' x='118.36175' y='293.64228'>i</text>
+<text class='f23' x='124.879834' y='292.147899'>pic<tspan x='137.333162'>ks</tspan><tspan x='149.722205'>out</tspan><tspan x='167.313971'>the</tspan><tspan x='184.352266'>ev</tspan><tspan x='193.761456'>en</tspan><tspan x='203.447377'>t</tspan><tspan x='210.522987'>time:</tspan><tspan x='237.030274'>for</tspan></text>
+<text class='f20' x='252.159058' y='292.147899'>f</text>
+<text class='f23' x='260.876338' y='292.147899'>=</text>
+<text class='f20' x='271.392418' y='292.147899'>h</text>
+<text class='f17' x='279.107092' y='292.147899'>·</text>
+<text class='f23' x='283.849106' y='292.147899'>(</text>
+<text class='f20' x='287.72348' y='292.147899'>Y</text>
+<text class='f17' x='297.695891' y='292.147899'>−</text>
+<text class='f20' x='307.419243' y='292.147899'>λ</text>
+<text class='f23' x='313.230809' y='292.147899'>),<tspan x='323.097755'>the</tspan><tspan x='340.136035'>blo</tspan><tspan x='353.696348'>c</tspan><tspan x='357.847451'>k</tspan><tspan x='366.30679'>a</tspan><tspan x='371.011381'>v</tspan><tspan x='375.99272'>erage</tspan><tspan x='401.914389'>ev</tspan><tspan x='411.046846'>aluates</tspan><tspan x='444.74493'>to</tspan></text>
+<text class='f20' x='14.399782' y='304.103067'>h</text>
+<text class='f23' x='20.139851' y='304.103067'>(<tspan x='25.956618' y='301.58474'>˜</tspan></text>
+<text class='f20' x='24.014225' y='304.103067'>T</text>
+<text class='f21' x='29.836156' y='305.597448'>i</text>
+<text class='f20' x='33.15299' y='304.103067'>,<tspan x='37.580797'>W</tspan></text>
+<text class='f21' x='46.989969' y='305.597448'>i</text>
+<text class='f20' x='50.306816' y='304.103067'>,<tspan x='54.734624'>X</tspan></text>
+<text class='f21' x='62.988412' y='305.597448'>i</text>
+<text class='f23' x='66.305259' y='304.103067'>)</text>
+<text class='f7' x='71.840032' y='304.103067'>1</text>
+<text class='f23' x='77.56852' y='304.103067'>(</text>
+<text class='f20' x='81.442894' y='304.103067'>E</text>
+<text class='f21' x='88.797269' y='305.597448'>i</text>
+<text class='f23' x='94.881448' y='304.103067'>=<tspan x='105.397528'>1)</tspan><tspan x='116.787515'>min</tspan><tspan x='133.115217'>us</tspan><tspan x='145.114026'>a</tspan><tspan x='152.629654'>comp</tspan><tspan x='176.152635'>ensator</tspan><tspan x='210.318398'>in</tspan><tspan x='218.343875'>tegral—b</tspan><tspan x='259.052471'>oth</tspan><tspan x='275.977275'>b</tspan><tspan x='281.78884'>ounded</tspan><tspan x='315.871573'>when</tspan></text>
+<text class='f20' x='341.098608' y='304.103067'>h</text>
+<text class='f23' x='349.372951' y='304.103067'>and</text>
+<text class='f20' x='367.958198' y='304.103067'>λ</text>
+<text class='f23' x='376.304037' y='304.103067'>are<tspan x='392.149553'>b</tspan><tspan x='397.961118'>ounded.</tspan><tspan x='436.442638'>The</tspan><tspan x='14.399782' y='316.058236'>k</tspan><tspan x='19.381121'>ey</tspan><tspan x='32.757597'>p</tspan><tspan x='38.569162'>oin</tspan><tspan x='51.575978'>t</tspan><tspan x='59.140889'>is</tspan><tspan x='69.528536'>that</tspan><tspan x='91.483977'>the</tspan><tspan x='109.011556'>single-outcome</tspan><tspan x='176.961319'>pro</tspan><tspan x='191.102777'>xy</tspan></text>
+<text class='f20' x='205.309473' y='316.058236'>Y</text>
+<text class='f21' x='213.307279' y='312.442872'>U</text>
+<text class='f23' x='223.670988' y='316.058236'>is<tspan x='234.058651'>a</tspan><tspan x='242.730527'>distributional</tspan><tspan x='305.173159'>ob</tspan><tspan x='316.242781'>ject,</tspan><tspan x='338.567357'>but</tspan><tspan x='357.201901'>the</tspan><tspan x='374.72948'>Rao-Blac</tspan><tspan x='414.303416'>kw</tspan><tspan x='426.480015'>ellized</tspan><tspan x='14.399782' y='328.013404'>a</tspan><tspan x='19.104373'>v</tspan><tspan x='24.085712'>erage</tspan><tspan x='52.117418' y='325.384362'>¯</tspan></text>
+<text class='f20' x='49.972614' y='328.013404'>f</text>
+<text class='f23' x='55.922561' y='328.013404'>(</text>
+<text class='f20' x='59.796935' y='328.013404'>O</text>
+<text class='f21' x='67.396201' y='329.507785'>i</text>
+<text class='f23' x='70.713048' y='328.013404'>)<tspan x='77.753892'>is</tspan><tspan x='87.617489'>an</tspan><tspan x='101.3001'>ordinary</tspan><tspan x='141.32848'>b</tspan><tspan x='147.140045'>ounded</tspan><tspan x='181.854974'>random</tspan><tspan x='218.258032'>v</tspan><tspan x='222.962638'>ariable.</tspan><tspan x='259.468626'>The</tspan><tspan x='279.793025'>to</tspan><tspan x='288.925486'>ols</tspan><tspan x='303.770422'>of</tspan><tspan x='314.962389'>section</tspan></text>
+<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1773110592236/svg/page-17.svg#loc16' xlink:title='appendix.A'>
+<text class='f23' x='348.072218' y='328.013404'>A</text>
 </a>
-<text class='f22' x='358.710521' y='328.013404'>apply<tspan x='385.95346'>without</tspan><tspan x='422.88232'>mo</tspan><tspan x='436.442632'>diﬁ-</tspan><tspan x='14.399782' y='339.968572'>cation</tspan><tspan x='44.287786'>(section</tspan></text>
-<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1772788400792/svg/page-20.svg#loc18' xlink:title='appendix.D'>
-<text class='f22' x='81.426394' y='339.968572'>D</text>
+<text class='f23' x='358.710521' y='328.013404'>apply<tspan x='385.95346'>without</tspan><tspan x='422.88232'>mo</tspan><tspan x='436.442632'>diﬁ-</tspan><tspan x='14.399782' y='339.968572'>cation</tspan><tspan x='44.287786'>(section</tspan></text>
+<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1773110592236/svg/page-21.svg#loc18' xlink:title='appendix.D'>
+<text class='f23' x='81.426394' y='339.968572'>D</text>
 </a>
-<text class='f22' x='89.036767' y='339.968572'>).</text>
-<text class='f6' x='14.399782' y='365.624073'>F<tspan x='20.654071'>unctional</tspan><tspan x='70.829497'>deriv</tspan><tspan x='95.756744'>ativ</tspan><tspan x='114.692568'>e</tspan><tspan x='123.813852'>and</tspan><tspan x='145.983339'>Riesz</tspan><tspan x='176.490976'>represen</tspan><tspan x='218.612017'>ter.</tspan></text>
-<text class='f22' x='246.182184' y='365.624073'>The<tspan x='266.705484'>exp</tspan><tspan x='282.202988'>onen</tspan><tspan x='302.405064'>tial</tspan><tspan x='320.16095'>surviv</tspan><tspan x='346.257637'>al</tspan><tspan x='357.371755'>function</tspan><tspan x='396.436706'>simpliﬁes</tspan><tspan x='439.763448'>the</tspan><tspan x='14.399782' y='380.014627'>functional</tspan><tspan x='61.378709'>deriv</tspan><tspan x='82.715442'>ativ</tspan><tspan x='99.319903'>e.</tspan><tspan x='111.572203'>Because</tspan></text>
-<text class='f19' x='149.889126' y='380.014627'>∂</text>
-<text class='f20' x='155.178329' y='381.509008'>λ</text>
-<text class='f22' x='162.062213' y='380.014627'>exp</text>
-<text class='f25' x='177.282952' y='368.955999'></text>
-<text class='f16' x='183.232869' y='380.014627'>−</text>
-<text class='f25' x='192.642016' y='371.98912'></text>
-<text class='f20' x='199.283781' y='374.452082'>t</text>
-<text class='f23' x='197.346603' y='383.556946'>0</text>
-<text class='f19' x='204.45187' y='380.014627'>λ</text>
-<text class='f20' x='210.263436' y='381.509008'>u</text>
-<text class='f19' x='217.132361' y='380.014627'>du</text>
-<text class='f25' x='228.020969' y='368.955999'></text>
-<text class='f22' x='237.087768' y='380.014627'>=</text>
-<text class='f16' x='247.953382' y='380.014627'>−</text>
-<text class='f22' x='257.362529' y='380.014627'>exp</text>
-<text class='f25' x='272.583268' y='368.955999'></text>
-<text class='f16' x='278.533185' y='380.014627'>−</text>
-<text class='f25' x='287.942332' y='371.98912'></text>
-<text class='f20' x='294.584097' y='374.452082'>t</text>
-<text class='f23' x='292.646919' y='383.556946'>0</text>
-<text class='f19' x='299.752186' y='380.014627'>λ</text>
-<text class='f20' x='305.563752' y='381.509008'>u</text>
-<text class='f19' x='312.432677' y='380.014627'>du</text>
-<text class='f25' x='323.321284' y='368.955999'></text>
-<text class='f22' x='329.271201' y='380.014627'>,<tspan x='335.621654'>p</tspan><tspan x='341.43322'>erturbation</tspan><tspan x='394.279056'>in</tspan><tspan x='406.111896'>direction</tspan></text>
-<text class='f19' x='447.860412' y='380.014627'>h</text>
-<text class='f22' x='14.399782' y='394.140336'>giv<tspan x='27.129869'>es</tspan><tspan x='144.434886' y='409.831616'>˙</tspan></text>
-<text class='f19' x='141.288087' y='412.460658'>ψ</text>
-<text class='f20' x='148.13511' y='408.347162'>w<tspan x='154.0862'>,λ</tspan></text>
-<text class='f22' x='161.675805' y='412.460658'>(</text>
-<text class='f19' x='165.550179' y='412.460658'>h</text>
-<text class='f22' x='171.290248' y='412.460658'>)<tspan x='177.931954'>=</tspan></text>
-<text class='f16' x='188.448034' y='412.460658'>−</text>
-<text class='f22' x='197.857181' y='412.460658'>E</text>
-<text class='f25' x='204.637328' y='398.413208'></text>
-<text class='f19' x='209.895412' y='412.460658'>S</text>
-<text class='f20' x='216.004457' y='413.955039'>t</text>
-<text class='f22' x='219.512147' y='412.460658'>(</text>
-<text class='f19' x='223.386521' y='412.460658'>w<tspan x='230.787034'>,</tspan><tspan x='235.214841'>X</tspan></text>
-<text class='f22' x='244.250397' y='412.460658'>)</text>
-<text class='f25' x='249.78517' y='398.900288'></text>
-<text class='f20' x='259.747826' y='401.36325'>t</text>
-<text class='f23' x='255.319987' y='421.53784'>0</text>
-<text class='f19' x='264.915915' y='412.460658'>h</text>
-<text class='f20' x='270.655984' y='413.955039'>u</text>
-<text class='f22' x='275.86451' y='412.460658'>(</text>
-<text class='f19' x='279.738884' y='412.460658'>w<tspan x='287.139397'>,</tspan><tspan x='291.567205'>X</tspan></text>
-<text class='f22' x='300.60276' y='412.460658'>)</text>
-<text class='f19' x='306.137533' y='412.460658'>du</text>
-<text class='f25' x='317.026162' y='398.413208'></text>
-<text class='f19' x='323.94455' y='412.460658'>.</text>
-<text class='f22' x='435.888824' y='412.460658'>(31)<tspan x='14.399782' y='435.533589'>There</tspan><tspan x='43.384707'>is</tspan><tspan x='53.578942'>no</tspan><tspan x='67.592192'>1</tspan></text>
-<text class='f19' x='72.573531' y='435.533589'>/</text>
-<text class='f22' x='77.55487' y='435.533589'>(1</text>
-<text class='f16' x='88.741929' y='435.533589'>−</text>
-<text class='f19' x='98.822021' y='435.533589'>λ</text>
-<text class='f20' x='104.633587' y='437.027969'>u</text>
-<text class='f22' x='109.842113' y='435.533589'>)<tspan x='117.213581'>factor—the</tspan><tspan x='169.721512'>exp</tspan><tspan x='185.219016'>onen</tspan><tspan x='205.421092'>tial</tspan><tspan x='223.308716'>deriv</tspan><tspan x='244.64545'>ativ</tspan><tspan x='261.24991'>e</tspan><tspan x='269.174856'>do</tspan><tspan x='279.96776'>es</tspan><tspan x='291.822439'>not</tspan><tspan x='309.710062'>pro</tspan><tspan x='324.405017'>duce</tspan><tspan x='347.827449'>the</tspan><tspan x='365.161585'>p</tspan><tspan x='370.97315'>er-factor</tspan><tspan x='411.332159'>ratio</tspan><tspan x='435.335764'>that</tspan><tspan x='14.399782' y='447.488757'>app</tspan><tspan x='30.727503'>ears</tspan><tspan x='51.289337'>in</tspan><tspan x='62.912438'>the</tspan><tspan x='80.070355'>discrete</tspan><tspan x='116.683152'>pro</tspan><tspan x='131.378107'>duct</tspan><tspan x='154.070842'>rule</tspan><tspan x='174.023844'>(</tspan></text>
-<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1772788400792/svg/page-07.svg#loc59' xlink:title='equation.20'>
-<text class='f22' x='177.898218' y='447.488757'>20</text>
+<text class='f23' x='89.036767' y='339.968572'>).</text>
+<text class='f7' x='14.399782' y='365.624073'>F<tspan x='20.654071'>unctional</tspan><tspan x='70.829497'>deriv</tspan><tspan x='95.756744'>ativ</tspan><tspan x='114.692568'>e</tspan><tspan x='123.813852'>and</tspan><tspan x='145.983339'>Riesz</tspan><tspan x='176.490976'>represen</tspan><tspan x='218.612017'>ter.</tspan></text>
+<text class='f23' x='246.182184' y='365.624073'>The<tspan x='266.705484'>exp</tspan><tspan x='282.202988'>onen</tspan><tspan x='302.405064'>tial</tspan><tspan x='320.16095'>surviv</tspan><tspan x='346.257637'>al</tspan><tspan x='357.371755'>function</tspan><tspan x='396.436706'>simpliﬁes</tspan><tspan x='439.763448'>the</tspan><tspan x='14.399782' y='380.014627'>functional</tspan><tspan x='61.378709'>deriv</tspan><tspan x='82.715442'>ativ</tspan><tspan x='99.319903'>e.</tspan><tspan x='111.572203'>Because</tspan></text>
+<text class='f20' x='149.889126' y='380.014627'>∂</text>
+<text class='f21' x='155.178329' y='381.509008'>λ</text>
+<text class='f23' x='162.062213' y='380.014627'>exp</text>
+<text class='f26' x='177.282952' y='368.955999'></text>
+<text class='f17' x='183.232869' y='380.014627'>−</text>
+<text class='f26' x='192.642016' y='371.98912'></text>
+<text class='f21' x='199.283781' y='374.452082'>t</text>
+<text class='f24' x='197.346603' y='383.556946'>0</text>
+<text class='f20' x='204.45187' y='380.014627'>λ</text>
+<text class='f21' x='210.263436' y='381.509008'>u</text>
+<text class='f20' x='217.132361' y='380.014627'>du</text>
+<text class='f26' x='228.020969' y='368.955999'></text>
+<text class='f23' x='237.087768' y='380.014627'>=</text>
+<text class='f17' x='247.953382' y='380.014627'>−</text>
+<text class='f23' x='257.362529' y='380.014627'>exp</text>
+<text class='f26' x='272.583268' y='368.955999'></text>
+<text class='f17' x='278.533185' y='380.014627'>−</text>
+<text class='f26' x='287.942332' y='371.98912'></text>
+<text class='f21' x='294.584097' y='374.452082'>t</text>
+<text class='f24' x='292.646919' y='383.556946'>0</text>
+<text class='f20' x='299.752186' y='380.014627'>λ</text>
+<text class='f21' x='305.563752' y='381.509008'>u</text>
+<text class='f20' x='312.432677' y='380.014627'>du</text>
+<text class='f26' x='323.321284' y='368.955999'></text>
+<text class='f23' x='329.271201' y='380.014627'>,<tspan x='335.621654'>p</tspan><tspan x='341.43322'>erturbation</tspan><tspan x='394.279056'>in</tspan><tspan x='406.111896'>direction</tspan></text>
+<text class='f20' x='447.860412' y='380.014627'>h</text>
+<text class='f23' x='14.399782' y='394.140336'>giv<tspan x='27.129869'>es</tspan><tspan x='144.434886' y='409.831616'>˙</tspan></text>
+<text class='f20' x='141.288087' y='412.460658'>ψ</text>
+<text class='f21' x='148.13511' y='408.347162'>w<tspan x='154.0862'>,λ</tspan></text>
+<text class='f23' x='161.675805' y='412.460658'>(</text>
+<text class='f20' x='165.550179' y='412.460658'>h</text>
+<text class='f23' x='171.290248' y='412.460658'>)<tspan x='177.931954'>=</tspan></text>
+<text class='f17' x='188.448034' y='412.460658'>−</text>
+<text class='f23' x='197.857181' y='412.460658'>E</text>
+<text class='f26' x='204.637328' y='398.413208'></text>
+<text class='f20' x='209.895412' y='412.460658'>S</text>
+<text class='f21' x='216.004457' y='413.955039'>t</text>
+<text class='f23' x='219.512147' y='412.460658'>(</text>
+<text class='f20' x='223.386521' y='412.460658'>w<tspan x='230.787034'>,</tspan><tspan x='235.214841'>X</tspan></text>
+<text class='f23' x='244.250397' y='412.460658'>)</text>
+<text class='f26' x='249.78517' y='398.900288'></text>
+<text class='f21' x='259.747826' y='401.36325'>t</text>
+<text class='f24' x='255.319987' y='421.53784'>0</text>
+<text class='f20' x='264.915915' y='412.460658'>h</text>
+<text class='f21' x='270.655984' y='413.955039'>u</text>
+<text class='f23' x='275.86451' y='412.460658'>(</text>
+<text class='f20' x='279.738884' y='412.460658'>w<tspan x='287.139397'>,</tspan><tspan x='291.567205'>X</tspan></text>
+<text class='f23' x='300.60276' y='412.460658'>)</text>
+<text class='f20' x='306.137533' y='412.460658'>du</text>
+<text class='f26' x='317.026162' y='398.413208'></text>
+<text class='f20' x='323.94455' y='412.460658'>.</text>
+<text class='f23' x='435.888824' y='412.460658'>(31)<tspan x='14.399782' y='435.533589'>There</tspan><tspan x='43.384707'>is</tspan><tspan x='53.578942'>no</tspan><tspan x='67.592192'>1</tspan></text>
+<text class='f20' x='72.573531' y='435.533589'>/</text>
+<text class='f23' x='77.55487' y='435.533589'>(1</text>
+<text class='f17' x='88.741929' y='435.533589'>−</text>
+<text class='f20' x='98.822021' y='435.533589'>λ</text>
+<text class='f21' x='104.633587' y='437.027969'>u</text>
+<text class='f23' x='109.842113' y='435.533589'>)<tspan x='117.213581'>factor—the</tspan><tspan x='169.721512'>exp</tspan><tspan x='185.219016'>onen</tspan><tspan x='205.421092'>tial</tspan><tspan x='223.308716'>deriv</tspan><tspan x='244.64545'>ativ</tspan><tspan x='261.24991'>e</tspan><tspan x='269.174856'>do</tspan><tspan x='279.96776'>es</tspan><tspan x='291.822439'>not</tspan><tspan x='309.710062'>pro</tspan><tspan x='324.405017'>duce</tspan><tspan x='347.827449'>the</tspan><tspan x='365.161585'>p</tspan><tspan x='370.97315'>er-factor</tspan><tspan x='411.332159'>ratio</tspan><tspan x='435.335764'>that</tspan><tspan x='14.399782' y='447.488757'>app</tspan><tspan x='30.727503'>ears</tspan><tspan x='51.289337'>in</tspan><tspan x='62.912438'>the</tspan><tspan x='80.070355'>discrete</tspan><tspan x='116.683152'>pro</tspan><tspan x='131.378107'>duct</tspan><tspan x='154.070842'>rule</tspan><tspan x='174.023844'>(</tspan></text>
+<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1773110592236/svg/page-07.svg#loc59' xlink:title='equation.20'>
+<text class='f23' x='177.898218' y='447.488757'>20</text>
 </a>
-<text class='f22' x='187.860896' y='447.488757'>)<tspan x='191.735258'>.</tspan><tspan x='198.930505'>The</tspan><tspan x='219.409309'>Riesz</tspan><tspan x='245.616638'>represen</tspan><tspan x='281.426897'>ter</tspan><tspan x='296.952048'>for</tspan><tspan x='312.20047'>the</tspan><tspan x='329.358387'>con</tspan><tspan x='344.025646'>trast</tspan><tspan x='367.908376'>satisﬁes</tspan></text>
-<text class='f19' x='132.70285' y='473.754214'>γ</text>
-<text class='f23' x='140.352098' y='475.013408'>˙</text>
-<text class='f20' x='137.860814' y='476.853721'>ψ</text>
-<text class='f22' x='143.8811' y='473.754214'>(</text>
-<text class='f19' x='147.755474' y='473.754214'>u,<tspan x='157.886478'>W</tspan><tspan x='167.018916'>,</tspan><tspan x='171.446724'>X</tspan></text>
-<text class='f22' x='180.48228' y='473.754214'>)<tspan x='187.123986'>=</tspan></text>
-<text class='f16' x='197.640066' y='473.754214'>−</text>
-<text class='f19' x='239.984695' y='467.014413'>S</text>
-<text class='f20' x='246.09374' y='468.508793'>t</text>
-<text class='f22' x='249.60143' y='467.014413'>(</text>
-<text class='f19' x='253.475804' y='467.014413'>W<tspan x='262.608242'>,</tspan><tspan x='267.03605'>X</tspan></text>
-<text class='f22' x='276.071606' y='467.014413'>)</text>
-<text class='f16' x='282.159846' y='467.014413'>·</text>
-<text class='f19' x='287.14112' y='467.014413'>W</text>
+<text class='f23' x='187.860896' y='447.488757'>)<tspan x='191.735258'>.</tspan><tspan x='198.930505'>The</tspan><tspan x='219.409309'>Riesz</tspan><tspan x='245.616638'>represen</tspan><tspan x='281.426897'>ter</tspan><tspan x='296.952048'>for</tspan><tspan x='312.20047'>the</tspan><tspan x='329.358387'>con</tspan><tspan x='344.025646'>trast</tspan><tspan x='367.908376'>satisﬁes</tspan></text>
+<text class='f20' x='132.70285' y='473.754214'>γ</text>
+<text class='f24' x='140.352098' y='475.013408'>˙</text>
+<text class='f21' x='137.860814' y='476.853721'>ψ</text>
+<text class='f23' x='143.8811' y='473.754214'>(</text>
+<text class='f20' x='147.755474' y='473.754214'>u,<tspan x='157.886478'>W</tspan><tspan x='167.018916'>,</tspan><tspan x='171.446724'>X</tspan></text>
+<text class='f23' x='180.48228' y='473.754214'>)<tspan x='187.123986'>=</tspan></text>
+<text class='f17' x='197.640066' y='473.754214'>−</text>
+<text class='f20' x='239.984695' y='467.014413'>S</text>
+<text class='f21' x='246.09374' y='468.508793'>t</text>
+<text class='f23' x='249.60143' y='467.014413'>(</text>
+<text class='f20' x='253.475804' y='467.014413'>W<tspan x='262.608242'>,</tspan><tspan x='267.03605'>X</tspan></text>
+<text class='f23' x='276.071606' y='467.014413'>)</text>
+<text class='f17' x='282.159846' y='467.014413'>·</text>
+<text class='f20' x='287.14112' y='467.014413'>W</text>
 <rect x='206.584327' y='471.064304' height='.398484' width='124.749976'/>
-<text class='f19' x='206.584327' y='480.588084'>π</text>
-<text class='f22' x='212.620744' y='480.588084'>(</text>
-<text class='f19' x='216.495118' y='480.588084'>W<tspan x='225.627556'>,</tspan><tspan x='230.055364'>X</tspan></text>
-<text class='f22' x='239.09092' y='480.588084'>)</text>
-<text class='f19' x='244.625693' y='480.588084'>S</text>
-<text class='f20' x='250.734738' y='482.082465'>u</text>
-<text class='f22' x='255.943264' y='480.588084'>(</text>
-<text class='f19' x='259.817638' y='480.588084'>W<tspan x='268.950076'>,</tspan><tspan x='273.377884'>X</tspan></text>
-<text class='f22' x='282.41344' y='480.588084'>)</text>
-<text class='f19' x='287.948213' y='480.588084'>G</text>
-<text class='f20' x='295.781331' y='482.082465'>u</text>
-<text class='f22' x='300.989856' y='480.588084'>(</text>
-<text class='f19' x='304.86423' y='480.588084'>W<tspan x='313.996669'>,</tspan><tspan x='318.424477'>X</tspan></text>
-<text class='f22' x='327.460032' y='480.588084'>)</text>
-<text class='f19' x='332.529817' y='473.754214'>,</text>
-<text class='f22' x='435.888824' y='473.754214'>(32)<tspan x='14.399782' y='500.113755'>where</tspan></text>
-<text class='f19' x='43.370174' y='500.113755'>S</text>
-<text class='f20' x='49.479219' y='501.608136'>u</text>
-<text class='f22' x='54.687745' y='500.113755'>(</text>
-<text class='f19' x='58.562119' y='500.113755'>w<tspan x='65.962632'>,</tspan><tspan x='70.39044'>X</tspan></text>
-<text class='f22' x='79.425995' y='500.113755'>)<tspan x='86.337183'>=</tspan><tspan x='97.122745'>P</tspan><tspan x='103.902892'>(</tspan></text>
-<text class='f19' x='107.777266' y='500.113755'>T</text>
-<text class='f16' x='118.019723' y='500.113755'>≥</text>
-<text class='f19' x='128.805285' y='500.113755'>u</text>
-<text class='f16' x='137.545296' y='500.113755'>|</text>
-<text class='f19' x='143.349519' y='500.113755'>W</text>
-<text class='f22' x='157.179217' y='500.113755'>=</text>
-<text class='f19' x='167.964794' y='500.113755'>w<tspan x='175.365306'>,</tspan><tspan x='179.793114'>X</tspan></text>
-<text class='f22' x='188.82867' y='500.113755'>)<tspan x='196.185605'>is</tspan><tspan x='206.365292'>the</tspan><tspan x='223.684911'>ev</tspan><tspan x='233.094102'>en</tspan><tspan x='242.780022'>t-time</tspan><tspan x='272.829702'>surviv</tspan><tspan x='298.926389'>al</tspan><tspan x='310.157713'>and</tspan></text>
-<text class='f19' x='329.691247' y='500.113755'>G</text>
-<text class='f20' x='337.524365' y='501.608136'>u</text>
-<text class='f22' x='342.732891' y='500.113755'>(</text>
-<text class='f19' x='346.607264' y='500.113755'>w<tspan x='354.007777'>,</tspan><tspan x='358.435585'>X</tspan></text>
-<text class='f22' x='367.471141' y='500.113755'>)<tspan x='374.382329'>=</tspan><tspan x='385.167891'>P</tspan><tspan x='391.948038'>(</tspan></text>
-<text class='f19' x='395.822411' y='500.113755'>C</text>
-<text class='f16' x='406.69234' y='500.113755'>≥</text>
-<text class='f19' x='417.477902' y='500.113755'>u</text>
-<text class='f16' x='426.217912' y='500.113755'>|</text>
-<text class='f19' x='432.022135' y='500.113755'>W</text>
-<text class='f22' x='445.851833' y='500.113755'>=</text>
-<text class='f19' x='14.399782' y='512.068923'>w<tspan x='21.800295'>,</tspan><tspan x='26.228103'>X</tspan></text>
-<text class='f22' x='35.263658' y='512.068923'>)<tspan x='42.316421'>is</tspan><tspan x='52.191936'>the</tspan><tspan x='69.207367'>censoring</tspan><tspan x='112.872947'>surviv</tspan><tspan x='138.969634'>al.</tspan><tspan x='153.866138'>Under</tspan><tspan x='183.916062'>indep</tspan><tspan x='207.992521'>enden</tspan><tspan x='233.175927'>t</tspan><tspan x='240.22869'>censoring,</tspan></text>
-<text class='f19' x='286.690182' y='512.068923'>S</text>
-<text class='f20' x='292.799227' y='513.563304'>u</text>
-<text class='f16' x='299.936662' y='512.068923'>·</text>
-<text class='f19' x='304.632964' y='512.068923'>G</text>
-<text class='f20' x='312.466081' y='513.563304'>u</text>
-<text class='f22' x='320.441939' y='512.068923'>=<tspan x='330.958019'>P</tspan><tspan x='337.738166'>(</tspan><tspan x='343.554933' y='509.550596'>˜</tspan></text>
-<text class='f19' x='341.61254' y='512.068923'>T</text>
-<text class='f16' x='351.585502' y='512.068923'>≥</text>
-<text class='f19' x='362.101582' y='512.068923'>u</text>
-<text class='f16' x='370.57211' y='512.068923'>|</text>
-<text class='f19' x='376.106851' y='512.068923'>W<tspan x='385.23929'>,</tspan><tspan x='389.667098'>X</tspan></text>
-<text class='f22' x='398.702653' y='512.068923'>),<tspan x='408.551328'>the</tspan><tspan x='425.566759'>at-risk</tspan><tspan x='14.399782' y='524.024091'>probabilit</tspan><tspan x='56.768812'>y</tspan><tspan x='65.347775'>from</tspan><tspan x='88.898421'>the</tspan><tspan x='106.056339'>discrete</tspan><tspan x='142.669136'>case</tspan><tspan x='163.756771'>(</tspan></text>
-<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1772788400792/svg/page-07.svg#loc60' xlink:title='equation.21'>
-<text class='f22' x='167.631145' y='524.024091'>21</text>
+<text class='f20' x='206.584327' y='480.588084'>π</text>
+<text class='f23' x='212.620744' y='480.588084'>(</text>
+<text class='f20' x='216.495118' y='480.588084'>W<tspan x='225.627556'>,</tspan><tspan x='230.055364'>X</tspan></text>
+<text class='f23' x='239.09092' y='480.588084'>)</text>
+<text class='f20' x='244.625693' y='480.588084'>S</text>
+<text class='f21' x='250.734738' y='482.082465'>u</text>
+<text class='f23' x='255.943264' y='480.588084'>(</text>
+<text class='f20' x='259.817638' y='480.588084'>W<tspan x='268.950076'>,</tspan><tspan x='273.377884'>X</tspan></text>
+<text class='f23' x='282.41344' y='480.588084'>)</text>
+<text class='f20' x='287.948213' y='480.588084'>G</text>
+<text class='f21' x='295.781331' y='482.082465'>u</text>
+<text class='f23' x='300.989856' y='480.588084'>(</text>
+<text class='f20' x='304.86423' y='480.588084'>W<tspan x='313.996669'>,</tspan><tspan x='318.424477'>X</tspan></text>
+<text class='f23' x='327.460032' y='480.588084'>)</text>
+<text class='f20' x='332.529817' y='473.754214'>,</text>
+<text class='f23' x='435.888824' y='473.754214'>(32)<tspan x='14.399782' y='500.113755'>where</tspan></text>
+<text class='f20' x='43.370174' y='500.113755'>S</text>
+<text class='f21' x='49.479219' y='501.608136'>u</text>
+<text class='f23' x='54.687745' y='500.113755'>(</text>
+<text class='f20' x='58.562119' y='500.113755'>w<tspan x='65.962632'>,</tspan><tspan x='70.39044'>X</tspan></text>
+<text class='f23' x='79.425995' y='500.113755'>)<tspan x='86.337183'>=</tspan><tspan x='97.122745'>P</tspan><tspan x='103.902892'>(</tspan></text>
+<text class='f20' x='107.777266' y='500.113755'>T</text>
+<text class='f17' x='118.019723' y='500.113755'>≥</text>
+<text class='f20' x='128.805285' y='500.113755'>u</text>
+<text class='f17' x='137.545296' y='500.113755'>|</text>
+<text class='f20' x='143.349519' y='500.113755'>W</text>
+<text class='f23' x='157.179217' y='500.113755'>=</text>
+<text class='f20' x='167.964794' y='500.113755'>w<tspan x='175.365306'>,</tspan><tspan x='179.793114'>X</tspan></text>
+<text class='f23' x='188.82867' y='500.113755'>)<tspan x='196.185605'>is</tspan><tspan x='206.365292'>the</tspan><tspan x='223.684911'>ev</tspan><tspan x='233.094102'>en</tspan><tspan x='242.780022'>t-time</tspan><tspan x='272.829702'>surviv</tspan><tspan x='298.926389'>al</tspan><tspan x='310.157713'>and</tspan></text>
+<text class='f20' x='329.691247' y='500.113755'>G</text>
+<text class='f21' x='337.524365' y='501.608136'>u</text>
+<text class='f23' x='342.732891' y='500.113755'>(</text>
+<text class='f20' x='346.607264' y='500.113755'>w<tspan x='354.007777'>,</tspan><tspan x='358.435585'>X</tspan></text>
+<text class='f23' x='367.471141' y='500.113755'>)<tspan x='374.382329'>=</tspan><tspan x='385.167891'>P</tspan><tspan x='391.948038'>(</tspan></text>
+<text class='f20' x='395.822411' y='500.113755'>C</text>
+<text class='f17' x='406.69234' y='500.113755'>≥</text>
+<text class='f20' x='417.477902' y='500.113755'>u</text>
+<text class='f17' x='426.217912' y='500.113755'>|</text>
+<text class='f20' x='432.022135' y='500.113755'>W</text>
+<text class='f23' x='445.851833' y='500.113755'>=</text>
+<text class='f20' x='14.399782' y='512.068923'>w<tspan x='21.800295'>,</tspan><tspan x='26.228103'>X</tspan></text>
+<text class='f23' x='35.263658' y='512.068923'>)<tspan x='42.316421'>is</tspan><tspan x='52.191936'>the</tspan><tspan x='69.207367'>censoring</tspan><tspan x='112.872947'>surviv</tspan><tspan x='138.969634'>al.</tspan><tspan x='153.866138'>Under</tspan><tspan x='183.916062'>indep</tspan><tspan x='207.992521'>enden</tspan><tspan x='233.175927'>t</tspan><tspan x='240.22869'>censoring,</tspan></text>
+<text class='f20' x='286.690182' y='512.068923'>S</text>
+<text class='f21' x='292.799227' y='513.563304'>u</text>
+<text class='f17' x='299.936662' y='512.068923'>·</text>
+<text class='f20' x='304.632964' y='512.068923'>G</text>
+<text class='f21' x='312.466081' y='513.563304'>u</text>
+<text class='f23' x='320.441939' y='512.068923'>=<tspan x='330.958019'>P</tspan><tspan x='337.738166'>(</tspan><tspan x='343.554933' y='509.550596'>˜</tspan></text>
+<text class='f20' x='341.61254' y='512.068923'>T</text>
+<text class='f17' x='351.585502' y='512.068923'>≥</text>
+<text class='f20' x='362.101582' y='512.068923'>u</text>
+<text class='f17' x='370.57211' y='512.068923'>|</text>
+<text class='f20' x='376.106851' y='512.068923'>W<tspan x='385.23929'>,</tspan><tspan x='389.667098'>X</tspan></text>
+<text class='f23' x='398.702653' y='512.068923'>),<tspan x='408.551328'>the</tspan><tspan x='425.566759'>at-risk</tspan><tspan x='14.399782' y='524.024091'>probabilit</tspan><tspan x='56.768812'>y</tspan><tspan x='65.347775'>from</tspan><tspan x='88.898421'>the</tspan><tspan x='106.056339'>discrete</tspan><tspan x='142.669136'>case</tspan><tspan x='163.756771'>(</tspan></text>
+<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1773110592236/svg/page-07.svg#loc60' xlink:title='equation.21'>
+<text class='f23' x='167.631145' y='524.024091'>21</text>
 </a>
-<text class='f22' x='177.593823' y='524.024091'>)<tspan x='181.468185'>.</tspan></text>
-<text class='f6' x='14.399782' y='551.063365'>General<tspan x='56.291106'>surviv</tspan><tspan x='86.533104'>al</tspan><tspan x='97.830945'>functionals.</tspan></text>
-<text class='f22' x='165.30124' y='551.063365'>F<tspan x='170.974427'>or</tspan><tspan x='182.071729'>the</tspan><tspan x='198.122682'>RMST</tspan><tspan x='229.531644'>con</tspan><tspan x='244.198903'>trast</tspan></text>
-<text class='f19' x='266.974669' y='551.063365'>ψ</text>
-<text class='f23' x='273.464253' y='552.557745'>RMST</text>
-<text class='f22' x='299.768429' y='551.063365'>=<tspan x='310.284509'>E</tspan><tspan x='317.064656'>[</tspan></text>
-<text class='f25' x='319.832065' y='543.037857'></text>
-<text class='f20' x='326.47383' y='545.50082'>t</text>
-<text class='f23' x='324.536652' y='554.605684'>0</text>
-<text class='f19' x='331.641919' y='551.063365'>S</text>
-<text class='f20' x='337.750964' y='552.557745'>u</text>
-<text class='f22' x='342.95949' y='551.063365'>(1</text>
-<text class='f19' x='351.815203' y='551.063365'>,<tspan x='356.243011'>X</tspan></text>
-<text class='f22' x='365.278567' y='551.063365'>)</text>
-<text class='f19' x='370.81334' y='551.063365'>du</text>
-<text class='f22' x='381.701968' y='551.063365'>]</text>
-<text class='f16' x='384.469376' y='551.063365'>−</text>
-<text class='f22' x='392.218124' y='551.063365'>E<tspan x='398.998271'>[</tspan></text>
-<text class='f25' x='401.765679' y='543.037857'></text>
-<text class='f20' x='408.407445' y='545.50082'>t</text>
-<text class='f23' x='406.470266' y='554.605684'>0</text>
-<text class='f19' x='413.575534' y='551.063365'>S</text>
-<text class='f20' x='419.684579' y='552.557745'>u</text>
-<text class='f22' x='424.893105' y='551.063365'>(</text>
-<text class='f16' x='428.767479' y='551.063365'>−</text>
-<text class='f22' x='436.516226' y='551.063365'>1</text>
-<text class='f19' x='441.497565' y='551.063365'>,<tspan x='445.925373'>X</tspan></text>
-<text class='f22' x='454.960929' y='551.063365'>)</text>
-<text class='f19' x='460.495702' y='551.063365'>du</text>
-<text class='f22' x='471.38433' y='551.063365'>],<tspan x='14.399782' y='565.453965'>the</tspan><tspan x='31.557699'>Riesz</tspan><tspan x='57.765029'>represen</tspan><tspan x='93.575288'>ter</tspan><tspan x='109.100439'>replaces</tspan></text>
-<text class='f19' x='146.820201' y='565.453965'>S</text>
-<text class='f20' x='152.929247' y='566.948346'>t</text>
-<text class='f22' x='156.436936' y='565.453965'>(</text>
-<text class='f19' x='160.31131' y='565.453965'>W<tspan x='169.443749'>,</tspan><tspan x='173.871556'>X</tspan></text>
-<text class='f22' x='182.907112' y='565.453965'>)<tspan x='190.102361'>with</tspan></text>
-<text class='f25' x='212.795095' y='557.428457'></text>
-<text class='f20' x='219.43686' y='559.89142'>t<tspan x='217.499682' y='568.996284'>v</tspan></text>
-<text class='f19' x='224.604949' y='565.453965'>S</text>
-<text class='f20' x='230.713995' y='566.948346'>u</text>
-<text class='f22' x='235.922521' y='565.453965'>(</text>
-<text class='f19' x='239.796894' y='565.453965'>W<tspan x='248.929333'>,</tspan><tspan x='253.357141'>X</tspan></text>
-<text class='f22' x='262.392696' y='565.453965'>)</text>
-<text class='f19' x='267.92747' y='565.453965'>du</text>
-<text class='f22' x='282.136973' y='565.453965'>in<tspan x='293.760073'>(</tspan></text>
+<text class='f23' x='177.593823' y='524.024091'>)<tspan x='181.468185'>.</tspan></text>
+<text class='f7' x='14.399782' y='551.063365'>General<tspan x='56.291106'>surviv</tspan><tspan x='86.533104'>al</tspan><tspan x='97.830945'>functionals.</tspan></text>
+<text class='f23' x='165.30124' y='551.063365'>F<tspan x='170.974427'>or</tspan><tspan x='182.071729'>the</tspan><tspan x='198.122682'>RMST</tspan><tspan x='229.531644'>con</tspan><tspan x='244.198903'>trast</tspan></text>
+<text class='f20' x='266.974669' y='551.063365'>ψ</text>
+<text class='f24' x='273.464253' y='552.557745'>RMST</text>
+<text class='f23' x='299.768429' y='551.063365'>=<tspan x='310.284509'>E</tspan><tspan x='317.064656'>[</tspan></text>
+<text class='f26' x='319.832065' y='543.037857'></text>
+<text class='f21' x='326.47383' y='545.50082'>t</text>
+<text class='f24' x='324.536652' y='554.605684'>0</text>
+<text class='f20' x='331.641919' y='551.063365'>S</text>
+<text class='f21' x='337.750964' y='552.557745'>u</text>
+<text class='f23' x='342.95949' y='551.063365'>(1</text>
+<text class='f20' x='351.815203' y='551.063365'>,<tspan x='356.243011'>X</tspan></text>
+<text class='f23' x='365.278567' y='551.063365'>)</text>
+<text class='f20' x='370.81334' y='551.063365'>du</text>
+<text class='f23' x='381.701968' y='551.063365'>]</text>
+<text class='f17' x='384.469376' y='551.063365'>−</text>
+<text class='f23' x='392.218124' y='551.063365'>E<tspan x='398.998271'>[</tspan></text>
+<text class='f26' x='401.765679' y='543.037857'></text>
+<text class='f21' x='408.407445' y='545.50082'>t</text>
+<text class='f24' x='406.470266' y='554.605684'>0</text>
+<text class='f20' x='413.575534' y='551.063365'>S</text>
+<text class='f21' x='419.684579' y='552.557745'>u</text>
+<text class='f23' x='424.893105' y='551.063365'>(</text>
+<text class='f17' x='428.767479' y='551.063365'>−</text>
+<text class='f23' x='436.516226' y='551.063365'>1</text>
+<text class='f20' x='441.497565' y='551.063365'>,<tspan x='445.925373'>X</tspan></text>
+<text class='f23' x='454.960929' y='551.063365'>)</text>
+<text class='f20' x='460.495702' y='551.063365'>du</text>
+<text class='f23' x='471.38433' y='551.063365'>],<tspan x='14.399782' y='565.453965'>the</tspan><tspan x='31.557699'>Riesz</tspan><tspan x='57.765029'>represen</tspan><tspan x='93.575288'>ter</tspan><tspan x='109.100439'>replaces</tspan></text>
+<text class='f20' x='146.820201' y='565.453965'>S</text>
+<text class='f21' x='152.929247' y='566.948346'>t</text>
+<text class='f23' x='156.436936' y='565.453965'>(</text>
+<text class='f20' x='160.31131' y='565.453965'>W<tspan x='169.443749'>,</tspan><tspan x='173.871556'>X</tspan></text>
+<text class='f23' x='182.907112' y='565.453965'>)<tspan x='190.102361'>with</tspan></text>
+<text class='f26' x='212.795095' y='557.428457'></text>
+<text class='f21' x='219.43686' y='559.89142'>t<tspan x='217.499682' y='568.996284'>v</tspan></text>
+<text class='f20' x='224.604949' y='565.453965'>S</text>
+<text class='f21' x='230.713995' y='566.948346'>u</text>
+<text class='f23' x='235.922521' y='565.453965'>(</text>
+<text class='f20' x='239.796894' y='565.453965'>W<tspan x='248.929333'>,</tspan><tspan x='253.357141'>X</tspan></text>
+<text class='f23' x='262.392696' y='565.453965'>)</text>
+<text class='f20' x='267.92747' y='565.453965'>du</text>
+<text class='f23' x='282.136973' y='565.453965'>in<tspan x='293.760073'>(</tspan></text>
 <a xlink:href='#loc78' xlink:title='equation.32'>
-<text class='f22' x='297.634447' y='565.453965'>32</text>
+<text class='f23' x='297.634447' y='565.453965'>32</text>
 </a>
-<text class='f22' x='307.597125' y='565.453965'>)<tspan x='311.471487'>:</tspan></text>
-<text class='f19' x='124.401232' y='595.838999'>γ</text>
-<text class='f23' x='130.112663' y='591.725503'>RMST<tspan x='132.05048' y='598.010193'>˙</tspan></text>
-<text class='f20' x='129.559197' y='599.850506'>ψ</text>
-<text class='f22' x='153.649507' y='595.838999'>(</text>
-<text class='f19' x='157.523881' y='595.838999'>v<tspan x='162.710452'>,</tspan><tspan x='167.13826'>W</tspan><tspan x='176.270698'>,</tspan><tspan x='180.698506'>X</tspan></text>
-<text class='f22' x='189.734062' y='595.838999'>)<tspan x='196.375768'>=</tspan></text>
-<text class='f16' x='206.891848' y='595.838999'>−</text>
-<text class='f19' x='235.731533' y='588.411316'>W</text>
-<text class='f16' x='248.738282' y='588.411316'>·</text>
-<text class='f25' x='253.719557' y='580.385809'></text>
-<text class='f20' x='260.361322' y='582.848771'>t<tspan x='258.424144' y='591.953636'>v</tspan></text>
-<text class='f19' x='265.529411' y='588.411316'>S</text>
-<text class='f20' x='271.638456' y='589.905697'>u</text>
-<text class='f22' x='276.846982' y='588.411316'>(</text>
-<text class='f19' x='280.721356' y='588.411316'>W<tspan x='289.853795'>,</tspan><tspan x='294.281603'>X</tspan></text>
-<text class='f22' x='303.317158' y='588.411316'>)</text>
-<text class='f19' x='308.851931' y='588.411316'>du</text>
+<text class='f23' x='307.597125' y='565.453965'>)<tspan x='311.471487'>:</tspan></text>
+<text class='f20' x='124.401232' y='595.838999'>γ</text>
+<text class='f24' x='130.112663' y='591.725503'>RMST<tspan x='132.05048' y='598.010193'>˙</tspan></text>
+<text class='f21' x='129.559197' y='599.850506'>ψ</text>
+<text class='f23' x='153.649507' y='595.838999'>(</text>
+<text class='f20' x='157.523881' y='595.838999'>v<tspan x='162.710452'>,</tspan><tspan x='167.13826'>W</tspan><tspan x='176.270698'>,</tspan><tspan x='180.698506'>X</tspan></text>
+<text class='f23' x='189.734062' y='595.838999'>)<tspan x='196.375768'>=</tspan></text>
+<text class='f17' x='206.891848' y='595.838999'>−</text>
+<text class='f20' x='235.731533' y='588.411316'>W</text>
+<text class='f17' x='248.738282' y='588.411316'>·</text>
+<text class='f26' x='253.719557' y='580.385809'></text>
+<text class='f21' x='260.361322' y='582.848771'>t<tspan x='258.424144' y='591.953636'>v</tspan></text>
+<text class='f20' x='265.529411' y='588.411316'>S</text>
+<text class='f21' x='271.638456' y='589.905697'>u</text>
+<text class='f23' x='276.846982' y='588.411316'>(</text>
+<text class='f20' x='280.721356' y='588.411316'>W<tspan x='289.853795'>,</tspan><tspan x='294.281603'>X</tspan></text>
+<text class='f23' x='303.317158' y='588.411316'>)</text>
+<text class='f20' x='308.851931' y='588.411316'>du</text>
 <rect x='215.836109' y='593.149089' height='.398484' width='123.799804'/>
-<text class='f19' x='215.836109' y='602.672869'>π</text>
-<text class='f22' x='221.872526' y='602.672869'>(</text>
-<text class='f19' x='225.7469' y='602.672869'>W<tspan x='234.879338'>,</tspan><tspan x='239.307146'>X</tspan></text>
-<text class='f22' x='248.342702' y='602.672869'>)</text>
-<text class='f19' x='253.877475' y='602.672869'>S</text>
-<text class='f20' x='259.98652' y='604.167249'>v</text>
-<text class='f22' x='264.71996' y='602.672869'>(</text>
-<text class='f19' x='268.594334' y='602.672869'>W<tspan x='277.726772'>,</tspan><tspan x='282.15458'>X</tspan></text>
-<text class='f22' x='291.190136' y='602.672869'>)</text>
-<text class='f19' x='296.724909' y='602.672869'>G</text>
-<text class='f20' x='304.558026' y='604.167249'>v</text>
-<text class='f22' x='309.291466' y='602.672869'>(</text>
-<text class='f19' x='313.16584' y='602.672869'>W<tspan x='322.298278'>,</tspan><tspan x='326.726086'>X</tspan></text>
-<text class='f22' x='335.761642' y='602.672869'>)</text>
-<text class='f19' x='340.831427' y='595.838999'>.</text>
-<text class='f22' x='435.888824' y='595.838999'>(33)<tspan x='14.399782' y='621.645058'>The</tspan><tspan x='35.164075'>tail</tspan><tspan x='53.160985'>sum</tspan><tspan x='74.534109'>of</tspan><tspan x='86.165969'>the</tspan><tspan x='103.609391'>discrete</tspan><tspan x='140.507678'>case</tspan><tspan x='161.880803'>b</tspan><tspan x='167.692368'>ecomes</tspan><tspan x='201.795585'>a</tspan><tspan x='210.383289'>tail</tspan><tspan x='228.380183'>in</tspan><tspan x='236.40566'>tegral;</tspan><tspan x='267.856555'>the</tspan><tspan x='285.299962'>rest</tspan><tspan x='305.040335'>of</tspan><tspan x='316.672196'>the</tspan><tspan x='334.115602'>analysis</tspan><tspan x='371.871817'>is</tspan><tspan x='382.175308'>unc</tspan><tspan x='397.396045'>hanged.</tspan><tspan x='436.442756'>The</tspan><tspan x='14.399782' y='633.600226'>one-step</tspan><tspan x='53.752311'>estimator</tspan><tspan x='98.113865'>tak</tspan><tspan x='111.950917'>es</tspan><tspan x='123.629362'>the</tspan><tspan x='140.787279'>same</tspan><tspan x='165.749288'>form</tspan><tspan x='189.299935'>as</tspan><tspan x='201.531867'>(</tspan></text>
-<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1772788400792/svg/page-07.svg#loc62' xlink:title='equation.22'>
-<text class='f22' x='205.40624' y='633.600226'>22</text>
+<text class='f20' x='215.836109' y='602.672869'>π</text>
+<text class='f23' x='221.872526' y='602.672869'>(</text>
+<text class='f20' x='225.7469' y='602.672869'>W<tspan x='234.879338'>,</tspan><tspan x='239.307146'>X</tspan></text>
+<text class='f23' x='248.342702' y='602.672869'>)</text>
+<text class='f20' x='253.877475' y='602.672869'>S</text>
+<text class='f21' x='259.98652' y='604.167249'>v</text>
+<text class='f23' x='264.71996' y='602.672869'>(</text>
+<text class='f20' x='268.594334' y='602.672869'>W<tspan x='277.726772'>,</tspan><tspan x='282.15458'>X</tspan></text>
+<text class='f23' x='291.190136' y='602.672869'>)</text>
+<text class='f20' x='296.724909' y='602.672869'>G</text>
+<text class='f21' x='304.558026' y='604.167249'>v</text>
+<text class='f23' x='309.291466' y='602.672869'>(</text>
+<text class='f20' x='313.16584' y='602.672869'>W<tspan x='322.298278'>,</tspan><tspan x='326.726086'>X</tspan></text>
+<text class='f23' x='335.761642' y='602.672869'>)</text>
+<text class='f20' x='340.831427' y='595.838999'>.</text>
+<text class='f23' x='435.888824' y='595.838999'>(33)<tspan x='14.399782' y='621.645058'>The</tspan><tspan x='35.164075'>tail</tspan><tspan x='53.160985'>sum</tspan><tspan x='74.534109'>of</tspan><tspan x='86.165969'>the</tspan><tspan x='103.609391'>discrete</tspan><tspan x='140.507678'>case</tspan><tspan x='161.880803'>b</tspan><tspan x='167.692368'>ecomes</tspan><tspan x='201.795585'>a</tspan><tspan x='210.383289'>tail</tspan><tspan x='228.380183'>in</tspan><tspan x='236.40566'>tegral;</tspan><tspan x='267.856555'>the</tspan><tspan x='285.299962'>rest</tspan><tspan x='305.040335'>of</tspan><tspan x='316.672196'>the</tspan><tspan x='334.115602'>analysis</tspan><tspan x='371.871817'>is</tspan><tspan x='382.175308'>unc</tspan><tspan x='397.396045'>hanged.</tspan><tspan x='436.442756'>The</tspan><tspan x='14.399782' y='633.600226'>one-step</tspan><tspan x='53.752311'>estimator</tspan><tspan x='98.113865'>tak</tspan><tspan x='111.950917'>es</tspan><tspan x='123.629362'>the</tspan><tspan x='140.787279'>same</tspan><tspan x='165.749288'>form</tspan><tspan x='189.299935'>as</tspan><tspan x='201.531867'>(</tspan></text>
+<a xlink:href='../../../../../../../../var/folders/k3/x1kxjw_94qd16gc3wgk233jh0000gn/T/tlda-build-spinoff3-1773110592236/svg/page-07.svg#loc62' xlink:title='equation.22'>
+<text class='f23' x='205.40624' y='633.600226'>22</text>
 </a>
-<text class='f22' x='215.368918' y='633.600226'>)<tspan x='219.243281'>,</tspan><tspan x='225.331564'>with</tspan><tspan x='248.024298'>E</tspan></text>
-<text class='f20' x='254.804445' y='635.094607'>U</text>
-<text class='f22' x='264.798492' y='633.600226'>no<tspan x='275.0379'>w</tspan><tspan x='285.554035'>denoting</tspan><tspan x='326.511673'>in</tspan><tspan x='334.53715'>tegration</tspan><tspan x='377.182917'>o</tspan><tspan x='381.887508'>v</tspan><tspan x='386.868847'>er</tspan><tspan x='398.519624'>[0</tspan></text>
-<text class='f19' x='406.268371' y='633.600226'>,<tspan x='410.696179'>t</tspan></text>
-<text class='f22' x='414.293814' y='633.600226'>].<tspan x='231.509342' y='663.488146'>8</tspan></text>
+<text class='f23' x='215.368918' y='633.600226'>)<tspan x='219.243281'>,</tspan><tspan x='225.331564'>with</tspan><tspan x='248.024298'>E</tspan></text>
+<text class='f21' x='254.804445' y='635.094607'>U</text>
+<text class='f23' x='264.798492' y='633.600226'>no<tspan x='275.0379'>w</tspan><tspan x='285.554035'>denoting</tspan><tspan x='326.511673'>in</tspan><tspan x='334.53715'>tegration</tspan><tspan x='377.182917'>o</tspan><tspan x='381.887508'>v</tspan><tspan x='386.868847'>er</tspan><tspan x='398.519624'>[0</tspan></text>
+<text class='f20' x='406.268371' y='633.600226'>,<tspan x='410.696179'>t</tspan></text>
+<text class='f23' x='414.293814' y='633.600226'>].<tspan x='231.509342' y='663.488146'>8</tspan></text>
 </g>
 </svg>

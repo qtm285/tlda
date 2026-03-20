@@ -22,13 +22,18 @@
     },
     "spinoff3": {
       "title": "spinoff3",
-      "pages": 30,
+      "pages": 31,
       "format": "svg"
     },
     "bregman": {
       "title": "bregman",
-      "pages": 83,
+      "pages": 82,
       "format": "svg"
+    },
+    "imagined-rand": {
+      "title": "Imagined Randomization",
+      "pages": 27,
+      "format": "slides"
     }
   }
 }

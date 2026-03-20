@@ -1,6 +1,6 @@
 {
   "_source": "/Users/skip/work/claude-tldraw/server/projects/bregman/source/bregman-lower-bound.tex",
-  "_extracted": "2026-03-05T04:25:14.623Z",
+  "_extracted": "2026-03-17T20:35:57.257Z",
   "macros": {
     "\\customlabel": "%\n  \\phantomsection\\begingroup\\def\\@currentlabel{#2}\\label{#1}\\endgroup",
     "\\model": "\\mathcal{M}",
